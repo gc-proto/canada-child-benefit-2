@@ -13,6 +13,6 @@ Working together as a collaborative team across the departments, we will design 
 
 See the dummy My Account:
 
-* My Account sign-in		https://gc-proto.github.io/canada-child-benefit/ut-en-baseline.html
+* My Account sign-in		https://gc-proto.github.io/canada-child-benefit-2/ut-en-baseline.html
 
 Contact @lisafast to join us or post an issue with a question
