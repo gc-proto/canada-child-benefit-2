@@ -1,5 +1,5 @@
 @charset "utf-8";
-/*Resize h2 header*/
+/*Resize h2 */
 h2, .h2 {font-size:1.7em}
 
 /*Vertical steps CSS */
@@ -89,136 +89,12 @@ main#steps-navigation h1#wb-cont-section {
 	margin-bottom: 0px!important;
 	line-height: inherit!important
 }
-ol.vertical-steps {
-	margin-left: -10px;
-	margin-top: 6px;
-}
-ul.vertical-steps {
-	margin-left: -16px;
-}
-.vertical-steps ol {
-	margin-left: -11px
-}
-.vertical-steps ul {
-	margin-left: -18px;
-}
-.vertical-steps li {
-	padding-bottom: 20px;
-	list-style: none;
-	margin-left: -12px;
-	border-left: 5px solid #26374a;
-	position: relative;
-}
-ol.vertical-steps li, ul.vertical-steps ol li {
-	padding-left: 29px;
-	counter-increment: step-counter;
-}
-ul.vertical-steps li {
-	padding-left: 25px
-}
-.vertical-steps li a::before {
-	text-decoration: underline;
-}
-ul.vertical-steps.noline li {
-	border-left: 5px solid transparent
-}
-.vertical-steps li>:first-child::before {
-	border-radius: 50%;
-	border: 3px solid #26374a;
-	background-color: #fff;
-	float: left;
-	display: inline-block;
-	text-decoration: none;
-	box-sizing: content-box;
-	line-height: 1.6;
-	text-align: center;
-	-webkit-transition: all 0.2s; /* For Safari 3.1 to 6.0 */
-	transition: all 0.2s;
-}
-ol.vertical-steps li>:first-child::before, ul.vertical-steps ol li>:first-child::before {
-	height: 34px;
-	width: 34px;
-	margin-left: -52px;
-}
-ul.vertical-steps li>:first-child::before, .vertical-steps li ul li>:first-child::before, .vertical-steps li li ul li>:first-child::before {
-	height: 18px;
-	width: 18px;
-	margin-left: -40px;
-	content: "";
-}
-ul.vertical-steps.noline li>:first-child::before {
-	margin-top: 0.3em
-}
-ul.vertical-steps li a[href]:hover::before, .vertical-steps li ul li a[href]:hover::before, .vertical-steps li li ul li a[href]:hover::before {
-	width: 20px;
-	height: 20px;
-	margin-top: -1px;
-	font-size: 1.2em;
-	margin-right: 5px;
-	margin-left: -41px;
-	line-height: 1.55;
-}
-ul.vertical-steps.noline li a[href]:hover::before {
-	margin-top: 0.25em
-}
-ol.vertical-steps li>:first-child::before, ul.vertical-steps li>ol li>:first-child::before {
-	content: counter(step-counter);
-}
-ol.vertical-steps li a[href]:hover::before, ul.vertical-steps li ol li a[href]:hover::before {
-	width: 38px;
-	height: 38px;
-	margin-top: -2px;
-	font-size: 1.2em;
-	margin-right: 10px;
-	margin-left: -54px;
-	line-height: 1.5;
-}
-.vertical-steps li:last-child, .vertical-steps li:last-child.completed {
-	border-left: 5px solid transparent;
-	padding-bottom: 0;
-}
-/*completed*/
-.vertical-steps li.completed, .fa-vertical-steps li.completed, .fa-vertical-steps li.completed span.fa-li {
-	border-color: #ccc
-}
-.vertical-steps li.completed>:first-child::before {
-	border-color: #ccc
-}
-/*active*/	
-.vertical-steps li.active>:first-child::before, .fa-vertical-steps li.active span.fa-li {
-	background-color: #26374a;
-	color: #fff;
-}
-/*FA icons*/
-ul.fa-vertical-steps {
-	margin-left: 0.9em
-}
-ul.fa-vertical-steps li span.fa-li {
-	border-radius: 50%;
-	border: 3px solid #26374a;
-	background-color: #fff;
-	height: 40px;
-	width: 40px;
-	font-size: 1em;
-	margin-left: 16px;
-/*steps design */
-.vertical-steps .small, .vertical-steps small {
-	line-height: 0em
-}
-.vertical-steps * {
-	font-weight: inherit!important
-}
-.vertical-steps *, .fa-vertical-steps * {
-	font-size: inherit!important;
-	margin-top: 0px!important;
-	margin-bottom: 0px!important;
-	line-height: inherit!important
-}
 .vertical-steps {
 	margin-top: 6px;
 }
 ol.vertical-steps {
 	margin-left: -10px;
+	counter-reset: step-counter;
 }
 ul.vertical-steps {
 	margin-left: -16px;
@@ -246,6 +122,142 @@ ul.vertical-steps.noline>li {
 .vertical-steps>li>:first-child::before {
 	border-radius: 50%;
 	border: 3px solid #26374a;
+	background-color: #fff;
+	float: left;
+	display: inline-block;
+	text-decoration: none;
+	box-sizing: content-box;
+	line-height: 1.6;
+	text-align: center;
+	-webkit-transition: all 0.2s; /* For Safari 3.1 to 6.0 */
+	transition: all 0.2s;
+}
+ol.vertical-steps>li>:first-child::before {
+	height: 34px;
+	width: 34px;
+	margin-left: -52px;
+}
+ul.vertical-steps>li>:first-child::before {
+	height: 18px;
+	width: 18px;
+	margin-left: -40px;
+	content: "";
+}
+ul.vertical-steps.noline>li>:first-child::before {
+	margin-top: 0.3em
+}
+ul.vertical-steps>li>a[href]:hover::before {
+	width: 20px;
+	height: 20px;
+	margin-top: -1px;
+	font-size: 1.2em;
+	margin-right: 5px;
+	margin-left: -41px;
+	line-height: 1.55;
+}
+ul.vertical-steps.noline>li>a[href]:hover::before {
+	margin-top: 0.25em
+}
+ol.vertical-steps>li>:first-child::before {
+	content: counter(step-counter);
+}
+ol.vertical-steps>li>a[href]:hover::before {
+	width: 36px;
+	height: 36px;
+	margin-top: -2px;
+	font-size: 1.2em;
+	margin-right: -2px;
+	margin-left: -53px;
+	line-height: 1.5;
+}
+.vertical-steps>li:last-child, .vertical-steps>li.completed:last-child, ul.fa-vertical-steps li:last-child {
+	border-left: 5px solid transparent;
+	padding-bottom: 0;
+}
+/*completed*/
+.vertical-steps li.completed, .fa-vertical-steps li.completed, .fa-vertical-steps li.completed span.fa-li {
+	border-color: #ccc
+}
+.vertical-steps li.completed>:first-child::before {
+	border-color: #ccc
+}
+/*active*/	
+.vertical-steps li.active>:first-child::before, .fa-vertical-steps li.active span.fa-li {
+	background-color: #26374a;
+	color: #fff;
+}
+/*FA icons*/
+ul.fa-vertical-steps {
+	margin-left: 0.9em
+}
+ul.fa-vertical-steps li span.fa-li {
+	border-radius: 50%;
+	border: 3px solid #26374a;
+	background-color: #fff;
+	height: 40px;
+	width: 40px;
+	font-size: 1em;
+	margin-left: 16px;
+	padding-top: 1px;
+	-webkit-transition: all 0.2s; /* For Safari 3.1 to 6.0 */
+	transition: all 0.2s;
+}
+ul.fa-vertical-steps li {
+	padding-bottom: 24px;
+	list-style: none;
+	border-left: 5px solid #26374a;
+	position: relative;
+	padding-left: 30px;
+}
+ 
+.fa-vertical-steps>li>a[href]:hover span.fa-li {
+	height: 44px;
+	width: 44px;
+	padding-top: 2px;
+	font-size: 1.2em;
+	margin-left: 14px;
+	margin-top: -0.03em;
+}
+/*sub-steps*/
+
+.vertical-steps li ul, .vertical-steps li ol {
+	margin-top: 16px!important;
+}
+ol.vertical-steps ol.vertical-steps {
+	counter-reset: step-counter;
+}
+ol.vertical-steps ol.vertical-steps>li {
+	counter-increment: step-counter;
+}
+ol.vertical-steps ol.vertical-steps>li>:first-child::before {
+	content: counter(step-counter, upper-alpha);
+}
+/*sub-sub-steps */	
+ol.vertical-steps ol.vertical-steps ol.vertical-steps {
+	counter-reset: step-counter;
+}
+ol.vertical-steps ol.vertical-steps ol.vertical-steps>li {
+	counter-increment: step-counter;
+}
+ol.vertical-steps ol.vertical-steps ol.vertical-steps>li>:first-child::before {
+	content: counter(step-counter, lower-roman);
+}
+/*custom list-type */
+ol.vertical-steps.lst-lwr-rmn>li>:first-child::before {
+	content: counter(step-counter, lower-roman)!important;
+}
+ol.vertical-steps.lst-upr-rmn>li>:first-child::before {
+	content: counter(step-counter, upper-roman)!important;
+}
+ol.vertical-steps.lst-upr-alph>li>:first-child::before {
+	content: counter(step-counter, upper-alpha)!important;
+}
+ol.vertical-steps.lst-lwr-alph>li>:first-child::before {
+	content: counter(step-counter, lower-alpha)!important;
+}
+ol.vertical-steps.lst-num>li>:first-child::before {
+	content: counter(step-counter)!important;
+}
 
 /* Top of page button */
 nav#tp-pg {
