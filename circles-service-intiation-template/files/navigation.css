@@ -371,6 +371,18 @@ nav#tp-pg.stuck, .wb-disable nav#tp-pg {
 }
 
 /*alert design */
+.alert:before {
+	height: 34px;
+	content: "";
+	background-color: #fff;
+	width: 6px;
+	display: inline;
+	margin-left: -26px;
+	margin-top: -1px;
+	position: absolute;
+}
+
+
 .alert-success, .alert-info, .alert-warning, .alert-danger {
 	background: #fff !important;
 }
@@ -383,7 +395,6 @@ nav#tp-pg.stuck, .wb-disable nav#tp-pg {
 .alert-success > :first-child::before, .alert-info > :first-child::before, .alert-warning > :first-child::before, .alert-danger > :first-child::before {
 	font-size: 26px;
 	margin-left: -1.48em;
-	background: #fff;
 	padding: 2px
 }
 .alert > :first-child {
@@ -391,6 +402,23 @@ nav#tp-pg.stuck, .wb-disable nav#tp-pg {
 }
 .alert >:first-child::before {
 	margin-right: 0.4em
+}
+/*targets the first h2 or h3 of alerts and matches the border color */
+.alert-info h2:first-child, .alert-info h3:first-child {
+	color: #269abc
+}
+.alert-success h2:first-child, .alert-success h3:first-child {
+	color: #278400
+}
+.alert-warning h2:first-child, .alert-warning h3:first-child {
+	color: #f90
+}
+.alert-danger h2:first-child, .alert-danger h3:first-child {
+	color: #d3080c
+}
+/* reverts header to black if need for overwrite */
+body .alert .text-default {
+	color: inherit
 }
 
 /* blockquote with quote design*/
