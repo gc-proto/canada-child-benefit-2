@@ -237,7 +237,7 @@ $(function() {
 	"use strict";
 		function activeTake(){
  var lastpart  = window.location.pathname.split("/").pop();
-   var targetitem = $('li a[href*="' + lastpart + '"]')
+   var targetitem = $('.vertical-steps li a[href*="' + lastpart + '"]')
 	
 	var posttarget = targetitem.removeAttr("href").parents('li').addClass('active').parents().removeClass("hidden");
 	var active = $("li.active");
