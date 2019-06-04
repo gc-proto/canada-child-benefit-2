@@ -485,7 +485,7 @@ ol.vertical-steps {
 }
 
 }
-
+/*
 .alert-success, .alert-info, .alert-warning, .alert-danger {
 	background: #fff !important;
 }
@@ -506,7 +506,7 @@ ol.vertical-steps {
 }
 .alert >:first-child::before {
 	margin-right: 0.4em
-}
+} */
 @media screen and (min-width:992px) {.skipto {display:none;}}
 @media screen and (max-width:991px) {
 .skipto {display:none;}
