@@ -110,24 +110,58 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
       <div class="maContent">
         <div class="maHeadingRow">
           <div class="maHeading">
-            <h1 id="wb-cont">Update home address - enter new postal code<br>
-              <small style="color: black; font-weight: bold;">Step 2 of 4</small></h1>
+            <h1 id="wb-cont"> Addresses and phone numbers </h1>
           </div>
           <div class="maHelpLink hidden-print text-right"> <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals/contact-us.html" target="_blank">Help with this page</a> </div>
         </div>
-        <p>The address information associated with your new postal code will be displayed on the next page. </p>
-        <p>If you do not know your postal code, search for it on the <a onclick="window.open('http://www.canadapost.ca/cpo/mc/personal/postalcode/fpc.jsf?LOCALE=en'); return false;" href="http://www.canadapost.ca/cpo/mc/personal/postalcode/fpc.jsf?LOCALE=en">Canada Post postal look up site</a>. </p>
-        <p>If you live in a city that is undergoing an amalgamation, the system might not recognize your new street name and number, new postal code, or the new city name until the effective date determined by Canada Post. </p>
-        <div class="form-group">
-          <label class="required" for="postalCode">Postal code (x1x 1x1)&nbsp;<strong class="required">(required)</strong> <br>
-          </label>
-          <input name="postalForm.postalCode" class="form-control" id="postalForm.postalCode" type="text" size="7" maxlength="7" value="">
-        </div>
+        <form name="shwpdtMlngMn" id="shwpdtMlngMn" action="https://apps3.ams-sga.cra-arc.gc.ca/gol-ged/iica/cma/prot/shwpdtMlngMn.action" method="post">
+          <input name="struts.token.name" type="hidden" value="token">
+          <input name="token" type="hidden" value="HT0TL5044V4WKF7XATPK28TXFHXTT4B5">
+          <strong>Mailing address</strong><br>
+          <br>
+          Your current address is: <br>
+          7841 HARVIE RD <br>
+          SURREY  BC V4N 6A8<br>
+          <div>&nbsp;</div>
+          <a href="address-2.html" class="btn btn-default">Update mailing address</a>
+        </form>
+        <form name="shwpdtHmMn" id="shwpdtHmMn" action="https://apps3.ams-sga.cra-arc.gc.ca/gol-ged/iica/cma/prot/shwpdtHmMn.action" method="post">
+          <div>&nbsp;</div>
+          <strong>Home address</strong><br>
+          <br>
+          Your current address is: <br>
+          7841 HARVIE RD<br>
+          SURREY  BC V4N 6A8<br>
+          <div>&nbsp;</div>
+          <a href="address-2a.html" class="btn btn-default">Update home address</a> <a href="#" class="btn btn-default">Delete home address</a>
+        </form>
         <div>&nbsp;</div>
-        <div class="pull-left">
-          <div class="pull-right mrgn-lft-sm"> <a href="address-4a.html"  class="btn btn-primary" >Next</a> </div>
-          <a href="address-2a.html"   class="btn btn-default">Previous</a> &nbsp;&nbsp; </div>
-        &nbsp; </div>
+        <strong>Phone numbers</strong><br>
+        <br>
+        <form name="initPhn" id="initPhn" action="https://apps3.ams-sga.cra-arc.gc.ca/gol-ged/iica/cma/prot/initPhn.action" method="post">
+          <p> All phone numbers and effective dates </p>
+          <table class="table table-striped table-hover table-bordered">
+            <tbody>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Number</th>
+                <th scope="col">Effective date </th>
+              </tr>
+              <tr>
+                <td>Home</td>
+                <td> 613-222-3333 </td>
+                <td> March 02, 2019 </td>
+              </tr>
+              <tr>
+                <td>Work</td>
+                <td> 613-454-5454 </td>
+                <td> May 21, 2019 </td>
+              </tr>
+            </tbody>
+          </table>
+          <input name="updatePhone" class="btn btn-default" id="initPhn_updatePhone" type="submit" value="Update phone number(s)">
+        </form>
+      </div>
       <hr class="brdr-bttm mrgn-bttm-0 mrgn-tp-xl">
       <div class="row pagedetails">
         <div class="col-xs-12">
@@ -146,8 +180,8 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
         </div>
       </div>
     </main>
-    
-    <!-- Side menu ends --> 
+
+    <!-- Side menu ends -->
   </div>
 </div>
 <footer role="contentinfo" id="wb-info">
@@ -170,10 +204,10 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
     </div>
   </div>
 </footer>
-<!--[if gte IE 9 | !IE ]><!--> 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
-<script src="/res/wet-boew4/js/wet-boew.min.js"></script> 
-<!--<![endif]--> 
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/res/wet-boew4/js/wet-boew.min.js"></script>
+<!--<![endif]-->
 <!--[if lt IE 9]><script src="/res/wet-boew4/js/ie8-wet-boew2.min.js"></script><![endif]-->
 </body>
 </html>
