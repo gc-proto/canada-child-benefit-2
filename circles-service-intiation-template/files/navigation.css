@@ -377,8 +377,8 @@ nav#tp-pg.stuck, .wb-disable nav#tp-pg {
 	background-color: #fff;
 	width: 6px;
 	display: inline;
-	margin-left: -26px;
 	margin-top: -1px;
+	margin-left: -26px;
 	position: absolute;
 }
 .alert-success, .alert-info, .alert-warning, .alert-danger {
@@ -393,7 +393,8 @@ nav#tp-pg.stuck, .wb-disable nav#tp-pg {
 .alert-success > :first-child::before, .alert-info > :first-child::before, .alert-warning > :first-child::before, .alert-danger > :first-child::before {
 	font-size: 26px;
 	margin-left: -1.48em;
-	padding: 2px
+	padding: 2px;
+	line-height: 1.1em;
 }
 .alert > :first-child {
 	margin-left: 0em;
