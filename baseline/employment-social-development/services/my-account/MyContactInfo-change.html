@@ -10,7 +10,7 @@
         <meta charset="utf-8">
         <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-        <title>My Mailing Address and Telephone Number Information - Canada.ca</title>
+        <title>Change My Contact Information - Canada.ca</title>
         <meta content="width=device-width,initial-scale=1" name="viewport">
         <!-- Load closure template scripts -->
         <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_29/cdts/compiled/soyutils.js"></script>
@@ -102,9 +102,9 @@
         </div>
 </section>
 
-    <h1 property="name" class="h2" id="wb-cont"><span id="MainContent_Home">My Mailing Address and Telephone Number Information</span></h1>
+    <h1 property="name" class="h2" id="wb-cont"><span id="MainContent_Home">Change My Contact Information</span></h1>
 
-    <form method="post" action="MyContactInfo.html" id="mainForm">
+    <form method="post" action="./MyContactInfo.aspx?prov=6" id="mainForm">
 <div class="aspNetHidden">
 <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="DAq8NXIvV8MElAEBcAB6X5F51DnhliC/BFCDstbM8lj2jjKGIWlIidM0KEHAgdsFPQCFX31F2bcLdoR1fK6L+PxPlyenbQyq5pBlHsl0HO1q8gvIFyIZQedTAHg=" />
 </div>
@@ -115,41 +115,51 @@
 	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="LWIED2/tytHj+CuE4z6N/8VVW/mXGfVw0st3kLwHOeOUZ2BODlUQqkVTL2tEPJOeq8bOe7UsvcDxyarXd72ITgAw6wp0uiqdsaojMm12duQrOXgvrnfWsRFUQEB1fajf3RXCwWX5Vik48Aj/VlEHtMUIMXNORW/2KmPovG102UjeGYj/n2KxBjrNz+TLg+jBDxe3yZBxrqoZKRJ0BHqVz52Fmy4YuOh/5cgm76Ma7Kaj5n9GDZaBOm9ozpih3C+NsUsFnqhGvhdrM8cW" />
 </div>
 
-    <div class="alignRight" style="text-align:right;">
-        <span id="MainContent_ContentPlaceHolder2_FullName_FullName">Pat Doe</span><br /><br />
 
+
+
+
+
+
+
+    <p id="MainContent_ContentPlaceHolder2_Click">Choose one of the options to continue.</p>
+    <div class="boxFormat">
+        <ul class="list-unstyled">
+
+
+                    <li><a href="OutsideCanada.html" id="MainContent_ContentPlaceHolder2_RepeatedItems_HprLnkMenu_0">
+                        Change My Mailing Address and Telephone Number Information
+                    </a></li>
+
+
+
+                    <li><a href="OutsideCanada.html" id="MainContent_ContentPlaceHolder2_RepeatedItems_HprLnkMenu_1">
+                        Change My Mailing Address Information only
+                    </a></li>
+
+
+
+                    <li><a href="MyPhoneInfoUpdate.aspx?COAType=3" id="MainContent_ContentPlaceHolder2_RepeatedItems_HprLnkMenu_2">
+                        Change My Telephone Number Information only
+                    </a></li>
+
+
+
+                    <li><a href="OutsideCanada.aspx?COAType=4" id="MainContent_ContentPlaceHolder2_RepeatedItems_HprLnkMenu_3">
+                        My Future Mailing Address and Telephone Number Information
+                    </a></li>
+
+
+        </ul>
     </div>
-    <div class="boxLeft">
-        <h2 class="h4"><span id="MainContent_ContentPlaceHolder2_lblCurrentInfo"></span></h2>
+    <div class="cleanbreak"></div>
 
-<div class="p1css" style="background-color:#ddc;padding:5px;">
-    <div id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_Addr1">737 Your Old Street</div>
-    <div id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_Addr2">OldTown ON</div>
-    <div id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_Addr3"></div>
-    <div id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_PostalCode">K1A 3J1</div>
-    <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$MyContactInfoDisplay$TempAddr1" type="hidden" id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_TempAddr1" value="2740 MONCTON RD" />
-    <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$MyContactInfoDisplay$TempAddr2" type="hidden" id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_TempAddr2" value="OTTAWA ON" />
-    <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$MyContactInfoDisplay$TempAddr3" type="hidden" id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_TempAddr3" />
-    <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$MyContactInfoDisplay$TempPostalCode" type="hidden" id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_TempPostalCode" value="K2B 7W1" />
-    <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$MyContactInfoDisplay$TempPhoneNumber" type="hidden" id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_TempPhoneNumber" value="(613) 291-3693" />
-    <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$MyContactInfoDisplay$TempAllowAddressUpdate" type="hidden" id="MainContent_ContentPlaceHolder2_MyContactInfoDisplay_TempAllowAddressUpdate" value="2" />
-</div>
 
-    </div>
 
-    <div class="cleanbreak">
-        <br />
-        <br />
-        <p>
-            <span id="MainContent_ContentPlaceHolder2_Message">Please note that updates to your mailing address and telephone number can only be accepted during the <a href="MyAccountHelpPage.aspx?ht=3#id11" title="service times">service times</a> for your province or territory of residence.</span>
-        </p>
-        <input type="submit" name="ctl00$ctl00$MainContent$ContentPlaceHolder2$ChangeAddressAndPhone" value="Change" id="MainContent_ContentPlaceHolder2_ChangeAddressAndPhone" class="btn btn-default" />
-        <br />
-        <br />
-        <a id="MainContent_ContentPlaceHolder2_hlLobby" href="https://srv136.services.gc.ca/sc/msca-mdsc/portal-portail/pro/portal/page/portal/msca/private/faces/oracle/webcenter/portalapp/pages/home.jspx">Return to My Service Canada Account home page</a>
-    </div>
 
-    </form>
+
+
+
 
             <!-- end main content -->
             <div id="def-preFooter">
@@ -182,7 +192,7 @@
 						<nav class="col-md-10 ftr-urlt-lnk">
 							<h2 class="wb-inv">About this site</h2>
 							<ul>
-								<li><a href="http://test.canada.ca/canada-child-benefit-2/baseline/contact.html">Contact information</a></li>
+								<li><a href="https://www.canada.ca/en/contact.html">Contact information</a></li>
 								<li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
 								<li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
 							</ul>
