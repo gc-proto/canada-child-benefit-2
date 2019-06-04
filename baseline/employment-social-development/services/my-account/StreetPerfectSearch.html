@@ -143,7 +143,7 @@ function __doPostBack(eventTarget, eventArgument) {
 </div>
 
     <div class="align-right">
-        <span id="MainContent_ContentPlaceHolder2_FullNameDisplay_FullName">DAVID KNIGHT</span><br /><br />
+        <span id="MainContent_ContentPlaceHolder2_FullNameDisplay_FullName">Pat Doe</span><br /><br />
 
     </div>
     <span id="MainContent_ContentPlaceHolder2_lblMandatory">Answers to fields and questions with an asterisk (*) are mandatory</span>
@@ -157,7 +157,7 @@ function __doPostBack(eventTarget, eventArgument) {
 <div class="p1css" role="form">
     <div class="form-group">
         <label id="MainContent_ContentPlaceHolder2_PostalCodeSearch_lblPostalCode" class="text-nowrap" for="txtPostalCode">* Postal Code:<br/>(Example : K1A 2B3)<span class='error_eoad'></span></label>
-       <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$PostalCodeSearch$txtPostalCode" type="text" maxlength="7" id="txtPostalCode" class="form-control" style="width:102px;" />
+       <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$PostalCodeSearch$txtPostalCode" type="text" maxlength="7" id="txtPostalCode" class="form-control" style="width:102px;" value="K1A 2B3" disabled="disabled" disabled />
     </div>
 </div>
 
@@ -170,14 +170,12 @@ function __doPostBack(eventTarget, eventArgument) {
 
     </div>
 
-        <br />
-        <br />
         <!--<input type="submit" name="ctl00$ctl00$MainContent$ContentPlaceHolder2$btnContinue" value="Retrieve Address" id="MainContent_ContentPlaceHolder2_btnContinue" class="btn btn-default" />-->
 <a type="button" href="StreetPerfectSearch2.html" class="btn btn-default">Retrieve Address</a>
 
-				&nbsp;&nbsp;
-        <input type="button" name="ctl00$ctl00$MainContent$ContentPlaceHolder2$btnClear" value="Clear" onclick="javascript:__doPostBack(&#39;ctl00$ctl00$MainContent$ContentPlaceHolder2$btnClear&#39;,&#39;&#39;)" id="MainContent_ContentPlaceHolder2_btnClear" class="btn btn-default" />&nbsp;&nbsp;
-        <a href="/sc/msca-mdsc/portal-portail/pro/ei-ae/meiio-mraed/Pages/MyContactInfo.aspx" id="MainContent_ContentPlaceHolder2_btnCancel" class="btn btn-default">Cancel Changes</a>
+				&nbsp;&nbsp;<a href="StreetPerfectSearch.html" id="MainContent_ContentPlaceHolder2_btnCancel" class="btn btn-default">Clear</a><!--
+				<input type="button" name="ctl00$ctl00$MainContent$ContentPlaceHolder2$btnClear" value="Clear" onclick="javascript:__doPostBack(&#39;ctl00$ctl00$MainContent$ContentPlaceHolder2$btnClear&#39;,&#39;&#39;)" id="MainContent_ContentPlaceHolder2_btnClear" class="btn btn-default" />-->&nbsp;&nbsp;
+        <a href="MyContactInfo.html" id="MainContent_ContentPlaceHolder2_btnCancel" class="btn btn-default">Cancel Changes</a>
 
 
 
@@ -227,7 +225,7 @@ WebForm_AutoFocus('txtPostalCode');//]]>
 						<nav class="col-md-10 ftr-urlt-lnk">
 							<h2 class="wb-inv">About this site</h2>
 							<ul>
-								<li><a href="http://test.canada.ca/canada-child-benefit-2/baseline/contact.html">Contact information</a></li>
+								<li><a href="https://www.canada.ca/en/contact.html">Contact information</a></li>
 								<li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
 								<li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
 							</ul>
