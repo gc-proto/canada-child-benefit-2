@@ -421,11 +421,11 @@ body .alert .text-default {
 }
 
 /* blockquote with quote design*/
-	blockquote.quo {margin-left:12px; border-left-width:6px!important; border-left-color: #d4d4d4; }
-	blockquote.quo:lang(en)::before {content:"\201F"; color:#d4d4d4;  font-size:4em; position: absolute; background: #fff; margin-left: -0.5em; padding-top: 20px; line-height:0.5em; height:38px;
+	blockquote {margin-left:12px; border-left-width:6px!important; border-left-color: #d4d4d4; }
+	blockquote:lang(en)::before {content:"\201F"; color:#d4d4d4;  font-size:4em; position: absolute; background: #fff; margin-left: -0.5em; padding-top: 20px; line-height:0.5em; height:38px;
 
 	}
-	blockquote.quo:lang(fr)::before {content:"\ab"; color:#d4d4d4;  font-size:2.8em; position: absolute; background: #fff; margin-left: -0.7em;  padding-bottom: 10px;
+	blockquote:lang(fr)::before {content:"\ab"; color:#d4d4d4;  font-size:2.8em; position: absolute; background: #fff; margin-left: -0.7em;  padding-bottom: 10px;
 
 	}
 
