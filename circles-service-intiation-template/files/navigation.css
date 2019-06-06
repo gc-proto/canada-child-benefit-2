@@ -202,12 +202,12 @@ ul.fa-vertical-steps li span.fa-li {
 	-webkit-transition: all 0.2s; /* For Safari 3.1 to 6.0 */
 	transition: all 0.2s;
 }
-ul.fa-vertical-steps li {
+ul.fa-vertical-steps>li {
 	padding-bottom: 24px;
 	list-style: none;
 	border-left: 5px solid #26374a;
 	position: relative;
-	padding-left: 30px;
+	padding-left: 29px;
 }
  
 .fa-vertical-steps>li>a[href]:hover span.fa-li {
@@ -220,7 +220,7 @@ ul.fa-vertical-steps li {
 }
 /*sub-steps*/
 
-.vertical-steps li ul, .vertical-steps li ol {
+.vertical-steps li ul, .vertical-steps li ol, .fa-vertical-steps li ul, .fa-vertical-steps li ol {
 	margin-top: 16px!important;
 }
 ol.vertical-steps ol.vertical-steps {
