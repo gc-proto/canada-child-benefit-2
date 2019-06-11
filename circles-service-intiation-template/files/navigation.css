@@ -91,6 +91,7 @@ main#steps-navigation h1#wb-cont-section {
 }
 .vertical-steps {
 	margin-top: 6px;
+	list-style: none;
 }
 ol.vertical-steps {
 	margin-left: -10px;
@@ -101,7 +102,6 @@ ul.vertical-steps {
 }
 .vertical-steps>li {
 	padding-bottom: 20px;
-	list-style: none;
 	margin-left: -12px;
 	border-left: 5px solid #26374a;
 	position: relative;
@@ -188,7 +188,8 @@ ol.vertical-steps>li>a[href]:hover::before {
 }
 /*FA icons*/
 ul.fa-vertical-steps {
-	margin-left: 0.9em
+	margin-left: 0.9em;
+	list-style: none;
 }
 ul.fa-vertical-steps li span.fa-li {
 	border-radius: 50%;
@@ -204,7 +205,6 @@ ul.fa-vertical-steps li span.fa-li {
 }
 ul.fa-vertical-steps>li {
 	padding-bottom: 24px;
-	list-style: none;
 	border-left: 5px solid #26374a;
 	position: relative;
 	padding-left: 29px;
