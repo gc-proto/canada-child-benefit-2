@@ -319,5 +319,5 @@ $(this).attr('aria-expanded',$(this).attr('aria-expanded')==='false'?'true':'fal
 $('#nav-pull').on( "wb-contentupdated", function( event, data ){
 mobileCollapse()  });}	
 else {mobileCollapse()}
-		$.getScript("https://wet-boew.github.io/themes-dist/GCWeb/wet-boew/js/polyfills/details.js");
+		
 	})( jQuery, document, wb );
