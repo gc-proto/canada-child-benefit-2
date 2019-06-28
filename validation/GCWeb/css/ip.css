@@ -10,6 +10,7 @@
 }
 
 
+
 .followus {
 	float: none;
 	margin-left: 0
@@ -303,5 +304,8 @@ section.lnkbx ul {
 
 	font-size: 19px !important;
 }
+
+.fadeimg {
+	background-image: url("none") !important;
 
 }
