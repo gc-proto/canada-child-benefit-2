@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Payments from the CCB - Canada Child Benefit - Canada.ca</title>
+<title>Receiving payments - Canada child benefit - Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description">
 <!--[if gte IE 9 | !IE ]><!-->
@@ -110,13 +110,13 @@
 <!-- class="gc-theme" is doing some weird stuff with the first h2... -->
 <main property="mainContentOfPage" class="container" id="steps-navigation">
 
-  <h1 property="name" id="wb-cont-section">Canada Child Benefit</h1>
+  <h1 property="name" id="wb-cont-section">Canada child benefit</h1>
 	<div class="row">
 	<div id="nav-pull" data-ajax-replace="canada-child-benefit.html #steps-menu"></div>
 
 
  <section id="steps-content">
-		 <h1 property="name" id="wb-cont">Payments from the CCB</h1>
+		 <h1 property="name" id="wb-cont">Receiving payments</h1>
 	<nav id="toc"></nav>
 
 
@@ -126,40 +126,70 @@
   <a href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/child-family-benefits-calculator.html" class="btn btn-call-to-action">Calculate your CCB payment</a>
 
   <h2 id="dates">Payment dates</h2>
-  <ul><li>See <a href="../../../services/benefits/calendar.html#ccb">exact payment dates</a></li></ul>
+  <p>**** NEED AJAX TO BRING IN NEXT PAYMENT DATES***** </p>
+  <ul><li>See <a href="../../../services/benefits/calendar.html#ccb">all payment dates</a></li></ul>
 
   <p>You should receive your first payment within <b>8 weeks</b> of submitting your application online, and within <b>11 weeks</b> of sending your application by mail.</p>
-      <p>If you are <a href="../about-canada-revenue-agency-cra/direct-deposit.html">signed up for direct deposit</a>, your payment should be available in your account on the 20th of each month. If you have decided to receive a paper cheque, it can take an additional 5 business days before you receive the payment.</p>
+
+
       <p>You will not receive a monthly payment if your total benefit amount for the year is less than $240. Instead you will receive a lump sum payment with your July payment.</p>
 
-        <a href="#" class="btn btn-default btn-cust mrgn-tp-lg" style="font-size: 20px; font-family: 'Lato';">Regular button for David</a>
-<br>
-        <a href="#" class="btn btn-primary mrgn-tp-lg" style="font-size: 20px; font-family: 'Lato';">Blue button for David</a>
 
+<h2 id="amounts">Your payment is based on your income</h2>
+<p>Your Canada child benefit (CCB) payment is <strong>recalculated every July </strong>based on your net family income from the previous year.</p>
 
-<h2 id="amounts">How we calculate your payment</h2>
-<p>Your Canada child benefit (CCB) payment is <strong>recalculated every July </strong>based on your family net income from the previous year.</p>
+<p>For example, the payments you receveive from July 2019 to June 2020 are based on your family income from the 2018 tax year. In other words, a change in your income February 2019, for example, will only be reflected in your payments starting in July 2020.</p>
 
-<p>For example, the payments you receveive from July 2019 to June 2020 are based on your family income from the 2018 tax year.</p>
+<p>*** NEED TIMELINE VISUAL TO ILLUSTRATE THAT, OR A LITTLE WIZARD WHERE YOU CAN SELECT THE PAYMENT DATE*****</p>
+
 <h3>Maximum amounts</h3>
-    <p>If your net family income from last year is below $30,450, the <strong>maximum</strong> you can receive is:</p>
+    <p>If your net family income from last year was below $30,450, the <strong>maximum</strong> you can receive is:</p>
     <ul>
       <li>$6,496 per year ($541.33 per month) for each eligible child under the age of six</li>
       <li>$5,481 per year ($456.75 per month) for each eligible child aged 6 to 17</li>
     </ul>
     <p>Your CCB payment gradually starts decreasing when your family net income goes over $30,450.</p>
 
+    <p>*** IS IT POSSIBLE TO HAVE A SLIDER THAT SHOWS HOW PAYMENT IS AFFECTED BY INCOME? *****</p>
+
     <h2 id="stop">If your payment stopped or changed</h2>
-    <p>Make sure you <a href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/keep-your-information-date.html">keep your information up to date</a>. This will help avoid situations where you are getting less money than you should or required to pay back sums for which you are not eligible to receive.</p>
-    <p>Use CRA <a href="../e-services/e-services-individuals/account-individuals.html">My Account</a> to update your personal information in the following situations:</p>
-    <ul>
-      <li>your marital status changes</li>
-      <li>you change your address</li>
-      <li>you want to start, change or stop direct deposit</li>
-      <li>the number of children in your care changes</li>
-      <li>you start or stop sharing custody with another individual of one or more children</li>
-      <li>a death has occurred</li>
-    </ul>
+
+    <p>Find out why your payment may have stopped or changed</p>
+    <ul class="list-unstyled">
+    <li>
+        <details>
+            <summary>Your payment stopped</summary>
+            <p>Your payment may have stopped because:</p>
+            <ul>
+            <li>you didn't <a href="./canada-child-benefit-2.html#tax">file your tax return</a></li>
+            <li>you didn't respond to a letter from CRA regarding your situation</li>
+            <li>your income from the previous year pushed you over the threshold</li>
+            <li>your child turned 18</li>
+            <li>you no longer have the care of a child</li>
+            <li>you didn't inform us of a change in:
+                <ul>
+                <li>your address</li>
+                <li>your bank account</li>
+                <li>your marital status</li>
+                </ul>
+              </li>
+            </ul>
+            <p>Make sure to <a href="./canada-child-benefit-2.html#change">tell us if your situation changes</a>.</p>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary>Your payment changed</summary>
+            <p>Your payment may have changed for the following reasons:</p>
+            <ul>
+            <li>your net family income changed (recalculation happens every July, based on income from the previous year</li>
+            <li>your marital status changed, which changes your net family income</li>
+            <li>the number of children in your care changed</li>
+            </ul>
+            <p>Consult your notice of calculation in <a href="../e-services/e-services-individuals/account-individuals.html">My Account</a> for details of your calculation.</p>
+        </details>
+    </li>
+  </ul>
     <h2 id="bank">Set up or change your bank account</h2>
     <p>To set up or change your banking account information, go to  <a href="../about-canada-revenue-agency-cra/direct-deposit.html">Direct deposit</a>.</p>
     <p>If you change your bank account, wait until your next payment is deposited in your new bank account before closing the old one, to avoid any issues.</p>
