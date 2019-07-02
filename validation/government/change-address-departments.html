@@ -122,37 +122,41 @@
 
   <script>
 
-   $("#btnChangeEachAddress").click(function(){
-     //var url="http://example.com/results?choice=choice2&choice=choice4"
-     var urlDep="https://test.canada.ca/canada-child-benefit-2/canada-child-benefit-2/baseline/government/change-address-departments.html?service=";
-     var flag=false;
-     $("input:checkbox[name=choice]:checked").each(function(){
-         if (!flag) {
-           urlDep=urlDep+$(this).val();
-           flag=true;// To trace if first query string added
-         } else {
-           urlDep=urlDep+"&service="+$(this).val();
-         }
-      });
-   });
+  //for each url parameter, get the right URL and explain how to change the address
+  document.addEventListener("DOMContentLoaded", function(){
+
+    var services = getUrlParameter('service'); // (gets me URL parameters)
+
+    console.log(services);
+
+
+    //
+    // object.onclick = function(){
+    //   //For each checked box
+    //   $('').each(function(){
+    //       //Open new tab with URL
+    //
+    //       services
+    //
+    //
+    //
+    // 
+    //   })
+    //   $('#departments-to-change-with').append(services);
+  });
   </script>
 
 
 
-  <h1 property="name" id="wb-cont" dir="ltr">
-  Change of address</h1>
-
-
-
-
-          <div><div class="mwsgeneric-base-html parbase section">
-
-
-
-      <div class="row profile">
+  <h1 property="name" id="wb-cont" dir="ltr">Change of address</h1>
+  <div class="row profile">
     <div class="col-md-12">
-      <p>Tell the Government of Canada when you change an address.</p>
+      <p>You will need to change your address with each of the following departments:</p>
     </div>
+    <ul id="departments-to-change-with">
+    </ul>
+
+
   </div>
   <section>
     <h2>On this page</h2>
@@ -193,7 +197,7 @@
       </form>
     </div>
 
-    <button class="btn btn-call-to-action" id="btnChangeEachAddress">Change your address with each service</button>
+    <button class="btn btn-call-to-action" onclick="changeEachAddress()">Change your address with each service</button>
 
     <h2 id="business">Businesses, public servants or another special circumstances</h2>
 

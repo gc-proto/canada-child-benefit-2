@@ -1196,7 +1196,6 @@ function(a, b, c) {
 
 
 
-        console.log(out);
     		return out;
     	};
 
