@@ -120,22 +120,7 @@
 
 <main property="mainContentOfPage" class="container">
 
-  <script>
 
-   $("#btnChangeEachAddress").click(function(){
-     //var url="http://example.com/results?choice=choice2&choice=choice4"
-     var urlDep="https://test.canada.ca/canada-child-benefit-2/canada-child-benefit-2/baseline/government/change-address-departments.html?service=";
-     var flag=false;
-     $("input:checkbox[name=choice]:checked").each(function(){
-         if (!flag) {
-           urlDep=urlDep+$(this).val();
-           flag=true;// To trace if first query string added
-         } else {
-           urlDep=urlDep+"&service="+$(this).val();
-         }
-      });
-   });
-  </script>
 
 
 
@@ -163,7 +148,8 @@
 
     <h2 id="personal">Personal change of address</h2>
 
-    <div class="wb-frmvld">
+
+    <div class="wb-frmvld" id="services">
       <form method="get">
     		<!--Smart question!-->
     		<div id="question2" class="wb-fieldflow" data-wb-fieldflow='{
@@ -478,6 +464,24 @@
   <!--[if gte IE 9 | !IE ]><!-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
   <script src="https://wet-boew.github.io/themes-dist/GCWeb/wet-boew/js/wet-boew.min.js"></script>
+  <script>
+    $(document).ready(function() {
+     $("#btnChangeEachAddress").click(function(){
+       //var url="http://example.com/results?choice=choice2&choice=choice4"
+       var urlDep="https://test.canada.ca/canada-child-benefit-2/validation/government/change-address-departments.html?service=";
+       var flag=false;
+       $('#services input:checked').each(function() {
+           if (!flag) {
+             urlDep=urlDep+$(this).val();
+             flag=true;// To trace if first query string added
+           } else {
+             urlDep=urlDep+"&service="+$(this).val();
+           }
+        });
+        window.location = urlDep;
+     });
+    });
+  </script>
   <!--<![endif]-->
   <!--[if lt IE 9]>
   		<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
