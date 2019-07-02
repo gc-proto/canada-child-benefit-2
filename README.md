@@ -11,6 +11,9 @@ A baseline round of task-scenario testing on the live version of Canada.ca as we
 
 Working together as a collaborative team across the departments, we will design and implement solutions in the prototype pages. A second round of validation testing with a different set of Canadian participants was conducted in the summer. Participants in that study will only use the prototype rather than the live site and dummy account, to test that the success rates are improved. Since then, some fine tuning and building out of the pages has been done and the tested version has been archived.
 
+Baseline testing: http://test.canada.ca/canada-child-benefit-2/baseline/en.html
+Validation testing links: http://test.canada.ca/canada-child-benefit-2/validation/en.html
+
 See the dummy My Account:
 
 * My Account sign-in		https://gc-proto.github.io/canada-child-benefit-2/ut-en-baseline.html
