@@ -138,11 +138,51 @@
     </div>
   </div>
   <section>
-    <div class="row">
-      <div>
-        <section class="col-lg-6 col-md-6">
-          <h3>Most commonly contacted departments</h3>
-          <ul>
+
+    <div class="wb-frmvld">
+      <form method="get">
+    		<!--Smart question!-->
+    		<div id="question2" class="wb-fieldflow" data-wb-fieldflow='{
+            "noForm":true,
+      			"renderas":"radio",
+      			"base": { "live": true },
+      			"noreqlabel": true,
+      			"default": { "action": "addClass", "source":"#personal,#business,#question3,#missing-personal,#missing-business", "class": "hidden" }
+          }'>
+    			<p>In which account was the payment incorrectly applied?</p>
+    			<ul>
+    				<li data-wb-fieldflow='{ "action": "removeClass", "source":"#personal", "class": "hidden"}'>payment is in personal account</li> <!--result-->
+      			<li data-wb-fieldflow='{ "action": "removeClass", "source":"#business", "class": "hidden" }'>payment is in the wrong business account</li>
+            <li data-wb-fieldflow='{ "action": "append", "source":"#question3"}'>payment is missing from all of my accounts</li>
+    			</ul>
+    		</div>
+
+    		<div id="question3" class="wb-fieldflow-sub hidden" data-wb-fieldflow='{
+      			"renderas":"radio",
+      			"noreqlabel": true
+          }'>
+    			<p>Which account is the payment missing from?</p>
+    			<ul>
+    				<li data-wb-fieldflow='{ "action": "removeClass", "source":"#missing-personal", "class": "hidden"}'>personal account</li> <!--result-->
+      			<li data-wb-fieldflow='{ "action": "removeClass", "source":"#missing-business", "class": "hidden"}'>business account</li>
+    			</ul>
+    		</div>
+      </form>
+    </div>
+
+
+
+
+        <form>
+          <
+
+          fieldflow on multiple choice
+
+
+
+
+
+          <!-- <ul>
             <li><a href="../revenue-agency/services/tax/businesses/topics/changes-your-business/change-address.html">Canada Revenue Agency (businesses)</a></li>
             <li><a href="../revenue-agency/services/tax/individuals/topics/about-your-tax-return/change-your-address.html">Canada Revenue Agency (individuals)</a></li>
             <li>Service Canada (EI, CPP, OAS)
@@ -259,7 +299,7 @@
           <td>Your province or territory</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </section>
 
 
@@ -390,7 +430,7 @@
   		<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
 
   		<![endif]-->
-  <script src="../../validation/GCWeb/js/theme.js"></script>
+  <script src="../../validation/GCWeb/js/theme-fieldflow-updates.js"></script>
   <script src="https://gc-proto.github.io/cra-contactus/js/cannedsearch-querystring.js"></script>
 </body>
 </html>

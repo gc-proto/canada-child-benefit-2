@@ -1,14 +1,366 @@
-/**
- * @title WET-BOEW Field Flow
- * @overview Transform a basic list into a selectable list.
- * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * @author @duboisp
+/*!
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * v4.0.30-development - 2019-01-10
+ *
  */
-! function(a, b, c) {
+! function(a, b) {
     "use strict";
+    var c = b.doc,
+        d = "wb-actionmng",
+        e = "." + d,
+        f = "[data-" + d + "]",
+        g = d + "Rn",
+        h = "wb-init." + d,
+        i = d + e,
+        j = {},
+        k = {},
+        l = {},
+        m = ["patch", "ajax", "addClass", "removeClass", "tblfilter", "run"].join("." + i + " ") + "." + i,
+        n = function(c) {
+            var f, g, h, i, j, k, m = b.init(c, d, e);
+            if (m) {
+                if (f = a(m), g = b.getData(f, d))
+                    for (a.isArray(g) || (g = [g]), i = g.length, h = 0; h !== i; h += 1) j = g[h], (k = j.trggroup) && j.action && o(k, l, j);
+                b.ready(f, d)
+            }
+        },
+        o = function(a, b, c) {
+            b[a] || (b[a] = []), b[a].push(c)
+        },
+        p = function(a, b, c) {
+            var d, e, f;
+            for (d = c[b]; e = d.shift();)(f = e.action) && (a.trigger(f + "." + i, e), delete e.action)
+        },
+        q = function(b, c) {
+            var d = c.source,
+                e = c.patches,
+                f = !!c.cumulative;
+            e && (a.isArray(e) || (e = [e]), a(d).trigger({
+                type: "patches.wb-jsonmanager",
+                patches: e,
+                fpath: c.fpath,
+                filter: c.filter || [],
+                filternot: c.filternot || [],
+                cumulative: f
+            }))
+        },
+        r = function(c, d) {
+            var e, f, g;
+            d.container ? e = a(d.container) : (f = b.getId(), e = a("<div id='" + f + "'></div>"), a(c.target).after(e)), d.trigger && e.attr("data-trigger-wet", "true"), g = d.type ? d.type : "replace", e.attr("data-ajax-" + g, d.url), e.one("wb-contentupdated", function(c, d) {
+                var e = c.currentTarget,
+                    f = e.getAttribute("data-trigger-wet");
+                e.removeAttribute("data-ajax-" + d["ajax-type"]), f && (a(e).find(b.allSelectors).addClass("wb-init").filter(":not(#" + e.id + " .wb-init .wb-init)").trigger("timerpoke.wb"), e.removeAttribute("data-trigger-wet"))
+            }), e.trigger("wb-update.wb-data-ajax")
+        },
+        s = function(b, c) {
+            var d = a(c.source || b.target);
+            c.class && d.addClass(c.class)
+        },
+        t = function(b, c) {
+            var d = a(c.source || b.target);
+            c.class && d.removeClass(c.class)
+        },
+        u = function(b, c) {
+            var d, e = b.target,
+                f = a(c.source || e),
+                g = c.column,
+                h = parseInt(g, 10),
+                i = !!c.regex,
+                j = !c.smart || !!c.smart,
+                k = !c.caseinsen || !!c.caseinsen;
+            if ("TABLE" !== f.get(0).nodeName) throw "Table filtering can only applied on table";
+            d = f.dataTable({
+                retrieve: !0
+            }).api(), g = !0 === h ? h : g, d.column(g).search(c.value, i, j, k).draw()
+        },
+        v = function(b, c) {
+            var d, e, f, h, j = b.target,
+                k = a(j),
+                m = l[c.trggroup];
+            if (m && !k.hasClass(g)) {
+                for (k.addClass(g), e = m.length, d = 0; d !== e; d += 1) f = m[d], (h = f.action) && k.trigger(h + "." + i, f);
+                k.removeClass(g)
+            }
+        };
+    c.on("do." + i, function(b) {
+        var c, e, f, g, h, m, n, q = b.element || b.target,
+            r = q.id,
+            s = b.actions || [];
+        if ((q === b.target || b.currentTarget === b.target) && -1 === q.className.indexOf(d)) {
+            for (a.isArray(s) || (s = [s]), f = s.length, f && (c = a(q), c.addClass(d)), r && j[r] && p(c, r, j), e = 0; e !== f; e += 1) g = s[e], (h = g.action) && (m = g.target, m ? (g.trgbefore ? o(m, j, g) : o(m, k, g), (n = g.trggroup) && o(n, l, g)) : c.trigger(h + "." + i, g));
+            r && k[r] && p(c, r, k), a(b.target).removeClass(d)
+        }
+    }), c.on("clean." + i, function(a) {
+        var b, c, d = a.element || a.target,
+            e = a.trggroup;
+        if ((d === a.target || a.currentTarget === a.target) && e && l[e])
+            for (b = l[e]; c = b.shift();) delete c.action
+    }), c.on(m, e, function(a, b) {
+        var c = a.type;
+        if (i === a.namespace) switch (c) {
+            case "run":
+                v(a, b);
+                break;
+            case "tblfilter":
+                u(a, b);
+                break;
+            case "addClass":
+                s(a, b);
+                break;
+            case "removeClass":
+                t(a, b);
+                break;
+            case "ajax":
+                r(a, b);
+                break;
+            case "patch":
+                q(a, b)
+        }
+    }), c.on("timerpoke.wb " + h, f, n), b.add(f)
+}(jQuery, wb),
+function(a, b, c) {
+    "use strict";
+    var d, e = "wb-data-json",
+        f = "wb-json",
+        g = ["[data-json-after]", "[data-json-append]", "[data-json-before]", "[data-json-prepend]", "[data-json-replace]", "[data-json-replacewith]", "[data-" + f + "]"],
+        h = ["after", "append", "before", "prepend", "val"],
+        i = /(href|src|data-*|pattern|min|max|step|low|high)/,
+        j = /(checked|selected|disabled|required|readonly|multiple)/,
+        k = g.length,
+        l = g.join(","),
+        m = "wb-init." + e,
+        n = "wb-update." + e,
+        o = "wb-contentupdated",
+        p = e + "-queue",
+        q = c.doc,
+        r = function(b) {
+            var d, g = c.init(b, e, l);
+            if (g) {
+                var h, i, j, k, m, n = ["before", "replace", "replacewith", "after", "append", "prepend"],
+                    o = n.length,
+                    q = [];
+                for (d = a(g), j = 0; j !== o; j += 1) h = n[j], null !== (m = g.getAttribute("data-json-" + h)) && q.push({
+                    type: h,
+                    url: m
+                });
+                if (c.ready(d, e), (i = c.getData(d, f)) && i.url) q.push(i);
+                else if (i && a.isArray(i))
+                    for (o = i.length, j = 0; j !== o; j += 1) q.push(i[j]);
+                for (d.data(p, q), o = q.length, j = 0; j !== o; j += 1) k = q[j], s(g, k.url, j, k.nocache, k.nocachekey)
+            }
+        },
+        s = function(d, f, g, h, i) {
+            var j, k = a(d),
+                l = {
+                    url: f,
+                    refId: g,
+                    nocache: h,
+                    nocachekey: i
+                },
+                m = b[e];
+            !m || "http" !== f.substr(0, 4) && "//" !== f.substr(0, 2) || (j = c.getUrlParts(f), c.pageUrlParts.protocol === j.protocol && c.pageUrlParts.host === j.host || Modernizr.cors && !m.forceCorsFallback || "function" == typeof m.corsFallback && (l.dataType = "jsonp", l.jsonp = "callback", l = m.corsFallback(l))), k.trigger({
+                type: "json-fetch.wb",
+                fetch: l
+            })
+        },
+        t = function(b) {
+            var d, f = b.target,
+                g = a(f),
+                k = g.data(p),
+                l = b.fetch,
+                m = k[l.refId],
+                n = m.type,
+                q = m.prop || m.attr,
+                r = m.showempty,
+                s = l.response,
+                t = typeof s;
+            if (r || "undefined" !== t) {
+                if (r && "undefined" === t && (s = ""), d = jQuery.ajaxSettings.cache, jQuery.ajaxSettings.cache = !0, n)
+                    if ("replace" === n) g.html(s);
+                    else if ("replacewith" === n) g.replaceWith(s);
+                else if ("addclass" === n) g.addClass(s);
+                else if ("removeclass" === n) g.removeClass(s);
+                else if ("prop" === n && q && j.test(q)) g.prop(q, s);
+                else if ("attr" === n && q && i.test(q)) g.attr(q, s);
+                else {
+                    if ("function" != typeof g[n] || -1 === h.indexOf(n)) throw e + " do not support type: " + n;
+                    g[n](s)
+                } else n = "template", u(f, m, s), m.trigger && g.find(c.allSelectors).addClass("wb-init").filter(":not(#" + f.id + " .wb-init .wb-init)").trigger("timerpoke.wb");
+                jQuery.ajaxSettings.cache = d, g.trigger(o, {
+                    "json-type": n,
+                    content: s
+                })
+            }
+        },
+        u = function(b, d, e) {
+            var f, g, h, i, j, k, l, m, n, o, p, q, r, s, t = d.mapping || [{}],
+                w = d.filter || [],
+                x = d.filternot || [],
+                y = d.queryall,
+                z = d.tobeclone,
+                A = b.className,
+                B = b,
+                C = d.source ? document.querySelector(d.source) : b.querySelector("template");
+            if (a.isArray(e) || (e = "object" != typeof e ? [e] : a.map(e, function(b, c) {
+                    return "object" != typeof b || a.isArray(b) ? b = {
+                        "@id": c,
+                        "@value": b
+                    } : b["@id"] || (b["@id"] = c), [b]
+                })), h = e.length, a.isArray(t) || (t = [t]), f = t.length, "TABLE" === b.tagName && t && -1 !== A.indexOf("wb-tables-inited") && "string" == typeof t[0]) {
+                for (s = a(b).dataTable({
+                        retrieve: !0
+                    }).api(), g = 0; g < h; g += 1)
+                    if (i = e[g], v(i, w, x)) {
+                        for (m = "/" + g, r = [], j = 0; j < f; j += 1) r.push(jsonpointer.get(e, m + t[j]));
+                        s.row.add(r)
+                    }
+                return void s.draw()
+            }
+            if (C)
+                for (C.content || c.tmplPolyfill(C), d.appendto && (B = a(d.appendto).get(0)), g = 0; g < h; g += 1)
+                    if (i = e[g], v(i, w, x)) {
+                        for (m = "/" + g, n = z ? C.content.querySelector(z).cloneNode(!0) : C.content.cloneNode(!0), y && (o = n.querySelectorAll(y)), j = 0; j < f || 0 === j; j += 1) k = t[j], p = o ? o[j] : k.selector ? n.querySelector(k.selector) : n, l = k.attr, l && (p.hasAttribute(l) || p.setAttribute(l, ""), p = p.getAttributeNode(l)), r = "string" == typeof i ? i : "string" == typeof k ? jsonpointer.get(e, m + k) : jsonpointer.get(e, m + k.value), k.placeholder && (q = p.textContent || "", r = q.replace(k.placeholder, r)), a.isArray(r) ? u(p, k, r) : k.isHTML ? p.innerHTML = r : p.textContent = r;
+                        B.appendChild(n)
+                    }
+        },
+        v = function(a, b, c) {
+            var d, e, f, g = b.length,
+                h = c.length,
+                i = !1;
+            if (g || h) {
+                for (d = 0; d < g; d += 1)
+                    if (e = b[d], f = w(jsonpointer.get(a, e.path), e.value), e.optional) i = i || f;
+                    else {
+                        if (!f) return !1;
+                        i = !0
+                    }
+                if (g && !i) return !1;
+                for (d = 0; d < h; d += 1)
+                    if (e = c[d], (f = w(jsonpointer.get(a, e.path), e.value)) && !e.optional || f && e.optional) return !1
+            }
+            return !0
+        },
+        w = function(b, c) {
+            switch (typeof b) {
+                case "undefined":
+                    return !1;
+                case "boolean":
+                case "string":
+                case "number":
+                    return b === c;
+                case "object":
+                    if (null === b) return null === c;
+                    if (a.isArray(b)) {
+                        if (a.isArray(c) || b.length !== c.length) return !1;
+                        for (var d = 0, e = b.length; d < e; d++)
+                            if (!w(b[d], c[d])) return !1;
+                        return !0
+                    }
+                    var f = x(c),
+                        g = f.length;
+                    if (x(b).length !== g) return !1;
+                    for (var d = 0; d < g; d++)
+                        if (!w(b[d], c[d])) return !1;
+                    return !0;
+                default:
+                    return !1
+            }
+        },
+        x = function(b) {
+            if (a.isArray(b)) {
+                for (var c = new Array(b.length), d = 0; d < c.length; d++) c[d] = "" + d;
+                return c
+            }
+            if (Object.keys) return Object.keys(b);
+            var c = [];
+            for (var e in b) b.hasOwnProperty(e) && c.push(e);
+            return c
+        },
+        y = function(b) {
+            var c = b.target,
+                d = a(c),
+                e = d.data(p),
+                f = e.length,
+                g = b["wb-json"];
+            if (!g.url || !g.type && !g.source) throw "Data JSON update not configured properly";
+            e.push(g), d.data(p, e), s(c, g.url, f)
+        };
+    q.on("json-failed.wb", l, function() {
+        throw "Bad JSON Fetched from url in " + e
+    }), Modernizr.load({
+        test: "content" in document.createElement("template"),
+        nope: "site!deps/template" + c.getMode() + ".js"
+    }), q.on("timerpoke.wb " + m + " " + n + " json-fetched.wb", l, function(a) {
+        if (a.currentTarget === a.target) switch (a.type) {
+            case "timerpoke":
+            case "wb-init":
+                r(a);
+                break;
+            case "wb-update":
+                y(a);
+                break;
+            default:
+                t(a)
+        }
+        return !0
+    });
+    for (d = 0; d !== k; d += 1) c.add(g[d])
+}(jQuery, window, wb),
+function(a, b, c) {
+    "use strict";
+    var d = "wb-template",
+        e = "template",
+        f = "wb-init." + d,
+        g = c.doc,
+        h = function(a) {
+            if (!a.content) {
+                var c, d, e = a;
+                for (c = e.childNodes, d = b.createDocumentFragment(); c[0];) d.appendChild(c[0]);
+                e.content = d
+            }
+        },
+        i = function(b) {
+            var f = c.init(b, d, e);
+            f && (h(f), c.ready(a(f), d))
+        };
+    c.tmplPolyfill = h, g.on("timerpoke.wb " + f, e, i), c.add(e)
+}(jQuery, document, wb),
+function(a, b, c) {
+    "use strict";
+    var d = "wb-doaction",
+        e = "a[data-" + d + "],button[data-" + d + "]",
+        f = "do.wb-actionmng",
+        g = c.doc;
+    g.on("click", e, function(b) {
+        var h = b.target,
+            i = a(h);
+        if (b.currentTarget !== b.target && (i = i.parentsUntil("main", e), h = i[0]), "BUTTON" === h.nodeName || "A" === h.nodeName) return c.isReady ? i.trigger({
+            type: f,
+            actions: c.getData(i, d)
+        }) : g.one("wb-ready.wb", function() {
+            i.trigger({
+                type: f,
+                actions: c.getData(i, d)
+            })
+        }), !1
+    })
 
+
+
+
+
+
+
+
+
+
+
+
+}(jQuery, window, wb),
+function(a, b, c) {
+    "use strict";
     var componentName = "wb-fieldflow",
-      preselected = getUrlParameter('preselect'), //***addition for preselect url id
     	selector = "." + componentName,
     	formComponent = componentName + "-form",
     	subComponentName = componentName + "-sub",
@@ -674,9 +1026,8 @@
     		for ( i = 0, i_len = items.length; i !== i_len; i += 1 ) {
     			cur_itm = items[ i ];
 
-          //***addition for preselected
     			if ( !cur_itm.group ) {
-    				radCheckOut += buildCheckboxRadio( cur_itm, fieldName, typeRadCheck, isInline, isReq, (preselected = i) );
+    				radCheckOut += buildCheckboxRadio( cur_itm, fieldName, typeRadCheck, isInline, isReq, i + 1 );
     			} else {
 
     				// We have a group of sub-items, the cur_itm are a group
@@ -684,10 +1035,14 @@
     				j_len = cur_itm.group.length;
     				for ( j = 0; j !== j_len; j += 1 ) {
     					radCheckOut += buildCheckboxRadio( cur_itm.group[ j ], fieldName, typeRadCheck, isInline, isReq );
-              console.log(buildCheckboxRadio);
     				}
     			}
     		}
+        if ( isInline ) {
+          radCheckOut = "<div class='clearfix'></div><div class='cst-inputs'>" + radCheckOut;
+        } else {
+          radCheckOut = "<div class='clearfix'></div><ul class='list-unstyled cst-inputs'>" + radCheckOut;
+        }
     		$out.append( radCheckOut );
     		$( "#" + bodyId ).append( $out );
     		if ( $prevContent ) {
@@ -812,39 +1167,35 @@
 
     		return out;
     	},
-    	buildCheckboxRadio = function( data, fieldName, inputType, isInline, isReq, preselect ) {
+
+      buildCheckboxRadio = function( data, fieldName, inputType, isInline, isReq, iLoopBuilder ) {
         var label = data.label,
-          iLoopBuilder = 1,
-    			fieldID = wb.getId(),
-    			inline = isInline ? "-inline" : "",
-    			out = " for='" + fieldID + "'><input id='" + fieldID + "' type='" + inputType + "' name='" + fieldName + "' value='" + label + "'";
-
-    		if ( isInline ) {
-    			out = "<label class='" + inputType + inline + "'" + out;
-    		} else {
-    			out = "<div class='" + inputType + "'><label" + out;
-    		}
-
+          fieldID = wb.getId(),
+          inline = isInline ? "-inline" : "",
+          out = "<"
+        if ( isInline ) {
+          out += "span class='form-" + inputType + "'><input id='" + fieldID + "' type='" + inputType + "' name='" + fieldName + "' value='" + label + "'" ; //used to have + out - what is this inline thing?
+        } else {
+          out += "li class='" + inputType + "'><input id='" + fieldID + "' type='" + inputType + "' name='" + fieldName + "' value='" + label + "'";
+        }
     		out += buildDataAttribute( data );
 
     		if ( isReq ) {
-    			out += " required='NOOOOOO' ";
+    			out += " required='required'";
     		}
 
-        //*** addition for preselect
-        if ( preselect ) {
-          out += " checked ";
+        if ( isInline) {
+          out += "/><label class='form-" + inputType + " " + "form-" + inputType + "-inline'" + "for='" + fieldID + "'";
+          out += " >" + label + "</label></span>";
+
+
+        } else {
+        out += "/><label for='" + fieldID + "'";
+        out += " >" + label + "</label></li>";
         }
-        //
 
-    		out += " /> " + label + "</label>";
 
-    		if ( !isInline ) {
-    			out += "</div>";
-    		}
-        console.log(iLoopBuilder);
-        out += "<div class='radioDot" + iLoopBuilder + "hidden' />";
-        iLoopBuilder ++
+
         console.log(out);
     		return out;
     	};
@@ -1320,17 +1671,4 @@
 
     // Add the timer poke to initialize the plugin
     wb.add( selector );
-
-    } )( jQuery, document, wb );
-    © 2019 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
+}(jQuery, document, wb);
