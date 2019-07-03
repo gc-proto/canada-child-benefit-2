@@ -470,8 +470,9 @@
        //var url="http://example.com/results?choice=choice2&choice=choice4"
        var urlDep="https://test.canada.ca/canada-child-benefit-2/validation/government/change-address-departments.html?service=";
        $('#services input:checked').each(function() {
-          urlDep+=","+$(this).val();
+          urlDep+=$(this).val()+",";
         });
+        urlDep=urlDep.substring(0,urlDep.length-1);
         window.location = urlDep;
      });
     });
