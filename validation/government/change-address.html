@@ -162,16 +162,16 @@
           <p>Check all the services that might have a record of your address</p>
     			<ul>
             <li>Boat (pleasure craft) licence</li>
-      			<li>Employment Insurance (EI), Canada Pension Plan (CPP) or Old Age Security (OAS)</li>
+            <li>Canada Pension Plan (CPP) or Old Age Security (OAS)</li>
             <li>Canada Savings Bonds</li>
-            <li>Correspondence and benefits for Veterans</li>
-            <li>Driver's license</li>
+            <li>Employment Insurance (EI), parental, sickness or caregiving leave</li>
             <li>Gun licence</li>
-            <li>Health card</li>
+            <li>Health card or driver's license (with your province)</li>
             <li>Immigration and visas</li>
             <li>Nexus</li>
-            <li>Social Insurance Number (SIN)</li>
             <li>Personal taxes and Canada Child Benefit (CCB)</li>
+            <li>Social Insurance Number (SIN)</li>
+            <li>Veteran benefits or correspondence</li>
             <li>Voting registration</li>
     			</ul>
     		</div>
@@ -470,7 +470,7 @@
        //var url="http://example.com/results?choice=choice2&choice=choice4"
        var urlDep="https://test.canada.ca/canada-child-benefit-2/validation/government/change-address-departments.html?service=";
        $('#services input:checked').each(function() {
-          urlDep+=$(this).val()+",";
+          urlDep+=$(this).val()+";";
         });
         urlDep=urlDep.substring(0,urlDep.length-1);
         window.location = urlDep;
