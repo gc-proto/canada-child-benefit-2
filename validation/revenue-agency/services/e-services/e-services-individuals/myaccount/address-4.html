@@ -110,56 +110,18 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
       <div class="maContent">
         <div class="maHeadingRow">
           <div class="maHeading">
-            <h1 id="wb-cont">Civic street number<br>
-              <small style="color: black; font-weight: bold;">Step 3 of 4</small></h1>
+            <h1 id="wb-cont">Update mailing address - street address<br>
           </div>
           <div class="maHelpLink hidden-print text-right"> <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals/contact-us.html" target="_blank">Help with this page</a> </div>
         </div>
-        HARVIE                          RD <br>
-        SURREY                         BC V4N 6A8<br>
+        Fill in the address fields for: 
+        <div id="MainContent_ContentPlaceHolder2_ValidatedAddressUpdate_PostalCodeRow" class="form-group">
+	        <label for="PostalCodetext" id="LabelPostalCode" class="col-sm-2 control-label">Postal Code:</label><br>
+	        <div class="col-sm-10">
+	            <input name="ctl00$ctl00$MainContent$ContentPlaceHolder2$ValidatedAddressUpdate$PostalCodetext" type="text" value="V4N 6A8" readonly="readonly" id="PostalCodetext" class="form-control" style="width:100px;"  />
+	        </div>
         <div>&nbsp;</div>
-        <div class="form-group">
-          <label for="canadaAddressForm.buildingUnitIdentifier">Apartment number <br>
-          </label>
-          <input name="canadaAddressForm.buildingUnitIdentifier" class="form-control" id="canadaAddressForm.buildingUnitIdentifier" type="text" maxlength="6" value="">
-        </div>
-        <div class="form-group">
-          <label for="canadaAddressForm.apartmentNumberSuffix">Apartment number suffix <br>
-          </label>
-          <select name="canadaAddressForm.apartmentNumberSuffix" class="form-control" id="canadaAddressForm.apartmentNumberSuffix">
-            <option selected="selected" value="">Select</option>
-            <option value="A"> A</option>
-            <option value="B"> B</option>
-            <option value="C"> C</option>
-            <option value="D"> D</option>
-            <option value="E"> E</option>
-            <option value="F"> F</option>
-            <option value="G"> G</option>
-            <option value="H"> H</option>
-            <option value="I"> I</option>
-            <option value="J"> J</option>
-            <option value="K"> K</option>
-            <option value="L"> L</option>
-            <option value="M"> M</option>
-            <option value="N"> N</option>
-            <option value="O"> O</option>
-            <option value="P"> P</option>
-            <option value="Q"> Q</option>
-            <option value="R"> R</option>
-            <option value="S"> S</option>
-            <option value="T"> T</option>
-            <option value="U"> U</option>
-            <option value="V"> V</option>
-            <option value="W"> W</option>
-            <option value="X"> X</option>
-            <option value="Y"> Y</option>
-            <option value="Z"> Z</option>
-            <option value="1/4">1/4</option>
-            <option value="1/2">1/2</option>
-            <option value="3/4">3/4</option>
-          </select>
-        </div>
-        <div class="form-group">
+          <div class="form-group">
           <label class="required" for="canadaAddressForm.civicSiteStreetNumber">Street number&nbsp;<strong class="required">(required)</strong> <br>
           </label>
           <select name="canadaAddressForm.civicSiteStreetNumber" class="form-control" id="canadaAddressForm.civicSiteStreetNumber">
@@ -205,6 +167,32 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
             <option value="3/4">3/4</option>
           </select>
         </div>
+          <div class="form-group">
+          <label class="required" for="canadaAddressForm.civicSiteStreetName">Street name&nbsp;<strong class="required">(required)</strong> <br>
+          </label>
+          <select name="canadaAddressForm.civicSiteStreetName" class="form-control" id="canadaAddressForm.civicSiteStreetName">
+            <option value="Harvie">HARVIE RD</option>
+            <option value="83">83RD AVE</option>
+          </select>
+        </div>
+        <div id="City" class="form-group">
+	        <label for="City" id="City" class="col-sm-2 control-label">City, town or village:</label><br>
+	        <div class="col-sm-10">
+	            <input name="somecity" type="text" value="Surrey" readonly="readonly" id="Citytext" class="form-control" style="width:200px;"  />
+		</div>
+	</div>
+        <div id="Prov" class="form-group">
+	        <label for="Prov" id="City" class="col-sm-2 control-label">Province or territory:</label>
+	        <div class="col-sm-10">
+	            <input name="someprov" type="text" value="BC" readonly="readonly" id="Provtext" class="form-control" style="width:200px;"  />
+			</div>
+	</div>
+        <div class="form-group">
+          <label for="canadaAddressForm.buildingUnitIdentifier">Apartment or suite: <br>
+          </label>
+          <input name="canadaAddressForm.buildingUnitIdentifier" class="form-control" id="canadaAddressForm.buildingUnitIdentifier" type="text" maxlength="6" value="">
+        </div>
+        
         <div class="form-group">
           <label for="careofLine">Care of (c/o) - Other individual or an organization <br>
           </label>
@@ -225,16 +213,15 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
                 <td><select name="canadaAddressForm.year" class="form-control" id="canadaAddressForm.year">
                     <option value="2020">2020</option>
                     <option selected="selected" value="2019">2019</option>
-                    <option value="2018">2018</option>
                   </select></td>
                 <td><select name="canadaAddressForm.month" class="form-control" id="canadaAddressForm.month">
                     <option value="01">January</option>
                     <option value="02">February</option>
                     <option value="03">March</option>
                     <option value="04">April</option>
-                    <option selected="selected" value="05">May</option>
+                    <option value="05">May</option>
                     <option value="06">June</option>
-                    <option value="07">July</option>
+                    <option selected="selected" value="07">July</option>
                     <option value="08">August</option>
                     <option value="09">September</option>
                     <option value="10">October</option>
@@ -295,7 +282,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
           <dl id="wb-dtmd">
             <dt>Date modified: </dt>
             <dd>
-              <time property="dateModified">2019-04-02</time>
+              <time property="dateModified">2019-07-02</time>
             </dd>
           </dl>
         </div>

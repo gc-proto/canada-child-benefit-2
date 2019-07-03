@@ -120,24 +120,55 @@
 
 <main property="mainContentOfPage" class="container">
 
+  <script>
+
+  //for each url parameter, get the right URL and explain how to change the address
+  document.addEventListener("DOMContentLoaded", function(){
+
+    var services = getUrlParameter('service'); // (gets me URL parameters)
+
+    console.log(services);
+
+    //
+    // object.onclick = function(){
+    //   //For each checked box
+    //   $('').each(function(){
+    //       //Open new tab with URL
+    //
+    //       services
+    //
+    //
+    //
+    //
+    //   })
+    //   $('#departments-to-change-with').append(services);
+  });
+
+  var getUrlParameter = function getUrlParameter(sParam) {
+   var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+       sURLVariables = sPageURL.split('&'),
+       sParameterName,
+       i;
+   for (i = 0; i < sURLVariables.length; i++) {
+       sParameterName = sURLVariables[i].split('=');
+       if (sParameterName[0] === sParam) {
+           return sParameterName[1] === undefined ? true : sParameterName[1];
+       }
+   }
+};
+  </script>
 
 
 
-
-  <h1 property="name" id="wb-cont" dir="ltr">
-  Change of address</h1>
-
-
-
-
-          <div><div class="mwsgeneric-base-html parbase section">
-
-
-
-      <div class="row profile">
+  <h1 property="name" id="wb-cont" dir="ltr">Change of address</h1>
+  <div class="row profile">
     <div class="col-md-12">
-      <p>Tell the Government of Canada when you change an address.</p>
+      <p>You will need to change your address with each of the following departments:</p>
     </div>
+    <ul id="departments-to-change-with">
+    </ul>
+
+
   </div>
   <section>
     <h2>On this page</h2>
@@ -148,8 +179,7 @@
 
     <h2 id="personal">Personal change of address</h2>
 
-
-    <div class="wb-frmvld" id="services">
+    <div class="wb-frmvld">
       <form method="get">
     		<!--Smart question!-->
     		<div id="question2" class="wb-fieldflow" data-wb-fieldflow='{
@@ -179,7 +209,7 @@
       </form>
     </div>
 
-    <button class="btn btn-call-to-action" id="btnChangeEachAddress">Change your address with each service</button>
+    <button class="btn btn-call-to-action" onclick="changeEachAddress()">Change your address with each service</button>
 
     <h2 id="business">Businesses, public servants or another special circumstances</h2>
 
@@ -464,24 +494,6 @@
   <!--[if gte IE 9 | !IE ]><!-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
   <script src="https://wet-boew.github.io/themes-dist/GCWeb/wet-boew/js/wet-boew.min.js"></script>
-  <script>
-    $(document).ready(function() {
-     $("#btnChangeEachAddress").click(function(){
-       //var url="http://example.com/results?choice=choice2&choice=choice4"
-       var urlDep="https://test.canada.ca/canada-child-benefit-2/validation/government/change-address-departments.html?service=";
-       var flag=false;
-       $('#services input:checked').each(function() {
-           if (!flag) {
-             urlDep=urlDep+$(this).val();
-             flag=true;// To trace if first query string added
-           } else {
-             urlDep=urlDep+"&service="+$(this).val();
-           }
-        });
-        window.location = urlDep;
-     });
-    });
-  </script>
   <!--<![endif]-->
   <!--[if lt IE 9]>
   		<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
