@@ -164,7 +164,7 @@
             <li>Boat (pleasure craft) licence</li>
             <li>Canada Pension Plan (CPP) or Old Age Security (OAS)</li>
             <li>Canada Savings Bonds</li>
-            <li>Employment Insurance (EI), parental, sickness or caregiving leave</li>
+            <li>Employment Insurance (EI), or parental, sickness or caregiving leave</li>
             <li>Gun licence</li>
             <li>Health card or driver's license (with your province)</li>
             <li>Immigration and visas</li>
@@ -470,7 +470,8 @@
        //var url="http://example.com/results?choice=choice2&choice=choice4"
        var urlDep="https://test.canada.ca/canada-child-benefit-2/validation/government/change-address-departments.html?service=";
        $('#services input:checked').each(function() {
-          urlDep+=$(this).val()+";";
+         strService=$(this).val().replace(/ /g,"-");
+         urlDep+=strService+";";
         });
         urlDep=urlDep.substring(0,urlDep.length-1);
         window.location = urlDep;
