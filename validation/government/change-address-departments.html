@@ -126,25 +126,23 @@
   document.addEventListener("DOMContentLoaded", function(){
 
     //*********split service into array on ',' *********
-    var services = getUrlParameter('service'); // (gets me URL parameters)
-
-
-
+    var services = getUrlParameter('service').split(";"); // (gets me URL parameters)
     console.log(services);
+    
+    services.forEach(function(element) {
+      console.log(element);
+      //match element with ID, unhide div with button/title
 
-    //
-    // object.onclick = function(){
-    //   //For each checked box
-    //   $('').each(function(){
-    //       //Open new tab with URL
-    //
-    //       services
-    //
-    //
-    //
-    //
-    //   })
-    //   $('#departments-to-change-with').append(services);
+       // $('#'+element).removeClass("hidden");
+
+
+     });
+
+
+
+
+
+
   });
 
   var getUrlParameter = function getUrlParameter(sParam) {
