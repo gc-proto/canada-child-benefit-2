@@ -469,14 +469,8 @@
      $("#btnChangeEachAddress").click(function(){
        //var url="http://example.com/results?choice=choice2&choice=choice4"
        var urlDep="https://test.canada.ca/canada-child-benefit-2/validation/government/change-address-departments.html?service=";
-       var flag=false;
        $('#services input:checked').each(function() {
-           if (!flag) {
-             urlDep=urlDep+$(this).val();
-             flag=true;// To trace if first query string added
-           } else {
-             urlDep=urlDep+"&service="+$(this).val();
-           }
+          urlDep+=","+$(this).val();
         });
         window.location = urlDep;
      });
