@@ -261,7 +261,7 @@ var nextPagF = $('<span class="wb-inv-md wb-inv-lg">Suivant </span>');
 var prevPagE = $('<span class="wb-inv-lg">Previous </span>');
 var prevPagF = $('<span class="wb-inv-lg">Précédent </span>');
 
-if ($("#nav-pull").find("li:first").is(".active")){
+if ($(".section-menu").find("li:first").is(".active")){
 switch( pgLang.toLowerCase() ){
 			case "fr":
 				$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagF);
@@ -272,7 +272,7 @@ switch( pgLang.toLowerCase() ){
 		}	
 }			
 			
-	if (!$("#nav-pull").find("li:first").is(".active")){
+	if (!$(".section-menu").find("li:first").is(".active")){
 	switch( pgLang.toLowerCase() ){
 			case "fr":
 				$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagF);
