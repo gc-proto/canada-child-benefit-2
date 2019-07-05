@@ -124,15 +124,10 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
           <div class="form-group">
           <label class="required" for="canadaAddressForm.civicSiteStreetNumber">Street number&nbsp;<strong class="required">(required)</strong> <br>
           </label>
-          <select name="canadaAddressForm.civicSiteStreetNumber" class="form-control" id="canadaAddressForm.civicSiteStreetNumber">
-            <option selected="selected" value="">Select</option>
-            <option value="7839">7839</option>
-            <option value="7841">7841</option>
-            <option value="7843">7843</option>
-          </select>
+	         <input name="canadaAddressForm.civicSiteStreetNumber" type="text"  id="Citytext" class="form-control" style="width:100px;"  />
         </div>
         <div class="form-group">
-          <label for="canadaAddressForm.civicSiteStreeNumberSuffixIdentifier">Street number suffix <br>
+          <label for="canadaAddressForm.civicSiteStreeNumberSuffixIdentifier">Street number suffix (optional)<br>
           </label>
           <select name="canadaAddressForm.civicSiteStreeNumberSuffixIdentifier" class="form-control" id="canadaAddressForm.civicSiteStreeNumberSuffixIdentifier">
             <option selected="selected" value="">Select</option>
@@ -181,10 +176,10 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 	</div>
         <div id="Prov" class="form-group">
 	        <label for="Prov" id="City">Province or territory:</label>
-	            <input name="someprov" type="text" value="BC" readonly="readonly" id="Provtext" class="form-control" style="width:100px;"  />
+	            <input name="someprov" type="text" value="BC" readonly="readonly" id="Provtext" class="form-control" style="width:50px;"  />
 	</div>
         <div class="form-group">
-          <label for="canadaAddressForm.buildingUnitIdentifier">Apartment or suite: <br>
+          <label for="canadaAddressForm.buildingUnitIdentifier">Apartment or suite: (optional)<br>
           </label>
           <input name="canadaAddressForm.buildingUnitIdentifier" class="form-control" id="canadaAddressForm.buildingUnitIdentifier" type="text" maxlength="6" value="">
         </div>
