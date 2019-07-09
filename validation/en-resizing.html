@@ -56,8 +56,30 @@ color: white !important;
 
 }
 
-.form-group {
- margin-bottom: 5px;
+/* #wb-bnr {
+  position: relative !important;
+}
+
+#lang {
+  position: absolute !important;
+  right: 0;
+  top: .6em;
+}
+
+#sm-lang {
+  position: absolute !important;
+  top: .6em;
+}
+
+.brand {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+
+#wb-srch form .form-group {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
 #wb-srch, .srchbox {
@@ -82,11 +104,27 @@ color: white !important;
 
 }
 
+@media screen and (max-width: 768px)
+      {
+#wb-srch input {
+  max-width: 42.4em !important;
+  min-width: 42.4em !important;
+  height: 39px;
+
+}
+.form-group {
+ margin-bottom: 4px;
+}
+
+}
+
 
 @media screen and (max-width: 425px)
       {
 #wb-srch input {
- max-width: 19em;
+ min-width: 22.1em !important;
+ max-width: 22.1em !important;
+ height: 39px;
 }
 
 #lang {
@@ -105,17 +143,19 @@ color: white !important;
 @media screen and (max-width: 375px)
       {
 #wb-srch input {
- max-width: 19em;
+ max-width: 19em !important;
+ min-width: 19em !important;
+ height: 39px;
+
 }
 
 #lang {
- right: 1.8em;
  visibility: hidden;
 
 }
 
 #sm-lang {
- right: 1.25em;
+ right: .25em;
  visibility: visible;
 
 }
@@ -126,20 +166,29 @@ color: white !important;
 @media screen and (max-width: 320px)
       {
 #wb-srch input {
- max-width: 15.5em;
+ max-width: 13.5em !important;
+ min-width: 13.5em !important;
+ height: 39px;
+
+
 }
 
 #lang {
- visibility: hidden; /* need to write FR button */
+ visibility: hidden;
 }
 
 #sm-lang {
  right: 0em;
- visibility: hidden;
-
-}
+ top: 3.9em !important;
 }
 
+#wb-srch-sub {
+  position: absolute;
+  right: 0;
+  margin-right: 3em;
+}
+}
+ */
 
 
 
@@ -149,11 +198,10 @@ color: white !important;
 
 
 <header>
-<div id="wb-bnr" class="container" style="position: relative !important;">
+<div id="wb-bnr" class="container">
 
 
-
-<div id="lang" class="col-lg-12 col-xs-2" style="position: absolute !important; right: 0; top: .4em;">
+<div id="lang" class="col-lg-12 col-xs-2">
 <section id="wb-lng" class="text-right">
 <h2 class="wb-inv">Language selection</h2>
 <ul class="list-inline margin-bottom-none">
@@ -162,7 +210,7 @@ color: white !important;
 </section>
 </div>
 
-<div id="sm-lang" class="col-lg-12 col-xs-2" style="position: absolute !important; top: .4em;">
+<div id="sm-lang" class="col-lg-12 col-xs-2">
 <section id="wb-lng" class="text-right">
 <h2 class="wb-inv">Language selection</h2>
 <ul class="list-inline margin-bottom-none">
@@ -172,7 +220,7 @@ color: white !important;
 </div>
 
 
-<div class="col-xs-6 col-sm-6 col-lg-4 brand" style="padding-left: 0px !important; padding-right: 0px !important;">
+<div class="col-xs-6 col-sm-6 col-lg-4 brand">
 <a href="https://gc-proto.github.io/canada-child-benefit-2/validation/en.html"><img src="https://wet-boew.github.io/themes-dist/GCWeb/assets/sig-blk-en.svg" alt=""><span class="wb-inv"> Government of Canada / <span lang="fr">Gouvernement du Canada</span></span></a>
 </div>
 
@@ -180,10 +228,10 @@ color: white !important;
 <h2>Search</h2>
 
 
-<form action="../search-results.html" method="get" name="cse-search-box" role="search" class="form-inline" >
+<form action="#" method="get" name="cse-search-box" role="search" class="form-inline" >
 
 
-<div class="form-group col-xs-10" style="padding-left: 0px !important; padding-right: 0px !important;">
+<div class="form-group col-xs-10" style="">
 <label for="wb-srch-q" class="wb-inv">Search Canada.ca</label>
 <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Search Canada.ca">
 <datalist id="wb-srch-q-ac">

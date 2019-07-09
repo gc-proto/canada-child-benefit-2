@@ -719,3 +719,137 @@ ol.vertical-steps {
   }
 
 }
+
+/* slim header */
+#wb-bnr {
+  position: relative !important;
+}
+
+#lang {
+  position: absolute !important;
+  right: 0;
+  top: .6em;
+}
+
+#sm-lang {
+  position: absolute !important;
+  top: .6em;
+}
+
+.brand {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+
+#wb-srch form .form-group {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+#wb-srch, .srchbox {
+ padding-top: 5px !important;
+}
+
+
+@media screen and (max-width: 5120px)
+      {
+#wb-srch input {
+ max-width: 19em;
+}
+
+#lang {
+ right: 0;
+}
+
+#sm-lang {
+  visibility: hidden;
+
+}
+
+}
+
+@media screen and (max-width: 768px)
+      {
+#wb-srch input {
+  max-width: 42.4em !important;
+  min-width: 42.4em !important;
+  height: 39px;
+
+}
+.form-group {
+ margin-bottom: 4px;
+}
+
+}
+
+
+@media screen and (max-width: 425px)
+      {
+#wb-srch input {
+ min-width: 22.1em !important;
+ max-width: 22.1em !important;
+ height: 39px;
+}
+
+#lang {
+ right: 1.3em !important;
+}
+
+#sm-lang {
+  visibility: hidden;
+
+}
+
+}
+
+
+
+@media screen and (max-width: 375px)
+      {
+#wb-srch input {
+ max-width: 19em !important;
+ min-width: 19em !important;
+ height: 39px;
+
+}
+
+#lang {
+ visibility: hidden;
+
+}
+
+#sm-lang {
+ right: .25em;
+ visibility: visible;
+
+}
+
+}
+
+
+@media screen and (max-width: 320px)
+      {
+#wb-srch input {
+ max-width: 13.5em !important;
+ min-width: 13.5em !important;
+ height: 39px;
+
+
+}
+
+#lang {
+ visibility: hidden; /* need to write FR button */
+}
+
+#sm-lang {
+ right: 0em;
+ top: 3.9em !important;
+}
+
+#wb-srch-sub {
+  position: absolute;
+  right: 0;
+  margin-right: 3em;
+}
+}
