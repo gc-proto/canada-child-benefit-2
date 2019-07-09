@@ -720,6 +720,73 @@ ol.vertical-steps {
 
 }
 
+/*  tablet/mobile fonts customizations and scaling */
+
+@media screen and (max-width: 1200px) {
+
+	.init-box {
+
+		padding: 15px;
+		min-height: 155px;
+		max-height: 185px;
+		background-color: #f9f9f9 !important;
+		border: 1px #ddd solid;
+
+	}
+
+main p, main ul, main li {
+
+
+		font-size: 19px !important;
+		line-height: 26px !important;
+
+	}
+
+	h1 {
+			font-size: 34px !important;
+
+		}
+
+	h2 {
+				font-size: 32px !important;
+
+			}
+
+
+
+
+	.ch5 {
+
+				font-size: 21px !important;
+
+							}
+
+		.mr-home {
+
+								font-size: 19px !important;
+
+							}
+
+			.breadcrumb {
+
+
+			}
+
+
+}
+
+@media screen and (max-width: 800px) {
+
+.btn-call-to-action {
+
+	font-size: 19px !important;
+}
+
+.fadeimg {
+	background-image: url("none") !important;
+
+}
+
 button#wb-srch-sub a:visited {
 
 color: white !important;
@@ -858,7 +925,7 @@ color: white !important;
 }
 
 #lang {
- visibility: hidden; /* need to write FR button */
+ visibility: hidden; 
 }
 
 #sm-lang {
