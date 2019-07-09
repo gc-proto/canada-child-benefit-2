@@ -741,10 +741,10 @@ ol.vertical-steps {
   padding-right: 0px !important;
 }
 
-/* .submit button {
+.submit button {
   z-index: 1000 !important;
-  position: absolute !important;
-} */
+  position: relative !important;
+}
 
 #wb-srch form .form-group {
   padding-left: 0px !important;
