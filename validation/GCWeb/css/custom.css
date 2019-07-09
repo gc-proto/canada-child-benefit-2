@@ -720,6 +720,21 @@ ol.vertical-steps {
 
 }
 
+button#wb-srch-sub a:visited {
+
+color: white !important;
+
+
+}
+
+
+button#wb-srch-sub a {
+
+color: white !important;
+
+
+}
+
 /* slim header */
 #wb-bnr {
   position: relative !important;
