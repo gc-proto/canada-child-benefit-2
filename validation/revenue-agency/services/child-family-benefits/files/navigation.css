@@ -56,10 +56,11 @@ h2, .h2 {font-size:1.7em}
 
 main#steps-navigation h1#wb-cont-section {
 	border-bottom: 0px;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	color: #777;
-	margin-top: 10px;
-	margin-bottom: 0px;
+	margin-top: 20px;
+	margin-bottom: -5px;
+	font-weight: 200;
 
 }
 main#steps-navigation #steps-content h1#wb-cont {
