@@ -140,26 +140,210 @@
   <h2 id="amounts">Payments are reculated in July</h2>
   <p>Every July, your CCB payment is recalculated based on your net family income from the previous year.</p>
 
-  <p>For example, the payments you receveive from July 2019 to June 2020 are based on your family income from the 2018 tax year. In other words, a change in your income February 2019, for example, will only be reflected in your payments starting in July 2020.</p>
+  <p>For example, payments from:</p>
+  <ul>
+  <li><strong>July 2019 to June 2020</strong>: based on your family income from <strong>2018</strong></li>
+  <li><strong>July 2020 to June 2021</strong>: based on your family income from <strong>2019</strong></li>
+  </ul>
+
+  <p>In other words, a change in your income February 2019, for example, will only be reflected in your payments starting in July 2020.</p>
 
   <section class="alert alert-info">
   <p>If a child only lives with you part time, go to  <a href="./canada-child-benefit-2.html#shared">Custody arrangements and your payments</a> to find out if you are considered to have shared custody, and how it affects your payments.</p>
 </section>
 
-
   <ul class="list-unstyled">
     <li>
         <details>
-            <summary>How are payments calculated</summary>
-
-            <p>Depending on your income and the age of your children, you could get up to $6,639 per year per child.</p>
-            <p>If your net family income from last year was below $30,450, the <strong>maximum</strong> you can receive is:</p>
+            <summary>How are CCB payments calculated</summary>
+            <h3>Maximum CCB payment</h3>
+            <p>If your family income is under $31,120, the <strong>maximum CCB payment</strong> for July 2019 to June 2020 is:</p>
             <ul>
               <li>$6,639 per year ($553.25 per month) for each eligible child under the age of six</li>
               <li>$5,602 per year ($466.83 per month) for each eligible child aged 6 to 17</li>
             </ul>
-            <p>Your CCB payment gradually starts decreasing when your family net income goes over $31,120.</p>
+            <p>Your CCB payment gradually <strong>starts decreasing</strong> when your family net income goes over $31,120.</p>
+            <ul class="list-unstyled">
+              <li>
+                  <details>
+                      <summary>Definition of net family income</summary>
 
+            <p>Your adjusted net family income is:
+            <ul>
+            <li>your net family income (line 236 of your tax return, plus line 236 of your spouse's or common-law partner's tax return)</li>
+            <li><strong>minus</strong> any universal child care benefit (UCCB) and registered disability savings plan (RDSP) income received (line 117 and line 125 of your or your spouse's tax return) </li>
+            <li><strong>plus</strong> any UCCB and RDSP amounts repaid (line 213 and line 232 of your or your spouse's tax return)</li>
+          </ul>
+        </details>
+        </li>
+        </ul>
+        <h3>Reduction based on your income</h3>
+        <p>The reduction of the basic benefit depends on your income and on the number of children for which you receive CCB.</p>
+        <div data-wb-urlmapping='{
+      "p=one": { "action": "addClass", "class": "hidden" },
+      "p=two": { "action": "addClass", "class": "hidden" },
+      "p=three": { "action": "addClass", "class": "hidden" }
+      "p=four": { "action": "addClass", "class": "hidden" }
+    }' class="wb-frmvld">
+      <!-- <form method="get"> -->
+    		<!--Smart question!-->
+    		<div id="question1" class="wb-fieldflow" data-wb-fieldflow='{
+            "noForm":false,
+      			"renderas":"radio",
+      			"base": { "live": false },
+      			"noreqlabel": true,
+      			"default": { "action": "addClass", "source":"#one,#two,#three,#four", "class": "hidden" }
+          }'>
+    			<p>For how many children do you want to know the calculation?</p>
+    			<ul>
+    				<li data-wb-fieldflow='{ "action": "removeClass", "source":"#one", "class": "hidden"}'>1</li> <!--result-->
+      			<li data-wb-fieldflow='{ "action": "removeClass", "source":"#two", "class": "hidden" }'>2</li>
+            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#three", "class": "hidden"}'>3</li>
+            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#four", "class": "hidden"}'>4 or more</li>
+    			</ul>
+    		</div>
+      <!-- </form> -->
+    </div>
+<div data-wb-urlmapping='{ "p=one": { "action": "removeClass", "class": "hidden" } }' class="hidden" id="one">
+          <h3>If you have 1 child</h3>
+          <ul class="list-unstyled">
+            <li>
+            <details>
+                <summary>Family income below $31,120</summary>
+              <p>Your get the maximum CCB payment for that child, and it is not reduced.</p>
+
+            </details>
+            </li>
+
+            <li>
+            <details>
+                <summary>Family income over $31,120 but less than $67,427</summary>
+                <p>Your total CCB payment is reduced by:</p>
+            <ul>
+              <li>7% of your income over $31,120</li>
+            </ul>
+            </details>
+            </li>
+
+            <li>
+            <details>
+                <summary>Family income over $67,426</summary>
+                <p>Your total CCB payment is reduced by:</p>
+            <ul>
+              <li>$2,541 + 3.2% of your income above $67,426</li>
+            </ul>
+            </details>
+            </li>
+
+
+            </ul>
+            </div>
+
+            <div data-wb-urlmapping='{ "p=two": { "action": "removeClass", "class": "hidden" } }' class="hidden" id="two">
+                      <h3>If you have 2 children</h3>
+                      <ul class="list-unstyled">
+                        <li>
+                        <details>
+                            <summary>Family income below $31,120</summary>
+                          <p>Your get the maximum CCB payment for these 2 children, and your payment is not reduced.</p>
+
+                        </details>
+                        </li>
+
+                        <li>
+                        <details>
+                            <summary>Family income over $31,120 but less than $67,427</summary>
+                            <p>Your total CCB payment is reduced by:</p>
+                        <ul>
+                          <li>13.5% of your income over $31,120</li>
+
+                        </ul>
+                        </details>
+                        </li>
+
+                        <li>
+                        <details>
+                            <summary>Family income over $67,426</summary>
+                            <p>Your CCB payment is reduced by:</p>
+                        <ul>
+                          <li>$4,901 + 5.7% of your income above $67,426</li>
+                        </ul>
+                        </details>
+                        </li>
+
+
+                        </ul>
+                        </div>
+
+                        <div data-wb-urlmapping='{ "p=three": { "action": "removeClass", "class": "hidden" } }' class="hidden" id="three">
+                                  <h3>If you have 3 children</h3>
+                                  <ul class="list-unstyled">
+                                    <li>
+                                    <details>
+                                        <summary>Family income below $31,120</summary>
+                                      <p>Your get the maximum CCB payment for these 3 children, and your payment is not reduced.</p>
+
+                                    </details>
+                                    </li>
+
+                                    <li>
+                                    <details>
+                                        <summary>Family income over $31,120 but less than $67,427</summary>
+                                        <p>Your total CCB payment is reduced by:</p>
+                                    <ul>
+                                      <li>19% of your income over $31,120</li>
+                                    </ul>
+                                    </details>
+                                    </li>
+
+                                    <li>
+                                    <details>
+                                        <summary>Family income over $67,426</summary>
+                                        <p>Your total CCB payment is reduced by:</p>
+                                    <ul>
+                                      <li>$6,898 + 8% of your income above $67,426</li>
+                                    </ul>
+                                    </details>
+                                    </li>
+
+
+                                    </ul>
+                                    </div>
+
+                                    <div data-wb-urlmapping='{ "p=four": { "action": "removeClass", "class": "hidden" } }' class="hidden" id="four">
+                                              <h3>If you have 4 children or more</h3>
+                                              <ul class="list-unstyled">
+                                                <li>
+                                                <details>
+                                                    <summary>Family income below $31,120</summary>
+                                                  <p>Your get the maximum CCB payment for all your children, and your payment is not reduced.</p>
+
+                                                </details>
+                                                </li>
+
+                                                <li>
+                                                <details>
+                                                    <summary>Family income over $31,120 but less than $67,427</summary>
+                                                    <p>Your total CCB payment is reduced by:</p>
+                                                <ul>
+                                                  <li>23% of your income over $31,120</li>
+                                                </ul>
+                                                </details>
+                                                </li>
+
+                                                <li>
+                                                <details>
+                                                    <summary>Family income over $67,426</summary>
+                                                    <p>Your total CCB payment is reduced by:</p>
+                                                <ul>
+                                                  <li>$8,351 + 9.5% of your income above $67,426</li>
+                                                </ul>
+                                                </details>
+                                                </li>
+
+
+                                                </ul>
+                                                </div>
         </details>
     </li>
   </ul>
@@ -167,7 +351,7 @@
       <p>If your child is also eligible for the disability tax credit, you may be eligible for the Child disability benefit. </p>
       <a href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/child-disability-benefit.html">Child disability benefit</a>
 
-      <h2 id="proincial">Related provincial and territorial benefits</h2>
+      <h2 id="provincial">Related provincial and territorial benefits</h2>
       <p>Some provinces offer additional assistance to help with the cost of raising a family.</p>
       <p>Select your province or territory:</p>
       <ul class="list-unstyled">
