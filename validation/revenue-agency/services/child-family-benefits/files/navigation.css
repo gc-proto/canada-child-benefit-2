@@ -53,14 +53,14 @@ h2, .h2 {font-size:1.7em}
 }
 /* H1 in desktop */
 @media (min-width:992px) {
-	
+
 main#steps-navigation h1#wb-cont-section {
 	border-bottom: 0px;
 	font-size: 1.5em;
 	color: #777;
 	margin-top: 10px;
 	margin-bottom: 0px;
-	
+
 }
 main#steps-navigation #steps-content h1#wb-cont {
 	margin-top: 0px;
@@ -176,7 +176,7 @@ ol.vertical-steps>li>a[href]:hover::before {
 .vertical-steps li.completed>:first-child::before {
 	border-color: #ccc
 }
-/*active*/	
+/*active*/
 .vertical-steps li.active>:first-child::before, .fa-vertical-steps li.active span.fa-li {
 	background-color: #26374a;
 	color: #fff;
@@ -204,7 +204,7 @@ ul.fa-vertical-steps>li {
 	position: relative;
 	padding-left: 29px;
 }
- 
+
 .fa-vertical-steps>li>a[href]:hover span.fa-li {
 	height: 44px;
 	width: 44px;
@@ -227,7 +227,7 @@ ol.vertical-steps ol.vertical-steps>li {
 ol.vertical-steps ol.vertical-steps>li>:first-child::before {
 	content: counter(step-counter, upper-alpha);
 }
-/*sub-sub-steps */	
+/*sub-sub-steps */
 ol.vertical-steps ol.vertical-steps ol.vertical-steps {
 	counter-reset: step-counter;
 }
@@ -382,6 +382,8 @@ nav#tp-pg.stuck, .wb-disable nav#tp-pg {
 .alert {
 	border-width: 1px 1px 1px 4px !important;
 	margin-left: 12px;
+	margin-top: 1.7em;
+	margin-bottom: 1.7em;
 	padding-left: 20px;
 	border-width: 0px 0px 0px 6px!important
 }
