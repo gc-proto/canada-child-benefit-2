@@ -126,150 +126,24 @@
 
 <main property="mainContentOfPage" class="container">
 
-  <h1 property="name" id="wb-cont" dir="ltr">Change of address for family benefits</h1>
+  <h1 property="name" id="wb-cont" dir="ltr">Change of address for family benefits by phone</h1>
 
-  <div class="wb-frmvld" id="services">
-    <form method="get">
-      <!--Smart question!-->
-      <div id="question2" class="wb-fieldflow" data-wb-fieldflow='{
-          "noForm":true,
-          "renderas":"checkbox",
-          "base": { "live": false },
-          "noreqlabel": true,
-          "default": { "action":"addClass", "class":"hidden", "source":"#msca-account,#cra-account,#neither" }
-        }'>
-        <p>Can you sign in to either of these accounts?</p>
-        <ul>
-          <li data-wb-fieldflow='{ "action":"removeClass", "class":"hidden", "source":"#both"}'>Both My Service Canada Account and My <abbr title="Canada Revenue Agency">CRA</abbr> Account</li>
-          <li data-wb-fieldflow='[
-            { "action":"removeClass", "class":"hidden", "source":"#msca-account"},
-            { "action":"removeClass", "class":"hidden", "source":"#call-cra"}
-          ]'>My Service Canada Account</li>
-          <li data-wb-fieldflow='[
-            { "action":"removeClass", "class":"hidden", "source":"#cra-account"},
-            { "action":"removeClass", "class":"hidden", "source":"#call-sc"}
-          ]'>My <abbr title="Canada Revenue Agency">CRA</abbr> Account</li>
-          <li data-wb-fieldflow='[
-            { "action":"removeClass", "class":"hidden", "source":"#call-sc"},
-            { "action":"removeClass", "class":"hidden", "source":"#call-cra"}
-          ]'>Neither</li>
-        </ul>
-      </div>
+    <p>Change your address by phone for:</p>
+    <ul>
+      <li>Parental leave <abbr title="Employment Insurance">EI</abbr></li>
+      <li>Maternity leave <abbr title="Employment Insurance">EI</abbr></li>
+      <li>Caregiving leave <abbr title="Employment Insurance">EI</abbr></li>
+    </ul>
+    <a class="btn btn-default" href="https://www.canada.ca/en/employment-social-development/corporate/contact/ei-individual.html" target="_blank">Change your address with Service Canada</a>
 
-    </form>
-  </div>
+    <p style="margin-top:30px;">Change your address by phone for:</p>
+    <ul>
+      <li>Personal taxes</li>
+      <li>Personal tax credits</li>
+      <li>Canada Child Benefit (CCB)</li>
+    </ul>
+    <a class="btn btn-default" href="https://gc-proto.github.io/cra-contactus/scenarioA/revenue-agency/corporate/contact-us/change-your-address.html?p=personal" target="_blank">Change your address with <abbr title="Canada Revenue Agency">CRA</abbr></a>
 
-
-  <div class="" style="max-width:900px; border-bottom: 1px black solid; padding: 20px;">
-
-     <h2 class="h3">Change of address for Employment Insurance (EI), or parental, sickness or caregiving leave</h2>
-     <dl class="dl-horizontal">
-       <dt>Online:</dt>
-       <dd>
-         <p>Change your address online with My Service Canada Account.</p>
-         <div class="mrgn-tp-lg">
-           <a href="https://www.canada.ca/en/employment-social-development/services/my-account/access.html" class="btn btn-default">Sign in to My Service Canada Account</a>  <span class="register"><a href="https://www.canada.ca/en/employment-social-development/services/my-account/before-register.html">Register</a></span>
-         </div>
-       </dd>
-       <dt>By phone:</dt>
-       <dd>
-         <p><a href="https://www.canada.ca/en/employment-social-development/corporate/contact/ei-individual.html">See phone number for <abbr title="Employment Insurance">EI</abbr> or leave</a></p>
-         <p><a href="https://www.canada.ca/en/employment-social-development/corporate/contact/cpp.html">See phone number for for <abbr title="Canada Pension Plan">CPP</abbr> or <abbr title="Old Age Insurance">OAS</abbr></a></p>
-       </dd>
-      </dl>
-
-    </div>
-
-
-
-
-
-  <div class="msca-account">
-
-
-
-  </div>
-  <div class="cra-account">
-
-
-
-  </div>
-  <div class="call-sc">
-    <p>Without an online account, you will have to call</p>
-
-
-  </div>
-  <div class="call-cra">
-    <p>Without an online account, you will have to call</p>
-
-
-  </div>
-
-
-
-  <div class="row profile">
-    <div class="col-md-12">
-      <p></p>
-
-      <!--<li>Boat (pleasure craft) licence</li>
-      <li>Canada Pension Plan (CPP) or Old Age Security (OAS)</li>
-      <li>Canada Savings Bonds</li>
-      <li>Employment Insurance (EI), or parental, sickness or caregiving leave</li>
-      <li>Gun licence</li>
-      <li>Health card or driver's license (with your province)</li>
-      <li>Immigration and visas</li>
-      <li>Nexus</li>
-      <li>Personal taxes and Canada Child Benefit (CCB)</li>
-      <li>Social Insurance Number (SIN)</li>
-      <li>Veteran benefits or correspondence</li>
-      <li>Voting registration</li>-->
-
-
-
-  <!--use a responsive table/card design?-->
-
-
-
-
-      <div class="well" style="max-width:900px; border-bottom: 1px black solid;">
-
-       <div class="" style="max-width:900px; border-bottom: 1px black solid; padding: 20px;">
-
-         <h2 class="h3">Change of address for personal taxes and Canada Child Benefit (CCB)</h2>
-         <dl class="dl-horizontal">
-           <dt>Online or by phone:</dt>
-           <dd>
-             <a class="btn btn-default" href="https://gc-proto.github.io/cra-contactus/scenarioA/revenue-agency/corporate/contact-us/change-your-address.html" target="_blank">Change your address with <abbr title="Canada Revenue Agency">CRA</abbr></a>
-           </dd>
-         </dl>
-
-        </div>
-
-
-
-          <div class="" style="max-width:900px; border-bottom: 1px black solid; padding: 20px;">
-
-
-             <h2 class="h3">Change of address for Employment Insurance (EI), or parental, sickness or caregiving leave</h2>
-             <dl class="dl-horizontal">
-               <dt>Online:</dt>
-               <dd>
-                 <p>Change your address online with My Service Canada Account.</p>
-                 <div class="mrgn-tp-lg">
-                   <a href="https://www.canada.ca/en/employment-social-development/services/my-account/access.html" class="btn btn-default">Sign in to My Service Canada Account</a>  <span class="register"><a href="https://www.canada.ca/en/employment-social-development/services/my-account/before-register.html">Register</a></span>
-                 </div>
-               </dd>
-               <dt>By phone:</dt>
-               <dd>
-                 <p><a href="https://www.canada.ca/en/employment-social-development/corporate/contact/ei-individual.html">See phone number for <abbr title="Employment Insurance">EI</abbr> or leave</a></p>
-                 <p><a href="https://www.canada.ca/en/employment-social-development/corporate/contact/cpp.html">See phone number for for <abbr title="Canada Pension Plan">CPP</abbr> or <abbr title="Old Age Insurance">OAS</abbr></a></p>
-               </dd>
-              </dl>
-
-            </div>
-
-
-</div>
 
 <div class="pagedetails">
 <div class="row">

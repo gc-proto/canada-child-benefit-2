@@ -128,77 +128,32 @@
 
   <h1 property="name" id="wb-cont" dir="ltr">Change of address for family benefits</h1>
 
-  <p>Please answer the one question so that we can help you change your address for the family and child benefits you receive.</p>
+  <ul>
+    <li>Change your address for Canada Child Benefit and other tax credits with the Canada Revenue Agency.</li>
+    <li>Change your address for Employment Insurance for parental, maternity or caregiving leave with Service Canada.</li>
+  </ul>
+  <p>After you change your address with one account, make sure to use the link to change your address with the other.</p>
+  <p>You can still do this onlne without the other online account.</p>
 
   <div class="wb-frmvld" id="services">
-    <form method="get">
+    <!-- <form method="get"> -->
       <!--Smart question!-->
       <div id="question2" class="wb-fieldflow" data-wb-fieldflow='{
           "noForm":false,
-          "renderas":"checkbox",
+          "renderas":"radio",
           "base": { "live": false },
-          "noreqlabel": true,
-          "default": { "action":"addClass", "class":"hidden", "source":"#msca-account,#cra-account,#neither" }
+          "noreqlabel": true
         }'>
         <p>Can you sign in to either of these accounts?</p>
         <ul>
-          <li data-wb-fieldflow='[
-            { "action":"removeClass", "class":"hidden", "source":"#msca-account"},
-            { "action":"removeClass", "class":"hidden", "source":"#call-cra"}
-          ]'>My Service Canada Account</li>
-          <li data-wb-fieldflow='[
-            { "action":"removeClass", "class":"hidden", "source":"#cra-account"},
-            { "action":"removeClass", "class":"hidden", "source":"#call-sc"}
-          ]'>My CRA Account</li>
-          <li data-wb-fieldflow='{ "action":"removeClass", "class":"hidden", "source":"#both"}'>Both</li>
-          <li data-wb-fieldflow='[
-            { "action":"removeClass", "class":"hidden", "source":"#call-sc"},
-            { "action":"removeClass", "class":"hidden", "source":"#call-cra"}
-          ]'>Neither</li>
+          <li><a href="../employment-social-development/services/my-account/access.html">My Service Canada Account</a></li>
+          <li><a href="../revenue-agency/services/e-services/e-services-individuals/account-individuals.html">My CRA Account</a></li>
+          <li><a href="./change-address-family-phone.html">Neither</a></li>
         </ul>
       </div>
 
-    </form>
+    <!-- </form> -->
   </div>
-
-  <div class="msca-account">
-
-
-
-  </div>
-
-  <div class="cra-account">
-
-
-
-  </div>
-
-  <div class="call-sc">
-    <div class="" style="max-width:900px; border-bottom: 1px black solid; padding: 20px;">
-     <h2 class="h3">Change of address for Employment Insurance (EI), or parental, sickness or caregiving leave</h2>
-     <dl class="dl-horizontal">
-       <dt>By phone:</dt>
-       <dd>
-         <p><a href="https://www.canada.ca/en/employment-social-development/corporate/contact/ei-individual.html">See phone number for <abbr title="Employment Insurance">EI</abbr> or leave</a></p>
-         <p><a href="https://www.canada.ca/en/employment-social-development/corporate/contact/cpp.html">See phone number for for <abbr title="Canada Pension Plan">CPP</abbr> or <abbr title="Old Age Insurance">OAS</abbr></a></p>
-       </dd>
-      </dl>
-    </div>
-  </div>
-
-  <div class="call-cra">
-    <div class="" style="max-width:900px; border-bottom: 1px black solid; padding: 20px;">
-      <h2 class="h3">Change of address for personal taxes and Canada Child Benefit (CCB)</h2>
-      <dl class="dl-horizontal">
-        <dt>By phone:</dt>
-        <dd>
-          <a class="btn btn-default" href="https://gc-proto.github.io/cra-contactus/scenarioA/revenue-agency/corporate/contact-us/change-your-address.html" target="_blank">Change your address with <abbr title="Canada Revenue Agency">CRA</abbr></a>
-        </dd>
-      </dl>
-    </div>
-
-  </div>
-
 
 
 <div class="pagedetails">
