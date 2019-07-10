@@ -964,3 +964,7 @@ color: white !important;
 		position: relative;
 		top: -15px;
 	}
+
+	.maHelpLink {
+		margin-bottom: 25px;
+	}
