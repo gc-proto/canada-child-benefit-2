@@ -160,79 +160,30 @@
     </span>
   </h1>
 
-	<div class="add-children">
-		<div class="row mrgn-tp-md">
-		  <div class="col-sm-2">
-		   <h2 class="h4 mrgn-tp-0"> First child</h2>
-		  </div>
-		  <div class="col-sm-10">
-			  <form id="addchld" name="addchld" action="/ebci/icbc/prot/addchld" method="post">
-			   <div class="form-group">
-			    <label for="label-1-0">Age</label>
-			    <input type="text" size="2" id="label-1-0" name="label-1-0" class="form-control">
-			   </div>
-			   <legend class="mrgn-bttm-sm required h4 pull-left"> Is this child a qualified disabled dependant? <strong class="required">(required)</strong> </legend>
-			   <div class="radio">
-			    <label for="addchld_disabledtrue" class="form-radio">
-			    <input type="radio" name="disabled" id="addchld_disabledtrue" value="true" class="form-radio"/>Yes <a href="#disabled-help" aria-controls="disabled-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Qualified disabled dependant</span> </a></label>
-			   </div>
-			   <div class="radio">
-			    <label for="addchld_disabledfalse" class="form-radio">
-			    <input type="radio" name="disabled" id="addchld_disabledfalse" checked="checked" value="false" class="form-radio"/>No</label>
-			   </div>
-			   <legend class="mrgn-bttm-sm  h4 required"> Do you share custody of this child? <strong class="required">(required)</strong> </legend>
-			   <div class="radio">
-			    <label for="addchld_inSharedCustodytrue" class="form-radio">
-			    <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodytrue" value="true" class="form-radio"/>Yes <a href="#inSharedCustody-help"
-				aria-controls="inSharedCustody-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Shared custody</span> </a></label>
-			   </div>
-			   <div class="radio">
-			    <label for="addchld_inSharedCustodyfalse" class="form-radio">
-			    <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodyfalse" checked="checked" value="false" class="form-radio"/>No</label>
-			   </div>
-			  </form>
-	 		</div>
-	 </div>
-	 <div class="row mrgn-tp-md">
-   <div class="col-sm-2">
-    <h2 class="h4 mrgn-tp-0"> First child</h2>
-   </div>
-   <div class="col-sm-10">
-   <form id="addchld" name="addchld" action="/ebci/icbc/prot/addchld" method="post">
-    <div class="form-group">
-     <label for="label-1-0">Age</label>
-     <input type="text" size="2" id="label-1-0" name="label-1-0" class="form-control">
-    </div>
-    <legend class="mrgn-bttm-sm required h4 pull-left"> Is this child a qualified disabled dependant? <strong class="required">(required)</strong> </legend>
-    <div class="radio">
-     <label for="addchld_disabledtrue" class="form-radio">
-     <input type="radio" name="disabled" id="addchld_disabledtrue" value="true" class="form-radio"/>
-     Yes <a href="#disabled-help"
- 	aria-controls="disabled-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Qualified disabled dependant</span> </a></label>
-    </div>
-    <div class="radio">
-     <label for="addchld_disabledfalse" class="form-radio">
-     <input type="radio" name="disabled" id="addchld_disabledfalse" checked="checked" value="false" class="form-radio"/>
-     No</label>
-    </div>
-    <legend class="mrgn-bttm-sm  h4 required"> Do you share custody of this child? <strong class="required">(required)</strong> </legend>
-    <div class="radio">
-     <label for="addchld_inSharedCustodytrue" class="form-radio">
-     <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodytrue" value="true" class="form-radio"/>
-     Yes <a href="#inSharedCustody-help"
- 	aria-controls="inSharedCustody-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Shared custody</span> </a></label>
-    </div>
-    <div class="radio">
-     <label for="addchld_inSharedCustodyfalse" class="form-radio">
-     <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodyfalse" checked="checked" value="false" class="form-radio"/>
-     No</label>
-    </div>
-   </form>
-  </div>
-  </div>
-
-
+	<div id="add-children">
 	</div>
+
+	<!-- <div class="row mrgn-tp-md">
+		<div class="col-sm-2">
+			<h2 class="h4 mrgn-tp-0"> First child</h2>
+		</div>
+		<div class="col-sm-10">
+			<label for="childage1">Age</label>
+			<input type="text" size="2" id="childage1" name="childage1" class="form-control">
+			<ul class="list-unstyled can-ca-form">
+				<li class="checkbox checkbox-small">
+					<input type="checkbox" id="disability1">
+					<label for="disability1">This child is a qualified disabled dependent</label>
+				</li>
+			</ul>
+			<ul class="list-unstyled can-ca-form">
+				<li class="checkbox checkbox-small">
+					<input type="checkbox" id="shared-custody1">
+					<label for="shared-custody1">You share custody of this child</label>
+				</li>
+			</ul>
+		</div>
+	</div> -->
 
 	<div class="col-xs-3" style="height:28px; padding-top:10px;">
 		<a href="step4-children.html" class="">Previous</a> &nbsp;
@@ -379,28 +330,57 @@
 
 <script>
 $(document).ready(function(){
-	var children = localStorage.getItem("children"));
+	var arrNumberWords = [ "first","second","third","fourth","fifth","sixth","seventh","eighth","ninth","tenth" ];
+	var children = localStorage.getItem("children");
 	$.each(children, function (index, child) {
-		$('#add-children').html('<div>'+child+'');
-		//ids on radios also auto generated?
+		$('#add-children').html('<div class=>' + child + '<div class="row mrgn-tp-md"><div class="col-sm-2"><h2 class="h4 mrgn-tp-0">' + arrNumberWords[child]  + ' child</h2></div><div class="col-sm-10"><label for="childage' + child + '">Age</label><input type="text" size="2" id="childage1'+ child +'" name="childage1'+ child +'" class="form-control"><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="disability' + child + '"><label for="disability' + child + '">This child is a qualified disabled dependent</label></li></ul><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="shared-custody' + child + '"><label for="shared-custody' + child + '">You share custody of this child</label></li></ul></div></div>');
 	});
 
+	//checkbox unchecked by default
+	if (document.getElementById('disability1').checked) {
+		localStorage.setItem("disability1", "true");
+	} else {
+		localStorage.setItem("disability1", "false");
+	}
+	if (document.getElementById('shared-custody1').checked) {
+		localStorage.setItem("shared-custody1", "true");
+	} else {
+		localStorage.setItem("shared-custody1", "false");
+	}
 
-	$("#numberOfChildren").change(function(){
-		localStorage.setItem("children", document.getElementById("numberOfChildren").value);
+	$("#childage1").change(function(){
+		localStorage.setItem("childage1", document.getElementById("childage1").value);
+	});
+	$("#disability1").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability1').checked) {
+			localStorage.setItem("disability1", "true");
+		} else {
+			localStorage.setItem("disability1", "false");
+		}
+	});
+	$("#shared-custody1").change(function(){
+		if (document.getElementById('shared-custody1').checked) {
+			localStorage.setItem("shared-custody1", "true");
+		} else {
+			localStorage.setItem("shared-custody1", "false");
+		}
 	});
 });
 
 	$("#save-children-details").click(function(){
 		// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-		// console.log(localStorage.getItem("tax-year"));
-		// console.log(localStorage.getItem("tax-resident"));
-		// console.log(localStorage.getItem("province"));
-		// console.log(localStorage.getItem("marital"));
-		// console.log(localStorage.getItem("children"));
+		console.log(localStorage.getItem("tax-year"));
+		console.log(localStorage.getItem("tax-resident"));
+		console.log(localStorage.getItem("province"));
+		console.log(localStorage.getItem("marital"));
+		console.log(localStorage.getItem("children"));
+		console.log(localStorage.getItem("childage1"));
+		console.log(localStorage.getItem("disability1"));
+		console.log(localStorage.getItem("shared-custody1"));
 
 		//Go to next step
-		window.location.href = "./step5-children-details.html"
+		// window.location.href = "./step5-children-details.html"
 
 	});
 </script>

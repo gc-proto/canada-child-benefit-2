@@ -338,8 +338,12 @@ $(document).ready(function(){
 		// console.log(localStorage.getItem("children"));
 
 		//Go to next step
-		window.location.href = "./step5-children-details.html"
-
+		//But if no children, skip next step
+		if (children = "0") {
+			window.location.href = "./step6-income.html"
+		} else {
+			window.location.href = "./step5-children-details.html"
+		}
 	});
 </script>
 
