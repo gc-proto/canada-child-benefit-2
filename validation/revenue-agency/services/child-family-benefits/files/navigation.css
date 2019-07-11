@@ -18,39 +18,40 @@ h2, .h2 {font-size:1.7em}
 }
 .section-menu.mobile .menu-title {
 	margin-bottom: 0px;
-	margin-left: 50px;
+	margin-left: 0px;
+	/* margin-left: 50px; */
 	text-indent: 3px
 }
 .section-menu.mobile.open .menu-header {
 	border-bottom: 1px solid #26374a;
 }
-.section-menu.mobile .menu-header:hover {
+/* .section-menu.mobile .menu-header:hover {
 	background-color: #26374a;
 	color: #fff;
 	cursor: pointer;
-}
-.section-menu.mobile .menu-header .menu-title:before {
+} */
+/* .section-menu.mobile .menu-header .menu-title:before {
 	display: inline-block;
 	vertical-align: -15%;
 	font-family: "Glyphicons Halflings";
 	margin-right: 0.5em;
 	transition: transform 0.5s;
 	margin-left: -50px
-}
-.section-menu.mobile .menu-header[aria-expanded=true] .menu-title:before {
+} */
+/* .section-menu.mobile .menu-header[aria-expanded=true] .menu-title:before {
 	content: "\e114";
 }
 .section-menu.mobile .menu-header[aria-expanded=false] .menu-title:before {
 	content: "\e114";
 	-ms-transform: rotate(-90deg);
 	-webkit-transform: rotate(-90deg);
-}
-.section-menu.mobile:not(.open) .menu-body {
+} */
+/* .section-menu.mobile:not(.open) .menu-body {
 	display: none;
 }
 .section-menu.mobile.open .menu-body {
 	display: block
-}
+} */
 /* H1 in desktop */
 @media (min-width:992px) {
 
