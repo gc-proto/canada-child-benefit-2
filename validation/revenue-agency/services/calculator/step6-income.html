@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Marital status - Child and family benefits estimator - Canada.ca</title>
+<title>Income - Child and family benefits estimator - Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description">
 <!--[if gte IE 9 | !IE ]><!-->
@@ -155,34 +155,43 @@
 
   <h1 property="name" id="wb-cont" dir="ltr">
     <span class="stacked" role="text">
-      <span>Step 3: Indicate your marital status</span>: <span>Child and family benefits estimator</span>
+      <span>Step 6: Indicate your income</span>: <span>Child and family benefits estimator</span>
     </span>
   </h1>
 
-  <div class="wb-frmvld" id="services">
-    <form method="get">
-      <!--Smart question!-->
-      <div id="question1" class="wb-fieldflow" data-wb-fieldflow='{
-          "noForm":true,
-          "renderas":"radio",
-          "base": { "live": false },
-          "noreqlabel": true
-        }'>
-        <p>Marital status</p>
-        <ul>
-          <li>Divorced</li>
-          <li>Living Common Law</li>
-					<li>Married</li>
-					<li>Separated</li>
-					<li>Single</li>
-					<li>Widowed</li>
-        </ul>
-      </div>
+	<form id="proc_financial" name="proc_financial" action="/ebci/icbc/prot/proc_financial" method="post" class="mrgn-tp-md">
+	 <div class="form-group">
+		<label for="netIncome" class="required"> What was your net income in 2018 <span class="wb-inv">(dollars only, no cents)</span> <strong class="required">(required)</strong> </label>
+		<a href="#netIncome-help"
+ aria-controls="netIncome-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Your net income</span> </a>
+		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+		 <input type="text" name="netIncome" size="7" maxlength="7" value="" id="proc_financial_netIncome" class="form-control text-right" var="netIncome"/>
+		 <span class="input-group-addon"> .00 </span> </div>
+	 </div>
 
-    </form>
-  </div>
+	 <div class="wb-frmvld" id="services">
+		 <form method="get">
+			 <!--Smart question!-->
+			 <div id="question1" class="wb-fieldflow" data-wb-fieldflow='{
+					 "noForm":true,
+					 "renderas":"radio",
+					 "base": { "live": false },
+					 "noreqlabel": true
+				 }'>
+				 <p>Did you make or receive any universal child care benefit (UCCB) or registered disability savings plan (RDSP) payments in 2018?</p>
+				 <p><small>hi</small></p>
+				 <ul>
+					 <li data-wb-fieldflow='{ "action": "removeClass", "source":"#uccb-rdsp-income", "class":"hidden" }'>Yes</li>
+					 <li>No</li>
+				 </ul>
+			 </div>
 
-	<a class="btn btn-call-to-action" href="./children.html" style="margin-top:0px;">Next</a>
+		 </form>
+	 </div>
+
+
+
+	<a class="btn btn-call-to-action" href="./step7-worker.html" style="margin-top:0px;">Next</a>
 
 
  <div class="clearfix"></div>
