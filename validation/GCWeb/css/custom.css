@@ -898,6 +898,11 @@ color: white !important;
 
 }
 
+body.transactional div#wb-bnr div.brand {
+		left: 0px !important;
+		position: static;
+}
+
 }
 
 
