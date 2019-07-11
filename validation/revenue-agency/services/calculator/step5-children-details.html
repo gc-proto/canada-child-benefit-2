@@ -14,6 +14,7 @@
 <link href="https://wet-boew.github.io/themes-dist/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/theme.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
+<link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <!--<![endif]-->
 <!--[if lt IE 9]>
@@ -159,84 +160,87 @@
     </span>
   </h1>
 
-  <div class="row mrgn-tp-md">
-  <div class="col-sm-2">
-   <h2 class="h4 mrgn-tp-0"> First child</h2>
+	<div class="add-children">
+		<div class="row mrgn-tp-md">
+		  <div class="col-sm-2">
+		   <h2 class="h4 mrgn-tp-0"> First child</h2>
+		  </div>
+		  <div class="col-sm-10">
+			  <form id="addchld" name="addchld" action="/ebci/icbc/prot/addchld" method="post">
+			   <div class="form-group">
+			    <label for="label-1-0">Age</label>
+			    <input type="text" size="2" id="label-1-0" name="label-1-0" class="form-control">
+			   </div>
+			   <legend class="mrgn-bttm-sm required h4 pull-left"> Is this child a qualified disabled dependant? <strong class="required">(required)</strong> </legend>
+			   <div class="radio">
+			    <label for="addchld_disabledtrue" class="form-radio">
+			    <input type="radio" name="disabled" id="addchld_disabledtrue" value="true" class="form-radio"/>Yes <a href="#disabled-help" aria-controls="disabled-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Qualified disabled dependant</span> </a></label>
+			   </div>
+			   <div class="radio">
+			    <label for="addchld_disabledfalse" class="form-radio">
+			    <input type="radio" name="disabled" id="addchld_disabledfalse" checked="checked" value="false" class="form-radio"/>No</label>
+			   </div>
+			   <legend class="mrgn-bttm-sm  h4 required"> Do you share custody of this child? <strong class="required">(required)</strong> </legend>
+			   <div class="radio">
+			    <label for="addchld_inSharedCustodytrue" class="form-radio">
+			    <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodytrue" value="true" class="form-radio"/>Yes <a href="#inSharedCustody-help"
+				aria-controls="inSharedCustody-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Shared custody</span> </a></label>
+			   </div>
+			   <div class="radio">
+			    <label for="addchld_inSharedCustodyfalse" class="form-radio">
+			    <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodyfalse" checked="checked" value="false" class="form-radio"/>No</label>
+			   </div>
+			  </form>
+	 		</div>
+	 </div>
+	 <div class="row mrgn-tp-md">
+   <div class="col-sm-2">
+    <h2 class="h4 mrgn-tp-0"> First child</h2>
+   </div>
+   <div class="col-sm-10">
+   <form id="addchld" name="addchld" action="/ebci/icbc/prot/addchld" method="post">
+    <div class="form-group">
+     <label for="label-1-0">Age</label>
+     <input type="text" size="2" id="label-1-0" name="label-1-0" class="form-control">
+    </div>
+    <legend class="mrgn-bttm-sm required h4 pull-left"> Is this child a qualified disabled dependant? <strong class="required">(required)</strong> </legend>
+    <div class="radio">
+     <label for="addchld_disabledtrue" class="form-radio">
+     <input type="radio" name="disabled" id="addchld_disabledtrue" value="true" class="form-radio"/>
+     Yes <a href="#disabled-help"
+ 	aria-controls="disabled-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Qualified disabled dependant</span> </a></label>
+    </div>
+    <div class="radio">
+     <label for="addchld_disabledfalse" class="form-radio">
+     <input type="radio" name="disabled" id="addchld_disabledfalse" checked="checked" value="false" class="form-radio"/>
+     No</label>
+    </div>
+    <legend class="mrgn-bttm-sm  h4 required"> Do you share custody of this child? <strong class="required">(required)</strong> </legend>
+    <div class="radio">
+     <label for="addchld_inSharedCustodytrue" class="form-radio">
+     <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodytrue" value="true" class="form-radio"/>
+     Yes <a href="#inSharedCustody-help"
+ 	aria-controls="inSharedCustody-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Shared custody</span> </a></label>
+    </div>
+    <div class="radio">
+     <label for="addchld_inSharedCustodyfalse" class="form-radio">
+     <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodyfalse" checked="checked" value="false" class="form-radio"/>
+     No</label>
+    </div>
+   </form>
   </div>
-  <div class="col-sm-10">
-  <form id="addchld" name="addchld" action="/ebci/icbc/prot/addchld" method="post">
-   <div class="form-group">
-    <label for="label-1-0">Age</label>
-    <input type="text" size="2" id="label-1-0" name="label-1-0" class="form-control">
-   </div>
-   <legend class="mrgn-bttm-sm required h4 pull-left"> Is this child a qualified disabled dependant? <strong class="required">(required)</strong> </legend>
-   <div class="radio">
-    <label for="addchld_disabledtrue" class="form-radio">
-    <input type="radio" name="disabled" id="addchld_disabledtrue" value="true" class="form-radio"/>
-    Yes <a href="#disabled-help"
-	aria-controls="disabled-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Qualified disabled dependant</span> </a></label>
-   </div>
-   <div class="radio">
-    <label for="addchld_disabledfalse" class="form-radio">
-    <input type="radio" name="disabled" id="addchld_disabledfalse" checked="checked" value="false" class="form-radio"/>
-    No</label>
-   </div>
-   <legend class="mrgn-bttm-sm  h4 required"> Do you share custody of this child? <strong class="required">(required)</strong> </legend>
-   <div class="radio">
-    <label for="addchld_inSharedCustodytrue" class="form-radio">
-    <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodytrue" value="true" class="form-radio"/>
-    Yes <a href="#inSharedCustody-help"
-	aria-controls="inSharedCustody-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Shared custody</span> </a></label>
-   </div>
-   <div class="radio">
-    <label for="addchld_inSharedCustodyfalse" class="form-radio">
-    <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodyfalse" checked="checked" value="false" class="form-radio"/>
-    No</label>
-   </div>
-  </form>
- </div>
- </div>
-
- <div class="row mrgn-tp-md">
- <div class="col-sm-2">
-	<h2 class="h4 mrgn-tp-0"> Second child</h2>
- </div>
- <div class="col-sm-10">
- <form id="addchld" name="addchld" action="/ebci/icbc/prot/addchld" method="post">
-	<div class="form-group">
-	 <label for="label-1-0">Year of birth</label>
-	 <input type="text" size="4" id="label-1-0" name="label-1-0" class="form-control" placeholder="YYYY">
-	</div>
-	<legend class="mrgn-bttm-sm required h4 pull-left"> Is this child a qualified disabled dependant? <strong class="required">(required)</strong> </legend>
-	<div class="radio">
-	 <label for="addchld_disabledtrue" class="form-radio">
-	 <input type="radio" name="disabled" id="addchld_disabledtrue" value="true" class="form-radio"/>
-	 Yes <a href="#disabled-help"
- aria-controls="disabled-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Qualified disabled dependant</span> </a></label>
-	</div>
-	<div class="radio">
-	 <label for="addchld_disabledfalse" class="form-radio">
-	 <input type="radio" name="disabled" id="addchld_disabledfalse" checked="checked" value="false" class="form-radio"/>
-	 No</label>
-	</div>
-	<legend class="mrgn-bttm-sm  h4 required"> Do you share custody of this child? <strong class="required">(required)</strong> </legend>
-	<div class="radio">
-	 <label for="addchld_inSharedCustodytrue" class="form-radio">
-	 <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodytrue" value="true" class="form-radio"/>
-	 Yes <a href="#inSharedCustody-help"
- aria-controls="inSharedCustody-help" class="wb-lbx" role="button"> <span class="glyphicon glyphicon-question-sign"></span><span class="wb-inv">Help for Shared custody</span> </a></label>
-	</div>
-	<div class="radio">
-	 <label for="addchld_inSharedCustodyfalse" class="form-radio">
-	 <input type="radio" name="inSharedCustody" id="addchld_inSharedCustodyfalse" checked="checked" value="false" class="form-radio"/>
-	 No</label>
-	</div>
- </form>
-</div>
-</div>
+  </div>
 
 
-<a class="btn btn-call-to-action" href="./step6-income.html">Next</a>
+	</div>
+
+	<div class="col-xs-3" style="height:28px; padding-top:10px;">
+		<a href="step4-children.html" class="">Previous</a> &nbsp;
+	</div>
+	<div class="col-xs-3">
+		<button id="save-children-details" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+	</div>
+
 
  <div class="clearfix"></div>
  <div class="pagedetails">
@@ -372,6 +376,34 @@
 
   		<![endif]-->
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
+
+<script>
+$(document).ready(function(){
+	var children = localStorage.getItem("children"));
+	$.each(children, function (index, child) {
+		$('#add-children').html('<div>'+child+'');
+		//ids on radios also auto generated?
+	});
+
+
+	$("#numberOfChildren").change(function(){
+		localStorage.setItem("children", document.getElementById("numberOfChildren").value);
+	});
+});
+
+	$("#save-children-details").click(function(){
+		// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+		// console.log(localStorage.getItem("tax-year"));
+		// console.log(localStorage.getItem("tax-resident"));
+		// console.log(localStorage.getItem("province"));
+		// console.log(localStorage.getItem("marital"));
+		// console.log(localStorage.getItem("children"));
+
+		//Go to next step
+		window.location.href = "./step5-children-details.html"
+
+	});
+</script>
 
 </body>
 </html>
