@@ -944,27 +944,32 @@ color: white !important;
 
 /* minimalist "transactional" version of the page template (only really works on mobile) - added by DK July 10 */
 
-	nav.gcweb-v2-minimal {
+	body.transactional nav.gcweb-v2 {
 		border-top: 3px solid #38414d;
 	}
 
-	nav.gcweb-v2-minimal h2 {
+	body.transactional nav.gcweb-v2 h2 {
 		margin-top: 18px;
 		margin-bottom: 18px;
 		float: left;
 	}
-	nav.gcweb-v2-minimal a.btn-login {
+	body.transactional nav.gcweb-v2 a.btn-login {
 		margin-top: 18px;
 		position: relative;
 		left: 10px;
 		float: right;
 	}
 
-	nav.breadcrumb-minimal {
-		position: relative;
-		top: -15px;
+	body.transactional nav.breadcrumb {
+		position: relative !important;
+		margin-top: -15px !important;
 	}
 
-	.maHelpLink {
+	body.transactional .maHelpLink {
 		margin-bottom: 25px;
+	}
+
+	body.transactional div.landscape ul {
+		margin-left: 2px;
+		padding-left: 2px;
 	}
