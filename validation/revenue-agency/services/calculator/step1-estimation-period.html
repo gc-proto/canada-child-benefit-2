@@ -14,6 +14,7 @@
 <link href="https://wet-boew.github.io/themes-dist/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/theme.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
+<link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <!--<![endif]-->
 <!--[if lt IE 9]>
@@ -151,32 +152,6 @@
 </header>
 <!-- class="gc-theme" is doing some weird stuff with the first h2... -->
 <main property="mainContentOfPage" class="container">
-	<script>
-		$("#save-estimation-period").click(function(){
-
-			//check which items are checked
-			//save to storage
-			//send to next URL
-
-			var checked = JSON.parse(localStorage.getItem('checkbox1zaal1'));
-			if (checked == true) {
-			    document.getElementById("checkbox1zaal1").checked = true;
-			}
-			localStorage.setItem("tax-year", );
-
-			// Store
-
-			//store as tax year
-
-			// Retrieve
-			document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-
-			//Go to next step
-			window.location.href = "./step2-residency.html"
-
-		})
-	</script>
-
 
   <h1 property="name" id="wb-cont" dir="ltr">
     <span class="stacked" role="text">
@@ -184,13 +159,19 @@
     </span>
   </h1>
 
-
-  <p>For which period do you want to estimate your <abbr title="Canada Child Benefit">CCB</abbr> payments?</p>
-  <ul>
-    <li>July 2018 to June 2019</li>
-    <li>July 2017 to June 2018</li>
-  </ul>
-
+	<form id="period">
+		<legend class="h5">For which period do you want to estimate your <abbr title="Canada Child Benefit">CCB</abbr> payments?</legend>
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input id="2018" type="radio" name="tax-year" value="2018">
+				<label for="2018">July 2019 to June 2020</label>
+			</li>
+		  <li class="radio">
+		    <input id="2017" type="radio" name="tax-year" value="2017">
+				<label for="2017">July 2018 to June 2019</label>
+		  </li>
+		</ul>
+	</form>
 	<button id="save-estimation-period" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
   <!-- <a class="btn btn-call-to-action" href="./step2-residency.html" style="margin-top:0px;">Next</a> -->
 
@@ -329,6 +310,63 @@
 
   		<![endif]-->
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
+<script>
+$(document).ready(function(){
+	$("#2018").change(function(){
+		localStorage.setItem("tax-year", "2018");
+	});
+	$("#2017").change(function(){
+		localStorage.setItem("tax-year", "2017");
+	});
+});
+
+	$("#save-estimation-period").click(function(){
+		//check which items are checked
+		//add to local storage
+
+
+
+
+		// var iTaxYear = $("#period input[type='radio']:checked").val();
+		// localStorage.setItem("tax-year", iTaxYear);
+
+
+		//Go to next step
+		window.location.href = "./step2-residency.html"
+
+
+
+		//
+		// ;
+		//
+		//
+		//
+		// var eRadio = document.getElementsByName("tax-year"); // list of radio buttons
+		// var iTaxYear = localStorage.getItem('tax-year'); // local storage value
+		// // for (var i = 0; i < radios.length; i++){
+		// //   if (radios[i].value == iTaxYear){
+		// //       radios[i].checked = true; // marking the required radio as checked
+		// //   }
+		// // }
+		//
+		//
+		// //save to storage
+		//
+		//
+		//
+		//
+
+
+		// // Retrieving from cache
+		// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+		// console.log(localStorage.getItem("tax-year"))
+
+
+
+
+	});
+</script>
+
 
 </body>
 </html>
