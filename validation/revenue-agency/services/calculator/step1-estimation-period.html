@@ -151,6 +151,31 @@
 </header>
 <!-- class="gc-theme" is doing some weird stuff with the first h2... -->
 <main property="mainContentOfPage" class="container">
+	<script>
+		$("#save-estimation-period").click(function(){
+
+			//check which items are checked
+			//save to storage
+			//send to next URL
+
+			var checked = JSON.parse(localStorage.getItem('checkbox1zaal1'));
+			if (checked == true) {
+			    document.getElementById("checkbox1zaal1").checked = true;
+			}
+			localStorage.setItem("tax-year", );
+
+			// Store
+
+			//store as tax year
+
+			// Retrieve
+			document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+
+			//Go to next step
+			window.location.href = "./step2-residency.html"
+
+		})
+	</script>
 
 
   <h1 property="name" id="wb-cont" dir="ltr">
@@ -159,26 +184,15 @@
     </span>
   </h1>
 
-  <div class="wb-frmvld" id="services">
-    <form method="get">
-      <!--Smart question!-->
-      <div id="question1" class="wb-fieldflow" data-wb-fieldflow='{
-          "noForm":true,
-          "renderas":"radio",
-          "base": { "live": false },
-          "noreqlabel": true
-        }'>
-        <p>For which period do you want to estimate your <abbr title="Canada Child Benefit">CCB</abbr> payments?</p>
-        <ul>
-          <li>July 2018 to June 2019</li>
-          <li>July 2017 to June 2018</li>
-        </ul>
-      </div>
 
-    </form>
-  </div>
+  <p>For which period do you want to estimate your <abbr title="Canada Child Benefit">CCB</abbr> payments?</p>
+  <ul>
+    <li>July 2018 to June 2019</li>
+    <li>July 2017 to June 2018</li>
+  </ul>
 
-  <a class="btn btn-call-to-action" href="./residency.html" style="margin-top:0px;">Next</a>
+	<button id="save-estimation-period" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+  <!-- <a class="btn btn-call-to-action" href="./step2-residency.html" style="margin-top:0px;">Next</a> -->
 
 
  <div class="clearfix"></div>
