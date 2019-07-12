@@ -145,7 +145,8 @@
     <li class="hidden-xs hidden-sm"><a href="https://gc-proto.github.io/canada-child-benefit-2/validation/en.html">Home</a></li>
       <li class="hidden-xs hidden-sm"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/services/benefits.html'>Benefits</a></li>
       <li class="hidden-xs hidden-sm"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/services/benefits/family.html'>Family and caregiving benefits</a></li>
-      <li class="no-break-breadcrumb"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/canada-child-benefit.html'>Canada child benefit</a></li>
+			<li class="hidden-xs hidden-sm"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/canada-child-benefit.html'>Canada child benefit</a></li>
+			<li class="no-break-breadcrumb"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/canada-child-benefit-7.html'>How much you can get</a></li>
    </ol>
   </div>
  </nav>
@@ -323,14 +324,13 @@
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
 
 <script>
-$(document).ready(function(){
-	$("#numberOfChildren").change(function(){
-		localStorage.setItem("children", document.getElementById("numberOfChildren").value);
+	$(document).ready(function(){
+		$("#numberOfChildren").change(function(){
+			localStorage.setItem("children", document.getElementById("numberOfChildren").value);
+		});
 	});
-});
 
 	$("#save-children").click(function(){
-		// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 		// console.log(localStorage.getItem("tax-year"));
 		// console.log(localStorage.getItem("tax-resident"));
 		// console.log(localStorage.getItem("province"));

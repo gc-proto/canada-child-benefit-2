@@ -145,7 +145,8 @@
     <li class="hidden-xs hidden-sm"><a href="https://gc-proto.github.io/canada-child-benefit-2/validation/en.html">Home</a></li>
       <li class="hidden-xs hidden-sm"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/services/benefits.html'>Benefits</a></li>
       <li class="hidden-xs hidden-sm"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/services/benefits/family.html'>Family and caregiving benefits</a></li>
-      <li class="no-break-breadcrumb"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/canada-child-benefit.html'>Canada child benefit</a></li>
+			<li class="hidden-xs hidden-sm"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/canada-child-benefit.html'>Canada child benefit</a></li>
+			<li class="no-break-breadcrumb"><a href='https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/canada-child-benefit-7.html'>How much you can get</a></li>
    </ol>
   </div>
  </nav>
@@ -160,7 +161,7 @@
     </span>
   </h1>
 
-	<label for="income">For <span id="tax-year"></span>, what was your net income?</span></label>
+	<label for="income">For <span id="tax-year1"></span>, what was your net income?</span></label>
 	<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 	<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -170,29 +171,57 @@
 
 	<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
 
+	<div id="spouse-income-div" class="hidden">
+		<label for="income">For <span id="tax-year2"></span>, what was your <span id="and-spouse2"></span>'s net income?</span></label>
+		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+			<input type="text" size="7" maxlength="7" id="spouse-income" name="income" class="form-control text-right" style="min-height:50px;">
+			<span class="input-group-addon"> .00 </span>
+		</div>
+	</div>
+
 	<form id="rdsp-uccb-income" class="mrgn-tp-lg">
-		<legend class="h5">For <span id="tax-year"></span>, are you expecting to earn less than x?</legend>
+		<legend class="h5">For <span id="tax-year3"></span>, are <span id="and-spouse">you </span>expecting to earn less than $37,000CND?</legend>
 		<ul class="list-unstyled can-ca-form">
-			<li class="checkbox">
-				<input type="checkbox" id="uccb">
-				<label for="uccb">Universal Child Care Benefit (UCCB)</label>
+			<li class="radio">
+				<input type="radio" id="less-than-36" name="cwb" value="less-than-36">
+				<label for="less-than-36">Yes</label>
 			</li>
-			<li class="checkbox">
-				<input type="checkbox" id="rdsp">
-				<label for="rdsp">Registered Disabled Savings Plan (RDSP)</label>
-			</li>
-			<li class="checkbox">
-				<input type="checkbox" id="neither">
-				<label for="neither">Neither</label>
+			<li class="radio">
+				<input type="radio" id="more-than-36" name="cwb" value="more-than-36">
+				<label for="more-than-36">No</label>
 			</li>
 		</ul>
 	</form>
 
-	<div class="col-xs-3" style="height:28px; padding-top:10px;">
-		<a href="step5-children-details.html" class="">Previous</a> &nbsp;
+	<div id="this-year-income-div" class="hidden">
+		<label for="this-year-income">For <span id="this-year-tax-year1"></span>, what is your expected net income?</span></label>
+		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+			<input type="text" size="7" maxlength="7" id="this-year-income" name="income" class="form-control text-right" style="min-height:50px;">
+			<span class="input-group-addon"> .00 </span>
+		</div>
+
+		<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
+
+		<div id="this-year-spouse-income-div" class="hidden">
+			<label for="income">For <span id="this-year-tax-year2"></span>, what was your <span id="this-year-and-spouse2"></span>'s net income?</span></label>
+			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+				<input type="text" size="7" maxlength="7" id="this-year-spouse-income" name="income" class="form-control text-right" style="min-height:50px;">
+				<span class="input-group-addon"> .00 </span>
+			</div>
+		</div>
 	</div>
-	<div class="col-xs-3">
-		<button id="save-income" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+
+	<div style="margin-top:30px;">
+		<div class="col-xs-3" style="height:28px; padding-top:10px;">
+			<a href="step5-children-details.html" class="">Previous</a> &nbsp;
+		</div>
+		<div class="col-xs-3">
+			<button id="save-income" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+		</div>
 	</div>
 
  <div class="clearfix"></div>
@@ -332,13 +361,49 @@
 
 <script>
 	$(document).ready(function(){
-		$("#numberOfChildren").change(function(){
-			localStorage.setItem("children", document.getElementById("numberOfChildren").value);
+		//if married, show spouse's income
+		if (localStorage.getItem("marital") == "married") {
+			$("#spouse-income-div").removeClass("hidden");
+			$("#this-year-spouse-income-div").removeClass("hidden");
+			$("#and-spouse").html('you and your spouse ');
+			$("#and-spouse2").html('spouse');
+			$("#this-year-and-spouse2").html('spouse');
+		} else if (localStorage.getItem("marital") == "Living Common Law") {
+			$("#spouse-income-div").removeClass("hidden");
+			$("#this-year-spouse-income-div").removeClass("hidden");
+			$("#and-spouse").html('you and your common law partner ');
+			$("#and-spouse2").html('common law partner');
+			$("#this-year-and-spouse2").html('common law partner');
+		}
+		var iPrevYear = localStorage.getItem("tax-year");
+		var iThisYear = parseInt(iPrevYear, 10) + 1;
+		$('#tax-year1').append(iPrevYear);
+		$('#tax-year2').append(iPrevYear);
+		$('#tax-year3').append(iThisYear);
+		$('#this-year-tax-year1').append(iThisYear);
+		$('#this-year-tax-year2').append(iThisYear);
+
+		$("#income").change(function(){
+			localStorage.setItem("income", document.getElementById("income").value);
+		});
+		$("#spouse-income").change(function(){
+			localStorage.setItem("spouse-income", document.getElementById("spouse-income").value);
+		});
+		$("#less-than-36").change(function(){
+			$("#this-year-income-div").removeClass("hidden");
+		});
+		$("#more-than-36").change(function(){
+			$("#this-year-income-div").addClass("hidden");
+		});
+		$("#this-year-income").change(function(){
+			localStorage.setItem("this-year-income", document.getElementById("this-year-income").value);
+		});
+		$("#this-year-spouse-income").change(function(){
+			localStorage.setItem("this-year-spouse-income", document.getElementById("this-year-spouse-income").value);
 		});
 	});
 
 	$("#save-children").click(function(){
-		// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 		// console.log(localStorage.getItem("tax-year"));
 		// console.log(localStorage.getItem("tax-resident"));
 		// console.log(localStorage.getItem("province"));
