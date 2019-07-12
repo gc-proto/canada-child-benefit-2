@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+6<!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
@@ -330,13 +330,16 @@
 
 <script>
 $(document).ready(function(){
-	var arrNumberWords = [ "first","second","third","fourth","fifth","sixth","seventh","eighth","ninth","tenth" ];
+	var arrNumberWords = [ "First","Second","Third","Fourth","Fifth","Sixth","Seventh","Eighth","Ninth","Tenth" ];
 	var children = localStorage.getItem("children");
-	$.each(children, function (index, child) {
-		$('#add-children').html('<div class=>' + child + '<div class="row mrgn-tp-md"><div class="col-sm-2"><h2 class="h4 mrgn-tp-0">' + arrNumberWords[child]  + ' child</h2></div><div class="col-sm-10"><label for="childage' + child + '">Age</label><input type="text" size="2" id="childage1'+ child +'" name="childage1'+ child +'" class="form-control"><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="disability' + child + '"><label for="disability' + child + '">This child is a qualified disabled dependent</label></li></ul><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="shared-custody' + child + '"><label for="shared-custody' + child + '">You share custody of this child</label></li></ul></div></div>');
-	});
-
+	for (var i = 0; i < children; i++) {
+		var iTag = i+1;
+		console.log(i);
+		console.log(iTag);
+		$('#add-children').append('<div class="row mrgn-tp-md"><div class="col-sm-2"><h2 class="h4 mrgn-tp-0">' + arrNumberWords[i]  + ' child</h2></div><div class="col-sm-10"><label for="childage' + iTag + '">Age</label><input type="text" size="2" id="childage'+ iTag +'" name="childage'+ iTag +'" class="form-control"><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="disability' + iTag + '"><label for="disability' + iTag + '">This child is a qualified disabled dependent</label></li></ul><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="shared-custody' + iTag + '"><label for="shared-custody' + iTag + '">You share custody of this child</label></li></ul></div></div>');
+	}
 	//checkbox unchecked by default
+	//clean this up to use an array with a string parse on the number
 	if (document.getElementById('disability1').checked) {
 		localStorage.setItem("disability1", "true");
 	} else {
@@ -347,7 +350,6 @@ $(document).ready(function(){
 	} else {
 		localStorage.setItem("shared-custody1", "false");
 	}
-
 	$("#childage1").change(function(){
 		localStorage.setItem("childage1", document.getElementById("childage1").value);
 	});
@@ -366,21 +368,287 @@ $(document).ready(function(){
 			localStorage.setItem("shared-custody1", "false");
 		}
 	});
+
+
+	if (document.getElementById('disability2').checked) {
+		localStorage.setItem("disability2", "true");
+	} else {
+		localStorage.setItem("disability2", "false");
+	}
+	if (document.getElementById('shared-custody2').checked) {
+		localStorage.setItem("shared-custody2", "true");
+	} else {
+		localStorage.setItem("shared-custody2", "false");
+	}
+	$("#childage2").change(function(){
+		localStorage.setItem("childage2", document.getElementById("childage2").value);
+	});
+	$("#disability2").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability2').checked) {
+			localStorage.setItem("disability2", "true");
+		} else {
+			localStorage.setItem("disability2", "false");
+		}
+	});
+	$("#shared-custody2").change(function(){
+		if (document.getElementById('shared-custody2').checked) {
+			localStorage.setItem("shared-custody2", "true");
+		} else {
+			localStorage.setItem("shared-custody2", "false");
+		}
+	});
+
+	if (document.getElementById('disability3').checked) {
+		localStorage.setItem("disability3", "true");
+	} else {
+		localStorage.setItem("disability3", "false");
+	}
+	if (document.getElementById('shared-custody3').checked) {
+		localStorage.setItem("shared-custody3", "true");
+	} else {
+		localStorage.setItem("shared-custody3", "false");
+	}
+	$("#childage3").change(function(){
+		localStorage.setItem("childage3", document.getElementById("childage3").value);
+	});
+	$("#disability3").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability3').checked) {
+			localStorage.setItem("disability3", "true");
+		} else {
+			localStorage.setItem("disability3", "false");
+		}
+	});
+	$("#shared-custody3").change(function(){
+		if (document.getElementById('shared-custody3').checked) {
+			localStorage.setItem("shared-custody3", "true");
+		} else {
+			localStorage.setItem("shared-custody3", "false");
+		}
+	});
+
+
+	if (document.getElementById('disability4').checked) {
+		localStorage.setItem("disability4", "true");
+	} else {
+		localStorage.setItem("disability4", "false");
+	}
+	if (document.getElementById('shared-custody4').checked) {
+		localStorage.setItem("shared-custody4", "true");
+	} else {
+		localStorage.setItem("shared-custody4", "false");
+	}
+	$("#childage4").change(function(){
+		localStorage.setItem("childage4", document.getElementById("childage4").value);
+	});
+	$("#disability4").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability4').checked) {
+			localStorage.setItem("disability4", "true");
+		} else {
+			localStorage.setItem("disability4", "false");
+		}
+	});
+	$("#shared-custody4").change(function(){
+		if (document.getElementById('shared-custody4').checked) {
+			localStorage.setItem("shared-custody4", "true");
+		} else {
+			localStorage.setItem("shared-custody4", "false");
+		}
+	});
+
+	if (document.getElementById('disability5').checked) {
+		localStorage.setItem("disability5", "true");
+	} else {
+		localStorage.setItem("disability5", "false");
+	}
+	if (document.getElementById('shared-custody4').checked) {
+		localStorage.setItem("shared-custody5", "true");
+	} else {
+		localStorage.setItem("shared-custody5", "false");
+	}
+	$("#childage5").change(function(){
+		localStorage.setItem("childage5", document.getElementById("childage5").value);
+	});
+	$("#disability5").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability5').checked) {
+			localStorage.setItem("disability5", "true");
+		} else {
+			localStorage.setItem("disability5", "false");
+		}
+	});
+	$("#shared-custody5").change(function(){
+		if (document.getElementById('shared-custody5').checked) {
+			localStorage.setItem("shared-custody5", "true");
+		} else {
+			localStorage.setItem("shared-custody5", "false");
+		}
+	});
+
+	if (document.getElementById('disability6').checked) {
+		localStorage.setItem("disability6", "true");
+	} else {
+		localStorage.setItem("disability6", "false");
+	}
+	if (document.getElementById('shared-custody6').checked) {
+		localStorage.setItem("shared-custody6", "true");
+	} else {
+		localStorage.setItem("shared-custody6", "false");
+	}
+	$("#childage6").change(function(){
+		localStorage.setItem("childage6", document.getElementById("childage6").value);
+	});
+	$("#disability6").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability6').checked) {
+			localStorage.setItem("disability6", "true");
+		} else {
+			localStorage.setItem("disability6", "false");
+		}
+	});
+	$("#shared-custody6").change(function(){
+		if (document.getElementById('shared-custody6').checked) {
+			localStorage.setItem("shared-custody6", "true");
+		} else {
+			localStorage.setItem("shared-custody6", "false");
+		}
+	});
+
+	if (document.getElementById('disability7').checked) {
+		localStorage.setItem("disability7", "true");
+	} else {
+		localStorage.setItem("disability7", "false");
+	}
+	if (document.getElementById('shared-custody7').checked) {
+		localStorage.setItem("shared-custody7", "true");
+	} else {
+		localStorage.setItem("shared-custody7", "false");
+	}
+	$("#childage7").change(function(){
+		localStorage.setItem("childage7", document.getElementById("childage7").value);
+	});
+	$("#disability7").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability7').checked) {
+			localStorage.setItem("disability7", "true");
+		} else {
+			localStorage.setItem("disability7", "false");
+		}
+	});
+	$("#shared-custody7").change(function(){
+		if (document.getElementById('shared-custody7').checked) {
+			localStorage.setItem("shared-custody7", "true");
+		} else {
+			localStorage.setItem("shared-custody7", "false");
+		}
+	});
+
+	if (document.getElementById('disability8').checked) {
+		localStorage.setItem("disability8", "true");
+	} else {
+		localStorage.setItem("disability8", "false");
+	}
+	if (document.getElementById('shared-custody8').checked) {
+		localStorage.setItem("shared-custody8", "true");
+	} else {
+		localStorage.setItem("shared-custody8", "false");
+	}
+	$("#childage8").change(function(){
+		localStorage.setItem("childage8", document.getElementById("childage8").value);
+	});
+	$("#disability8").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability8').checked) {
+			localStorage.setItem("disability8", "true");
+		} else {
+			localStorage.setItem("disability8", "false");
+		}
+	});
+	$("#shared-custody8").change(function(){
+		if (document.getElementById('shared-custody8').checked) {
+			localStorage.setItem("shared-custody8", "true");
+		} else {
+			localStorage.setItem("shared-custody8", "false");
+		}
+	});
+
+	if (document.getElementById('disability9').checked) {
+		localStorage.setItem("disability9", "true");
+	} else {
+		localStorage.setItem("disability9", "false");
+	}
+	if (document.getElementById('shared-custody9').checked) {
+		localStorage.setItem("shared-custody9", "true");
+	} else {
+		localStorage.setItem("shared-custody9", "false");
+	}
+	$("#childage9").change(function(){
+		localStorage.setItem("childage9", document.getElementById("childage9").value);
+	});
+	$("#disability9").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability9').checked) {
+			localStorage.setItem("disability9", "true");
+		} else {
+			localStorage.setItem("disability9", "false");
+		}
+	});
+	$("#shared-custody9").change(function(){
+		if (document.getElementById('shared-custody9').checked) {
+			localStorage.setItem("shared-custody9", "true");
+		} else {
+			localStorage.setItem("shared-custody9", "false");
+		}
+	});
+
+	if (document.getElementById('disability10').checked) {
+		localStorage.setItem("disability10", "true");
+	} else {
+		localStorage.setItem("disability10", "false");
+	}
+	if (document.getElementById('shared-custody10').checked) {
+		localStorage.setItem("shared-custody10", "true");
+	} else {
+		localStorage.setItem("shared-custody10", "false");
+	}
+	$("#childage10").change(function(){
+		localStorage.setItem("childage10", document.getElementById("childage10").value);
+	});
+	$("#disability10").change(function(){
+		//check whether checked or unchecked
+		if (document.getElementById('disability10').checked) {
+			localStorage.setItem("disability10", "true");
+		} else {
+			localStorage.setItem("disability10", "false");
+		}
+	});
+	$("#shared-custody10").change(function(){
+		if (document.getElementById('shared-custody1').checked) {
+			localStorage.setItem("shared-custody10", "true");
+		} else {
+			localStorage.setItem("shared-custody10", "false");
+		}
+	});
 });
 
 	$("#save-children-details").click(function(){
 		// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-		console.log(localStorage.getItem("tax-year"));
-		console.log(localStorage.getItem("tax-resident"));
-		console.log(localStorage.getItem("province"));
-		console.log(localStorage.getItem("marital"));
-		console.log(localStorage.getItem("children"));
-		console.log(localStorage.getItem("childage1"));
-		console.log(localStorage.getItem("disability1"));
-		console.log(localStorage.getItem("shared-custody1"));
+		// console.log(localStorage.getItem("tax-year"));
+		// console.log(localStorage.getItem("tax-resident"));
+		// console.log(localStorage.getItem("province"));
+		// console.log(localStorage.getItem("marital"));
+		// console.log(localStorage.getItem("children"));
+		// console.log(localStorage.getItem("childage1"));
+		// console.log(localStorage.getItem("disability1"));
+		// console.log(localStorage.getItem("shared-custody1"));
+		// console.log(localStorage.getItem("childage2"));
+		// console.log(localStorage.getItem("disability2"));
+		// console.log(localStorage.getItem("shared-custody2"));
 
 		//Go to next step
-		// window.location.href = "./step5-children-details.html"
+		window.location.href = "./step6-income.html"
 
 	});
 </script>
