@@ -3,8 +3,8 @@
 h2, .h2 {font-size:1.7em}
 
 
-/*Collapsed menu design*/
-.section-menu.mobile {
+/*Collapsed menu design (on hold)*/
+/*.section-menu.mobile {
 	border: 1px solid #26374a;
 	border-radius: 4px;
 }
@@ -19,17 +19,17 @@ h2, .h2 {font-size:1.7em}
 .section-menu.mobile .menu-title {
 	margin-bottom: 0px;
 	margin-left: 0px;
-	/* margin-left: 50px; */
+ margin-left: 50px; 
 	text-indent: 3px
 }
 .section-menu.mobile.open .menu-header {
 	border-bottom: 1px solid #26374a;
 }
-/* .section-menu.mobile .menu-header:hover {
+ .section-menu.mobile .menu-header:hover {
 	background-color: #26374a;
 	color: #fff;
 	cursor: pointer;
-} */
+} 
 /* .section-menu.mobile .menu-header .menu-title:before {
 	display: inline-block;
 	vertical-align: -15%;
@@ -254,6 +254,29 @@ ol.vertical-steps.lst-lwr-alph>li>:first-child::before {
 }
 ol.vertical-steps.lst-num>li>:first-child::before {
 	content: counter(step-counter)!important;
+}
+/*Vertical steps in mobile (experimental) */
+.section-menu.mobile > .vertical-steps {
+	border-right: 5px solid #26374a;
+	border-top: 5px solid #26374a;
+	border-radius: 0 6px 6px 0;
+	padding-top: 30px;
+	margin-top: -18px;
+}
+.section-menu.mobile > .vertical-steps > li:last-child {
+	border-bottom: 5px solid #26374a;
+	border-left: 5px solid #26374a;
+	border-bottom-left-radius: 6px;
+	padding-bottom: 30px;
+}
+.section-menu.mobile > .menu-title {
+	margin-bottom: -18px;
+	background-color: white;
+	padding: 20px 10px 10px 20px;
+	display: inline-block;
+	margin-left: -20px;
+	font-size: 1.3em!important;
+	margin-right: 25px;
 }
 
 /* Top of page button */
