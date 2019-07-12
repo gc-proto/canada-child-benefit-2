@@ -1,4 +1,11 @@
 @charset "utf-8";
+/*Text decoration override for Safari */
+a:not([href]) {
+	text-decoration: none;
+	-webkit-text-decoration-line: none;
+	color:#333;
+}
+
 /*Resize h2 */
 h2, .h2 {font-size:1.7em}
 
@@ -10,13 +17,13 @@ h2, .h2 {font-size:1.7em}
 }
 .section-menu.mobile .menu-header, .section-menu.mobile .menu-body {
 	padding: 15px
-}
+}*/
 .section-menu .menu-title {
 	font-size: 1.4em;
 	font-weight: 600;
 	margin-top: 0px;
 }
-.section-menu.mobile .menu-title {
+/*.section-menu.mobile .menu-title {
 	margin-bottom: 0px;
 	margin-left: 0px;
  margin-left: 50px; 
