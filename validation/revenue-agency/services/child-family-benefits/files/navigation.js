@@ -1,3 +1,13 @@
+//Ajax anchor script
+$( document ).ajaxComplete(function() 
+{
+var hashtag = location.hash.substr(1);
+var elmnt = document.getElementById(hashtag);
+if(elmnt){elmnt.scrollIntoView();}
+ //empty hash
+});
+
+
 /*!
  * Bootstrap Table of Contents v1.0.1 (http://afeld.github.io/bootstrap-toc/)
  * Copyright 2015 Aidan Feldman
