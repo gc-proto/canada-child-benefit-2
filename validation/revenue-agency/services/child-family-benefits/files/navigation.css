@@ -11,10 +11,12 @@ h2, .h2 {font-size:1.7em}
 
 
 /*Collapsed menu design (on hold)*/
-/*.section-menu.mobile {
-	border: 1px solid #26374a;
-	border-radius: 4px;
+.section-menu.mobile {
+	/*border: 1px solid #26374a;
+	border-radius: 4px;*/
+	margin-bottom:40px;
 }
+/*
 .section-menu.mobile .menu-header, .section-menu.mobile .menu-body {
 	padding: 15px
 }*/
