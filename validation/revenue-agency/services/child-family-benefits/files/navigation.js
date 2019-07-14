@@ -341,3 +341,13 @@ function navClick(event){
 // 		$(".menu-body").slideToggle(500, function(){$( this ).parent('.section-menu.mobile').toggleClass( "open" ), $(this).removeAttr('style');});
 // }}); disable the click behaviour
 	});
+//Append second H1 anchor link to mobile nav menu items
+$( document ).on( "wb-ready.wb", function() {
+"use strict";
+        $('.section-menu a').each(function(){ 
+        if ($(window).width() < 992) {  
+           $(this).attr("href", $(this).attr("href") + "#wb-cont");
+		}
+			
+        });
+    });
