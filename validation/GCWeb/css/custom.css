@@ -2,6 +2,21 @@
 /* removed the in details condition, since it's better without lines elsewhere too... */
 
 
+
+/* byline */
+
+.byline {
+	font-weight: 700;
+	font-family: 'Lato';
+	font-size: 16px !important;
+	padding-top: .5em !important;
+	border-left: 5px solid #d4d4d4 !important;
+	margin-left: 1em;
+	padding-left: 1em;
+	/* background-color: #eee; */
+	border: 1px solid #e1e1e1;
+}
+
 /* reduce h1 top margin for mobile only */
 @media screen and (max-width: 425px) {
 
@@ -753,11 +768,11 @@ main p, main ul, main li {
 
 	}
 
-.byline {
-	font-size: 16px !important;
-	line-height: 20px !important;
+section.byline p {
+		font-size: 16px !important;
+		line-height: 20px !important;
 
-}
+	}
 
 	h1 {
 			font-size: 34px !important;
