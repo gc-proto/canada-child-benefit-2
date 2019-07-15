@@ -167,15 +167,15 @@
 	<div class="row">
 		<div class="col-md-1 col-xs-3">
 			<label for="birth-day">Day</label>
-			<input type="text" size="2" id="birth-day" name="birth-day" class="form-control">
+			<input type="text" size="2" maxlength="2" id="birth-day" name="birth-day" class="form-control">
 		</div>
 		<div class="col-md-1 col-xs-3">
 			<label for="birth-month">Month</label>
-			<input type="text" size="2" id="birth-month" name="birth-month" class="form-control">
+			<input type="text" size="2" maxlength="2" id="birth-month" name="birth-month" class="form-control">
 		</div>
 		<div class="col-md-10 col-xs-6">
 			<label for="birth-year">Year</label>
-			<input type="text" size="4" id="birth-year" name="birth-year" class="form-control">
+			<input type="text" size="6" maxlength="4" id="birth-year" name="birth-year" class="form-control">
 		</div>
 	</div>
 
@@ -191,27 +191,27 @@
 	</div>
 
 	<div class="married-div" class="hidden">
-		<h2>Your <span class="married-term"></span>'s date of birth</h2>
+		<h2>Your <span id="married-term">spouse</span>'s date of birth</h2>
 		<div class="row">
 			<div class="col-md-1 col-xs-3">
 				<label for="birth-day-spouse">Day</label>
-				<input type="text" size="2" id="birth-day-spouse" name="birth-day-spouse" class="form-control">
+				<input type="text" size="2" maxlength="2" id="birth-day-spouse" name="birth-day-spouse" class="form-control">
 			</div>
 			<div class="col-md-1 col-xs-3">
 				<label for="birth-month-spouse">Month</label>
-				<input type="text" size="2" id="birth-month-spouse" name="birth-month-spouse" class="form-control">
+				<input type="text" size="2" maxlength="2" id="birth-month-spouse" name="birth-month-spouse" class="form-control">
 			</div>
 			<div class="col-md-10 col-xs-6">
 				<label for="birth-year-spouse">Year</label>
-				<input type="text" size="4" id="birth-year-spouse" name="birth-year-spouse" class="form-control">
+				<input type="text" size="6" maxlength="4" id="birth-year-spouse" name="birth-year-spouse" class="form-control">
 			</div>
 		</div>
 
-		<div id="newfoundland-disability-2" class="hidden">
+		<div id="newfoundland-disability2" class="hidden">
 			<ul class="list-unstyled can-ca-form">
 				<li class="checkbox checkbox-small">
 					<input type="checkbox" id="disability2">
-					<label for="disability2">Your <span class="married-term2"></span> qualifies for the disability supplement</label>
+					<label for="disability2">Your <span id="married-term2">spouse</span> qualifies for the disability supplement</label>
 				</li>
 			</ul>
 		</div>
@@ -362,16 +362,18 @@
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
 <script>
 	$(document).ready(function() {
+
+		console.log(localStorage.getItem("marital"));
+		console.log(localStorage.getItem("province"));
+
 		if (localStorage.getItem("marital") == "married") {
 			$("#married-div").removeClass("hidden");
-			$("#married-term").html('spouse');
-			$("#married-term2").html('spouse');
-		} else if (localStorage.getItem("marital") == "Living Common Law") {
+		} else if (localStorage.getItem("marital") == "living common law") {
 			$("#married-div").removeClass("hidden");
 			$("#married-term").html('common law partner');
 			$("#married-term2").html('common law partner');
 		}
-		if (localStorage.getItem("province").value == "Newfoundland and Labrador") {
+		if (localStorage.getItem("province") == "Newfoundland and Labrador") {
 			$("#newfoundland-disability").removeClass("hidden");
 			$("#newfoundland-disability2").removeClass("hidden");
 		}
@@ -395,29 +397,31 @@
 			localStorage.setItem("birth-year-spouse", document.getElementById("birth-year-spouse").value);
 		});
 		$("#disability1").change(function(){
-			localStorage.setItem("parent-disabled", field.target.value);
+			localStorage.setItem("parent-disabled", this.value);
+
+
 		});
 		$("#disability2").change(function(){
-			localStorage.setItem("parent-spouse-disabled", field.target.value);
+			localStorage.setItem("parent-spouse-disabled", this.value);
 		});
 
 
 		$("#save-date-of-birth").click(function(){
-			console.log(localStorage.getItem("tax-year"));
-			console.log(localStorage.getItem("tax-resident"));
-			console.log(localStorage.getItem("province"));
-			console.log(localStorage.getItem("birth-day"));
-			console.log(localStorage.getItem("birth-month"));
-			console.log(localStorage.getItem("birth-year"));
-			console.log(localStorage.getItem("birth-day-spouse"));
-			console.log(localStorage.getItem("birth-month-spouse"));
-			console.log(localStorage.getItem("birth-year-spouse"));
-			console.log(localStorage.getItem("parent-disabled"));
-			console.log(localStorage.getItem("parent-spouse-disabled"));
+			// console.log(localStorage.getItem("tax-year"));
+			// console.log(localStorage.getItem("tax-resident"));
+			// console.log(localStorage.getItem("province"));
+			// console.log(localStorage.getItem("birth-day"));
+			// console.log(localStorage.getItem("birth-month"));
+			// console.log(localStorage.getItem("birth-year"));
+			// console.log(localStorage.getItem("birth-day-spouse"));
+			// console.log(localStorage.getItem("birth-month-spouse"));
+			// console.log(localStorage.getItem("birth-year-spouse"));
+			// console.log(localStorage.getItem("parent-disabled"));
+			// console.log(localStorage.getItem("parent-spouse-disabled"));
 
 
 			//Go to next step
-			// window.location.href = "./step5-children.html"
+			window.location.href = "./step5-children.html"
 
 
 
