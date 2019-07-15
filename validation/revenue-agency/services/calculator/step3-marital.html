@@ -191,11 +191,13 @@
 		</ul>
 	</form>
 
-	<div class="col-xs-3" style="height:28px; padding-top:10px;">
-		<a href="step2-residency.html" class="">Previous</a> &nbsp;
-	</div>
-	<div class="col-xs-3">
-		<button id="save-marital" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+	<div style="margin-top:30px;">
+		<div class="col-xs-3" style="height:28px; padding-top:10px;">
+			<a href="step2-residency.html" class="">Previous</a> &nbsp;
+		</div>
+		<div class="col-xs-3">
+			<button id="save-marital" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+		</div>
 	</div>
 
  <div class="clearfix"></div>
@@ -362,7 +364,14 @@ $(document).ready(function(){
 
 
 		//Go to next step
-		window.location.href = "./step5-children.html"
+		var sCheckProv = localStorage.getItem("province");
+		console.log(sCheckProv);
+
+		if (sCheckProv == "Ontario" || sCheckProv == "Newfoundland and Labrador") {
+			window.location.href = "./step4-date-of-birth.html"
+		} else {
+			window.location.href = "./step5-children.html"
+		}
 
 	});
 </script>

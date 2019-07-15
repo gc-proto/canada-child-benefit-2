@@ -212,11 +212,14 @@
 			<option value="Yukon">Yukon</option>
 		</select>
 	</div>
-	<div class="col-xs-3" style="height:28px; padding-top:10px;">
-		<a href="step1-estimation-period.html" class="">Previous</a> &nbsp;
-	</div>
-	<div class="col-xs-3">
-		<button id="save-residency" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+
+	<div style="margin-top:30px;">
+		<div class="col-xs-3" style="height:28px; padding-top:10px;">
+			<a href="step1-estimation-period.html" class="">Previous</a> &nbsp;
+		</div>
+		<div class="col-xs-3">
+			<button id="save-residency" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+		</div>
 	</div>
 
  <div class="clearfix"></div>
@@ -382,14 +385,7 @@ $(document).ready(function(){
 		// console.log(localStorage.getItem("province"));
 
 		//Go to next step
-		var sCheckProv = document.getElementById("province").value;
-		console.log(document.getElementById("province").value);
-
-		if (sCheckProv == "Ontario" || sCheckProv = "Newfoundland and Labrador") {
-			window.location.href = "./step3-date-of-birth.html"
-		} else {
-			window.location.href = "./step4-marital.html"
-		}
+		window.location.href = "./step3-marital.html"
 
 		//
 		// ;
