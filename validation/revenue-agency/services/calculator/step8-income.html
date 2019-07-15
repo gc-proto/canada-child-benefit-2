@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Benefit estimation - Child and family benefits estimator - Canada.ca</title>
+<title>Income - Child and family benefits estimator - Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description">
 <!--[if gte IE 9 | !IE ]><!-->
@@ -157,334 +157,70 @@
 
   <h1 property="name" id="wb-cont" dir="ltr">
     <span class="stacked" role="text">
-      <span>Benefit estimation</span>: <span>Child and family benefits estimator</span>
+      <span>Step 6: Indicate your income</span>: <span>Child and family benefits estimator</span>
     </span>
   </h1>
 
-	<section class="alert alert-info">
-		<h3>Estimation disclaimer</h3>
-		<p>The reliability of the results depends on the accuracy of the information you enter.</p>
-  </section>
+	<label for="income">For <span id="tax-year1"></span>, what was your net income?</span></label>
+	<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
+	<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+		<input type="text" size="7" maxlength="7" id="income" name="income" class="form-control text-right" style="min-height:50px;">
+		<span class="input-group-addon"> .00 </span>
+	</div>
 
-	<div class="row">
-		<div class="col-md-7">
-			<h2>Your estimated benefit amount for <span id="estimation-period">(estimation period)</span></h2>
-			<p class="well" id="annual-payment" style="font-size:28px!important; text-align:center;"></p>
+	<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
 
-			<h3>Quarterly payments</h3>
-			<section class="panel panel-primary">
-				<ul class="list-group">
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">GST/HST credit</div>
-							<div class="col-xs-5 col-sm-3 text-right" id="gst-payment">$0.00</div>
-						</div>
-					</li>
-				</ul>
-			</section>
+	<div id="spouse-income-div" class="hidden">
+		<label for="income">For <span id="tax-year2"></span>, what was your <span id="and-spouse2"></span>'s net income?</span></label>
+		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
-
-			<h3>Monthly payments</h3>
-			<section class="panel panel-primary">
-				<ul class="list-group">
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Canada Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right" id="ccb-payment">$236.00</div>
-						</div>
-					</li>
-
-					<!-- generate dynamically?-->
-					<li class="list-group-item hidden">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Canada Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right"></div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;" >July to September</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$236.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">October to June</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$243.00</div>
-						</div>
-					</li>
-					<!---->
-
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Child disability benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right" id="cdb-payment">$236.00</div>
-						</div>
-					</li>
-					<li class="list-group-item" id="acb-div">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Alberta Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right" id="acb-payment">$0.00</div>
-						</div>
-					</li>
-					<li class="list-group-item hidden" id="afetc-div">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Alberta family employment tax credit <span style="white-space: nowrap;">semi-annual</span> amount</div>
-							<div class="col-xs-5 col-sm-3 text-right" id="afetc-payment">$97.81</div>
-						</div>
-					</li>
-					<li class="list-group-item hidden" id="trillium-div">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Ontario Trillium Benefit <span style="white-space: nowrap;">semi-annual</span> amount</div>
-							<div class="col-xs-5 col-sm-3 text-right" id="trillium-payment">$97.81</div>
-						</div>
-					</li>
-
-				</ul>
-			</section>
-
-<!-- CCB payment dates
-January 18, 2019
-February 20, 2019
-March 20, 2019
-April 18, 2019
-May 17, 2019
-June 20, 2019
-July 19, 2019
-August 20, 2019
-September 20, 2019
-October 18, 2019
-November 20, 2019
-December 13, 2019
-
-
-January 4, 2019
-April 5, 2019
-July 5, 2019
-October 4, 2019
-January 3, 2020 -->
-			<!-- <h3>All payments by date</h3>
-			<section class="panel panel-primary">
-				<ul class="list-group">
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">July 5, 2019</div>
-							<div class="col-xs-5 col-sm-3 text-right">$150.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">GST/HST credit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$150.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">July 19, 2019</div>
-							<div class="col-xs-5 col-sm-3 text-right">$600.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Canada Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$200.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Child Disability Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$250.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$100.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta family employment tax credit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$50.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">August 20, 2019</div>
-							<div class="col-xs-5 col-sm-3 text-right">$600.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Canada Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$200.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Child Disability Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$250.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$100.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta family employment tax credit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$50.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">September 20, 2019</div>
-							<div class="col-xs-5 col-sm-3 text-right">$600.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Canada Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$200.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Child Disability Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$250.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$100.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta family employment tax credit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$50.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">October 4, 2019</div>
-							<div class="col-xs-5 col-sm-3 text-right">$150.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">GST/HST credit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$150.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">October 18, 2019</div>
-							<div class="col-xs-5 col-sm-3 text-right">$600.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Canada Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$200.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Child Disability Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$250.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$100.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta family employment tax credit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$50.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">November 20, 2019</div>
-							<div class="col-xs-5 col-sm-3 text-right">$600.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Canada Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$200.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Child Disability Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$250.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$100.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta family employment tax credit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$50.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">December 13, 2019</div>
-							<div class="col-xs-5 col-sm-3 text-right">$600.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Canada Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$200.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Child Disability Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$250.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$100.00</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-7 col-sm-9 small" style="padding-left:30px;">Alberta family employment tax credit</div>
-							<div class="col-xs-5 col-sm-3 text-right small">$50.00</div>
-						</div>
-					</li>
-
-
-
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Child disability benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right">$236.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Alberta Child Benefit</div>
-							<div class="col-xs-5 col-sm-3 text-right">$0.00</div>
-						</div>
-					</li>
-					<li class="list-group-item">
-						<div class="row">
-							<div class="col-xs-7 col-sm-9">Alberta family employment tax credit <span style="white-space: nowrap;">semi-annual</span> amount</div>
-							<div class="col-xs-5 col-sm-3 text-right">$97.81</div>
-						</div>
-					</li>
-				</ul>
-			</section> -->
-
-
+		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+			<input type="text" size="7" maxlength="7" id="spouse-income" name="income" class="form-control text-right" style="min-height:50px;">
+			<span class="input-group-addon"> .00 </span>
 		</div>
 	</div>
 
+	<form id="rdsp-uccb-income" class="mrgn-tp-lg">
+		<legend class="h5">For <span id="tax-year3"></span>, are <span id="and-spouse">you </span>expecting to earn less than $37,000CND?</legend>
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input type="radio" id="less-than-36" name="cwb" value="less-than-36">
+				<label for="less-than-36">Yes</label>
+			</li>
+			<li class="radio">
+				<input type="radio" id="more-than-36" name="cwb" value="more-than-36">
+				<label for="more-than-36">No</label>
+			</li>
+		</ul>
+	</form>
 
+	<div id="this-year-income-div" class="hidden">
+		<label for="this-year-income">For <span id="this-year-tax-year1"></span>, what is your expected net income?</span></label>
+		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+			<input type="text" size="7" maxlength="7" id="this-year-income" name="income" class="form-control text-right" style="min-height:50px;">
+			<span class="input-group-addon"> .00 </span>
+		</div>
 
-	<h2>Change estimation details</h2>
-	<details>
-		<summary>Estimate details</summary>
-		<dl class="dl-horizontal">
-			<dt>Estimation period:</dt>
-			<dd>
-				<div class="col-md-7 col-xs-9">
-					<p>June 2018 to July 2019</p>
-				</div>
-				<div class="col-md-5 col-xs-3">
-					<a href="#">Change</a>
-				</div>
-			</dd>
-			<dt>Residency:</dt>
-			<dd>
-				<div class="col-md-7 col-xs-9">
-					<p>Lives in Canada</p>
-				</div>
-				<div class="col-md-5 col-xs-3">
-					<a href="#">Change</a>
-				</div>
-			</dd>
-			<dt>Province:</dt>
-			<dd>
-				<div class="col-md-7 col-xs-9">
-					<p>British Columbia</p>
-				</div>
-				<div class="col-md-5 col-xs-3">
-					<a href="#">Change</a>
-				</div>
-			</dd>
-		</details>
+		<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
 
+		<div id="this-year-spouse-income-div" class="hidden">
+			<label for="income">For <span id="this-year-tax-year2"></span>, what was your <span id="this-year-and-spouse2"></span>'s net income?</span></label>
+			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+				<input type="text" size="7" maxlength="7" id="this-year-spouse-income" name="income" class="form-control text-right" style="min-height:50px;">
+				<span class="input-group-addon"> .00 </span>
+			</div>
+		</div>
+	</div>
 
 	<div style="margin-top:30px;">
 		<div class="col-xs-3 col-lg-1" style="height:28px; padding-top:10px;">
-			<a href="step7-income.html" class="">Previous</a> &nbsp;
+			<a href="step7-children-details.html" class="">Previous</a> &nbsp;
 		</div>
 		<div class="col-xs-9 col-lg-11">
-			<button id="restart-estimator" class="btn btn-call-to-action" style="margin-top:0px;">Restart</button>
+			<button id="save-income" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
 		</div>
 	</div>
 
@@ -625,80 +361,49 @@ January 3, 2020 -->
 
 <script>
 	$(document).ready(function(){
-		//reveal provincial payment blocks
-		var ccbPayments = [0,0,0,0,0,0,0,0,0,0,0,0];
-		var sProvince = localStorage.getItem("province");
-		if (localStorage.getItem("marital") == "married" || localStorage.getItem("marital") == "living common law") {
-			var iIncome = parseInt(localStorage.getItem("income"),10) + parseInt(localStorage.getItem("spouse-income"),10);
-		} else {
-			var iIncome = localStorage.getItem("income");
+		//if married, show spouse's income
+		if (localStorage.getItem("marital") == "married") {
+			$("#spouse-income-div").removeClass("hidden");
+			$("#this-year-spouse-income-div").removeClass("hidden");
+			$("#and-spouse").html('you and your spouse ');
+			$("#and-spouse2").html('spouse');
+			$("#this-year-and-spouse2").html('spouse');
+		} else if (localStorage.getItem("marital") == "living common law") {
+			$("#spouse-income-div").removeClass("hidden");
+			$("#this-year-spouse-income-div").removeClass("hidden");
+			$("#and-spouse").html('you and your common law partner ');
+			$("#and-spouse2").html('common law partner');
+			$("#this-year-and-spouse2").html('common law partner');
 		}
-		var iChildren = localStorage.getItem("children");
-		console.log(ccbPayments);
-		console.log(sProvince);
-		console.log(iIncome);
-		console.log(iChildren);
-		console.log(localStorage.getItem("childage1"));
-		console.log(localStorage.getItem("childage2"));
+		var iPrevYear = localStorage.getItem("tax-year");
+		var iThisYear = parseInt(iPrevYear, 10) + 1;
+		$('#tax-year1').append(iPrevYear);
+		$('#tax-year2').append(iPrevYear);
+		$('#tax-year3').append(iThisYear);
+		$('#this-year-tax-year1').append(iThisYear);
+		$('#this-year-tax-year2').append(iThisYear);
 
-		//calculate monthly CCB
-		//month is offset by 1, 0 = January
-		if (iIncome < 31120) {
-			for (i=0; i<iChildren; i++) {
-				var age = localStorage.getItem("childage"+(i+1));
-				console.log(age);
-				if (age < 5) {
-					for (q=0;q<12;q++){
-						ccbPayments[q] += 553.25;
-					}
-				} else if (age == 5) {
-					var birthmonth = localStorage.getItem("childmonth"+(i+1));
-					for (q=0;q<birthmonth;q++){
-						ccbPayments[q] += 553.25;
-					}
-					for (q=birthmonth;q<12;q++){
-						ccbPayments[q] += 466.83;
-					}
-				} else if (age < 17) {
-					for (q=0;q<12;q++){
-						ccbPayments[q] += 466.83;
-					}
-				}	else if (age == 17) {
-					var birthmonth = localStorage.getItem("childmonth"+(i+1));
-					for (q=0;q<birthmonth;q++){
-						ccbPayments[q] += 466.83;
-					}
-				}
-			}
-
-		}
-		// else if (31119 < income < 67427) {
-		// 	if (children == 1){
-		//
-		// 	}
-		//
-		//
-		//
-		// } else if (67426 < income) {
-		// 	if (children == 1){
-		//
-		// 	}
-		//
-		// }
-
-
-
-
-
-		//calculate quarterly GST
-
-
-		//calculate total
-
-		console.log(ccbPayments);
+		$("#income").change(function(){
+			localStorage.setItem("income", document.getElementById("income").value);
+		});
+		$("#spouse-income").change(function(){
+			localStorage.setItem("spouse-income", document.getElementById("spouse-income").value);
+		});
+		$("#less-than-36").change(function(){
+			$("#this-year-income-div").removeClass("hidden");
+		});
+		$("#more-than-36").change(function(){
+			$("#this-year-income-div").addClass("hidden");
+		});
+		$("#this-year-income").change(function(){
+			localStorage.setItem("this-year-income", document.getElementById("this-year-income").value);
+		});
+		$("#this-year-spouse-income").change(function(){
+			localStorage.setItem("this-year-spouse-income", document.getElementById("this-year-spouse-income").value);
+		});
 	});
 
-	$("#restart-estimator").click(function(){
+	$("#save-income").click(function(){
 		// console.log(localStorage.getItem("tax-year"));
 		// console.log(localStorage.getItem("tax-resident"));
 		// console.log(localStorage.getItem("province"));
@@ -725,7 +430,7 @@ January 3, 2020 -->
 
 		//Go to next step
 		//But if no children, skip next step
-			// window.location.href = "./step7-income.html"
+			window.location.href = "./benefit-estimate.html"
 
 	});
 </script>

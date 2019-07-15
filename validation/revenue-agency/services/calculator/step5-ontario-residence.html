@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Number of children - Child and family benefits estimator - Canada.ca</title>
+<title>Ontario residence details - Child and family benefits estimator - Canada.ca</title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description">
 <!--[if gte IE 9 | !IE ]><!-->
@@ -157,38 +157,80 @@
 
   <h1 property="name" id="wb-cont" dir="ltr">
     <span class="stacked" role="text">
-      <span>Step 4: Number of children</span>: <span>Child and family benefits estimator</span>
+      <span>Step 5: Ontario residence details</span>: <span>Child and family benefits estimator</span>
     </span>
   </h1>
 
-	<div>
-		<legend class="h5">How many children do you have under 19 years old?</legend>
-		<select id="numberOfChildren" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true">
-			<option value="">...</option>
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-		</select>
+
+	<label for="ontario-rent">Rent paid for your principal residence</label>
+	<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+	<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+		<input type="text" size="7" maxlength="7" id="ontario-rent" name="income" class="form-control text-right" style="min-height:50px;">
+		<span class="input-group-addon"> .00 </span>
 	</div>
+
+	<label for="ontario-tax">Property taxes paid for your principal residence</label>
+	<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+	<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+		<input type="text" size="7" maxlength="7" id="ontario-tax" name="income" class="form-control text-right" style="min-height:50px;">
+		<span class="input-group-addon"> .00 </span>
+	</div>
+
+	<label for="ontario-reserve-energy">Home energy costs paid for your principal residence on a reserve in Ontario</label>
+	<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+	<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+		<input type="text" size="7" maxlength="7" id="ontario-reserve-energy" name="income" class="form-control text-right" style="min-height:50px;">
+		<span class="input-group-addon"> .00 </span>
+	</div>
+
+	<label for="ontario-care-home">Amount paid for your accommodation in a public long-term care home in Ontario</label>
+	<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+	<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+		<input type="text" size="7" maxlength="7" id="ontario-care-home" name="income" class="form-control text-right" style="min-height:50px;">
+		<span class="input-group-addon"> .00 </span>
+	</div>
+
+	<form id="northern-ontario">
+		<legend class="h5">Did you live in <a href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/northern-ontario-energy-credit-questions-answers.html#q2">Northern Ontario</a>?</legend>
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input id="northern-ontario-yes" type="radio" name="status1" value="northern-ontario-yes">
+				<label for="northern-ontario-yes">Yes</label>
+			</li>
+		  <li class="radio">
+		    <input id="northern-ontario-no" type="radio" name="status1" value="northern-ontario-no">
+				<label for="northern-ontario-no">No</label>
+		  </li>
+		</ul>
+	</form>
+
+	<form id="student-residence">
+		<legend class="h5">Did you live in a <a href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/provincial-territorial-programs/ontario-energy-property-tax-credit-questions-answers.html#q33">student residence</a>?</legend>
+		<ul class="list-unstyled can-ca-form">
+			<li class="radio">
+				<input id="student-residence-yes" type="radio" name="status2" value="student-residence-yes">
+				<label for="student-residence-yes">Yes</label>
+			</li>
+		  <li class="radio">
+		    <input id="student-residence-no" type="radio" name="status2" value="student-residence-no">
+				<label for="student-residence-no">No</label>
+		  </li>
+		</ul>
+	</form>
+
 
 	<div style="margin-top:30px;">
-		<div class="col-xs-3" style="height:28px; padding-top:10px;">
-			<a id ="prev-link" href="step3-marital.html" class="">Previous</a> &nbsp;
+		<div class="col-xs-3 col-lg-1" style="height:28px; padding-top:10px;">
+			<a href="step4-date-of-birth.html" class="">Previous</a>
 		</div>
-		<div class="col-xs-3">
-			<button id="save-children" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
+		<div class="col-xs-9 col-lg-11">
+			<button id="save-ontario-residence" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
 		</div>
 	</div>
-
-
 
  <div class="clearfix"></div>
  <div class="pagedetails">
@@ -324,44 +366,104 @@
 
   		<![endif]-->
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
-
 <script>
-	$(document).ready(function(){
-		$("#numberOfChildren").change(function(){
-			localStorage.setItem("children", document.getElementById("numberOfChildren").value);
-		});
-		var sCheckProv = localStorage.getItem("province");
-		if (sCheckProv == "Ontario" || sCheckProv == "Newfoundland and Labrador") {
-			//prev link is DOB instead
-			$("#prev-link").attr("href", "./step4-date-of-birth.html")
-		}
+	$(document).ready(function() {
 
-	});
-
-	$("#save-children").click(function(){
-		// console.log(localStorage.getItem("tax-year"));
-		// console.log(localStorage.getItem("tax-resident"));
-		// console.log(localStorage.getItem("province"));
 		// console.log(localStorage.getItem("marital"));
-		// console.log(localStorage.getItem("children"));
-		// console.log(localStorage.getItem("birth-day"));
-		// console.log(localStorage.getItem("birth-month"));
-		// console.log(localStorage.getItem("birth-year"));
-		// console.log(localStorage.getItem("birth-day-spouse"));
-		// console.log(localStorage.getItem("birth-month-spouse"));
-		// console.log(localStorage.getItem("birth-year-spouse"));
-		// console.log(localStorage.getItem("parent-disabled"));
-		// console.log(localStorage.getItem("parent-spouse-disabled"));
+		// console.log(localStorage.getItem("province"));
 
-		//Go to next step
-		//But if no children, skip next step
-		var children = localStorage.getItem("children");
-		// console.log(children);
-		if (children > 0) {
-			window.location.href = "./step6-children-details.html"
-		} else {
-			window.location.href = "./step7-income.html"
+		if (localStorage.getItem("marital") == "married") {
+			$("#married-div").removeClass("hidden");
+		} else if (localStorage.getItem("marital") == "living common law") {
+			$("#married-div").removeClass("hidden");
+			$("#married-term").html('common law partner');
+			$("#married-term2").html('common law partner');
 		}
+		if (localStorage.getItem("province") == "Newfoundland and Labrador") {
+			$("#newfoundland-disability").removeClass("hidden");
+			$("#newfoundland-disability2").removeClass("hidden");
+		}
+
+		$("#birth-day").change(function(){
+			localStorage.setItem("birth-day", document.getElementById("birth-day").value);
+		});
+		$("#birth-month").change(function(){
+			localStorage.setItem("birth-month", document.getElementById("birth-month").value);
+		});
+		$("#birth-year").change(function(){
+			localStorage.setItem("birth-year", document.getElementById("birth-year").value);
+		});
+		$("#birth-day-spouse").change(function(){
+			localStorage.setItem("birth-day-spouse", document.getElementById("birth-day-spouse").value);
+		});
+		$("#birth-month-spouse").change(function(){
+			localStorage.setItem("birth-month-spouse", document.getElementById("birth-month-spouse").value);
+		});
+		$("#birth-year-spouse").change(function(){
+			localStorage.setItem("birth-year-spouse", document.getElementById("birth-year-spouse").value);
+		});
+		$("#disability1").change(function(){
+			if ($("#disability1").is(':checked')) {
+				localStorage.setItem("parent-disabled", "true");
+			} else {
+				localStorage.setItem("parent-disabled", "false");
+			}
+		});
+		$("#disability2").change(function(){
+			if ($("#disability1").is(':checked')) {
+				localStorage.setItem("parent-spouse-disabled", "true");
+			} else {
+				localStorage.setItem("parent-spouse-disabled", "false");
+			}
+		});
+
+
+		$("#save-ontario-residence").click(function(){
+			// console.log(localStorage.getItem("tax-year"));
+			// console.log(localStorage.getItem("tax-resident"));
+			// console.log(localStorage.getItem("province"));
+			// console.log(localStorage.getItem("birth-day"));
+			// console.log(localStorage.getItem("birth-month"));
+			// console.log(localStorage.getItem("birth-year"));
+			// console.log(localStorage.getItem("birth-day-spouse"));
+			// console.log(localStorage.getItem("birth-month-spouse"));
+			// console.log(localStorage.getItem("birth-year-spouse"));
+			// console.log(localStorage.getItem("parent-disabled"));
+			// console.log(localStorage.getItem("parent-spouse-disabled"));
+
+
+			//Go to next step
+			window.location.href = "./step6-children.html"
+
+
+
+			//
+			// ;
+			//
+			//
+			//
+			// var eRadio = document.getElementsByName("tax-year"); // list of radio buttons
+			// var iTaxYear = localStorage.getItem('tax-year'); // local storage value
+			// // for (var i = 0; i < radios.length; i++){
+			// //   if (radios[i].value == iTaxYear){
+			// //       radios[i].checked = true; // marking the required radio as checked
+			// //   }
+			// // }
+			//
+			//
+			// //save to storage
+			//
+			//
+			//
+			//
+
+
+			// // Retrieving from cache
+
+
+
+
+			});
 	});
 </script>
 
