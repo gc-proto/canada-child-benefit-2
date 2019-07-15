@@ -363,8 +363,8 @@
 <script>
 	$(document).ready(function() {
 
-		console.log(localStorage.getItem("marital"));
-		console.log(localStorage.getItem("province"));
+		// console.log(localStorage.getItem("marital"));
+		// console.log(localStorage.getItem("province"));
 
 		if (localStorage.getItem("marital") == "married") {
 			$("#married-div").removeClass("hidden");
@@ -397,12 +397,18 @@
 			localStorage.setItem("birth-year-spouse", document.getElementById("birth-year-spouse").value);
 		});
 		$("#disability1").change(function(){
-			localStorage.setItem("parent-disabled", this.value);
-
-
+			if ($("#disability1").is(':checked')) {
+				localStorage.setItem("parent-disabled", "true");
+			} else {
+				localStorage.setItem("parent-disabled", "false");
+			}
 		});
 		$("#disability2").change(function(){
-			localStorage.setItem("parent-spouse-disabled", this.value);
+			if ($("#disability1").is(':checked')) {
+				localStorage.setItem("parent-spouse-disabled", "true");
+			} else {
+				localStorage.setItem("parent-spouse-disabled", "false");
+			}
 		});
 
 

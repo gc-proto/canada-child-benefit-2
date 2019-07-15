@@ -362,13 +362,21 @@
 				var iAge = field.target.value;
 				localStorage.setItem("childage"+iChild, iAge);
 				if (iAge == 5 || iAge == 17) {
-					console.log("hi");
+					// console.log("hi");
 					$("#month"+iChild).removeClass("hidden");
 				}
 			} else if (sElement == "disability") {
-				localStorage.setItem("disability"+iChild, field.target.value);
+				if ($("#disability"+iChild).is(':checked')) {
+					localStorage.setItem("disability"+iChild, "true");
+				} else {
+					localStorage.setItem("disability"+iChild, "false");
+				}
 			} else if (sElement == "shared-custody") {
-				localStorage.setItem("shared-custody"+iChild, field.target.value);
+				if ($("#shared-custody"+iChild).is(':checked')) {
+					localStorage.setItem("shared-custody"+iChild, "true");
+				} else {
+					localStorage.setItem("shared-custody"+iChild, "false");
+				}
 			}
 		});
 	});
