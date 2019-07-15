@@ -397,27 +397,33 @@
 			localStorage.setItem("birth-year-spouse", document.getElementById("birth-year-spouse").value);
 		});
 		$("#disability1").change(function(){
-			localStorage.setItem("parent-disabled", this.value);
-
-
+			if ($("#disability1").is(':checked')) {
+				localStorage.setItem("parent-disabled", "true");
+			} else {
+				localStorage.setItem("parent-disabled", "false");
+			}
 		});
 		$("#disability2").change(function(){
-			localStorage.setItem("parent-spouse-disabled", this.value);
+			if ($("#disability1").is(':checked')) {
+				localStorage.setItem("parent-spouse-disabled", "true");
+			} else {
+				localStorage.setItem("parent-spouse-disabled", "false");
+			}
 		});
 
 
 		$("#save-date-of-birth").click(function(){
-			// console.log(localStorage.getItem("tax-year"));
-			// console.log(localStorage.getItem("tax-resident"));
-			// console.log(localStorage.getItem("province"));
-			// console.log(localStorage.getItem("birth-day"));
-			// console.log(localStorage.getItem("birth-month"));
-			// console.log(localStorage.getItem("birth-year"));
-			// console.log(localStorage.getItem("birth-day-spouse"));
-			// console.log(localStorage.getItem("birth-month-spouse"));
-			// console.log(localStorage.getItem("birth-year-spouse"));
-			// console.log(localStorage.getItem("parent-disabled"));
-			// console.log(localStorage.getItem("parent-spouse-disabled"));
+			console.log(localStorage.getItem("tax-year"));
+			console.log(localStorage.getItem("tax-resident"));
+			console.log(localStorage.getItem("province"));
+			console.log(localStorage.getItem("birth-day"));
+			console.log(localStorage.getItem("birth-month"));
+			console.log(localStorage.getItem("birth-year"));
+			console.log(localStorage.getItem("birth-day-spouse"));
+			console.log(localStorage.getItem("birth-month-spouse"));
+			console.log(localStorage.getItem("birth-year-spouse"));
+			console.log(localStorage.getItem("parent-disabled"));
+			console.log(localStorage.getItem("parent-spouse-disabled"));
 
 
 			//Go to next step
