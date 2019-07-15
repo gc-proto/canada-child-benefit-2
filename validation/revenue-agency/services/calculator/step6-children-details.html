@@ -362,7 +362,7 @@
 				var iAge = field.target.value;
 				localStorage.setItem("childage"+iChild, iAge);
 				if (iAge == 5 || iAge == 17) {
-					console.log("hi");
+					// console.log("hi");
 					$("#month"+iChild).removeClass("hidden");
 				}
 			} else if (sElement == "disability") {
@@ -382,28 +382,28 @@
 	});
 
 	$("#save-children-details").click(function(){
-		console.log(localStorage.getItem("tax-year"));
-		console.log(localStorage.getItem("tax-resident"));
-		console.log(localStorage.getItem("province"));
-		console.log(localStorage.getItem("marital"));
-		console.log(localStorage.getItem("birth-day"));
-		console.log(localStorage.getItem("birth-month"));
-		console.log(localStorage.getItem("birth-year"));
-		console.log(localStorage.getItem("birth-day-spouse"));
-		console.log(localStorage.getItem("birth-month-spouse"));
-		console.log(localStorage.getItem("birth-year-spouse"));
-		console.log(localStorage.getItem("parent-disabled"));
-		console.log(localStorage.getItem("parent-spouse-disabled"));
-		console.log(localStorage.getItem("children"));
-		console.log(localStorage.getItem("childage1"));
-		console.log(localStorage.getItem("disability1"));
-		console.log(localStorage.getItem("shared-custody1"));
-		console.log(localStorage.getItem("childage2"));
-		console.log(localStorage.getItem("disability2"));
-		console.log(localStorage.getItem("shared-custody2"));
+		// console.log(localStorage.getItem("tax-year"));
+		// console.log(localStorage.getItem("tax-resident"));
+		// console.log(localStorage.getItem("province"));
+		// console.log(localStorage.getItem("marital"));
+		// console.log(localStorage.getItem("birth-day"));
+		// console.log(localStorage.getItem("birth-month"));
+		// console.log(localStorage.getItem("birth-year"));
+		// console.log(localStorage.getItem("birth-day-spouse"));
+		// console.log(localStorage.getItem("birth-month-spouse"));
+		// console.log(localStorage.getItem("birth-year-spouse"));
+		// console.log(localStorage.getItem("parent-disabled"));
+		// console.log(localStorage.getItem("parent-spouse-disabled"));
+		// console.log(localStorage.getItem("children"));
+		// console.log(localStorage.getItem("childage1"));
+		// console.log(localStorage.getItem("disability1"));
+		// console.log(localStorage.getItem("shared-custody1"));
+		// console.log(localStorage.getItem("childage2"));
+		// console.log(localStorage.getItem("disability2"));
+		// console.log(localStorage.getItem("shared-custody2"));
 
 		//Go to next step
-		// window.location.href = "./step7-income.html"
+		window.location.href = "./step7-income.html"
 
 	});
 </script>
