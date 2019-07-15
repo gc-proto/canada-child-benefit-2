@@ -344,7 +344,7 @@ function navClick(event){
 //Append second H1 anchor link to mobile nav menu items
 $( document ).on( "wb-ready.wb", function() {
 "use strict";
-        $('.section-menu a').each(function(){ 
+        $('.section-menu-sub a').each(function(){ 
         if ($(window).width() < 992) {  
            $(this).attr("href", $(this).attr("href") + "#wb-cont");
 		}
