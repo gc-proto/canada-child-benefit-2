@@ -982,9 +982,9 @@ body.transactional div#wb-bnr div.brand {
 
 /* minimalist "transactional" version of the page template (only really works on mobile) - added by DK July 10 */
 
-	body.transactional nav.gcweb-v2 {
+	/* body.transactional nav.gcweb-v2 {
 		border-top: 3px solid #38414d;
-	}
+	} */
 
 	body.transactional nav.gcweb-v2 h2 {
 		margin-top: 18px;
