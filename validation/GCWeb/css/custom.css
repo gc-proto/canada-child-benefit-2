@@ -1011,3 +1011,43 @@ body.transactional div#wb-bnr div.brand {
 		margin-left: 2px;
 		padding-left: 2px;
 	}
+
+ /* For the CCB project */
+	#brand-container-cra {
+	    background: #347e83 none repeat scroll 0 0!important;
+	}
+
+	#brand-container-cra-h2 {
+		color: white;
+	}
+
+	#brand-container-msca {
+	    background: #ffdc1a none repeat scroll 0 0!important;
+	}
+
+	.btn-login-logout {
+
+		background-color: white !important;
+		border: 1px solid #26374a !important;
+
+	/* background-color: #904114 !important; */
+	/* border: 1px solid #7D3912 !important; */
+
+	/*	background-color: #318000 !important; */
+	/*	border: 1px solid #455E82 !important; */
+		font-weight: 600 !important;
+		font-family: "Lato";
+	  font-size: 17px !important;
+		padding-top: 7px;
+		padding-bottom: 7px;
+	  padding-left: 16px;
+	  padding-right: 16px;
+		margin-top: 3px;
+
+	}
+	body.transactional nav.gcweb-v2 a.btn-login-logout {
+		margin-top: 18px;
+		position: relative;
+		left: 10px;
+		float: right;
+	}
