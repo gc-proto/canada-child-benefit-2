@@ -191,7 +191,7 @@
 
 	</div>
 
-	<div class="married-div" class="hidden">
+	<div class="married-div hidden">
 		<h2>Your <span id="married-term">spouse</span>'s date of birth</h2>
 		<div class="row">
 			<div class="col-md-1 col-xs-3">
@@ -364,9 +364,8 @@
 <script>
 	$(document).ready(function() {
 
-		// console.log(localStorage.getItem("marital"));
-		// console.log(localStorage.getItem("province"));
-
+		console.log(localStorage.getItem("marital"));
+		console.log(localStorage.getItem("province"));
 		if (localStorage.getItem("marital") == "married") {
 			$("#married-div").removeClass("hidden");
 		} else if (localStorage.getItem("marital") == "living common law") {
