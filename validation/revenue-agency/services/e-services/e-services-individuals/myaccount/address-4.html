@@ -39,6 +39,7 @@
 <li class="wb-slc"> <a class="wb-sl" href="#wb-cont">Skip to main content</a> </li>
 <li class="wb-slc"> <a class="wb-sl" href="#wb-info">Skip to "About government"</a> </li>
 </ul>
+
 <header>
 
 <div id="wb-bnr" class="container">
@@ -66,7 +67,7 @@
 </div>
 
 </div>
-</div>
+
 
 <style>
   body.transactional nav.gcweb-v2 {
@@ -74,7 +75,7 @@
   }
 </style>
 
-<nav class="gcweb-v2" typeof="SiteNavigationElement">
+<nav class="gcweb-v2 wb-init gcweb-v2-inited" typeof="SiteNavigationElement" id="brand-container-cra">
 <div class="container">
 <row>
 <h2 id="brand-container-cra-h2">My CRA Account</h2>
@@ -83,16 +84,14 @@
 </div><!-- container -->
 </nav>
 
-<nav id="wb-bc" role="navigation" property="breadcrumb">
+ <nav id="wb-bc" class="breadcrumb" property="breadcrumb">
   <h2>You are here:</h2>
   <div class="container">
-    <div class="row">
-      <ol class="breadcrumb">
-	      <li class="no-break-breadcrumb"><a href='main-screen.html'><img src="./resources/arrow-left.png" width="20px">Overview</a></li>
-      </ol>
-    </div>
+   <ol class="breadcrumb">
+     <li class="no-break-breadcrumb"><a href="main-screen.html"><img src="./resources/arrow-left.png" width="20px">Overview</a></li>
+   </ol>
   </div>
-</nav>
+ </nav>
 </header>
 <!-- class="gc-theme" is doing some weird stuff with the first h2... -->
 
