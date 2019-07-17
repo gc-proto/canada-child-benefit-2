@@ -119,13 +119,21 @@ Current mailing address: <br>
 OTTAWA ON K1A K2A
 </div>
 
-
-<div class="checkbox">
 <ul class="list-unstyled can-ca-form">
-<li class="checkbox checkbox-small"><input class="home-vs-mailing checkbox-small" name="canadaAddressForm.homeSameWithMailing" id="canadaAddressForm.homeSameWithMailing" type="checkbox" value="true" checked><input name="__checkbox_canadaAddressForm.homeSameWithMailing" id="__checkbox_canadaAddressForm.homeSameWithMailing" type="hidden" value="true"><label for="canadaAddressForm.homeSameWithMailing">Home address is the same as mailing address. </label>
-</li>
+  <li class="checkbox checkbox-small">
+    <input type="checkbox" id="homeSameWithMailing">
+    <label for="homeSameWithMailing">Home address is the same as mailing address.</label>
+  </li>
 </ul>
-</div>
+<!-- <div class="checkbox">
+  <ul class="list-unstyled can-ca-form">
+    <li class="checkbox checkbox-small">
+      <input class="home-vs-mailing checkbox-small" name="canadaAddressForm.homeSameWithMailing" id="canadaAddressForm.homeSameWithMailing" type="checkbox" value="true" checked>
+      <input name="__checkbox_canadaAddressForm.homeSameWithMailing" id="__checkbox_canadaAddressForm.homeSameWithMailing" type="hidden" value="true">
+      <label for="canadaAddressForm.homeSameWithMailing">Home address is the same as mailing address. </label>
+    </li>
+  </ul>
+</div> -->
 
 <a href="address-2.html" class="btn btn-default">Change mailing address</a>
 </form>
@@ -219,18 +227,17 @@ same as mailing address.<br>
 	 	<!--[if lt IE 9]>
 	 	<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
 	 	<![endif]-->
-	 	<script src="../../../../validation/GCWeb/js/theme-fieldflow-updates.js"></script>
+	 	<!-- <script src="../../../../validation/GCWeb/js/theme-fieldflow-updates.js"></script> -->
 	 	<script src="https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/files/navigation.js"></script>
 
 
 		<script>
 
-			$(document).ready(function() {
-
-					$( "input.home-vs-mailing" ).change(function() {
-						//alert( "clicked!" );
-						$("div#home-address").toggle();
-					});
+      $(document).ready(function(){
+        $("#homeSameWithMailing").change(function(){
+          console.log( "hi" );
+    			$("div#home-address").toggle();
+    		});
 
 			});
 
