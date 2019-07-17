@@ -182,6 +182,29 @@
 		</div>
 	</div>
 
+	<div class="" id="alberta-working-income-div">
+		<label for="alberta-working-income">For <span id="tax-year4"></span>, what was your net income?</span></label>
+		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+			<input type="text" size="7" maxlength="7" id="alberta-working-income" name="alberta-working-income" class="form-control text-right" style="min-height:50px;">
+			<span class="input-group-addon"> .00 </span>
+		</div>
+
+		<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
+
+		<div id="spouse-income-div" class="hidden">
+			<label for="alberta-working-income-spouse">For <span id="tax-year5"></span>, what was your <span id="and-spouse4"></span>'s net income?</span></label>
+			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+				<input type="text" size="7" maxlength="7" id="alberta-working-income-spouse" name="alberta-working-income-spouse" class="form-control text-right" style="min-height:50px;">
+				<span class="input-group-addon"> .00 </span>
+			</div>
+		</div>
+	</div>
+
+
 	<form id="rdsp-uccb-income" class="mrgn-tp-lg">
 		<legend class="h5">For <span id="tax-year3"></span>, are <span id="and-spouse">you </span>expecting to earn less than $37,000CND?</legend>
 		<ul class="list-unstyled can-ca-form">
@@ -368,19 +391,26 @@
 			$("#this-year-spouse-income-div").removeClass("hidden");
 			$("#and-spouse").html('you and your spouse ');
 			$("#and-spouse2").html('spouse');
+			$("#and-spouse4").html('spouse');
 			$("#this-year-and-spouse2").html('spouse');
 		} else if (localStorage.getItem("marital") == "living common law") {
 			$("#spouse-income-div").removeClass("hidden");
 			$("#this-year-spouse-income-div").removeClass("hidden");
 			$("#and-spouse").html('you and your common law partner ');
 			$("#and-spouse2").html('common law partner');
+			$("#and-spouse4").html('common law partner');
 			$("#this-year-and-spouse2").html('common law partner');
+		}
+		if (localStorage.getItem("province") == "Alberta") {
+			$("#alberta-working-income-div").removeClass("hidden");
 		}
 		var iPrevYear = localStorage.getItem("tax-year");
 		var iThisYear = parseInt(iPrevYear, 10) + 1;
 		$('#tax-year1').append(iPrevYear);
 		$('#tax-year2').append(iPrevYear);
 		$('#tax-year3').append(iThisYear);
+		$('#tax-year4').append(iPrevYear);
+		$('#tax-year5').append(iPrevYear);
 		$('#this-year-tax-year1').append(iThisYear);
 		$('#this-year-tax-year2').append(iThisYear);
 
@@ -395,6 +425,12 @@
 		});
 		$("#more-than-36").change(function(){
 			$("#this-year-income-div").addClass("hidden");
+		});
+		$("#alberta-working-income").change(function(){
+			localStorage.setItem("alberta-working-income", document.getElementById("alberta-working-income").value);
+		});
+		$("#alberta-working-income-spouse").change(function(){
+			localStorage.setItem("alberta-working-income-spouse", document.getElementById("alberta-working-income-spouse").value);
 		});
 		$("#this-year-income").change(function(){
 			localStorage.setItem("this-year-income", document.getElementById("this-year-income").value);
