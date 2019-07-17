@@ -123,7 +123,7 @@ OTTAWA ON K1A K2A
 
 <div class="checkbox">
 <label for="canadaAddressForm.homeSameWithMailing">
-<input name="canadaAddressForm.homeSameWithMailing" id="canadaAddressForm.homeSameWithMailing" type="checkbox" value="true" checked>
+<input class="home-vs-mailing" name="canadaAddressForm.homeSameWithMailing" id="canadaAddressForm.homeSameWithMailing" type="checkbox" value="true" checked>
 <input name="__checkbox_canadaAddressForm.homeSameWithMailing" id="__checkbox_canadaAddressForm.homeSameWithMailing" type="hidden" value="true">
 Home address is the same as mailing address. </label>
 </div>
@@ -133,13 +133,20 @@ Home address is the same as mailing address. </label>
 </div>
 <form name="shwpdtHmMn" id="shwpdtHmMn" action="https://apps3.ams-sga.cra-arc.gc.ca/gol-ged/iica/cma/prot/shwpdtHmMn.action" method="post">
 <div>&nbsp;</div>
-<!--COMMENTED OUT FOR NOW _ SHOULD BE DISPLAYED IF UNCHECK THE CHECKBOX IN MAILING ADDRESS <strong>Home address</strong><br>
+
+
+
+<div id="home-address" style="display:none;">
+<strong>Home address</strong><br>
 <br>
 Current home address is: <br>
 same as mailing address.<br>
 <div>&nbsp;</div>
-<a href="address-2a.html" class="btn btn-default">Change home address</a> <a href="#" class="btn btn-default">Delete home address</a>
-</form> -->
+<a href="address-2a.html" class="btn btn-default mrgn-bttm-sm">Change home address</a> <a href="#" class="btn btn-default mrgn-bttm-sm">Delete home address</a>
+</div>
+
+
+</form>
 
 
         <div>&nbsp;</div>
@@ -215,5 +222,20 @@ same as mailing address.<br>
 	 	<![endif]-->
 	 	<script src="../../../../validation/GCWeb/js/theme-fieldflow-updates.js"></script>
 	 	<script src="https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/files/navigation.js"></script>
+
+
+		<script>
+
+			$(document).ready(function() {
+
+					$( "input.home-vs-mailing" ).change(function() {
+						//alert( "clicked!" );
+						$("div#home-address").toggle();
+					});
+
+			});
+
+		</script>
+
 	 </body>
 	 </html>
