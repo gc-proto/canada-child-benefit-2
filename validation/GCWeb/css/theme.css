@@ -8595,12 +8595,12 @@ q:before {
     white-space: nowrap
 }
 
-/* #wb-bc li:before {
+#wb-bc li:before {
     color: #333;
     content: ">";
     font-family: "Glyphicons Halflings";
     font-size: .7em
-} */
+}
 
 [dir=rtl] #wb-bc li:before {
     content: "<";
