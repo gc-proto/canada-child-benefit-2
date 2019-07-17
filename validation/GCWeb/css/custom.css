@@ -212,9 +212,14 @@ div.pagedetails .btn {
 
 @media screen and (max-width: 737px) {
 #wb-bc li:before {
-		 color: #333;
+		color: #284162;
 		content: "<"!important;
-		font-size: 1.5em;
+		font-size: 0.8em;
+}
+
+#wb-bc a {
+    text-decoration:none;
+		padding-left: 0px!important;
 }
 
 .gcweb-v2~#wb-bc ol {
