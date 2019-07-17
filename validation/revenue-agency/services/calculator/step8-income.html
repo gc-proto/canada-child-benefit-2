@@ -173,7 +173,7 @@
 	<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
 
 	<div id="spouse-income-div" class="hidden">
-		<label for="income">For <span id="tax-year2"></span>, what was your <span id="and-spouse2"></span>'s net income?</span></label>
+		<label  for="income">For <span id="tax-year2"></span>, what was your <span id="and-spouse2"></span>'s net income?</span></label>
 		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -183,7 +183,7 @@
 	</div>
 
 	<div class="" id="alberta-working-income-div">
-		<label for="alberta-working-income">For <span id="tax-year4"></span>, what was your net income?</span></label>
+		<label class="mrgn-tp-lg" for="alberta-working-income">For <span id="tax-year4"></span>, what was your working income?</span></label>
 		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -193,8 +193,8 @@
 
 		<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
 
-		<div id="spouse-income-div" class="hidden">
-			<label for="alberta-working-income-spouse">For <span id="tax-year5"></span>, what was your <span id="and-spouse4"></span>'s net income?</span></label>
+		<div id="alberta-working-spouse-income-div" class="hidden">
+			<label class="mrgn-tp-lg" for="alberta-working-income-spouse">For <span id="tax-year5"></span>, what was your <span id="and-spouse4"></span>'s working income?</span></label>
 			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -389,6 +389,7 @@
 		if (localStorage.getItem("marital") == "married") {
 			$("#spouse-income-div").removeClass("hidden");
 			$("#this-year-spouse-income-div").removeClass("hidden");
+			$("#alberta-working-spouse-income-div").removeClass("hidden");
 			$("#and-spouse").html('you and your spouse ');
 			$("#and-spouse2").html('spouse');
 			$("#and-spouse4").html('spouse');
@@ -396,6 +397,7 @@
 		} else if (localStorage.getItem("marital") == "living common law") {
 			$("#spouse-income-div").removeClass("hidden");
 			$("#this-year-spouse-income-div").removeClass("hidden");
+			$("#alberta-working-spouse-income-div").removeClass("hidden");
 			$("#and-spouse").html('you and your common law partner ');
 			$("#and-spouse2").html('common law partner');
 			$("#and-spouse4").html('common law partner');
