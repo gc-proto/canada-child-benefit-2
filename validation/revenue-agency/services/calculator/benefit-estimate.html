@@ -14,6 +14,7 @@
 <link href="https://wet-boew.github.io/themes-dist/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/theme.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
+<link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
 <link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <!--<![endif]-->
@@ -622,9 +623,22 @@ January 3, 2020 -->
 
 		//calculate monthly CCB reduction
 		//month is offset by 1, 0 = January
+		let changeInReduc = [];
 		for (i=0; i<iChildren; i++) {
 			var age = localStorage.getItem("childage"+(i+1));
-			if (age < 5) {
+			if (age == -1) {
+				var birthmonth = localStorage.getItem("childmonth"+(i+1));
+				//this gets the number of the month, but if we're starting in July, we need to offset on a 12 number base, 0 = January
+				if (birthmonth < 5) {
+					birthmonth += 7;
+				} else {
+					birthmonth -= 5;
+				}
+				for (q=birthmonth;q<12;q++){
+					ccbPayments[q] += 553.25;
+				}
+				changeInReduc.push(">"+birthmonth);
+			} else if (age < 5) {
 				for (q=0;q<12;q++){
 					ccbPayments[q] += 553.25;
 				}
@@ -656,46 +670,66 @@ January 3, 2020 -->
 				for (q=0;q<birthmonth;q++){
 					ccbPayments[q] += 466.83;
 				}
+				changeInReduc.push("<"+birthmonth);
 			}
 		}
 		// if (iIncome < 31120) {
 			//no reduction
-		if (31119 < iIncome < 67427) {
-			//how does the reduction get applied against the payments when there's a change in age?
-			if (iChildren == 1){
-				var iReduction = 0.07*(iIncome-31120);
-				iReduction = iReduction/12;
-			} else if (iChildren == 2){
-				var iReduction = 0.135*(iIncome-31120);
-				iReduction = iReduction/12;
-			} else if (iChildren == 3){
-				var iReduction = 0.19*(iIncome-31120);
-				iReduction = iReduction/12;
-			} else if (iChildren > 3) {
-				var iReduction = 0.23*(iIncome-31120);
-				iReduction = iReduction/12;
-			}
-		} else if (67426 < income) {
-			if (iChildren == 1){
-				var iReduction = 0.032*(iIncome-67426);
-				iReduction = iReduction + 2541;
-				iReduction = iReduction/12;
-			} else if (iChildren == 2){
-				var iReduction = 0.057*(iIncome-67426);
-				iReduction = iReduction + 4901;
-				iReduction = iReduction/12;
-			} else if (iChildren == 3){
-				var iReduction = 0.08*(iIncome-67426);
-				iReduction = iReduction + 6898;
-				iReduction = iReduction/12;
-			} else if (iChildren > 3) {
-				var iReduction = 0.095*(iIncome-67426);
-				iReduction = iReduction + 8351;
-				iReduction = iReduction/12;
-			}
-		}
-		//deduct the reduction from each month
 		for (q=0;q<12;q++){
+			// console.log("hi");
+			//iChildren = number of children total
+			//for month would be iChildren
+			var iMonthlyChildren = iChildren;
+			// console.log(changeInReduc.length);
+			for (z=0;z<changeInReduc.length;z++){
+				// console.log(changeInReduc[z].substring(1,changeInReduc[z].length-1));
+				if (changeInReduc[z].substring(0,1) == '>') {
+					//********test if the substring works properly*******
+					// console.log(changeInReduc[z].substring(1,changeInReduc[z].length-1));
+					if (changeInReduc[z].substring(1,changeInReduc[z].length-1) <= q) {
+						iMonthlyChildren -= 1;
+					}
+				} else {
+					if (changeInReduc[z].substring(1,changeInReduc[z].length-1) >= q) {
+						iMonthlyChildren -= 1;
+					}
+				}
+			}
+			// console.log(iMonthlyChildren);
+			if (iIncome > 67426) {
+				if (iMonthlyChildren == 1){
+					var iReduction = 0.032*(iIncome-67426);
+					iReduction = iReduction + 2541;
+					iReduction = iReduction/12;
+				} else if (iMonthlyChildren == 2){
+					var iReduction = 0.057*(iIncome-67426);
+					iReduction = iReduction + 4901;
+					iReduction = iReduction/12;
+				} else if (iMonthlyChildren == 3){
+					var iReduction = 0.08*(iIncome-67426);
+					iReduction = iReduction + 6898;
+					iReduction = iReduction/12;
+				} else if (iMonthlyChildren > 3) {
+					var iReduction = 0.095*(iIncome-67426);
+					iReduction = iReduction + 8351;
+					iReduction = iReduction/12;
+				}
+			} else if (iIncome > 31119) {
+			//how does the reduction get applied against the payments when there's a change in age?
+				if (iMonthlyChildren == 1){
+					var iReduction = 0.07*(iIncome-31120);
+					iReduction = iReduction/12;
+				} else if (iMonthlyChildren == 2){
+					var iReduction = 0.135*(iIncome-31120);
+					iReduction = iReduction/12;
+				} else if (iMonthlyChildren == 3){
+					var iReduction = 0.19*(iIncome-31120);
+					iReduction = iReduction/12;
+				} else if (iMonthlyChildren > 3) {
+					var iReduction = 0.23*(iIncome-31120);
+					iReduction = iReduction/12;
+				}
+			}
 			ccbPayments[q] -= iReduction;
 		}
 

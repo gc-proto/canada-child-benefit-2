@@ -14,6 +14,7 @@
 <link href="https://wet-boew.github.io/themes-dist/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/theme.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
+<link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
 <link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <!--<![endif]-->
@@ -346,8 +347,9 @@
 			var iTag = i+1;
 			console.log(i);
 			console.log(iTag);
-			$('#all-children').append('<div class="row mrgn-tp-md"><div class="col-sm-2"><h2 class="h4 mrgn-tp-0">' + arrNumberWords[i]  + ' child</h2></div><div class="col-sm-10"><div class="row"><div class="col-md-1 col-xs-3"><label for="childage' + iTag + '">Age</label><input type="text" size="2" maxlength="2" id="childage'+ iTag +'" name="childage'+ iTag +'" class="form-control"></div><div class="col-md-11 col-xs-9 hidden" id="month' + iTag + '"><label for="childmonth' + iTag + '">Month they were born</label><input type="text" size="2" maxlength="2" id="childmonth'+ iTag +'" name="childmonth'+ iTag +'" class="form-control"></div></div><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="disability' + iTag + '"><label for="disability' + iTag + '">This child is a qualified disabled dependent</label></li></ul><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="shared-custody' + iTag + '"><label for="shared-custody' + iTag + '">You share custody of this child</label></li></ul></div></div>');
+			$('#all-children').append('<div class="row mrgn-tp-md"><div class="col-sm-2"><h2 class="h4 mrgn-tp-0">' + arrNumberWords[i]  + ' child</h2></div><div class="col-sm-10"><div class="row"><div class="col-md-1 col-xs-3"><legend class="h5">Age</legend><select id="childage'+ iTag +'" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true"><option value="">...</option><option value="-1">Not yet born</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option></select></div><div class="col-md-11 col-xs-9 hidden" id="month' + iTag + '"><legend class="h5">Month of birth</legend><select id="childmonth'+ iTag +'" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true"><option value="">...</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select></div></div><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="disability' + iTag + '"><label for="disability' + iTag + '">This child is a qualified disabled dependent</label></li></ul><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="shared-custody' + iTag + '"><label for="shared-custody' + iTag + '">You share custody of this child</label></li></ul></div></div>');
 		}
+
 
 		//dynamic onchange
 		$("#all-children").change(function(field){
@@ -361,7 +363,7 @@
 			if (sElement == "childage") {
 				var iAge = field.target.value;
 				localStorage.setItem("childage"+iChild, iAge);
-				if (iAge == 5 || iAge == 17) {
+				if (iAge == 5 || iAge == 17 || iAge == -1) {
 					// console.log("hi");
 					$("#month"+iChild).removeClass("hidden");
 				}
