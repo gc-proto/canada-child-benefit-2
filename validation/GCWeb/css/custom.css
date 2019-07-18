@@ -2,7 +2,6 @@
 /* removed the in details condition, since it's better without lines elsewhere too... */
 
 
-
 /* byline */
 
 .byline {
@@ -1022,6 +1021,7 @@ body.transactional div#wb-bnr div.brand {
 
 	#brand-container-cra-h2 {
 		color: white;
+		font-size: 1.25em;
 	}
 
 	#brand-container-msca {
@@ -1049,7 +1049,7 @@ body.transactional div#wb-bnr div.brand {
 
 	}
 	body.transactional nav.gcweb-v2 a.btn-login-logout {
-		margin-top: 18px;
+		margin-top: 10px;
 		position: relative;
 		left: 10px;
 		float: right;
