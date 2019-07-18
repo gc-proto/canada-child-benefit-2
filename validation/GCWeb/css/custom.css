@@ -1016,6 +1016,10 @@ body.transactional div#wb-bnr div.brand {
 
  /* For the CCB project */
 
+ .well-overviewpage, .well {
+	 background-color: white !important;
+ }
+ 
  #brand-container-cra .container {
 	 padding: 0 .75em 0 .75em;
  }
