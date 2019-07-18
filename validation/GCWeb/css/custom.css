@@ -816,6 +816,13 @@ section.byline p {
 
 }
 
+#brand-container-cra-h2 {
+	font-size: 1em !important;
+}
+
+body.transactional nav.gcweb-v2 a.btn-login-logout {
+	margin-top: .3em !important;
+}
 }
 
 button#wb-srch-sub a:visited {
