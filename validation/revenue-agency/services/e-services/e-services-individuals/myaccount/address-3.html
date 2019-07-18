@@ -87,7 +87,7 @@
   <h2>You are here:</h2>
   <div class="container">
    <ol class="breadcrumb">
-     <li class="no-break-breadcrumb"><a href='main-screen.html'><img src="./resources/arrow-left.png" width="20px">Overview</a></li>
+     <li class="no-break-breadcrumb"><a href='pesonal-profile-after-update.html'><i class="fa fa-arrow-circle-left" width="20px"></i>Personal profile</a></li>
    </ol>
   </div>
  </nav>
@@ -96,21 +96,43 @@
 
 <main property="mainContentOfPage" class="container">
 
-<h1 property="name" id="wb-cont">Update mailing address - start with postal code</h1>
-
+<h1 property="name" id="wb-cont">Update mailing address - confirm</h1>
 
           <div class="maHelpLink hidden-print text-right"> <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals/contact-us.html" target="_blank">Help with this page</a> </div>
         </div>
-        <p>Valid mailing addresses need a postal code.</p>
-        <p>If you do not know your new postal code, use the <a onclick="window.open('http://www.canadapost.ca/cpo/mc/personal/postalcode/fpc.jsf?LOCALE=en'); return false;" href="http://www.canadapost.ca/cpo/mc/personal/postalcode/fpc.jsf?LOCALE=en">Canada Post postal look up site</a>. </p>
-        <!--This doesn't belong here - only show it if the postal code is not found><p>If you live in a city that is undergoing an amalgamation, the system might not recognize your new street name and number, new postal code, or the new city name until the effective date determined by Canada Post. </p><!-->
-        <div class="form-group">
-          <p><label class="required" for="postalCode">New postal code <br />(Example: K1A 2B3)&nbsp;<strong class="required">(required)</strong></label></p>
-          <input name="postalForm.postalCode" class="form-control" id="postalForm.postalCode" type="text" size="12" maxlength="7" value="">
+
+        <p> Once you click 'Confirm new address', your mailing address with the CRA will be updated to: </p>
+          <div class="well">
+		<p>
+		7841 HARVIE  RD <br />
+		SURREY BC V4N 6A8
+		</p>
         </div>
-        <div>&nbsp;</div>
-         <a href="address-1.html" class="">Previous</a> &nbsp;
-         <a href="address-4.html" class="btn btn-primary">Next</a>
+<!-- commenting out because this now happens at the beginning of the process
+<div class="checkbox">
+          <label for="canadaAddressForm.homeSameWithMailing">
+            <input name="canadaAddressForm.homeSameWithMailing" id="canadaAddressForm.homeSameWithMailing" type="checkbox" value="true" checked>
+            <input name="__checkbox_canadaAddressForm.homeSameWithMailing" id="__checkbox_canadaAddressForm.homeSameWithMailing" type="hidden" value="true">
+           Home address is the same as the mailing address above. </label>
+        </div> -->
+
+          <p>Caution: Some mail or payments may already be on their way to your previous address. Make sure to have your mail forwarded to your new address. </p>
+         <!-- <fieldset>
+	             <legend class="mrgn-bttm-sm required"> Confirmation<strong class="required">(required)</strong> <br>
+          </legend>
+          <div class="checkbox">
+            <label for="canadaAddressForm.confirmCheckboxValue">
+              <input name="canadaAddressForm.confirmCheckboxValue" id="canadaAddressForm.confirmCheckboxValue" type="checkbox" value="true">
+              <input name="__checkbox_canadaAddressForm.confirmCheckboxValue" id="__checkbox_canadaAddressForm.confirmCheckboxValue" type="hidden" value="true">
+              I confirm that the address above is my new mailing address. </label>
+          </div>
+        </fieldset> -->
+
+
+<div>&nbsp;</div>
+<p>
+<a href="address-4.html" class="">Previous</a> &nbsp;
+<a href="address-6.html" class="btn btn-primary">Confirm new address</a>
 
 
 
