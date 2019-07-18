@@ -5569,7 +5569,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 
 .breadcrumb>li+li:before {
     content: "/ ";
-    padding: 0 5px;
+    padding: 0 0;
     color: #ccc
 }
 
@@ -8597,8 +8597,10 @@ q:before {
 
 #wb-bc li:before {
     color: #333;
-    content: ">";
-    font-family: "Glyphicons Halflings";
+    content: '\f054';
+    display: inline-block;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     font-size: .7em
 }
 

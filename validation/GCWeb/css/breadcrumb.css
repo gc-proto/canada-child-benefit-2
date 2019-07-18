@@ -9,9 +9,12 @@ Unfortunately, using :before:
 
 #wb-bc li:before {
 		color: #284162;
-		content: "<"!important;
-		font-family: "Glyphicons Halflings";
-		font-size: 0.8em;
+		content: '\f053';
+    display: inline-block;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: .8em;
+		padding: 0 5px;
 	}
 	#wb-bc a {
 			text-decoration:none;
