@@ -2,9 +2,10 @@
 
 /* Fix needed:
 Unfortunately, using :before:
-- doesn't include the < as part of the clickable part of the link
+- doesn't include the < as part of the clickable part of the link -
 - < does not change colour to purple with the link when previously clicked
-- still appears as > when I test on Safari - **July 17th should be fixed now Jennifer
+** I suspect we'd have to approach it by writing javascript class toggles for the breadcrumbs to do the rest of these features (Jennifer)
+- still appears as > when I test on Safari - **July 17th should be fixed (Jennifer)
 */
 
 #wb-bc li:before {
