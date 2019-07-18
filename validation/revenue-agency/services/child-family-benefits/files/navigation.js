@@ -266,32 +266,39 @@ var next = anchors.get(pos+1);
 var prev = anchors.get(pos-1);
 
 
-var nextPagE = $('<span class="wb-inv-md wb-inv-lg">Next </span>');
-var nextPagF = $('<span class="wb-inv-md wb-inv-lg">Suivant </span>');
-var prevPagE = $('<span class="wb-inv-lg">Previous </span>');
-var prevPagF = $('<span class="wb-inv-lg">Précédent </span>');
+//var nextPagE = $('<span class="wb-inv-md wb-inv-lg">Next </span>');
+//var nextPagF = $('<span class="wb-inv-md wb-inv-lg">Suivant </span>');
+var nextPagE = $('<span class="wb-inv">Next </span>');
+var nextPagF = $('<span class="wb-inv">Suivant </span>');
+//var prevPagE = $('<span class="wb-inv-lg">Previous </span>');
+//var prevPagF = $('<span class="wb-inv-lg">Précédent </span>');
 
 if ($(".section-menu").find("li:first").is(".active")){
 switch( pgLang.toLowerCase() ){
 			case "fr":
-				$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagF);
-				break;
+				//$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagF);
+		$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).prepend(nextPagF);
+				
+		break;
 			case "en":
 			default:
-				$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagE);
-		}
+//$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagE);
+$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).prepend(nextPagE);		
+}
 }
 
 	if (!$(".section-menu").find("li:first").is(".active")){
 	switch( pgLang.toLowerCase() ){
 			case "fr":
-				$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagF);
-	$(prev).clone().appendTo(".pull-pager .previous" ).attr({"rel":"prev"}).wrapInner(prevPagF);
+		//$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagF);
+	$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).prepend(nextPagF);
+			//$(prev).clone().appendTo(".pull-pager .previous" ).attr({"rel":"prev"}).wrapInner(prevPagF);
 				break;
 			case "en":
 			default:
-				$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagE);
-	$(prev).clone().appendTo(".pull-pager .previous" ).attr({"rel":"prev"}).wrapInner('<span class="wb-inv-xs wb-inv-sm wb-inv-md"></span>').prepend(prevPagE);
+		//	$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).wrapInner('<span class="wb-inv-xs wb-inv-sm"></span>').prepend(nextPagE);
+		$(next).clone().appendTo( ".pull-pager .next" ).attr({"rel":"next"}).prepend(nextPagE);
+	//$(prev).clone().appendTo(".pull-pager .previous" ).attr({"rel":"prev"}).wrapInner('<span class="wb-inv-xs wb-inv-sm wb-inv-md"></span>').prepend(prevPagE);
 		}
 }}
 
