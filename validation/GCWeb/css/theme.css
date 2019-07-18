@@ -1779,7 +1779,7 @@ dd {
 abbr[data-original-title],
 abbr[title] {
     cursor: help;
-    border-bottom: 1px dotted #6f6f6f
+    /* border-bottom: 1px dotted #6f6f6f */
 }
 
 .initialism {
