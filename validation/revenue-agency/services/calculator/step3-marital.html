@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
 <link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
- 
+
 <!--<![endif]-->
 <!--[if lt IE 9]>
 		<link href="./validation/GCWeb/assets/favicon.ico" rel="shortcut icon" />
@@ -163,31 +163,32 @@
   </h1>
 
 	<form id="marital">
-		<legend class="h5">Residency status</legend>
+		<legend class="h5">Marital status</legend>
 		<ul class="list-unstyled can-ca-form">
-			<li class="radio">
-				<input id="divorced" type="radio" name="status1" value="divorced">
-				<label for="divorced">Divorced</label>
+
+      <li class="radio">
+				<input id="married" type="radio" name="status1" value="married">
+				<label for="married">Married</label>
 			</li>
 		  <li class="radio">
 		    <input id="common" type="radio" name="status1" value="common">
 				<label for="common">Living Common Law</label>
 		  </li>
-			<li class="radio">
-				<input id="married" type="radio" name="status1" value="married">
-				<label for="married">Married</label>
+      <li class="radio">
+				<input id="widowed" type="radio" name="status1" value="widowed">
+				<label for="widowed">Widowed</label>
+			</li>
+      <li class="radio">
+				<input id="divorced" type="radio" name="status1" value="divorced">
+				<label for="divorced">Divorced</label>
 			</li>
 			<li class="radio">
 				<input id="separated" type="radio" name="status1" value="separated">
 				<label for="separated">Separated</label>
 			</li>
-			<li class="radio">
+      <li class="radio">
 				<input id="single" type="radio" name="status1" value="single">
 				<label for="single">Single</label>
-			</li>
-			<li class="radio">
-				<input id="widowed" type="radio" name="status1" value="widowed">
-				<label for="widowed">Widowed</label>
 			</li>
 		</ul>
 	</form>
