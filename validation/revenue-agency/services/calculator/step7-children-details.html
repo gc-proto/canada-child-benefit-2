@@ -347,7 +347,7 @@
 			var iTag = i+1;
 			console.log(i);
 			console.log(iTag);
-			$('#all-children').append('<div class="row mrgn-tp-md"><div class="col-sm-2"><h2 class="h4 mrgn-tp-0">' + arrNumberWords[i]  + ' child</h2></div><div class="col-sm-10"><div class="row"><div class="col-md-1 col-xs-3"><legend class="h5">Age</legend><select id="childage'+ iTag +'" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true"><option value="">...</option><option value="-1">Not yet born</option><option value="0">Not yet 1</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option></select></div><div class="col-md-11 col-xs-9 hidden" id="month' + iTag + '"><legend class="h5">Month of birth</legend><select id="childmonth'+ iTag +'" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true"><option value="">...</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></div></div><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="disability' + iTag + '"><label for="disability' + iTag + '">This child is a qualified disabled dependent</label></li></ul><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="shared-custody' + iTag + '"><label for="shared-custody' + iTag + '">You share custody of this child</label></li></ul></div></div>');
+			$('#all-children').append('<div class="row mrgn-tp-md"><div class="col-sm-2"><h2 class="h4 mrgn-tp-0">' + arrNumberWords[i]  + ' child</h2></div><div class="col-sm-10"><div class="row"><div class="col-md-1 col-xs-3"><legend class="h5">Age</legend><select id="childage'+ iTag +'" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true"><option value="">...</option><option value="-1">Not yet born</option><option value="0">Not yet 1</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option></select></div><div class="col-md-11 col-xs-9 hidden" id="month' + iTag + '"><legend class="h5">Month of birth</legend><select id="childmonth'+ iTag +'" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true"><option value="">...</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></div><div class="col-md-12 hidden" id="year' + iTag + '"><legend class="h5">Year of birth</legend><select id="childyear'+ iTag +'" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true"><option value="">...</option><option id="year-before" value=""><span id="year-before"></option><option id="year-during" value=""><span id="year-during"></span></option></select></div></div><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="disability' + iTag + '"><label for="disability' + iTag + '">This child is a qualified disabled dependent</label></li></ul><ul class="list-unstyled can-ca-form"><li class="checkbox checkbox-small"><input type="checkbox" id="shared-custody' + iTag + '"><label for="shared-custody' + iTag + '">You share custody of this child</label></li></ul></div></div>');
 		}
 
 
@@ -362,13 +362,51 @@
 			var sElement = sId.substring(0,sId.length - iChild.length)
 			if (sElement == "childage") {
 				var iAge = field.target.value;
-				localStorage.setItem("childage"+iChild, iAge);
-				if (iAge == 5 || iAge == 17 || iAge == -1) {
-					// console.log("hi");
-					$("#month"+iChild).removeClass("hidden");
+				var today = new Date();
+				var julyFirst = new Date((parseInt(localStorage.getItem("tax-year"),10)+1), 07, 01);
+				//check if today is greater or larger than July 1 of the estimation period
+				if (today < julyFirst) {
+					//After - one after (0, 6, 18)
+					if (iAge == -1 || iAge == 4 || iAge == 5 || iAge == 16 || iAge == 17) {
+						$("#month"+iChild).removeClass("hidden");
+					} else {
+						localStorage.setItem("childage"+iChild, iAge);
+					}
+				} else {
+					if (iAge == -1 || iAge == 6 || iAge == 5 || iAge == 18 || iAge == 17) {
+						$("#month"+iChild).removeClass("hidden");
+					} else {
+						localStorage.setItem("childage"+iChild, iAge);
+					}
 				}
 			} else if (sElement == "childmonth") {
-				localStorage.setItem("childmonth"+iChild, field.target.value);
+				var iAge = document.getElementById('childage'+iChild);
+				var iMonth = parseInt(field.target.value,10);
+				var today = new Date();
+				var julyFirst = new Date((parseInt(localStorage.getItem("tax-year"),10)+1), 07, 01);
+				//check if today is greater or larger than July 1 of the estimation period
+				if (today.getMonth() == (iMonth-1)) {
+					//don't know yet, we need the year
+					var iTaxYear = parseInt(localStorage.getItem("tax-year"),10);
+					//id="year-during" (iTaxYear + 2) - if 0
+					//id="year-before" (iTaxYear + 1) - if 0
+					$("#year"+iChild).removeClass("hidden");
+				} else if (6 <= (iMonth-1) && (iMonth-1) < today.getMonth()) {
+					//lower age by 1
+					localStorage.setItem("childage"+iChild, (parseInt(iAge,10)-1));
+					localStorage.setItem("childmonth"+iChild, iMonth);
+				} else {
+					localStorage.setItem("childage"+iChild, iAge);
+					localStorage.setItem("childmonth"+iChild, iMonth);
+				}
+			} else if (sElement == "childyear") {
+				// if (during estimation period {
+				//
+				// }
+				// localStorage.setItem("childage"+iChild, iAge);
+				// localStorage.setItem("childmonth"+iChild, iMonth);
+
+
 			} else if (sElement == "disability") {
 				if ($("#disability"+iChild).is(':checked')) {
 					localStorage.setItem("disability"+iChild, "true");
