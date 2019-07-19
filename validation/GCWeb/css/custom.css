@@ -819,9 +819,7 @@ section.byline p {
 	font-size: 1em !important;
 }
 
-body.transactional nav.gcweb-v2 a.btn-login-logout {
-	margin-top: .3em !important;
-}
+
 }
 
 button#wb-srch-sub a:visited {
@@ -927,6 +925,12 @@ body.transactional div#wb-bnr div.brand {
 		position: static;
 }
 
+#brand-container-mya {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+
 }
 
 
@@ -950,6 +954,12 @@ body.transactional div#wb-bnr div.brand {
  visibility: visible;
 
 }
+
+#brand-container-mya {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
 
 }
 
@@ -1019,7 +1029,7 @@ body.transactional div#wb-bnr div.brand {
  .well-overviewpage, .well {
 	 background-color: white !important;
  }
- 
+
  #brand-container-cra .container {
 	 padding: 0 .75em 0 .75em;
  }
@@ -1040,15 +1050,8 @@ body.transactional div#wb-bnr div.brand {
 
 		background-color: white !important;
 		border: 1px solid #26374a !important;
-
-	/* background-color: #904114 !important; */
-	/* border: 1px solid #7D3912 !important; */
-
-	/*	background-color: #318000 !important; */
-	/*	border: 1px solid #455E82 !important; */
 		font-weight: 600 !important;
 		font-family: "Lato";
-	  font-size: 17px !important;
 		padding-top: 7px;
 		padding-bottom: 7px;
 	  padding-left: 16px;
@@ -1061,4 +1064,6 @@ body.transactional div#wb-bnr div.brand {
 		position: relative;
 		left: 10px;
 		float: right;
+		font-size: 16px !important;
+
 	}
