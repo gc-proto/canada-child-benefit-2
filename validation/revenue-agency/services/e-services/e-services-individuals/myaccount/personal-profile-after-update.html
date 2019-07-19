@@ -143,61 +143,63 @@
 
 
 
-<h3 class="mrgn-tp-0">
-  Current mailing address
-</h3>
-
-
-
-<p class="mrgn-lft-md">
-
-
-  <p>7841 HARVIE                           RD <br>
-   SURREY                         BC V4N 6A8</p>
+          <h3 class="mrgn-tp-0">
+            Current mailing address
+          </h3><p class="pull-right"><a href="address-1.html">Edit <i class="fa fa-edit" width="20px"></i></a></p>
 
 
 
 
-</p>
+            <p class="mrgn-lft-md well col-md-8 col-xs-8">
 
 
 
 
+              7841 HARVIE                           RD <br>
+                 SURREY                         BC V4N 6A8
 
 
 
+            </p>
 
-
-
-
-
-
+            <ul class="list-unstyled can-ca-form">
+              <li class="checkbox checkbox-small">
+                <input type="checkbox" id="homeSameWithMailing" checked>
+                <label for="homeSameWithMailing">Home address is the same as mailing address.</label>
+              </li>
+            </ul>
 
 
 
 
 
-<hr class="brdr-bttm mrgn-tp-md">
+          <div id="home-address" style="display:none;"> <h3 class="mrgn-tp-0">
+           Home address
+          </h3><p class="pull-right"><a href="address-1.html">Edit <i class="fa fa-edit" width="20px"></i></a></p>
+
+
+          <p class="mrgn-lft-md well col-md-8 col-xs-8">
 
 
 
-<h3 class="mrgn-tp-0">
-  Current home address
-</h3>
 
-
-  <p class="mrgn-lft-md">
-      100-1234 56 ST<br>
-      OTTAWA ON K1A K2A<br>
-  </p>
-
-
+                100-1234 56 ST<br>
 
 
 
 
 
+                OTTAWA ON K1A K2A<br>
 
+
+
+
+          </p>
+
+
+
+</div>
+<div class="clearfix"></div>
 
 
 
@@ -209,7 +211,8 @@
 
 <h3 class="mrgn-tp-0">
   Current phone numbers
-</h3>
+</h3> <p class="pull-right"><a href="address-1.html">Edit <i class="fa fa-edit" width="20px"></i></a></p>
+
 
 
 
@@ -833,25 +836,26 @@
 </footer>
 
 
-	<script type="text/javascript">_satellite.pageBottom();</script>
-
-
 <!--[if gte IE 9 | !IE ]><!-->
-<script src="https://cms-sgj.cra-arc.gc.ca/ebci/wet/v4.0.26/wet-boew/js/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cms-sgj.cra-arc.gc.ca/ebci/wet/v4.0.26/wet-boew/js/wet-boew.min.js"></script><span id="wb-rsz" class="wb-init">&nbsp;</span>
-<!--<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+ <script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/wet-boew.min.js"></script>
+ <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme.js"></script>
 
-<!--[if lt IE 9]>
-<script src="https://cms-sgj.cra-arc.gc.ca/ebci/wet/v4.0.26/wet-boew/js/ie8-wet-boew2.min.js"></script>
-
-<![endif]-->
-<script src="https://cms-sgj.cra-arc.gc.ca/ebci/wet/v4.0.26/GCWeb/js/theme.min.js"></script>
-
-
-<script src="https://cms-sgj.cra-arc.gc.ca/ebci/wet/v4.0.26/cra-arc/apps.js"></script>
-<script src="https://cms-sgj.cra-arc.gc.ca/gol-ged/mima/portal/pub/js/MAPortal.js"></script>
-<script src="https://cms-sgj.cra-arc.gc.ca/gol-ged/icbp/bpo/pub/js/custom.js"></script>
+ <!--<![endif]-->
+ <!--[if lt IE 9]>
+ <script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
+ <![endif]-->
+ <!-- <script src="../../../../validation/GCWeb/js/theme-fieldflow-updates.js"></script> -->
+ <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/files/navigation.js"></script>
 
 
-<script type="text/javascript"> (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = 'https://cms-sgj.cra-arc.gc.ca/gol-ged/awsc/amss/pub/js/timeout.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script>
-<a class="wb-lbx lbx-modal mfp-hide wb-init wb-lbx-inited" href="#wb-sessto-modal" id="wb-auto-3"></a><section id="wb-sessto-modal" style="visibility:hidden" class="mfp-hide modal-dialog modal-content overlay-def"><header class="modal-header"><h2 class="modal-title">Session timeout warning</h2></header><div class="modal-body" id="modal-body"> <p>Your session will expire automatically in <span id="timeout-min">3</span> min <span id="timeout-sec">0</span> sec.<br>Select "Continue session" to extend your session.</p></div><div class="modal-footer" id="modal-footer"><button type="button" class="btn btn-primary popup-modal-dismiss" onclick="awsc.warningTimer.extendSession()">Continue session</button> <button type="button" class="btn btn-default" onclick="awsc.warningTimer.logout()">End session now</button> </div> </section></body><link rel="stylesheet" href="https://cms-sgj.cra-arc.gc.ca/gol-ged/awsc/amss/pub/css/timeout.css"></html>
+ <script>
+   $(document).ready(function(){
+     $("#homeSameWithMailing").change(function(){
+       console.log( "hi" );
+       $("div#home-address").toggle();
+     });
+   });
+ </script>
+
+</body>
