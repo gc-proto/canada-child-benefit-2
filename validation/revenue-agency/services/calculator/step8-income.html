@@ -423,7 +423,7 @@
 			localStorage.setItem("income", document.getElementById("income").value.replace(/,/g, ""));
 		});
 		$("#spouse-income").change(function(){
-			localStorage.setItem("spouse-income", document.getElementById("spouse-income").value);
+			localStorage.setItem("spouse-income", document.getElementById("spouse-income").value.replace(/,/g, ""));
 		});
 		$("#less-than-36").change(function(){
 			$("#this-year-income-div").removeClass("hidden");
@@ -432,16 +432,16 @@
 			$("#this-year-income-div").addClass("hidden");
 		});
 		$("#alberta-working-income").change(function(){
-			localStorage.setItem("alberta-working-income", document.getElementById("alberta-working-income").value);
+			localStorage.setItem("alberta-working-income", document.getElementById("alberta-working-income").value.replace(/,/g, ""));
 		});
 		$("#alberta-working-income-spouse").change(function(){
-			localStorage.setItem("alberta-working-income-spouse", document.getElementById("alberta-working-income-spouse").value);
+			localStorage.setItem("alberta-working-income-spouse", document.getElementById("alberta-working-income-spouse").value.replace(/,/g, ""));
 		});
 		$("#this-year-income").change(function(){
-			localStorage.setItem("this-year-income", document.getElementById("this-year-income").value);
+			localStorage.setItem("this-year-income", document.getElementById("this-year-income").value.replace(/,/g, ""));
 		});
 		$("#this-year-spouse-income").change(function(){
-			localStorage.setItem("this-year-spouse-income", document.getElementById("this-year-spouse-income").value);
+			localStorage.setItem("this-year-spouse-income", document.getElementById("this-year-spouse-income").value.replace(/,/g, ""));
 		});
 	});
 
