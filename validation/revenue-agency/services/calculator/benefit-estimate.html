@@ -613,22 +613,59 @@ January 3, 2020 -->
 					<a href="./step7-children-details.html">Change</a>
 				</div>
 			</dd>
+
 			<dt>Income:</dt>
 			<dd>
 				<div class="col-md-7 col-xs-9">
 					<p id="spouse-birth-date-detail">$50,000</p>
 				</div>
 				<div class="col-md-5 col-xs-3">
-					<a href="#">Change</a>
+					<a href="./step8-income.html">Change</a>
 				</div>
 			</dd>
 			<dt>Spouse's income:</dt>
 			<dd>
 				<div class="col-md-7 col-xs-9">
-					<p id="spouse-birth-date-detail">$50,000</p>
+					<p id="spouse-income-detail">$50,000</p>
 				</div>
 				<div class="col-md-5 col-xs-3">
-					<a href="#">Change</a>
+					<a href="./step8-income.html">Change</a>
+				</div>
+			</dd>
+			<dt>Working income:</dt>
+			<dd>
+				<div class="col-md-7 col-xs-9">
+					<p id="working-income-detail">$50,000</p>
+				</div>
+				<div class="col-md-5 col-xs-3">
+					<a href="./step8-income.html">Change</a>
+				</div>
+			</dd>
+			<dt>Spouse's working income:</dt>
+			<dd>
+				<div class="col-md-7 col-xs-9">
+					<p id="spouse-working-income-detail">$50,000</p>
+				</div>
+				<div class="col-md-5 col-xs-3">
+					<a href="./step8-income.html">Change</a>
+				</div>
+			</dd>
+			<dt>Last year working income:</dt>
+			<dd>
+				<div class="col-md-7 col-xs-9">
+					<p id="spouse-income-detail">$50,000</p>
+				</div>
+				<div class="col-md-5 col-xs-3">
+					<a href="./step8-income.html">Change</a>
+				</div>
+			</dd>
+			<dt>Spouse's last year working income:</dt>
+			<dd>
+				<div class="col-md-7 col-xs-9">
+					<p id="spouse-income-detail">$50,000</p>
+				</div>
+				<div class="col-md-5 col-xs-3">
+					<a href="./step8-income.html">Change</a>
 				</div>
 			</dd>
 
@@ -782,6 +819,13 @@ January 3, 2020 -->
 <script>
 	$(document).ready(function(){
 		$('#estimation-period').append(localStorage.getItem("estimation-period"));
+
+
+		//set up estimation details with all values for changes
+
+
+
+
 		var ccbPayments = [0,0,0,0,0,0,0,0,0,0,0,0];
 		var sProvince = localStorage.getItem("province");
 		if (localStorage.getItem("marital") == "married" || localStorage.getItem("marital") == "living common law") {
