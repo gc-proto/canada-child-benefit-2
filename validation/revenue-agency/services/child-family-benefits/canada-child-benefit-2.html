@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
 <link rel="stylesheet" href="./files/navigation.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
+<link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
 
 <!--<![endif]-->
 <!--[if lt IE 9]>
@@ -184,31 +185,39 @@ label {
       <nav id="toc"></nav>
       <h2 id="who">Who can get the Canada child benefit</h2>
       <p>You must meet <strong>all</strong> of the following conditions:</p>
-      <label class="container-checks mrgn-tp-lg">You have a child that is under 18 years of age
-        <input class="btnCheck2" type="checkbox">
-        <span class="checkmark"></span> </label>
-      <label class="container-checks">The child lives with you all the time, or at least about half of the time (see <a href="#shared">Custody arrangements and your benefits</a>)
-        <input class="btnCheck2" type="checkbox">
-        <span class="checkmark"></span> </label>
-      <label class="container-checks">You are primarily responsible for the care and upbringing of the child (see <a href="#primary">Who is primarily responsible</a>)
-        <input class="btnCheck2" type="checkbox">
-        <span class="checkmark"></span> </label>
-      <label class="container-checks">You are a resident of Canada for tax purposes
-        <input class="btnCheck2" type="checkbox">
-        <span class="checkmark"></span> </label>
-      <label class="container-checks">
-      You or your spouse or common-law partner must be <strong>any of the following</strong>:
-      </p>
-      <ul>
-        <li>a Canadian citizen</li>
-        <li>a permanent resident</li>
-        <li>a protected person (refugee)</li>
-        <li>a temporary resident who has lived in Canada for the previous 18 months, and who has a valid permit in the 19th month</li>
-        <li>an Indigenous person who meets the definition of "Indian" under the <a href="https://laws-lois.justice.gc.ca/eng/acts/i-5/page-1.html">Indian Act</a></li>
+
+      <ul class="list-unstyled can-ca-form">
+        <li class="checkbox checkbox-small">
+          <input type="checkbox" id="elibility1">
+          <label for="elibility1">You have a child that is under 18 years of age</label>
+        </li>
+        <li class="checkbox checkbox-small">
+          <input type="checkbox" id="elibility2">
+          <label for="elibility2">The child lives with you all the time, or at least about half of the time (see <a href="#shared">Custody arrangements and your benefits</a>)</label>
+        </li>
+        <li class="checkbox checkbox-small">
+          <input type="checkbox" id="elibility3">
+          <label for="elibility3">You are primarily responsible for the care and upbringing of the child (see <a href="#primary">Who is primarily responsible</a>)</label>
+        </li>
+        <li class="checkbox checkbox-small">
+          <input type="checkbox" id="elibility3">
+          <label for="elibility3">You are a resident of Canada for tax purposes</label>
+        </li>
+        <li class="checkbox checkbox-small">
+          <input type="checkbox" id="elibility3">
+          <label for="elibility3">You or your spouse or common-law partner must be <strong>any of the following</strong>:
+          <!-- </p> -->
+            <ul>
+              <li>a Canadian citizen</li>
+              <li>a permanent resident</li>
+              <li>a protected person (refugee)</li>
+              <li>a temporary resident who has lived in Canada for the previous 18 months, and who has a valid permit in the 19th month</li>
+              <li>an Indigenous person who meets the definition of "Indian" under the <a href="https://laws-lois.justice.gc.ca/eng/acts/i-5/page-1.html">Indian Act</a></li>
+            </ul>
+          </label>
+        </li>
       </ul>
-      <input class="btnCheck2" type="checkbox">
-      <span class="checkmark"></span>
-      </label>
+
       <p>You cannot get the Canada child benefit if the child is legally, physically, or financially maintained by a child welfare agency. For more information on this situation, see <a href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/childrens-special-allowances-fact-sheet.html">children's special allowances</a>.</p>
       <h2 id="primary">Who is primarily responsible for the care of the child</h2>
       <p>The person who is primarily responsible for the care and upbringing of the child should apply for the Canada child benefit. That person is responsible for things such as:</p>
