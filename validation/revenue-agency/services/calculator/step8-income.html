@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
 <link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
- 
+
 <!--<![endif]-->
 <!--[if lt IE 9]>
 		<link href="./validation/GCWeb/assets/favicon.ico" rel="shortcut icon" />
@@ -170,7 +170,7 @@
 		<span class="input-group-addon"> .00 </span>
 	</div>
 
-	<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
+	<p>If you want to use your exact income, look at line 236 on your <span id="tax-year"></span> tax return</p>
 
 	<div id="spouse-income-div" class="hidden">
 		<label  for="income">For <span id="tax-year2"></span>, what was your <span id="and-spouse2"></span>'s net income?</span></label>
@@ -191,7 +191,7 @@
 			<span class="input-group-addon"> .00 </span>
 		</div>
 
-		<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
+		<p>If you want to use your exact income, look at line 236 on your <span id="tax-year6"></span> tax return</p>
 
 		<div id="alberta-working-spouse-income-div" class="hidden">
 			<label class="mrgn-tp-lg" for="alberta-working-income-spouse">For <span id="tax-year5"></span>, what was your <span id="and-spouse4"></span>'s working income?</span></label>
@@ -226,7 +226,7 @@
 			<span class="input-group-addon"> .00 </span>
 		</div>
 
-		<p>If you want to use your exact income, look at line x on your <span id="tax-year"></span> tax return</p>
+		<p>If you want to use your exact income, look at line 236 on your <span id="tax-year7"></span> tax return</p>
 
 		<div id="this-year-spouse-income-div" class="hidden">
 			<label for="income">For <span id="this-year-tax-year2"></span>, what was your <span id="this-year-and-spouse2"></span>'s net income?</span></label>
@@ -408,11 +408,14 @@
 		}
 		var iPrevYear = localStorage.getItem("tax-year");
 		var iThisYear = parseInt(iPrevYear, 10) + 1;
+		$('#tax-year').append(iPrevYear);
 		$('#tax-year1').append(iPrevYear);
 		$('#tax-year2').append(iPrevYear);
 		$('#tax-year3').append(iThisYear);
 		$('#tax-year4').append(iPrevYear);
 		$('#tax-year5').append(iPrevYear);
+		$('#tax-year6').append(iPrevYear);
+		$('#tax-year7').append(iThisYear);
 		$('#this-year-tax-year1').append(iThisYear);
 		$('#this-year-tax-year2').append(iThisYear);
 

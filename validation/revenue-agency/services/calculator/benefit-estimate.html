@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
 <link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
- 
+
 <!--<![endif]-->
 <!--[if lt IE 9]>
 		<link href="./validation/GCWeb/assets/favicon.ico" rel="shortcut icon" />
@@ -170,7 +170,7 @@
 
 	<div class="row">
 		<div class="col-md-7">
-			<h2>Your estimated benefit amount for <span id="estimation-period">(estimation period)</span></h2>
+			<h2>Your estimated benefit amount for <span id="estimation-period">estimation period</span></h2>
 			<p class="well" id="annual-payment" style="font-size:28px!important; text-align:center;"></p>
 
 			<!-- <h3>Quarterly payments</h3> -->
@@ -605,7 +605,7 @@ January 3, 2020 -->
 
 <script>
 	$(document).ready(function(){
-		//reveal provincial payment blocks
+		$('#estimation-period').append(localStorage.getItem("estimation-period"));
 		var ccbPayments = [0,0,0,0,0,0,0,0,0,0,0,0];
 		var sProvince = localStorage.getItem("province");
 		if (localStorage.getItem("marital") == "married" || localStorage.getItem("marital") == "living common law") {
