@@ -16,10 +16,12 @@
 <meta name="description">
 <!--[if gte IE 9 | !IE ]><!-->
 <link href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
-<link rel="stylesheet" href="https://test.canada.ca/canada-child-benefit-2/validation/GCWeb/css/theme.css">
-<link rel="stylesheet" href="../../../../../GCWeb/css/custom.css">
+<link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/theme.css">
+<link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/files/navigation.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
+<link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
+
 
 <!--<![endif]-->
 <!--[if lt IE 9]>
@@ -83,20 +85,23 @@
 </div><!-- container -->
 </nav>
 
- <nav id="wb-bc" class="breadcrumb" property="breadcrumb">
-  <h2>You are here:</h2>
-  <div class="container">
-   <ol class="breadcrumb">
-     <li class="no-break-breadcrumb"><a href='personal-profile-after-update.html'><i class="fa fa-arrow-circle-left" width="20px"></i>Personal profile</a></li>
-   </ol>
-  </div>
- </nav>
+
+<nav id="wb-bc" class="breadcrumb" property="breadcrumb">
+ <h2>You are here:</h2>
+ <div class="container">
+   <div class="row">
+  <ol class="breadcrumb" style="margin-top: 6px;">
+    <li class="no-break-breadcrumb"><a href='personal-profile.html'><i class="fa fa-arrow-circle-left" width="20px"></i><b>Personal profile</b></a></li>
+  </ol>
+</div>
+</div>
+</nav>
 </header>
 <!-- class="gc-theme" is doing some weird stuff with the first h2... -->
 
 <main property="mainContentOfPage" class="container">
 
-<h1 property="name" id="wb-cont">Update address - confirmation</h1>
+<h1 property="name" id="wb-cont" class="mrgn-tp-0">Update address - confirmation</h1>
 
 
           <div class="maHelpLink hidden-print text-right"> <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals/contact-us.html" target="_blank">Help with this page</a> </div>
@@ -115,11 +120,10 @@
           </div>
       		<p> If you receive or recently received EI, CPP or OAS, switch to My Service Canada Account to change your address. No need to sign in again.  <br>
 
-	        <p><a href="bridge-to-ei.html" class="btn btn-default">Switch to My Service Canada Account</a></p>
+	        <p><a href="bridge-to-ei.html" class="btn btn-default mrgn-tp-md">Switch to My Service Canada Account</a></p>
         </div>
-
+<br>
         <a href="./personal-profile-after-update.html">Return to Personal profile</a>
-        <div>&nbsp;</div>
       </div>
 
 
@@ -135,25 +139,32 @@
 	  </div>
 	 	<nav id="tp-pg"><a href="#wb-tphp">Top<span class="wb-inv"> of the page</a> </nav>
 	 </main>
-	 <footer id="wb-info">
-	  <div class="landscape">
-	   <nav class="container wb-navcurr">
-	    <h2 class="wb-inv">About government</h2>
-	    <ul>
-	     <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-	     <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-	    </ul>
-	   </nav>
-	  </div>
-	  <div class="brand">
-	   <div class="container">
-	    <div class="row">
-	     <div class="col-xs-6 visible-sm visible-xs tofpg"> <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a> </div>
-	     <div class="col-xs-6 col-md-3 col-lg-2 text-right"> <img src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/wmms-blk.svg" alt="Symbol of the Government of Canada"> </div>
-	    </div>
-	   </div>
-	  </div>
-	 </footer>
+   <footer role="contentinfo" id="wb-info">
+
+
+
+
+     <div class="brand">
+         <div class="container">
+             <div class="row ">
+                 <nav class="col-md-10 ftr-urlt-lnk">
+                     <h2 class="wb-inv">About this site</h2>
+                     <ul>
+
+                         <li><a href="https://www.canada.ca/en/transparency/terms.html" target="_blank">Terms and conditions</a></li>
+                         <li><a href="https://www.canada.ca/en/transparency/privacy.html" target="_blank">Privacy</a></li>
+                     </ul>
+                 </nav>
+                 <div class="col-xs-6 visible-sm visible-xs tofpg">
+                     <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
+                 </div>
+                 <div class="col-xs-6 col-md-2 text-right">
+                     <object type="image/svg+xml" tabindex="-1" role="img" data="https://cms-sgj.cra-arc.gc.ca/ebci/wet/v4.0.26/GCWeb/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object>
+                 </div>
+             </div>
+         </div>
+     </div>
+   </footer>
 	 <!--[if gte IE 9 | !IE ]><!-->
 	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
 	 	<script src="https://www.canada.ca/etc/designs/canada/wet-boew/js/wet-boew.min.js"></script>
@@ -164,6 +175,5 @@
 	 	<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
 	 	<![endif]-->
 	 	<script src="../../../../validation/GCWeb/js/theme-fieldflow-updates.js"></script>
-	 	<script src="https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/files/navigation.js"></script>
 	 </body>
 	 </html>
