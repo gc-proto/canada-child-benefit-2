@@ -420,7 +420,7 @@
 		$('#this-year-tax-year2').append(iThisYear);
 
 		$("#income").change(function(){
-			localStorage.setItem("income", document.getElementById("income").value);
+			localStorage.setItem("income", document.getElementById("income").value.replace(/,/g, ""));
 		});
 		$("#spouse-income").change(function(){
 			localStorage.setItem("spouse-income", document.getElementById("spouse-income").value);
