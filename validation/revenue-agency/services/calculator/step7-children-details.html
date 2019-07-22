@@ -483,8 +483,7 @@
 				}
 			} else if (sElement == "childyear") {
 				var iAge = document.getElementById('childage'+iChild);
-				console.log(parseInt(iAge.value,10)-1);
-				var iMonth = parseInt(field.target.value,10);
+				var iMonth = document.getElementById('childmonth'+iChild).value;
 				var today = new Date();
 				var julyFirst = new Date((parseInt(localStorage.getItem("tax-year"),10)+1), 06, 01);
 				//check if today is greater or larger than July 1 of the estimation period
@@ -496,6 +495,8 @@
 						localStorage.setItem("childage"+iChild, (parseInt(iAge.value,10)-1));
 						localStorage.setItem("childmonth"+iChild, iMonth);
 					} else { //year during
+						// console.log(iAge.value);
+						// console.log(iMonth);
 						localStorage.setItem("childage"+iChild, iAge.value);
 						localStorage.setItem("childmonth"+iChild, iMonth);
 					}
