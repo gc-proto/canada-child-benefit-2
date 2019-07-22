@@ -893,7 +893,6 @@ January 3, 2020 -->
 		var iChildren = localStorage.getItem("children");
 		// console.log(ccbPayments);
 		// console.log(sProvince);
-		// console.log(iIncome);
 		// console.log('iChildren:'+iChildren);
 		// console.log('childAge1:'+localStorage.getItem("childage1"));
 		// console.log('childAge2:'+localStorage.getItem("childage2"));
@@ -953,7 +952,6 @@ January 3, 2020 -->
 				changeInReduc.push("<"+birthmonth);
 			}
 		}
-		// console.log(ccbPayments);
 		// console.log(changeInReduc);
 		// if (iIncome < 31120) {
 			//no reduction
@@ -969,12 +967,12 @@ January 3, 2020 -->
 						iMonthlyChildren -= 1;
 					}
 				} else {
-					if (changeInReduc[z].substring(1,changeInReduc[z].length) < q) {
+					if (changeInReduc[z].substring(1,changeInReduc[z].length) <= q) {
 						iMonthlyChildren -= 1;
 					}
 				}
 			}
-			// console.log("Monthly children: " + q + " " + iMonthlyChildren);
+			console.log("Monthly children: " + q + " " + iMonthlyChildren);
 			if (iIncome > 67426) {
 				if (iMonthlyChildren == 1){
 					var iReduction = 0.032*(iIncome-67426);
