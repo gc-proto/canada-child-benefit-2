@@ -363,7 +363,7 @@
 			if (sElement == "childage") {
 				var iAge = field.target.value;
 				var today = new Date();
-				var julyFirst = new Date((parseInt(localStorage.getItem("tax-year"),10)+1), 07, 01);
+				var julyFirst = new Date((parseInt(localStorage.getItem("tax-year"),10)+1), 06, 01);
 				//check if today is greater or larger than July 1 of the estimation period
 				if (today < julyFirst) {
 					//After - one after (0, 6, 18)
@@ -383,14 +383,24 @@
 				var iAge = document.getElementById('childage'+iChild);
 				var iMonth = parseInt(field.target.value,10);
 				var today = new Date();
-				var julyFirst = new Date((parseInt(localStorage.getItem("tax-year"),10)+1), 07, 01);
+				var julyFirst = new Date((parseInt(localStorage.getItem("tax-year"),10)+1), 06, 01);
 				//check if today is greater or larger than July 1 of the estimation period
+				console.log(today.getMonth());
+				console.log(iMonth-1);
+
 				if (today.getMonth() == (iMonth-1)) {
 					//don't know yet, we need the year
 					var iTaxYear = parseInt(localStorage.getItem("tax-year"),10);
 					//id="year-during" (iTaxYear + 2) - if 0
 					//id="year-before" (iTaxYear + 1) - if 0
 					$("#year"+iChild).removeClass("hidden");
+
+
+					//temp fix (mock up of how it would work, for 'not yet 1, right now')
+					$("#year-during").html("2020");
+					$("#year-before").html("2019");
+
+
 				} else if (6 <= (iMonth-1) && (iMonth-1) < today.getMonth()) {
 					//lower age by 1
 					localStorage.setItem("childage"+iChild, (parseInt(iAge,10)-1));
