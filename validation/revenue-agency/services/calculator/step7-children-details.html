@@ -395,10 +395,13 @@
 					//id="year-before" (iTaxYear + 1) - if 0
 					$("#year"+iChild).removeClass("hidden");
 
-
+					var yearDuring = today.getYear() - iAge.value + 1900;
+					var yearBefore = today.getYear() - iAge.value + 1899;
+					console.log(yearDuring);
+					console.log(yearBefore);
 					//temp fix (mock up of how it would work, for 'not yet 1, right now')
-					$("#year-during").html("2020");
-					$("#year-before").html("2019");
+					$("#year-during").html(yearDuring);
+					$("#year-before").html(yearBefore);
 
 
 				} else if (6 <= (iMonth-1) && (iMonth-1) < today.getMonth()) {
