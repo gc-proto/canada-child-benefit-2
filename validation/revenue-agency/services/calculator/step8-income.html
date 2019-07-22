@@ -162,7 +162,7 @@
     </span>
   </h1>
 
-	<label for="income">For <span id="tax-year1"></span>, what was your net income?</span></label>
+	<label for="income">What was your net income in <span id="tax-year1"></span>?</span></label>
 	<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 	<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -173,7 +173,7 @@
 	<p>If you want to use your exact income, look at line 236 on your <span id="tax-year"></span> tax return</p>
 
 	<div id="spouse-income-div" class="hidden">
-		<label  for="income">For <span id="tax-year2"></span>, what was your <span id="and-spouse2"></span>'s net income?</span></label>
+		<label  for="income">What was your <span id="and-spouse2"></span>'s net income in <span id="tax-year2"></span>?</span></label>
 		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -183,7 +183,7 @@
 	</div>
 
 	<div class="hidden" id="alberta-working-income-div">
-		<label class="mrgn-tp-lg" for="alberta-working-income">For <span id="tax-year4"></span>, what was your working income?</span></label>
+		<label class="mrgn-tp-lg" for="alberta-working-income">What was your working income in <span id="tax-year4"></span>?</span></label>
 		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -207,7 +207,7 @@
 		</ul>
 
 		<div id="alberta-working-spouse-income-div" class="hidden">
-			<label class="mrgn-tp-lg" for="alberta-working-income-spouse">For <span id="tax-year5"></span>, what was your <span id="and-spouse4"></span>'s working income?</span></label>
+			<label class="mrgn-tp-lg" for="alberta-working-income-spouse">What was your <span id="and-spouse4"></span>'s working income in <span id="tax-year5"></span>?</span></label>
 			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -219,7 +219,7 @@
 
 
 	<form id="rdsp-uccb-income" class="mrgn-tp-lg">
-		<legend class="h5">For <span id="tax-year3"></span>, are <span id="and-spouse">you </span>expecting to earn less than $37,000?</legend>
+		<legend class="h5">Are <span id="and-spouse">you </span>expecting to earn less than $37,000 in <span id="tax-year3"></span>?</legend>
 		<ul class="list-unstyled can-ca-form">
 			<li class="radio">
 				<input type="radio" id="less-than-36" name="cwb" value="less-than-36">
@@ -233,14 +233,14 @@
 	</form>
 
 	<div id="this-year-income-div" class="hidden">
-		<label for="this-year-income">For <span id="this-year-tax-year1"></span>, what is your expected working income?</span></label>
+		<label for="this-year-income">What is your expected working income in <span id="this-year-tax-year1"></span>?</span></label>
 		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
 			<input type="text" size="7" maxlength="7" id="this-year-income" name="income" class="form-control text-right" style="min-height:50px;">
 			<span class="input-group-addon"> .00 </span>
 		</div>
 
 		<div id="this-year-spouse-income-div" class="hidden">
-			<label for="income">For <span id="this-year-tax-year2"></span>, what was your <span id="this-year-and-spouse2"></span>'s working income?</span></label>
+			<label for="income">What was your <span id="this-year-and-spouse2"></span>'s working income in <span id="this-year-tax-year2"></span>?</span></label>
 			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -431,6 +431,22 @@
 		if (localStorage.getItem("province") == "Alberta") {
 			$("#alberta-working-income-div").removeClass("hidden");
 		}
+
+
+
+		//CONSIDER USING COMMENTED OUT DRAFT IF trying to add specific text such as 'last year' to clarify when the income is for********
+		// var today = new Date();
+		// var iTaxYear = localStorage.getItem("tax-year");
+		// //How does today compare with tax year?
+		// if (today.getYear() == iTaxYear - 1900) {
+			var iPrevYear = localStorage.getItem("tax-year");
+			var iThisYear = parseInt(iPrevYear, 10) + 1;
+		// } else if () {
+		//
+		// } else {
+		//
+		// }
+
 		var iPrevYear = localStorage.getItem("tax-year");
 		var iThisYear = parseInt(iPrevYear, 10) + 1;
 		$('#tax-year').append(iPrevYear);
