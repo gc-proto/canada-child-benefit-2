@@ -166,24 +166,32 @@
       "p=personal": { "action": "addClass", "class": "hidden" },
       "p=business": { "action": "addClass", "class": "hidden" }
     }' class="wb-frmvld">
-      <!-- <form method="get"> -->
+      <form method="get">
         <!--Smart question!-->
         <div id="question1" class="wb-fieldflow" data-wb-fieldflow='{
-            "noForm":false,
+            "noForm":true,
             "renderas":"radio",
-            "base": { "live": false },
+            "base": { "live": true },
             "noreqlabel": true,
-            "default": { "action": "addClass", "source":"#personal,#business,#non-resident,#trusts", "class": "hidden" }
+            "default": { "action": "addClass", "source":"#personal,#personal-btn,#business,#business-btn", "class": "hidden" }
           }'>
           <p>For which of these do you need to change your address?</p>
           <ul>
-            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#personal", "class": "hidden"}'>personal taxes, benefits and refunds</li> <!--result-->
-            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#business", "class": "hidden" }'>a business</li>
+            <li data-wb-fieldflow='[
+              { "action": "removeClass", "source":"#personal-btn", "class": "hidden"},
+              { "action": "removeClass", "source":"#personal", "class": "hidden"}
+            ]'>personal taxes, benefits and refunds</li> <!--result-->
+            <li data-wb-fieldflow='[
+              { "action": "removeClass", "source":"#business-btn", "class": "hidden"},
+              { "action": "removeClass", "source":"#business", "class": "hidden" }
+            ]'>a business</li>
           </ul>
         </div>
-      <!-- </form> -->
+      </form>
     </div>
 
+    <a href="#personal" id="personal-btn" class="btn btn-primary hidden">Continue</a>
+    <a href="#business" id="business-btn" class="btn btn-primary hidden">Continue</a>
 
     <div data-wb-urlmapping='{ "p=personal": { "action": "removeClass", "class": "hidden" } }' class="hidden mrgn-bttm-lg" id="personal">
       <h2 class="h3">Change a personal address</h2>

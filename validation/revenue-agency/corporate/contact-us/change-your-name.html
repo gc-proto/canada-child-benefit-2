@@ -179,47 +179,43 @@
             "renderas":"radio",
             "base": { "live": true },
             "noreqlabel": true,
-            "default": { "action": "addClass", "source":"#personal-both,#personal-either,#business", "class": "hidden" }
+            "reset": { "action": "addClass", "source":"#personal-both,#personal-either,#personal-both-btn,#personal-either-btn", "class": "hidden" },
+            "default": { "action": "addClass", "source":"#personal-both,#personal-either,#business,#business-btn", "class": "hidden" }
           }'>
           <p>For which of these do you need to change a name?</p>
           <ul>
             <li data-wb-fieldflow='{ "action": "append", "source":"#question2"}'>personal taxes, benefits and refunds</li> <!--result-->
-            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#business", "class": "hidden" }'>a business</li>
+            <li data-wb-fieldflow='[
+              { "action": "removeClass", "source":"#business-btn", "class": "hidden"},
+              { "action": "removeClass", "source":"#business", "class": "hidden" }
+            ]'>a business</li>
           </ul>
         </div>
 
         <div id="question2" class="wb-fieldflow-sub hidden" data-wb-fieldflow='{
             "renderas":"radio",
-            "noreqlabel": true
-          }'>
-          <p>Which parts of your name are you changing?</p>
-          <ul>
-            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#personal-either", "class": "hidden"}'>either your first or last name</li> <!--result-->
-            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#personal-both", "class": "hidden"}'>both your first and last name</li>
-          </ul>
-        </div>
-
-      </form>
-    </div>
-
-    <div data-wb-urlmapping='{ "p=personal": { "action": "removeClass", "class": "hidden" } }' class="wb-frmvld hidden">
-      <form method="get">
-        <!--Smart question!-->
-        <div id="question1-personal-only" class="wb-fieldflow" data-wb-fieldflow='{
-            "noForm":true,
-            "renderas":"radio",
-            "base": { "live": true },
             "noreqlabel": true,
-            "default": { "action": "addClass", "source":"#personal-both,#personal-either,#business", "class": "hidden" }
+            "default": { "action": "addClass", "source":"#personal-both-btn,#personal-either-btn,#personal-both,#personal-either,#business-btn,#business", "class": "hidden" }
           }'>
           <p>Which parts of your name are you changing?</p>
           <ul>
-            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#personal-either", "class": "hidden"}'>either your first or last name</li> <!--result-->
-            <li data-wb-fieldflow='{ "action": "removeClass", "source":"#personal-both", "class": "hidden"}'>both your first and last name</li>
+            <li data-wb-fieldflow='[
+              { "action": "removeClass", "source":"#personal-either-btn", "class": "hidden"},
+              { "action": "removeClass", "source":"#personal-either", "class": "hidden"}
+            ]'>either your first or last name</li> <!--result-->
+            <li data-wb-fieldflow='[
+              { "action": "removeClass", "source":"#personal-both-btn", "class": "hidden"},
+              { "action": "removeClass", "source":"#personal-both", "class": "hidden"}
+            ]'>both your first and last name</li>
           </ul>
         </div>
+
       </form>
     </div>
+
+    <a href="#personal-either" id="personal-either-btn" class="btn btn-primary hidden">Continue</a>
+    <a href="#personal-both" id="personal-both-btn" class="btn btn-primary hidden">Continue</a>
+    <a href="#business" id="business-btn" class="btn btn-primary hidden">Continue</a>
 
 <div class="hidden" id="personal-either">
 
@@ -698,7 +694,7 @@
   		<script src="./wet-boew/js/ie8-wet-boew2.min.js"></script>
 
   		<![endif]-->
-  <script src="https://gc-proto.github.io/cra-contactus/GCWeb/js/theme.js"></script>
+      <script src="../../../GCWeb/js/theme-fieldflow-updates.js"></script>
   <script src="https://gc-proto.github.io/child-canada-benefit-2/validation/GCWeb/js/checkboxes.js"></script>
 
 
