@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="../../../../../GCWeb/css/custom.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/revenue-agency/services/child-family-benefits/files/navigation.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
-
+<link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
 <!--<![endif]-->
 <!--[if lt IE 9]>
 <link href="./GCWeb/assets/favicon.ico" rel="shortcut icon" />
@@ -108,69 +108,58 @@
         </div>
         <div class="container">
          <fieldset>
-        <p>Addresses can be shared automatically across Government of Canada departments with your consent. </p>
-	   <legend class="mrgn-bttm-md required"> Check to consent to share your new address with: <strong class="required">(required)</strong> <br></legend>
-          <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithAll">
-              <input name="canadaAddressForm.shareWithAll" id="canadaAddressForm.shareWithAll" type="checkbox" value="all" checked>
-              All departments which provide services to me </label>
-          </div>
-          <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithNone">
-              <input name="canadaAddressForm.shareWithAll" id="canadaAddressForm.shareWithNone" type="checkbox" value="none">
-              No other departments - I will change each myself as required  </label>
-          </div>
-          <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithMSCA">
-              <input name="checkbox_canadaAddressForm.shareWithMSCA" type="checkbox" value="msca">
-              EI, Canada Pension and Old Age Security at Service Canada </label>
-          </div>
-          <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithVet">
-              <input name="checkbox_canadaAddressForm.shareWithVet"type="checkbox" value="vet">
-              Veterans pensions and benefits at My VAC Account</label>
-          </div>
-          <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithIRCC">
-              <input name="checkbox_canadaAddressForm.shareWithIRCC" type="checkbox" value="ircc">
-              Work permits, permanent residency and Immigration-related services </label>
-          </div>
-          <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithTC">
-              <input name="checkbox_canadaAddressForm.shareWithTC" type="checkbox" value="tc">
-              Pleasure craft licenses and operator cards at Transport Canada </label>
-          </div>
-                    <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithEC">
-              <input name="checkbox_canadaAddressForm.shareWithEC" type="checkbox" value="el">
-              Voter registration at Elections Canada</label>
-          </div>
-                    <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithRCMP">
-              <input name="checkbox_canadaAddressForm.shareWithRCMP" type="checkbox"  value="rcmp">
-              Firearms license at RCMP </label>
-          </div>
-                    <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithCBSA">
-              <input name="checkbox_canadaAddressForm.shareWithTC" type="checkbox" value="CBSA">
-              Nexus trusted traveller at Canada Border Services </label>
-                        </div>
-                        <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithTC">
-              <input name="checkbox_canadaAddressForm.shareWithTC" type="checkbox" value="tc">
-              Flight crews, aircraft and air traffic licenses at Transport Canada </label>
-
-          </div>
-                    <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithDrone">
-              <input name="checkbox_canadaAddressForm.shareWithDrone" type="checkbox" value="drone">
-              Drone registry and pilots at Drone Management Portal </label>
-          </div>
-          <div class="checkbox mrgn-bttm-md">
-            <label for="checkbox_canadaAddressForm.shareWithMore">
-              <input name="checkbox_canadaAddressForm.shareWithMore" type="checkbox" value="more">
-              Another department, because there are many more </label>
-          </div>
+           <p>Addresses can be shared automatically across Government of Canada departments with your consent. </p>
+           <legend class="mrgn-bttm-md required"> Check to consent to share your new address with: <strong class="required">(required)</strong> <br></legend>
+           <ul class="list-unstyled can-ca-form">
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="all" checked>
+              <label for="all">All departments which provide services to me</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="none">
+              <label for="none">No other departments - I will change each myself as required</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="cra">
+              <label for="cra">Taxes and refunds, child benefits and credits</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="veterans">
+              <label for="veterans">Veterans pensions and benefits at My VAC Account</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="immigration">
+              <label for="immigration">Work permits, permanent residency and Immigration-related services</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="pleasure-crafts">
+              <label for="pleasure-crafts">Pleasure craft licenses and operator cards at Transport Canada</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="elections">
+              <label for="elections">Voter registration at Elections Canada</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="rcmp">
+              <label for="rcmp">Firearms license at RCMP</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="nexus">
+              <label for="nexus">Nexus trusted traveller at Canada Border Services</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="flight">
+              <label for="flight">Flight crews, aircraft and air traffic licenses at Transport Canada</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="drone">
+              <label for="drone">Drone registry and pilots at Drone Management Portal</label>
+            </li>
+            <li class="checkbox checkbox">
+              <input type="checkbox" id="other">
+              <label for="other">Another department, because there are many more</label>
+            </li>
+          </ul>
         </fieldset>
         </div>
         <a href="./personal-profile-after-update.html" class="btn btn-primary">Finish and share</a>
