@@ -367,12 +367,11 @@ $(document).ready(function(){
 		if (localStorage.getItem("tax-year") != null){
 			window.location.href = "./step2-residency.html"
 		} else {
-			//validate form, and other forms, no number necessary
-			//Step 1: add 'error' class to first radio/checkbox
-			// $(':input:radio:eq(0)').addClass("has-error");
-			//Step 2: Add error label to end of legend or label
-			$("#tax-year-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please choose an estimation period.</span></strong>');
-			//Step 3: Anchor to first issue?
+			if (document.getElementById('error1') !=null) {
+				$("#error1").removeClass('hidden');
+			} else {
+				$("#tax-year-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please choose an estimation period.</span></strong>');
+			}
 		}
 
 	});
