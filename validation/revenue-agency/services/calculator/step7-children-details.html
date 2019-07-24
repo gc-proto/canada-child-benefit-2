@@ -343,6 +343,7 @@
 	$(document).ready(function(){
 		var arrNumberWords = [ "First","Second","Third","Fourth","Fifth","Sixth","Seventh","Eighth","Ninth","Tenth" ];
 		var children = localStorage.getItem("children");
+		// localStorage.setItem("shared-custody-children", 0);
 		for (var i = 0; i < children; i++) {
 			var iTag = i+1;
 			console.log(i);
@@ -514,15 +515,16 @@
 				}
 			} else if (sElement == "disability") {
 				if ($("#disability"+iChild).is(':checked')) {
-					localStorage.setItem("disability"+iChild, "true");
+					localStorage.setItem("disability"+iChild, 1);
 				} else {
-					localStorage.setItem("disability"+iChild, "false");
+					localStorage.setItem("disability"+iChild, 0);
 				}
 			} else if (sElement == "shared-custody") {
 				if ($("#shared-custody"+iChild).is(':checked')) {
-					localStorage.setItem("shared-custody"+iChild, "true");
+					localStorage.setItem("shared-custody"+iChild, 1);
+					// localStorage.setItem("shared-custody-children", 1);
 				} else {
-					localStorage.setItem("shared-custody"+iChild, "false");
+					localStorage.setItem("shared-custody"+iChild, 0);
 				}
 			}
 		});
@@ -550,6 +552,7 @@
 		// console.log(localStorage.getItem("shared-custody2"));
 		// console.log(localStorage.getItem("childmonth1"));
 		// console.log(localStorage.getItem("childmonth2"));
+		// console.log(localStorage.getItem("shared-custody-children"));
 
 		//Go to next step
 		window.location.href = "./step8-income.html"

@@ -904,6 +904,7 @@ January 3, 2020 -->
 		let changeInReduc = [];
 		for (i=0; i<iChildren; i++) {
 			var age = localStorage.getItem("childage"+(i+1));
+			var sharedCustody = localStorage.getItem("shared-custody"+(i+1));
 			if (age == -1) {
 				var birthmonth = parseInt(localStorage.getItem("childmonth"+(i+1)),10);
 				//this gets the number of the month, but if we're starting in July, we need to offset on a 12 number base, 0 = January
@@ -915,11 +916,17 @@ January 3, 2020 -->
 				}
 				for (q=birthmonth;q<12;q++){
 					ccbPayments[q] += 553.25;
+					if (sharedCustody == 1){
+						ccbPayments[q] = ccbPayments[q]/2;
+					}
 				}
 				changeInReduc.push(">"+birthmonth);
 			} else if (age < 5) {
 				for (q=0;q<12;q++){
 					ccbPayments[q] += 553.25;
+					if (sharedCustody == 1){
+						ccbPayments[q] = ccbPayments[q]/2;
+					}
 				}
 			} else if (age == 5) {
 				var birthmonth = localStorage.getItem("childmonth"+(i+1));
@@ -931,13 +938,22 @@ January 3, 2020 -->
 				}
 				for (q=0;q<birthmonth;q++){
 					ccbPayments[q] += 553.25;
+					if (sharedCustody == 1){
+						ccbPayments[q] = ccbPayments[q]/2;
+					}
 				}
 				for (q=birthmonth;q<12;q++){
 					ccbPayments[q] += 466.83;
+					if (sharedCustody == 1){
+						ccbPayments[q] = ccbPayments[q]/2;
+					}
 				}
 			} else if (age < 17) {
 				for (q=0;q<12;q++){
 					ccbPayments[q] += 466.83;
+					if (sharedCustody == 1){
+						ccbPayments[q] = ccbPayments[q]/2;
+					}
 				}
 			}	else if (age == 17) {
 				var birthmonth = localStorage.getItem("childmonth"+(i+1));
@@ -948,6 +964,9 @@ January 3, 2020 -->
 				}
 				for (q=0;q<birthmonth;q++){
 					ccbPayments[q] += 466.83;
+					if (sharedCustody == 1){
+						ccbPayments[q] = ccbPayments[q]/2;
+					}
 				}
 				changeInReduc.push("<"+birthmonth);
 			}
@@ -1005,6 +1024,12 @@ January 3, 2020 -->
 				} else if (iMonthlyChildren > 3) {
 					var iReduction = 0.23*(iIncome-31120);
 					iReduction = iReduction/12;
+				}
+			}
+			for (i=0; i<iChildren; i++) {
+				var sharedCustody = localStorage.getItem("shared-custody"+(i+1));
+				if (sharedCustody == 1){
+					iReduction = iReduction/2;
 				}
 			}
 			if (iReduction != null) {
