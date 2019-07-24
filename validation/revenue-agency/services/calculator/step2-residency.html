@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
 <link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
- 
+
 <!--<![endif]-->
 <!--[if lt IE 9]>
 		<link href="./validation/GCWeb/assets/favicon.ico" rel="shortcut icon" />
@@ -161,57 +161,64 @@
       <span>Step 2: Indicate your residency</span>: <span>Child and family benefits estimator</span>
     </span>
   </h1>
+  <div class="wb-frmvld">
+  	<div id="live-in-canada">
+      <fieldset>
+    		<legend id="tax-resident-legend" class="h5 required"><span class="field-name">Residency status</span> <strong class="required">(required)</strong></legend>
+    		<ul class="list-unstyled can-ca-form">
+    			<li class="radio">
+    				<input id="in" type="radio" name="status1" value="in">
+    				<label for="in">I live in Canada</label>
+    			</li>
+    		  <li class="radio">
+    		    <input id="outside" type="radio" name="status1" value="outside">
+    				<label for="outside">I live outside Canada</label>
+    		  </li>
+    		</ul>
+      </fieldset>
+  	</div>
 
-	<form id="live-in-canada">
-		<legend class="h5">Residency status</legend>
-		<ul class="list-unstyled can-ca-form">
-			<li class="radio">
-				<input id="in" type="radio" name="status1" value="in">
-				<label for="in">I live in Canada</label>
-			</li>
-		  <li class="radio">
-		    <input id="outside" type="radio" name="status1" value="outside">
-				<label for="outside">I live outside Canada</label>
-		  </li>
-		</ul>
-	</form>
+  	<div id="tax-purposes" class="hidden">
+  		<fieldset>
+        <legend id="tax-purposes-legend" class="h5 required"><span class="field-name">Are you still a resident of Canada for income tax purposes?</span> <strong class="required">(required)</strong></legend>
+    		<ul class="list-unstyled can-ca-form">
+    			<li class="radio">
+    				<input id="yes" type="radio" name="status2" value="yes">
+    				<label for="yes">Yes</label>
+    			</li>
+    		  <li class="radio">
+    		    <input id="no" type="radio" name="status2" value="no">
+    				<label for="no">No</label>
+    		  </li>
+    			<li class="radio">
+    		    <input id="dn" type="radio" name="status2" value="dn">
+    				<label for="dn">I don't know</label>
+    		  </li>
+    		</ul>
+      </fieldset>
+  	</div>
 
-	<form id="tax-purposes" class="hidden">
-		<legend class="h5">Are you still a resident of Canada for income tax purposes?</legend>
-		<ul class="list-unstyled can-ca-form">
-			<li class="radio">
-				<input id="yes" type="radio" name="status2" value="yes">
-				<label for="yes">Yes</label>
-			</li>
-		  <li class="radio">
-		    <input id="no" type="radio" name="status2" value="no">
-				<label for="no">No</label>
-		  </li>
-			<li class="radio">
-		    <input id="dn" type="radio" name="status2" value="dn">
-				<label for="dn">I don't know</label>
-		  </li>
-		</ul>
-	</form>
-
-	<div>
-		<legend class="h5">Province/territory of residence</legend>
-		<select id="province" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true">
-			<option value="">Select your province...</option>
-			<option value="Alberta">Alberta</option>
-			<option value="British Columbia">British Columbia</option>
-			<option value="Manitoba">Manitoba</option>
-			<option value="New Brunswick">New Brunswick</option>
-			<option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
-			<option value="Northwest Territories">Northwest Territories</option>
-			<option value="Nova Scotia">Nova Scotia</option>
-			<option value="Nunavut">Nunavut</option>
-			<option value="Ontario">Ontario</option>
-			<option value="Prince Edward Island">Prince Edward Island</option>
-			<option value="Quebec">Quebec</option>
-			<option value="Saskatchewan">Saskatchewan</option>
-			<option value="Yukon">Yukon</option>
-		</select>
+    <div id="select-province">
+      <fieldset>
+    		<legend id="select-province-legend" class="h5 required"><span class="field-name">Province/territory of residence</span> <strong class="required">(required)</strong></legend>
+    		<select id="province" class="form-control mrgn-bttm-md">
+    			<option value="None">Select your province...</option>
+    			<option value="Alberta">Alberta</option>
+    			<option value="British Columbia">British Columbia</option>
+    			<option value="Manitoba">Manitoba</option>
+    			<option value="New Brunswick">New Brunswick</option>
+    			<option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+    			<option value="Northwest Territories">Northwest Territories</option>
+    			<option value="Nova Scotia">Nova Scotia</option>
+    			<option value="Nunavut">Nunavut</option>
+    			<option value="Ontario">Ontario</option>
+    			<option value="Prince Edward Island">Prince Edward Island</option>
+    			<option value="Quebec">Quebec</option>
+    			<option value="Saskatchewan">Saskatchewan</option>
+    			<option value="Yukon">Yukon</option>
+    		</select>
+      </fieldset>
+    </div>
 	</div>
 
 	<div style="margin-top:30px;">
@@ -359,24 +366,67 @@
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
 <script>
 $(document).ready(function(){
+
+  //REMOVE PREPOPULATION FOR TESTING
+	// localStorage.removeItem("tax-resident");
+  // localStorage.removeItem("tax-resident-option");
+  // localStorage.removeItem("province");
+
+  // //PREVIOUSLY SELECTED
+  if (localStorage.getItem("tax-resident") != null){
+		//if variable stored, use it
+		var status2 = localStorage.getItem("tax-resident");
+		if (localStorage.getItem("tax-resident-option") != null) {
+			$(':input:radio:eq(0)').prop('checked', true);
+		} else {
+      $(':input:radio:eq(1)').prop('checked', true);
+      $("#tax-purposes").removeClass("hidden");
+      $("#"+status2).prop('checked', true);
+		}
+	}
+  if (localStorage.getItem("province") != null){
+    $('select').val(localStorage.getItem("province"));
+  }
+
 	$("#in").change(function(){
 		$("#tax-purposes").addClass("hidden");
+    $('#error1').addClass("hidden");
 		localStorage.setItem("tax-resident", "yes");
+    localStorage.setItem("tax-resident-option", "in");
 	});
 	$("#outside").change(function(){
 		$("#tax-purposes").removeClass("hidden");
+    $('#error1').addClass("hidden");
+    localStorage.setItem("tax-resident-option", "outside");
+    if ($(':input:radio:eq(2)').prop('checked')){
+      localStorage.setItem("tax-resident", "yes");
+    } else if ($(':input:radio:eq(3)').prop('checked')) {
+      localStorage.setItem("tax-resident", "no");
+    } else if ($(':input:radio:eq(4)').prop('checked')) {
+      localStorage.setItem("tax-resident", "dn");
+    } else {
+      localStorage.removeItem("tax-resident");
+    }
 	});
 	$("#yes").change(function(){
 		localStorage.setItem("tax-resident", "yes");
+    $('#error2').addClass("hidden");
 	});
 	$("#no").change(function(){
 		localStorage.setItem("tax-resident", "no");
+    $('#error2').addClass("hidden");
 	});
 	$("#dn").change(function(){
-		localStorage.setItem("tax-resident", "doesntknow");
+		localStorage.setItem("tax-resident", "dn");
+    $('#error2').addClass("hidden");
 	});
 	$("#province").change(function(){
-		localStorage.setItem("province", document.getElementById("province").value);
+    if (document.getElementById("province").value == "None") {
+      localStorage.removeItem("province");
+    } else {
+      localStorage.setItem("province", document.getElementById("province").value);
+      $('#error3').addClass("hidden");
+    }
 	});
 });
 
@@ -385,35 +435,42 @@ $(document).ready(function(){
 		// console.log(localStorage.getItem("tax-resident"));
 		// console.log(localStorage.getItem("province"));
 
-		//Go to next step
-		window.location.href = "./step3-marital.html"
 
-		//
-		// ;
-		//
-		//
-		//
-		// var eRadio = document.getElementsByName("tax-year"); // list of radio buttons
-		// var iTaxYear = localStorage.getItem('tax-year'); // local storage value
-		// // for (var i = 0; i < radios.length; i++){
-		// //   if (radios[i].value == iTaxYear){
-		// //       radios[i].checked = true; // marking the required radio as checked
-		// //   }
-		// // }
-		//
-		//
-		// //save to storage
-		//
-		//
-		//
-		//
-
-
-		// // Retrieving from cache
-
-
-
-
+    //VALIDATION
+    var taxResident = localStorage.getItem("tax-resident");
+    var province = localStorage.getItem("province");
+		if (province != null && taxResident != null){
+      window.location.href = "./step3-marital.html"
+    } else {
+      if (taxResident == null) {
+        if (localStorage.getItem("tax-resident-option") == null) {
+          //validate form, and other forms, no number necessary
+          //Step 1: add 'error' class to first radio/checkbox
+          // $(':input:radio:eq(0)').addClass("has-error");
+          //Step 2: Add error label to end of legend or label
+          if (document.getElementById('error1') !=null) {
+            $("#error1").removeClass('hidden');
+          } else {
+            $("#tax-resident-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please indicate where you live.</span></strong>');
+          }
+        } else {
+          // $(':input:radio:eq(2)').addClass("has-error");
+          if (document.getElementById('error2') !=null) {
+            $("#error2").removeClass('hidden');
+          } else {
+            $("#tax-purposes-legend").append('<strong style="margin-top:10px;" class="error" id="error2"><span class="label label-danger">Please indicate if you are resident for tax purposes.</span></strong>');
+          }
+        }
+      }
+      if (province == null) {
+        // $("#tax-resident-legend").addClass("has-error");
+        if (document.getElementById('error3') !=null) {
+          $("#error3").removeClass('hidden');
+        } else {
+          $("#select-province-legend").append('<strong style="margin-top:10px;" class="error" id="error3"><span class="label label-danger">Please choose a province.</span></strong>');
+        }
+      }
+    }
 
 	});
 </script>

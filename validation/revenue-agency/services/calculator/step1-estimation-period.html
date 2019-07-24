@@ -55,6 +55,10 @@
 		  -webkit-filter: drop-shadow(3px 3px 5px #aaaaaa);
 		  filter: drop-shadow(3px 3px 5px #aaaaaa);
 }
+
+
+
+
 		</style>
 </head>
 <body class="page-type-nav" vocab="http://schema.org/" typeof="WebPage">
@@ -161,23 +165,32 @@
     </span>
   </h1>
 
-	<form id="period">
-		<legend class="h5">For which period do you want to estimate your family benefits payments?</legend>
-		<ul class="list-unstyled can-ca-form">
-			<li class="radio">
-				<input id="2018" type="radio" name="tax-year" value="2018">
-				<label for="2018">July 2019 to June 2020</label>
-			</li>
-		  <li class="radio">
-		    <input id="2017" type="radio" name="tax-year" value="2017">
-				<label for="2017">July 2018 to June 2019</label>
-		  </li>
-		</ul>
-	</form>
+	<div class="wb-frmvld">
+		<div id="period">
+			<fieldset>
+				<legend id="tax-year-legend" class="h5 required"><span class="field-name">For which period do you want to estimate your family benefits payments?</span> <strong class="required">(required)</strong></legend>
+				<ul class="list-unstyled can-ca-form">
+					<li class="radio">
+						<input id="2018" type="radio" name="tax-year" class="tax-year" value="2018" required="required">
+						<label for="2018">July 2019 to June 2020</label>
+					</li>
+				  <li class="radio">
+				    <input id="2017" type="radio" name="tax-year" class="tax-year" value="2017">
+						<label for="2017">July 2018 to June 2019</label>
+				  </li>
+				</ul>
+			</fieldset>
+		</div>
+
 
 	<p>Child benefits are recalculated every July based on your previous year income</p>
 
+	</div>
+
 	<div style="margin-top:30px;">
+		<!-- <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button> -->
+
+
 		<button id="save-estimation-period" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
 	  <!-- <a class="btn btn-call-to-action" href="./step2-residency.html" style="margin-top:0px;">Next</a> -->
 	</div>
@@ -318,13 +331,29 @@
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
 <script>
 $(document).ready(function(){
+	//REMOVE PREPOPULATE FOR TESTING
+	// localStorage.removeItem("tax-year");
+
+	//PREVIOUSLY SELECTED
+	if (localStorage.getItem("tax-year") != null){
+		//if variable stored, use it
+		var taxYear = localStorage.getItem("tax-year");
+		if (taxYear == 2018) {
+			$(':input:radio:eq(0)').prop('checked', true);
+		} else if (taxYear == 2017) {
+			$(':input:radio:eq(1)').prop('checked', true);
+		}
+	}
+
 	$("#2018").change(function(){
 		localStorage.setItem("tax-year", "2018");
     localStorage.setItem("estimation-period", "July 2019 to June 2020");
+		$('#error1').addClass("hidden");
 	});
 	$("#2017").change(function(){
 		localStorage.setItem("tax-year", "2017");
     localStorage.setItem("estimation-period", "July 2018 to June 2019");
+		$('#error1').addClass("hidden");
 	});
 });
 
@@ -332,11 +361,19 @@ $(document).ready(function(){
 		//check which items are checked
 		//add to local storage
 		//var iTaxYear = $("#period input[type='radio']:checked").val();
-		//localStorage.setItem("tax-year", iTaxYear);
+		// localStorage.setItem("tax-year", iTaxYear);
 
-
-		//Go to next step
-		window.location.href = "./step2-residency.html"
+		//VALIDATION
+		if (localStorage.getItem("tax-year") != null){
+			window.location.href = "./step2-residency.html"
+		} else {
+			//validate form, and other forms, no number necessary
+			//Step 1: add 'error' class to first radio/checkbox
+			// $(':input:radio:eq(0)').addClass("has-error");
+			//Step 2: Add error label to end of legend or label
+			$("#tax-year-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please choose an estimation period.</span></strong>');
+			//Step 3: Anchor to first issue?
+		}
 
 	});
 </script>
