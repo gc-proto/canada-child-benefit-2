@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/custom.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/css/breadcrumb.css">
 <link rel="stylesheet" href="https://canada-ca.github.io/design-system-systeme-conception/working-on/selectors-radios-checks/custom-3.css">
- 
+
 <!--<![endif]-->
 <!--[if lt IE 9]>
 		<link href="./validation/GCWeb/assets/favicon.ico" rel="shortcut icon" />
@@ -162,22 +162,26 @@
     </span>
   </h1>
 
-	<div>
-		<legend class="h5">How many children do you have under 19 years old?</legend>
-		<select id="numberOfChildren" class="form-control mrgn-bttm-md wb-fieldflow-init error" aria-invalid="true">
-			<option value="">...</option>
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-			<option value="6">6</option>
-			<option value="7">7</option>
-			<option value="8">8</option>
-			<option value="9">9</option>
-			<option value="10">10</option>
-		</select>
+	<div class="wb-frmvld">
+    <div id="select-children">
+      <fieldset>
+    		<legend id="select-children-legend" class="h5 required"><span class="field-name">How many children do you have under 19 years old?</span> <strong class="required">(required)</strong></legend>
+    		<select id="numberOfChildren" class="form-control mrgn-bttm-md">
+    			<option value="None">...</option>
+    			<option value="0">0</option>
+    			<option value="1">1</option>
+    			<option value="2">2</option>
+    			<option value="3">3</option>
+    			<option value="4">4</option>
+    			<option value="5">5</option>
+    			<option value="6">6</option>
+    			<option value="7">7</option>
+    			<option value="8">8</option>
+    			<option value="9">9</option>
+    			<option value="10">10</option>
+    		</select>
+      </fieldset>
+    </div>
 	</div>
 
 	<div style="margin-top:30px;">
@@ -328,9 +332,23 @@
 
 <script>
 	$(document).ready(function(){
+    //FOR TESTING
+    // localStorage.removeItem("children");
+
+    if (localStorage.getItem("children") != null){
+      $('select').val(localStorage.getItem("children"));
+    }
+
 		$("#numberOfChildren").change(function(){
-			localStorage.setItem("children", document.getElementById("numberOfChildren").value);
+      if (document.getElementById("numberOfChildren").value == "None") {
+        localStorage.removeItem("children");
+      } else {
+        localStorage.setItem("children", document.getElementById("numberOfChildren").value);
+        $('#error1').addClass("hidden");
+      }
 		});
+
+
 		var sCheckProv = localStorage.getItem("province");
 		if (sCheckProv == "Ontario") {
 			//prev link is ontario residence instead
@@ -360,11 +378,25 @@
 		//But if no children, skip next step
 		var children = localStorage.getItem("children");
 		// console.log(children);
-		if (children > 0) {
-			window.location.href = "./step7-children-details.html"
-		} else {
-			window.location.href = "./step8-income.html"
-		}
+
+    //VALIDATION
+    if (localStorage.getItem("children") != null){
+      if (children > 0) {
+  			window.location.href = "./step7-children-details.html"
+  		} else {
+  			window.location.href = "./step8-income.html"
+  		}
+    } else {
+      if (document.getElementById('error1') != null) {
+        $("#error1").removeClass('hidden');
+      } else {
+        $("#select-children-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please indicate how many children you have.</span></strong>');
+      }
+    }
+
+
+
+
 	});
 </script>
 

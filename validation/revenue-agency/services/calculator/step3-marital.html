@@ -162,36 +162,39 @@
     </span>
   </h1>
 
-	<form id="marital">
-		<legend class="h5">Marital status</legend>
-		<ul class="list-unstyled can-ca-form">
-
-      <li class="radio">
-				<input id="married" type="radio" name="status1" value="married">
-				<label for="married">Married</label>
-			</li>
-		  <li class="radio">
-		    <input id="common" type="radio" name="status1" value="common">
-				<label for="common">Living Common Law</label>
-		  </li>
-      <li class="radio">
-				<input id="widowed" type="radio" name="status1" value="widowed">
-				<label for="widowed">Widowed</label>
-			</li>
-      <li class="radio">
-				<input id="divorced" type="radio" name="status1" value="divorced">
-				<label for="divorced">Divorced</label>
-			</li>
-			<li class="radio">
-				<input id="separated" type="radio" name="status1" value="separated">
-				<label for="separated">Separated</label>
-			</li>
-      <li class="radio">
-				<input id="single" type="radio" name="status1" value="single">
-				<label for="single">Single</label>
-			</li>
-		</ul>
-	</form>
+	<div class="wb-frmvld">
+		<div id="marital">
+			<legend id="marital-legend" class="h5 required"><span class="field-name">Marital status</span> <strong class="required">(required)</strong></legend>
+			<!-- <fieldset style="padding:10px 15px 12px 15px!important;"> -->
+				<ul class="list-unstyled can-ca-form">
+		      <li class="radio">
+						<input id="married" type="radio" name="status1" value="married">
+						<label for="married">Married</label>
+					</li>
+				  <li class="radio">
+				    <input id="common" type="radio" name="status1" value="common">
+						<label for="common">Living Common Law</label>
+				  </li>
+		      <li class="radio">
+						<input id="widowed" type="radio" name="status1" value="widowed">
+						<label for="widowed">Widowed</label>
+					</li>
+		      <li class="radio">
+						<input id="divorced" type="radio" name="status1" value="divorced">
+						<label for="divorced">Divorced</label>
+					</li>
+					<li class="radio">
+						<input id="separated" type="radio" name="status1" value="separated">
+						<label for="separated">Separated</label>
+					</li>
+		      <li class="radio">
+						<input id="single" type="radio" name="status1" value="single">
+						<label for="single">Single</label>
+					</li>
+				</ul>
+			<!-- </fieldset> -->
+		</div>
+	</div>
 
 	<div style="margin-top:30px;">
 		<div class="col-xs-3 col-lg-1" style="height:28px; padding-top:10px;">
@@ -338,23 +341,52 @@
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
 <script>
 $(document).ready(function(){
+
+	//REMOVE PREPOPULATION FOR TESTING
+	// localStorage.removeItem("marital");
+
+	//PREVIOUSLY SELECTED
+	if (localStorage.getItem("marital") != null){
+		//if variable stored, use it
+		var sMarital = localStorage.getItem("marital");
+		if (sMarital == "married") {
+			$(':input:radio:eq(0)').prop('checked', true);
+		} else if (sMarital == "living common law") {
+			$(':input:radio:eq(1)').prop('checked', true);
+		} else if (sMarital == "widowed") {
+			$(':input:radio:eq(2)').prop('checked', true);
+		} else if (sMarital == "divorced") {
+			$(':input:radio:eq(3)').prop('checked', true);
+		} else if (sMarital == "separated") {
+			$(':input:radio:eq(4)').prop('checked', true);
+		} else if (sMarital == "single") {
+			$(':input:radio:eq(5)').prop('checked', true);
+		}
+	}
+
 	$("#divorced").change(function(){
 		localStorage.setItem("marital", "divorced");
+		$('#error1').addClass("hidden");
 	});
 	$("#common").change(function(){
 		localStorage.setItem("marital", "living common law");
+		$('#error1').addClass("hidden");
 	});
 	$("#married").change(function(){
 		localStorage.setItem("marital", "married");
+		$('#error1').addClass("hidden");
 	});
 	$("#separated").change(function(){
 		localStorage.setItem("marital", "separated");
+		$('#error1').addClass("hidden");
 	});
 	$("#single").change(function(){
 		localStorage.setItem("marital", "single");
+		$('#error1').addClass("hidden");
 	});
 	$("#widowed").change(function(){
 		localStorage.setItem("marital", "widowed");
+		$('#error1').addClass("hidden");
 	});
 });
 
@@ -369,10 +401,20 @@ $(document).ready(function(){
 		var sCheckProv = localStorage.getItem("province");
 		// console.log(sCheckProv);
 
-		if (sCheckProv == "Ontario" || sCheckProv == "Newfoundland and Labrador") {
-			window.location.href = "./step4-date-of-birth.html"
+
+		//VALIDATION
+		if (localStorage.getItem("marital") != null){
+			if (sCheckProv == "Ontario" || sCheckProv == "Newfoundland and Labrador") {
+				window.location.href = "./step4-date-of-birth.html"
+			} else {
+				window.location.href = "./step6-children.html"
+			}
 		} else {
-			window.location.href = "./step6-children.html"
+			if (document.getElementById('error1') != null) {
+				$("#error1").removeClass('hidden');
+			} else {
+				$("#marital-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please indicate your marital status.</span></strong>');
+			}
 		}
 
 	});
