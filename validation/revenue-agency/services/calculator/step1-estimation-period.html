@@ -370,9 +370,12 @@ $(document).ready(function(){
 			if (document.getElementById('error1') !=null) {
 				$("#error1").removeClass('hidden');
 			} else {
-				$("#tax-year-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please choose an estimation period.</span></strong>');
+				$("#tax-year-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please choose an estimation period</span></strong>');
 			}
 		}
+		//jump to highest validation error tag
+		// var top = document.getElementById(h).offsetTop; //Getting Y of target element
+    // window.scrollTo(0, top);                        //Go there directly or some transition
 
 	});
 </script>
