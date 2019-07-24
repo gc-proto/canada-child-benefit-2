@@ -162,106 +162,115 @@
     </span>
   </h1>
 
-	<label for="income">What was your net income in <span id="tax-year1"></span>?</span></label>
-	<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
-
-	<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
-		<input type="text" size="7" maxlength="7" id="income" name="income" class="form-control text-right" style="min-height:50px;">
-		<span class="input-group-addon"> .00 </span>
-	</div>
-
-	<p>If you want to use your exact income, look at line 236 on your <span id="tax-year"></span> tax return</p>
-
-	<div id="spouse-income-div" class="hidden">
-		<label  for="income">What was your <span id="and-spouse2"></span>'s net income in <span id="tax-year2"></span>?</span></label>
-		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
-
-		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
-			<input type="text" size="7" maxlength="7" id="spouse-income" name="income" class="form-control text-right" style="min-height:50px;">
-			<span class="input-group-addon"> .00 </span>
-		</div>
-	</div>
-
-	<div class="hidden" id="alberta-working-income-div">
-		<label class="mrgn-tp-lg" for="alberta-working-income">What was your working income in <span id="tax-year4"></span>?</span></label>
-		<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
-
-		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
-			<input type="text" size="7" maxlength="7" id="alberta-working-income" name="alberta-working-income" class="form-control text-right" style="min-height:50px;">
-			<span class="input-group-addon"> .00 </span>
-		</div>
-
-		<p>Working income does not include investments and is not reduced by allowable deductions. You can get your exact working income by adding up:</p>
-		<ul>
-		 <li>Employment income (line 101)</li>
-		 <li>Other employment income (line 104)</li>
-		 <li>Other income (line 130)</li>
-		 <li>Net business income (line 135)</li>
-		 <li>Net professional income (line 137)</li>
-		 <li>Net commission income (line 139)</li>
-		 <li>Net farming income (line 141)</li>
-		 <li>Net fishing income (line 143)</li>
-		 <li>Canada/Quebec pension plan disability benefits (line 152)</li>
-		 <li>Employment insurance benefits (box 17 on T4E slip)</li>
-		 <li>Exempt income of Canadian Indians</li>
-		</ul>
-
-		<div id="alberta-working-spouse-income-div" class="hidden">
-			<label class="mrgn-tp-lg" for="alberta-working-income-spouse">What was your <span id="and-spouse4"></span>'s working income in <span id="tax-year5"></span>?</span></label>
+	<div class="wb-frmvld">
+		<div class="form-group">
+			<label for="income" class="required"><span class="field-name">What was your net income in <span id="tax-year1"></span>?</span> <strong class="required">(required)</strong></label>
 			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
-				<input type="text" size="7" maxlength="7" id="alberta-working-income-spouse" name="alberta-working-income-spouse" class="form-control text-right" style="min-height:50px;">
+				<input type="text" size="7" maxlength="7" id="income" name="income" class="form-control text-right" style="min-height:50px;">
 				<span class="input-group-addon"> .00 </span>
 			</div>
 		</div>
-	</div>
 
+		<p>If you want to use your exact income, look at line 236 on your <span id="tax-year"></span> tax return</p>
 
-	<form id="rdsp-uccb-income" class="mrgn-tp-lg">
-		<legend class="h5">Are <span id="and-spouse">you </span>expecting to earn less than $37,000 in <span id="tax-year3"></span>?</legend>
-		<ul class="list-unstyled can-ca-form">
-			<li class="radio">
-				<input type="radio" id="less-than-36" name="cwb" value="less-than-36">
-				<label for="less-than-36">Yes</label>
-			</li>
-			<li class="radio">
-				<input type="radio" id="more-than-36" name="cwb" value="more-than-36">
-				<label for="more-than-36">No</label>
-			</li>
-		</ul>
-	</form>
-
-	<div id="this-year-income-div" class="hidden">
-		<label for="this-year-income">What is your expected working income in <span id="this-year-tax-year1"></span>?</span></label>
-		<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
-			<input type="text" size="7" maxlength="7" id="this-year-income" name="income" class="form-control text-right" style="min-height:50px;">
-			<span class="input-group-addon"> .00 </span>
-		</div>
-
-		<div id="this-year-spouse-income-div" class="hidden">
-			<label for="income">What was your <span id="this-year-and-spouse2"></span>'s working income in <span id="this-year-tax-year2"></span>?</span></label>
+		<div id="spouse-income-div" class="form-group hidden">
+			<label  for="income" class="required"><span class="field-name">What was your <span id="and-spouse2"></span>'s net income in <span id="tax-year2"></span>?</span> <strong class="required">(required)</strong></label>
 			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
-				<input type="text" size="7" maxlength="7" id="this-year-spouse-income" name="income" class="form-control text-right" style="min-height:50px;">
+				<input type="text" size="7" maxlength="7" id="spouse-income" name="income" class="form-control text-right" style="min-height:50px;">
 				<span class="input-group-addon"> .00 </span>
 			</div>
 		</div>
-		<p>Working income does not include investments and is not reduced by allowable deductions. You can get your exact working income by adding up:</p>
-		<ul>
-		 <li>Employment income (line 101)</li>
-		 <li>Other employment income (line 104)</li>
-		 <li>Other income (line 130)</li>
-		 <li>Net business income (line 135)</li>
-		 <li>Net professional income (line 137)</li>
-		 <li>Net commission income (line 139)</li>
-		 <li>Net farming income (line 141)</li>
-		 <li>Net fishing income (line 143)</li>
-		 <li>Canada/Quebec pension plan disability benefits (line 152)</li>
-		 <li>Employment insurance benefits (box 17 on T4E slip)</li>
-		 <li>Exempt income of Canadian Indians</li>
-		</ul>
+
+		<div class="hidden" id="alberta-working-income-div">
+			<div class="form-group">
+				<label class="mrgn-tp-lg required" for="alberta-working-income"><span class="field-name">What was your working income in <span id="tax-year4"></span>?</span> <strong class="required">(required)</strong></label>
+				<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+				<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+					<input type="text" size="7" maxlength="7" id="alberta-working-income" name="alberta-working-income" class="form-control text-right" style="min-height:50px;">
+					<span class="input-group-addon"> .00 </span>
+				</div>
+			</div>
+
+			<p>Working income does not include investments and is not reduced by allowable deductions. You can get your exact working income by adding up:</p>
+			<ul>
+			 <li>Employment income (line 101)</li>
+			 <li>Other employment income (line 104)</li>
+			 <li>Other income (line 130)</li>
+			 <li>Net business income (line 135)</li>
+			 <li>Net professional income (line 137)</li>
+			 <li>Net commission income (line 139)</li>
+			 <li>Net farming income (line 141)</li>
+			 <li>Net fishing income (line 143)</li>
+			 <li>Canada/Quebec pension plan disability benefits (line 152)</li>
+			 <li>Employment insurance benefits (box 17 on T4E slip)</li>
+			 <li>Exempt income of Canadian Indians</li>
+			</ul>
+
+			<div id="alberta-working-spouse-income-div" class="form-group hidden">
+				<label class="mrgn-tp-lg required" for="alberta-working-income-spouse"><span class="field-name">What was your <span id="and-spouse4"></span>'s working income in <span id="tax-year5"></span>?</span> <strong class="required">(required)</strong></label>
+				<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+				<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+					<input type="text" size="7" maxlength="7" id="alberta-working-income-spouse" name="alberta-working-income-spouse" class="form-control text-right" style="min-height:50px;">
+					<span class="input-group-addon"> .00 </span>
+				</div>
+			</div>
+		</div>
+
+		<div id="rdsp-uccb-income" class="mrgn-tp-lg">
+			<fieldset>
+				<legend class="h5 required"><span class="field-name">Are <span id="and-spouse">you </span>expecting to earn less than $37,000 in <span id="tax-year3"></span>?</span> <strong class="required">(required)</strong></legend>
+				<ul class="list-unstyled can-ca-form">
+					<li class="radio">
+						<input type="radio" id="less-than-36" name="cwb" value="less-than-36">
+						<label for="less-than-36">Yes</label>
+					</li>
+					<li class="radio">
+						<input type="radio" id="more-than-36" name="cwb" value="more-than-36">
+						<label for="more-than-36">No</label>
+					</li>
+				</ul>
+			</fieldset>
+		</div>
+
+		<div id="this-year-income-div" class="hidden">
+			<div class="form-group">
+				<label for="this-year-income" class="required"><span class="field-name">What is your expected working income in <span id="this-year-tax-year1"></span>?</span> <strong class="required">(required)</strong></label>
+				<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+					<input type="text" size="7" maxlength="7" id="this-year-income" name="income" class="form-control text-right" style="min-height:50px;">
+					<span class="input-group-addon"> .00 </span>
+				</div>
+			</div>
+
+			<div id="this-year-spouse-income-div" class="form-group hidden">
+				<label for="income" class="required"><span class="field-name">What was your <span id="this-year-and-spouse2"></span>'s working income in <span id="this-year-tax-year2"></span>?</span> <strong class="required">(required)</strong></label>
+				<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
+
+				<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
+					<input type="text" size="7" maxlength="7" id="this-year-spouse-income" name="income" class="form-control text-right" style="min-height:50px;">
+					<span class="input-group-addon"> .00 </span>
+				</div>
+			</div>
+			<p>Working income does not include investments and is not reduced by allowable deductions. You can get your exact working income by adding up:</p>
+			<ul>
+			 <li>Employment income (line 101)</li>
+			 <li>Other employment income (line 104)</li>
+			 <li>Other income (line 130)</li>
+			 <li>Net business income (line 135)</li>
+			 <li>Net professional income (line 137)</li>
+			 <li>Net commission income (line 139)</li>
+			 <li>Net farming income (line 141)</li>
+			 <li>Net fishing income (line 143)</li>
+			 <li>Canada/Quebec pension plan disability benefits (line 152)</li>
+			 <li>Employment insurance benefits (box 17 on T4E slip)</li>
+			 <li>Exempt income of Canadian Indians</li>
+			</ul>
+		</div>
 	</div>
 
 	<div style="margin-top:30px;">
