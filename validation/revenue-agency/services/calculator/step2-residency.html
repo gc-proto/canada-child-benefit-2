@@ -385,7 +385,7 @@ $(document).ready(function(){
 		}
 	}
   if (localStorage.getItem("province") != null){
-    $('select').val(localStorage.getItem("province"));
+    $("#province").val(localStorage.getItem("province"));
   }
 
 	$("#in").change(function(){
@@ -451,14 +451,14 @@ $(document).ready(function(){
           if (document.getElementById('error1') !=null) {
             $("#error1").removeClass('hidden');
           } else {
-            $("#tax-resident-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please indicate where you live.</span></strong>');
+            $("#tax-resident-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger">Please indicate where you live</span></strong>');
           }
         } else {
           // $(':input:radio:eq(2)').addClass("has-error");
           if (document.getElementById('error2') !=null) {
             $("#error2").removeClass('hidden');
           } else {
-            $("#tax-purposes-legend").append('<strong style="margin-top:10px;" class="error" id="error2"><span class="label label-danger">Please indicate if you are resident for tax purposes.</span></strong>');
+            $("#tax-purposes-legend").append('<strong style="margin-top:10px;" class="error" id="error2"><span class="label label-danger">Please indicate if you are resident for tax purposes</span></strong>');
           }
         }
       }
@@ -467,7 +467,7 @@ $(document).ready(function(){
         if (document.getElementById('error3') !=null) {
           $("#error3").removeClass('hidden');
         } else {
-          $("#select-province-legend").append('<strong style="margin-top:10px;" class="error" id="error3"><span class="label label-danger">Please choose a province.</span></strong>');
+          $("#select-province-legend").append('<strong style="margin-top:10px;" class="error" id="error3"><span class="label label-danger">Please choose a province</span></strong>');
         }
       }
     }
