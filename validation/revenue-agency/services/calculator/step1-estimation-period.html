@@ -329,6 +329,8 @@
 
   		<![endif]-->
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
+<script src="./files/benefits-estimator.js"></script>
+
 <script>
 $(document).ready(function(){
 	//REMOVE PREPOPULATE FOR TESTING
@@ -363,28 +365,19 @@ $(document).ready(function(){
 		//var iTaxYear = $("#period input[type='radio']:checked").val();
 		// localStorage.setItem("tax-year", iTaxYear);
 
-		var top = 50000;
-
 		//VALIDATION
+		var top = 50000;
 		if (localStorage.getItem("tax-year") != null){
 			window.location.href = "./step2-residency.html"
 		} else {
-			if (document.getElementById('error1') !=null) {
-				$("#error1").removeClass('hidden');
-				if (top > document.getElementById("tax-year-legend").offsetTop) {
-					top = document.getElementById("tax-year-legend").offsetTop;
-				}
-			} else {
-				$("#tax-year-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger" style="text-align: left; display:block;">Please choose an estimation period</span></strong>');
-				if (top > document.getElementById("tax-year-legend").offsetTop) {
-					top = document.getElementById("tax-year-legend").offsetTop;
-				}
-			}
+			top = validateElement("tax-year-legend", "error1", "Please choose an estimation period");
 			window.scrollTo(0, top);
 		}
 		//jump to highest validation error tag
 		// var top = document.getElementById(h).offsetTop; //Getting Y of target element
                           //Go there directly or some transition
+
+
 
 	});
 </script>

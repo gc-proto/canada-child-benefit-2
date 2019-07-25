@@ -359,6 +359,7 @@
 
   		<![endif]-->
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
+<script src="./files/benefits-estimator.js"></script>
 
 <script>
 	$(document).ready(function(){
@@ -658,45 +659,15 @@
 			var childyear = localStorage.getItem("childyear"+iTag);
       if (childage == null) {
 				bError = 1;
-        if (document.getElementById("age-error"+iTag) !=null) {
-          $("#age-error"+iTag).removeClass('hidden');
-					if (top > document.getElementById("select-children-age-legend").offsetTop) {
-						top = document.getElementById("select-children-age-legend").offsetTop;
-					}
-        } else {
-          $("#select-children-age-legend"+iTag).append('<strong style="margin-top:10px;" class="error" id="age-error'+iTag+'"><span class="label label-danger" style="text-align: left; display:block;">Please pick their age</span></strong>');
-					if (top > document.getElementById("select-children-age-legend").offsetTop) {
-						top = document.getElementById("select-children-age-legend").offsetTop;
-					}
-        }
+				top = validateElement("select-children-age-legend"+iTag, "age-error"+iTag, "Please pick their age");
       }
 			if (childmonth == null && $('#childmonth'+iTag).is(':visible')) {
 				bError = 1;
-				if (document.getElementById("month-error"+iTag) !=null) {
-					$("#month-error"+iTag).removeClass('hidden');
-					if (top > document.getElementById("select-children-month-legend").offsetTop) {
-						top = document.getElementById("select-children-month-legend").offsetTop;
-					}
-				} else {
-					$("#select-children-month-legend"+iTag).append('<strong style="margin-top:10px;" class="error" id="month-error'+iTag+'"><span class="label label-danger" style="text-align: left; display:block;">Please pick their month of birth</span></strong>');
-					if (top > document.getElementById("select-children-month-legend").offsetTop) {
-						top = document.getElementById("select-children-month-legend").offsetTop;
-					}
-				}
+				top = validateElement("select-children-month-legend"+iTag, "month-error"+iTag, "Please pick their month of birth");
 			}
 			if (childyear == null && $('#childyear'+iTag).is(':visible')) {
 				bError = 1;
-				if (document.getElementById("year-error"+iTag) !=null) {
-					$("#year-error"+iTag).removeClass('hidden');
-					if (top > document.getElementById("select-children-year-legend").offsetTop) {
-						top = document.getElementById("select-children-year-legend").offsetTop;
-					}
-				} else {
-					$("#select-children-year-legend"+iTag).append('<strong style="margin-top:10px;" class="error" id="year-error'+iTag+'"><span class="label label-danger" style="text-align: left; display:block;">Please pick their year of birth</span></strong>');
-					if (top > document.getElementById("select-children-year-legend").offsetTop) {
-						top = document.getElementById("select-children-year-legend").offsetTop;
-					}
-				}
+				top = validateElement("select-children-year-legend"+iTag, "year-error"+iTag, "Please pick their year of birth");
 			}
 			window.scrollTo(0, top);
 		}

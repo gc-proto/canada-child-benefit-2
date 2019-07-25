@@ -384,13 +384,10 @@
 
   		<![endif]-->
 <script src="https://gc-proto.github.io/canada-child-benefit-2/validation/GCWeb/js/theme-fieldflow-updates.js"></script>
+<script src="./files/benefits-estimator.js"></script>
+
 <script>
 $(document).ready(function(){
-
-
-	//*****Change the outside canada - don't know to include descriptions of what the options mean
-
-
 
   //REMOVE PREPOPULATION FOR TESTING
 	// localStorage.removeItem("tax-resident");
@@ -486,54 +483,18 @@ $(document).ready(function(){
     } else {
       if (taxResident == null) {
         if (localStorage.getItem("tax-resident-option") == null) {
-          //validate form, and other forms, no number necessary
-          //Step 1: add 'error' class to first radio/checkbox
-          // $(':input:radio:eq(0)').addClass("has-error");
-          //Step 2: Add error label to end of legend or label
-          if (document.getElementById('error1') !=null) {
-            $("#error1").removeClass('hidden');
-            if (top > document.getElementById("tax-resident-legend").offsetTop) {
-    					top = document.getElementById("tax-resident-legend").offsetTop;
-    				}
-          } else {
-            $("#tax-resident-legend").append('<strong style="margin-top:10px;" class="error" id="error1"><span class="label label-danger" style="text-align: left; display:block;">Please indicate where you live</span></strong>');
-            if (top > document.getElementById("tax-resident-legend").offsetTop) {
-    					top = document.getElementById("tax-resident-legend").offsetTop;
-    				}
-          }
+					top = validateElement("tax-resident-legend", "error1", "Please indicate where you live");
         } else {
-          // $(':input:radio:eq(2)').addClass("has-error");
-          if (document.getElementById('error2') !=null) {
-            $("#error2").removeClass('hidden');
-            if (top > document.getElementById("tax-purposes-legend").offsetTop) {
-    					top = document.getElementById("tax-purposes-legend").offsetTop;
-    				}
-          } else {
-            $("#tax-purposes-legend").append('<strong style="margin-top:10px;" class="error" id="error2"><span class="label label-danger" style="text-align: left; display:block;">Please indicate if you are resident for tax purposes</span></strong>');
-            if (top > document.getElementById("tax-purposes-legend").offsetTop) {
-    					top = document.getElementById("tax-purposes-legend").offsetTop;
-    				}
-          }
+					top = validateElement("tax-purposes-legend", "error2", "Please indicate if you are resident for tax purposes");
         }
       }
       if (province == null) {
-        // $("#tax-resident-legend").addClass("has-error");
-        if (document.getElementById('error3') !=null) {
-          $("#error3").removeClass('hidden');
-          if (top > document.getElementById("select-province-legend").offsetTop) {
-            top = document.getElementById("select-province-legend").offsetTop;
-          }
-        } else {
-          $("#select-province-legend").append('<strong style="margin-top:10px;" class="error" id="error3"><span class="label label-danger" style="text-align: left; display:block;">Please choose a province</span></strong>');
-          if (top > document.getElementById("select-province-legend").offsetTop) {
-            top = document.getElementById("select-province-legend").offsetTop;
-          }
-        }
+				top = validateElement("select-province-legend", "error3", "Please choose a province");
       }
       window.scrollTo(0, top);
     }
-
 	});
+
 </script>
 
 </body>
