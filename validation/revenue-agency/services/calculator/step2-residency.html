@@ -387,93 +387,88 @@
 <script src="./files/benefits-estimator.js"></script>
 
 <script>
-$(document).ready(function(){
+	$(document).ready(function(){
+	  //REMOVE PREPOPULATION FOR TESTING
+		// localStorage.removeItem("tax-resident");
+	  // localStorage.removeItem("tax-resident-option");
+	  // localStorage.removeItem("province");
 
-  //REMOVE PREPOPULATION FOR TESTING
-	// localStorage.removeItem("tax-resident");
-  // localStorage.removeItem("tax-resident-option");
-  // localStorage.removeItem("province");
-
-  // //PREVIOUSLY SELECTED
-  if (localStorage.getItem("tax-resident") != null){
-		//if variable stored, use it
-		var status2 = localStorage.getItem("tax-resident");
-		if (localStorage.getItem("tax-resident-option") == "in") {
-			$(':input:radio:eq(0)').prop('checked', true);
-		} else {
-      $(':input:radio:eq(1)').prop('checked', true);
-      $("#tax-purposes").removeClass("hidden");
-      $("#"+status2).prop('checked', true);
+	  // //PREVIOUSLY SELECTED
+	  if (localStorage.getItem("tax-resident") != null){
+			//if variable stored, use it
+			var status2 = localStorage.getItem("tax-resident");
+			if (localStorage.getItem("tax-resident-option") == "in") {
+				$(':input:radio:eq(0)').prop('checked', true);
+			} else {
+				$(':input:radio:eq(1)').prop('checked', true);
+				$("#tax-purposes").removeClass("hidden");
+				$("#"+status2).prop('checked', true);
+			}
+		} else if (localStorage.getItem("tax-resident-option") == "outside") {
+			$(':input:radio:eq(1)').prop('checked', true);
+			$("#tax-purposes").removeClass("hidden");
 		}
-	}
-  if (localStorage.getItem("province") != null){
-    $("#province").val(localStorage.getItem("province"));
-  }
+	  if (localStorage.getItem("province") != null){
+	    $("#province").val(localStorage.getItem("province"));
+	  }
 
-	$("#in").change(function(){
+		$("#in").change(function(){
+			clearResidence();
+			localStorage.setItem("tax-resident", "yes");
+	    localStorage.setItem("tax-resident-option", "in");
+		});
+		$("#outside").change(function(){
+			clearResidence();
+			$("#tax-purposes").removeClass("hidden");
+	    localStorage.setItem("tax-resident-option", "outside");
+	    if ($(':input:radio:eq(2)').prop('checked')){
+	      localStorage.setItem("tax-resident", "yes");
+	    } else if ($(':input:radio:eq(3)').prop('checked')) {
+	      localStorage.setItem("tax-resident", "no");
+	    } else {
+	      localStorage.removeItem("tax-resident");
+	    }
+		});
+		$("#yes").change(function(){
+			clearResidence();
+			$('#resident-tax-purposes-province').removeClass("hidden");
+			$("#tax-purposes").removeClass("hidden");
+			localStorage.setItem("tax-resident", "yes");
+		});
+		$("#no").change(function(){
+			clearResidence();
+			$('#not-a-tax-resident').removeClass("hidden");
+			$('#save-residency').attr("disabled", true);
+			$("#tax-purposes").removeClass("hidden");
+			localStorage.setItem("tax-resident", "no");
+		});
+		$("#dn").change(function(){
+			clearResidence();
+			$('#tax-resident-definitions').removeClass("hidden");
+			$("#tax-purposes").removeClass("hidden");
+			localStorage.removeItem("tax-resident");
+		});
+		$("#province").change(function(){
+	    if (document.getElementById("province").value == "None") {
+	      localStorage.removeItem("province");
+	    } else {
+				$('#error3').addClass("hidden");
+	      localStorage.setItem("province", document.getElementById("province").value);
+	    }
+		});
+	});
+
+	function clearResidence() {
 		$("#tax-purposes").addClass("hidden");
-    $('#error1').addClass("hidden");
+		$('#error1').addClass("hidden");
+		$('#error2').addClass("hidden");
 		$('#resident-tax-purposes-province').addClass("hidden");
 		$('#not-a-tax-resident').addClass("hidden");
-		$('#save-residency').removeClass("disabled");
-		$('#save-residency').attr("disabled", false);
 		$('#tax-resident-definitions').addClass("hidden");
-		localStorage.setItem("tax-resident", "yes");
-    localStorage.setItem("tax-resident-option", "in");
-	});
-	$("#outside").change(function(){
-		$("#tax-purposes").removeClass("hidden");
-    $('#error1').addClass("hidden");
-		$('#not-a-tax-resident').addClass("hidden");
 		$('#save-residency').attr("disabled", false);
-		$('#tax-resident-definitions').addClass("hidden");
-    localStorage.setItem("tax-resident-option", "outside");
-    if ($(':input:radio:eq(2)').prop('checked')){
-      localStorage.setItem("tax-resident", "yes");
-    } else if ($(':input:radio:eq(3)').prop('checked')) {
-      localStorage.setItem("tax-resident", "no");
-    } else {
-      localStorage.removeItem("tax-resident");
-    }
-	});
-	$("#yes").change(function(){
-		localStorage.setItem("tax-resident", "yes");
-    $('#error2').addClass("hidden");
-		$('#resident-tax-purposes-province').removeClass("hidden");
-		$('#not-a-tax-resident').addClass("hidden");
-		$('#save-residency').attr("disabled", false);
-		$('#tax-resident-definitions').addClass("hidden");
-	});
-	$("#no").change(function(){
-		localStorage.setItem("tax-resident", "no");
-    $('#error2').addClass("hidden");
-		$('#resident-tax-purposes-province').addClass("hidden");
-		$('#tax-resident-definitions').addClass("hidden");
-		$('#not-a-tax-resident').removeClass("hidden");
-		$('#save-residency').attr("disabled", true);
-	});
-	$("#dn").change(function(){
-		$('#tax-resident-definitions').removeClass("hidden");
-		$('#save-residency').attr("disabled", false);
-		$('#not-a-tax-resident').addClass("hidden");
-		localStorage.removeItem("tax-resident");
-	});
-	$("#province").change(function(){
-    if (document.getElementById("province").value == "None") {
-      localStorage.removeItem("province");
-    } else {
-      localStorage.setItem("province", document.getElementById("province").value);
-      $('#error3').addClass("hidden");
-    }
-	});
-});
+	}
 
 	$("#save-residency").click(function(){
-		// console.log(localStorage.getItem("tax-year"));
-		// console.log(localStorage.getItem("tax-resident"));
-		// console.log(localStorage.getItem("province"));
-
-
     //VALIDATION
     var top = 50000;
     var taxResident = localStorage.getItem("tax-resident");
@@ -485,6 +480,7 @@ $(document).ready(function(){
         if (localStorage.getItem("tax-resident-option") == null) {
 					top = validateElement("tax-resident-legend", "error1", "Please indicate where you live");
         } else {
+					$("#tax-purposes").removeClass("hidden");
 					top = validateElement("tax-purposes-legend", "error2", "Please indicate if you are resident for tax purposes");
         }
       }

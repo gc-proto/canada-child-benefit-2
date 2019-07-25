@@ -342,55 +342,56 @@
 <script src="./files/benefits-estimator.js"></script>
 
 <script>
-$(document).ready(function(){
+	$(document).ready(function(){
 
-	//REMOVE PREPOPULATION FOR TESTING
-	// localStorage.removeItem("marital");
+		//REMOVE PREPOPULATION FOR TESTING
+		// localStorage.removeItem("marital");
 
-	//PREVIOUSLY SELECTED
-	if (localStorage.getItem("marital") != null){
-		//if variable stored, use it
-		var sMarital = localStorage.getItem("marital");
-		if (sMarital == "married") {
-			$(':input:radio:eq(0)').prop('checked', true);
-		} else if (sMarital == "living common law") {
-			$(':input:radio:eq(1)').prop('checked', true);
-		} else if (sMarital == "widowed") {
-			$(':input:radio:eq(2)').prop('checked', true);
-		} else if (sMarital == "divorced") {
-			$(':input:radio:eq(3)').prop('checked', true);
-		} else if (sMarital == "separated") {
-			$(':input:radio:eq(4)').prop('checked', true);
-		} else if (sMarital == "single") {
-			$(':input:radio:eq(5)').prop('checked', true);
+
+		//PREVIOUSLY SELECTED
+		if (localStorage.getItem("marital") != null){
+			//if variable stored, use it
+			var sMarital = localStorage.getItem("marital");
+			if (sMarital == "married") {
+				$(':input:radio:eq(0)').prop('checked', true);
+			} else if (sMarital == "living common law") {
+				$(':input:radio:eq(1)').prop('checked', true);
+			} else if (sMarital == "widowed") {
+				$(':input:radio:eq(2)').prop('checked', true);
+			} else if (sMarital == "divorced") {
+				$(':input:radio:eq(3)').prop('checked', true);
+			} else if (sMarital == "separated") {
+				$(':input:radio:eq(4)').prop('checked', true);
+			} else if (sMarital == "single") {
+				$(':input:radio:eq(5)').prop('checked', true);
+			}
 		}
-	}
 
-	$("#divorced").change(function(){
-		localStorage.setItem("marital", "divorced");
-		$('#error1').addClass("hidden");
+		$("#divorced").change(function(){
+			localStorage.setItem("marital", "divorced");
+			$('#error1').addClass("hidden");
+		});
+		$("#common").change(function(){
+			localStorage.setItem("marital", "living common law");
+			$('#error1').addClass("hidden");
+		});
+		$("#married").change(function(){
+			localStorage.setItem("marital", "married");
+			$('#error1').addClass("hidden");
+		});
+		$("#separated").change(function(){
+			localStorage.setItem("marital", "separated");
+			$('#error1').addClass("hidden");
+		});
+		$("#single").change(function(){
+			localStorage.setItem("marital", "single");
+			$('#error1').addClass("hidden");
+		});
+		$("#widowed").change(function(){
+			localStorage.setItem("marital", "widowed");
+			$('#error1').addClass("hidden");
+		});
 	});
-	$("#common").change(function(){
-		localStorage.setItem("marital", "living common law");
-		$('#error1').addClass("hidden");
-	});
-	$("#married").change(function(){
-		localStorage.setItem("marital", "married");
-		$('#error1').addClass("hidden");
-	});
-	$("#separated").change(function(){
-		localStorage.setItem("marital", "separated");
-		$('#error1').addClass("hidden");
-	});
-	$("#single").change(function(){
-		localStorage.setItem("marital", "single");
-		$('#error1').addClass("hidden");
-	});
-	$("#widowed").change(function(){
-		localStorage.setItem("marital", "widowed");
-		$('#error1').addClass("hidden");
-	});
-});
 
 	$("#save-marital").click(function(){
 		// console.log(localStorage.getItem("tax-year"));
@@ -398,11 +399,9 @@ $(document).ready(function(){
 		// console.log(localStorage.getItem("province"));
 		// console.log(localStorage.getItem("marital"));
 
-
 		//Go to next step
 		var sCheckProv = localStorage.getItem("province");
 		// console.log(sCheckProv);
-
 
 		//VALIDATION
 		var top = 50000;
@@ -416,7 +415,6 @@ $(document).ready(function(){
 			top = validateElement("marital-legend", "error1", "Please indicate your marital status");
 			window.scrollTo(0, top);
 		}
-
 	});
 </script>
 </body>
