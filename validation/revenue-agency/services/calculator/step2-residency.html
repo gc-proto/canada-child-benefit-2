@@ -198,6 +198,20 @@
       </fieldset>
   	</div>
 
+		<div id="tax-resident-definitions" class="hidden">
+			<p>You might be a resident of Canada for tax purposes if you are one of the following:</p>
+			<ul>
+				<li>A factual resident of Canada: you keep significant <a href="https://www.canada.ca/en/revenue-agency/services/tax/international-non-residents/information-been-moved/determining-your-residency-status.html" target="help">residential ties</a> in Canada while living or travelling outside the country.</li>
+				<li>A deemed resident of Canada: you are in <strong>one</strong> of the following situations:
+					<ol>
+						<li>You lived outside Canada during the tax year, did not have significant residential ties, and you are a government employee, a member of the Canadian Forces including their overseas school staff, or working under a Canadian International Development Agency (CIDA) assistance program.</li>
+						<li>This could also apply to the family members of an individual who is in one of these situations.</li>
+						<li>You sojourned in Canada for <strong>183 days or more</strong> in the tax year, do <strong>not</strong> have significant <a href="https://www.canada.ca/en/revenue-agency/services/tax/international-non-residents/information-been-moved/determining-your-residency-status.html" target="help">residential ties</a> with Canada, and are <strong>not</strong> considered a resident of another country under the terms of a <a href="https://www.canada.ca/en/revenue-agency/services/tax/international-non-residents/tax-treaties.html" target="help">tax treaty</a> between Canada and that country.</li>
+					</ol>
+				</li>
+			</div>
+		</div>
+
     <div id="select-province">
       <fieldset>
     		<legend id="select-province-legend" class="h5 required"><span class="field-name">Province/territory of residence</span> <strong class="required">(required)</strong></legend>
@@ -219,6 +233,12 @@
     		</select>
       </fieldset>
     </div>
+	</div>
+	<p id="resident-tax-purposes-province" class="hidden">Select the last province or territory you lived in before leaving Canada.</p>
+
+	<div id="not-a-tax-resident" class="alert alert-info hidden">
+		<h3>You do not qualify for Canadian tax benefits</h3>
+		<p>As you are not a resident of Canada for tax purposes, you don't qualify for any of the tax benefits or credits.</p>
 	</div>
 
 	<div style="margin-top:30px;">
@@ -367,6 +387,11 @@
 <script>
 $(document).ready(function(){
 
+
+	//*****Change the outside canada - don't know to include descriptions of what the options mean
+
+
+
   //REMOVE PREPOPULATION FOR TESTING
 	// localStorage.removeItem("tax-resident");
   // localStorage.removeItem("tax-resident-option");
@@ -376,7 +401,7 @@ $(document).ready(function(){
   if (localStorage.getItem("tax-resident") != null){
 		//if variable stored, use it
 		var status2 = localStorage.getItem("tax-resident");
-		if (localStorage.getItem("tax-resident-option") != null) {
+		if (localStorage.getItem("tax-resident-option") == "in") {
 			$(':input:radio:eq(0)').prop('checked', true);
 		} else {
       $(':input:radio:eq(1)').prop('checked', true);
@@ -391,19 +416,25 @@ $(document).ready(function(){
 	$("#in").change(function(){
 		$("#tax-purposes").addClass("hidden");
     $('#error1').addClass("hidden");
+		$('#resident-tax-purposes-province').addClass("hidden");
+		$('#not-a-tax-resident').addClass("hidden");
+		$('#save-residency').removeClass("disabled");
+		$('#save-residency').attr("disabled", false);
+		$('#tax-resident-definitions').addClass("hidden");
 		localStorage.setItem("tax-resident", "yes");
     localStorage.setItem("tax-resident-option", "in");
 	});
 	$("#outside").change(function(){
 		$("#tax-purposes").removeClass("hidden");
     $('#error1').addClass("hidden");
+		$('#not-a-tax-resident').addClass("hidden");
+		$('#save-residency').attr("disabled", false);
+		$('#tax-resident-definitions').addClass("hidden");
     localStorage.setItem("tax-resident-option", "outside");
     if ($(':input:radio:eq(2)').prop('checked')){
       localStorage.setItem("tax-resident", "yes");
     } else if ($(':input:radio:eq(3)').prop('checked')) {
       localStorage.setItem("tax-resident", "no");
-    } else if ($(':input:radio:eq(4)').prop('checked')) {
-      localStorage.setItem("tax-resident", "dn");
     } else {
       localStorage.removeItem("tax-resident");
     }
@@ -411,14 +442,24 @@ $(document).ready(function(){
 	$("#yes").change(function(){
 		localStorage.setItem("tax-resident", "yes");
     $('#error2').addClass("hidden");
+		$('#resident-tax-purposes-province').removeClass("hidden");
+		$('#not-a-tax-resident').addClass("hidden");
+		$('#save-residency').attr("disabled", false);
+		$('#tax-resident-definitions').addClass("hidden");
 	});
 	$("#no").change(function(){
 		localStorage.setItem("tax-resident", "no");
     $('#error2').addClass("hidden");
+		$('#resident-tax-purposes-province').addClass("hidden");
+		$('#tax-resident-definitions').addClass("hidden");
+		$('#not-a-tax-resident').removeClass("hidden");
+		$('#save-residency').attr("disabled", true);
 	});
 	$("#dn").change(function(){
-		localStorage.setItem("tax-resident", "dn");
-    $('#error2').addClass("hidden");
+		$('#tax-resident-definitions').removeClass("hidden");
+		$('#save-residency').attr("disabled", false);
+		$('#not-a-tax-resident').addClass("hidden");
+		localStorage.removeItem("tax-resident");
 	});
 	$("#province").change(function(){
     if (document.getElementById("province").value == "None") {
