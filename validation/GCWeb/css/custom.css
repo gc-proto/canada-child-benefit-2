@@ -37,6 +37,12 @@
 	                margin-top: -1.1em;
 	}
 
+/* new "addressbox" style for address change pages.  makes addresses look like peel-stick address labels */
+
+	p.addressbox {
+		display: inline-block;
+	}
+
 /* reduce h1 top margin for mobile only */
 @media screen and (max-width: 425px) {
 
