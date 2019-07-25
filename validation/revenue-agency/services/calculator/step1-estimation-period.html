@@ -332,53 +332,43 @@
 <script src="./files/benefits-estimator.js"></script>
 
 <script>
-$(document).ready(function(){
-	//REMOVE PREPOPULATE FOR TESTING
-	localStorage.removeItem("tax-year");
+	$(document).ready(function(){
+		//REMOVE PREPOPULATE FOR TESTING
+		// localStorage.removeItem("tax-year");
 
-	//PREVIOUSLY SELECTED
-	if (localStorage.getItem("tax-year") != null){
-		//if variable stored, use it
-		var taxYear = localStorage.getItem("tax-year");
-		if (taxYear == 2018) {
-			$(':input:radio:eq(0)').prop('checked', true);
-		} else if (taxYear == 2017) {
-			$(':input:radio:eq(1)').prop('checked', true);
+		//PREVIOUSLY SELECTED
+		if (localStorage.getItem("tax-year") != null){
+			//if variable stored, use it
+			var taxYear = localStorage.getItem("tax-year");
+			if (taxYear == 2018) {
+				$(':input:radio:eq(0)').prop('checked', true);
+			} else if (taxYear == 2017) {
+				$(':input:radio:eq(1)').prop('checked', true);
+			}
 		}
-	}
 
-	$("#2018").change(function(){
-		localStorage.setItem("tax-year", "2018");
-    localStorage.setItem("estimation-period", "July 2019 to June 2020");
-		$('#error1').addClass("hidden");
+		$("#2018").change(function(){
+			localStorage.setItem("tax-year", "2018");
+	    localStorage.setItem("estimation-period", "July 2019 to June 2020");
+			$('#error1').addClass("hidden");
+		});
+		$("#2017").change(function(){
+			localStorage.setItem("tax-year", "2017");
+	    localStorage.setItem("estimation-period", "July 2018 to June 2019");
+			$('#error1').addClass("hidden");
+		});
 	});
-	$("#2017").change(function(){
-		localStorage.setItem("tax-year", "2017");
-    localStorage.setItem("estimation-period", "July 2018 to June 2019");
-		$('#error1').addClass("hidden");
-	});
-});
 
 	$("#save-estimation-period").click(function(){
-		//check which items are checked
-		//add to local storage
-		//var iTaxYear = $("#period input[type='radio']:checked").val();
-		// localStorage.setItem("tax-year", iTaxYear);
-
-		//VALIDATION
+		//Form validation and next page
 		var top = 50000;
 		if (localStorage.getItem("tax-year") != null){
 			window.location.href = "./step2-residency.html"
 		} else {
 			top = validateElement("tax-year-legend", "error1", "Please choose an estimation period");
+			//jump to highest validation error tag
 			window.scrollTo(0, top);
 		}
-		//jump to highest validation error tag
-		// var top = document.getElementById(h).offsetTop; //Getting Y of target element
-                          //Go there directly or some transition
-
-
-
 	});
 </script>
 
