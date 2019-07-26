@@ -162,7 +162,7 @@
     </span>
   </h1>
 
-	<div class="wb-frmvld">
+	<div class="wb-frmvld" id="income-inputs">
 		<div class="form-group">
 			<label for="income" class="required"><span class="field-name">What was your net income in <span id="tax-year1"></span>?</span> <strong class="required">(required)</strong></label>
 			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
@@ -211,7 +211,7 @@
 			 <li>Exempt income of Canadian Indians</li>
 			</ul>
 
-			<div id="alberta-working-spouse-income-div" class="form-group hidden">
+			<div id="alberta-working-income-spouse-div" class="form-group hidden">
 				<label class="mrgn-tp-lg required" for="alberta-working-income-spouse"><span class="field-name">What was your <span id="and-spouse4"></span>'s working income in <span id="tax-year5"></span>?</span> <strong class="required">(required)</strong></label>
 				<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
@@ -222,7 +222,7 @@
 			</div>
 		</div>
 
-		<div id="rdsp-uccb-income" class="mrgn-tp-lg">
+		<div id="canada-workers-benefit-div" class="mrgn-tp-lg">
 			<fieldset>
 				<legend class="h5 required"><span class="field-name">Are <span id="and-spouse">you </span>expecting to earn less than $37,000 in <span id="tax-year3"></span>?</span> <strong class="required">(required)</strong></legend>
 				<ul class="list-unstyled can-ca-form">
@@ -431,7 +431,7 @@
 		if (sSpouseTerm != null) {
 			$("#spouse-income-div").removeClass("hidden");
 			$("#this-year-spouse-income-div").removeClass("hidden");
-			$("#alberta-working-spouse-income-div").removeClass("hidden");
+			$("#alberta-working-income-spouse-div").removeClass("hidden");
 			$("#and-spouse").html('you and your '+sSpouseTerm+' ');
 			$("#and-spouse2").html(sSpouseTerm);
 			$("#and-spouse4").html(sSpouseTerm);
@@ -461,33 +461,28 @@
 		$('#this-year-tax-year2').append(iThisYear);
 
 
-		//PREPOPULATE
-
-
-
-		$("#income").change(function(){
-			localStorage.setItem("income", document.getElementById("income").value.replace(/,/g, ""));
-		});
-		$("#spouse-income").change(function(){
-			localStorage.setItem("spouse-income", document.getElementById("spouse-income").value.replace(/,/g, ""));
-		});
-		$("#less-than-36").change(function(){
+		//PREPOPULATE PREVIOUSLY SELECTED VALUES
+		var arrIncomeInputs = ["income","spouse-income","alberta-working-income","alberta-working-income-spouse","this-year-income","this-year-spouse-income"];
+		for (z=0; z<arrIncomeInputs.length; z++) {
+			if (localStorage.getItem(arrIncomeInputs[z]) != null) {
+				$("#"+arrIncomeInputs[z]).val(localStorage.getItem(arrIncomeInputs[z]));
+			}
+		}
+		if (localStorage.getItem("this-year-income") != null || localStorage.getItem("this-year-spouse-income") != null) {
+			$('#less-than-36').prop('checked',true);
 			$("#this-year-income-div").removeClass("hidden");
-		});
-		$("#more-than-36").change(function(){
-			$("#this-year-income-div").addClass("hidden");
-		});
-		$("#alberta-working-income").change(function(){
-			localStorage.setItem("alberta-working-income", document.getElementById("alberta-working-income").value.replace(/,/g, ""));
-		});
-		$("#alberta-working-income-spouse").change(function(){
-			localStorage.setItem("alberta-working-income-spouse", document.getElementById("alberta-working-income-spouse").value.replace(/,/g, ""));
-		});
-		$("#this-year-income").change(function(){
-			localStorage.setItem("this-year-income", document.getElementById("this-year-income").value.replace(/,/g, ""));
-		});
-		$("#this-year-spouse-income").change(function(){
-			localStorage.setItem("this-year-spouse-income", document.getElementById("this-year-spouse-income").value.replace(/,/g, ""));
+		}
+
+		//Capture changes
+		$("#income-inputs").change(function(field){
+			var incomeField = field.target.id;
+			if (incomeField == "less-than-36") {
+				$("#this-year-income-div").removeClass("hidden");
+			} else if (incomeField == "more-than-36") {
+				$("#this-year-income-div").addClass("hidden");
+			} else {
+				localStorage.setItem(incomeField, document.getElementById(incomeField).value.replace(/,/g, ""));
+			}
 		});
 	});
 
