@@ -614,33 +614,27 @@
 	$("#save-children-details").click(function(){
 		var top = 50000;
 		var children = localStorage.getItem("children");
-		var bError = 0;
+		var bError = false;
 		for (var i = 0; i < children; i++) {
 			var iTag = i+1;
 			var childage = localStorage.getItem("childage"+iTag);
 			var childmonth = localStorage.getItem("childmonth"+iTag);
 			var childyear = localStorage.getItem("childyear"+iTag);
       if (childage == null) {
-				bError = 1;
-				console.log(iTag + ": " + "select-children-age-legend"+iTag);
-				console.log(iTag + ": " + top);
-				console.log(iTag + ": " + document.getElementById("select-children-age-legend"+iTag).offsetTop);
+				bError = true;
 				top = validateElement("select-children-age-legend"+iTag, "age-error"+iTag, "Please pick their age", top);
-				console.log(iTag + ": " + top);
       }
 			if (childmonth == null && $('#childmonth'+iTag).is(':visible')) {
-				bError = 1;
+				bError = true;
 				top = validateElement("select-children-month-legend"+iTag, "month-error"+iTag, "Please pick their month of birth", top);
-				console.log(top);
 			}
 			if (childyear == null && $('#childyear'+iTag).is(':visible')) {
-				bError = 1;
+				bError = true;
 				top = validateElement("select-children-year-legend"+iTag, "year-error"+iTag, "Please pick their year of birth", top);
-				console.log(top);
 			}
 			window.scrollTo(0, top);
 		}
-		if (bError == 0) {
+		if (bError == false) {
 			//Go to next step
 			window.location.href = "./income.html"
 		}

@@ -164,11 +164,11 @@
 
 	<div class="wb-frmvld" id="income-inputs">
 		<div class="form-group">
-			<label for="income" class="required"><span class="field-name">What was your net income in <span id="tax-year1"></span>?</span> <strong class="required">(required)</strong></label>
+			<label for="income" id="income-legend" class="required"><span class="field-name">What was your net income in <span id="tax-year1"></span>?</span> <strong class="required">(required)</strong></label>
 			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
-				<input type="text" size="7" maxlength="7" id="income" name="income" class="form-control text-right" style="min-height:50px;">
+				<input type="text" size="7" maxlength="7" id="income" name="income" ondblclick="this.select()" class="form-control text-right" style="min-height:50px;">
 				<span class="input-group-addon"> .00 </span>
 			</div>
 		</div>
@@ -176,7 +176,7 @@
 		<p>If you want to use your exact income, look at line 236 on your <span id="tax-year"></span> tax return</p>
 
 		<div id="spouse-income-div" class="form-group hidden">
-			<label  for="income" class="required"><span class="field-name">What was your <span id="and-spouse2"></span>'s net income in <span id="tax-year2"></span>?</span> <strong class="required">(required)</strong></label>
+			<label  for="spouse-income" id="spouse-income-legend" class="required"><span class="field-name">What was your <span id="and-spouse2"></span>'s net income in <span id="tax-year2"></span>?</span> <strong class="required">(required)</strong></label>
 			<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 			<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -187,7 +187,7 @@
 
 		<div class="hidden" id="alberta-working-income-div">
 			<div class="form-group">
-				<label class="mrgn-tp-lg required" for="alberta-working-income"><span class="field-name">What was your working income in <span id="tax-year4"></span>?</span> <strong class="required">(required)</strong></label>
+				<label class="mrgn-tp-lg required" id="alberta-working-income-legend" for="alberta-working-income"><span class="field-name">What was your working income in <span id="tax-year4"></span>?</span> <strong class="required">(required)</strong></label>
 				<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 				<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -211,12 +211,12 @@
 			 <li>Exempt income of Canadian Indians</li>
 			</ul>
 
-			<div id="alberta-working-income-spouse-div" class="form-group hidden">
-				<label class="mrgn-tp-lg required" for="alberta-working-income-spouse"><span class="field-name">What was your <span id="and-spouse4"></span>'s working income in <span id="tax-year5"></span>?</span> <strong class="required">(required)</strong></label>
+			<div id="alberta-working-spouse-income-div" class="form-group hidden">
+				<label class="mrgn-tp-lg required" id="alberta-working-spouse-income-legend" for="alberta-working-spouse-income"><span class="field-name">What was your <span id="and-spouse4"></span>'s working income in <span id="tax-year5"></span>?</span> <strong class="required">(required)</strong></label>
 				<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 				<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
-					<input type="text" size="7" maxlength="7" id="alberta-working-income-spouse" name="alberta-working-income-spouse" class="form-control text-right" style="min-height:50px;">
+					<input type="text" size="7" maxlength="7" id="alberta-working-spouse-income" name="alberta-working-spouse-income" class="form-control text-right" style="min-height:50px;">
 					<span class="input-group-addon"> .00 </span>
 				</div>
 			</div>
@@ -240,7 +240,7 @@
 
 		<div id="this-year-income-div" class="hidden">
 			<div class="form-group">
-				<label for="this-year-income" class="required"><span class="field-name">What is your expected working income in <span id="this-year-tax-year1"></span>?</span> <strong class="required">(required)</strong></label>
+				<label for="this-year-income" id="this-year-income-legend" class="required"><span class="field-name">What is your expected working income in <span id="this-year-tax-year1"></span>?</span> <strong class="required">(required)</strong></label>
 				<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
 					<input type="text" size="7" maxlength="7" id="this-year-income" name="income" class="form-control text-right" style="min-height:50px;">
 					<span class="input-group-addon"> .00 </span>
@@ -248,7 +248,7 @@
 			</div>
 
 			<div id="this-year-spouse-income-div" class="form-group hidden">
-				<label for="income" class="required"><span class="field-name">What was your <span id="this-year-and-spouse2"></span>'s working income in <span id="this-year-tax-year2"></span>?</span> <strong class="required">(required)</strong></label>
+				<label for="this-year-spouse-income" id="this-year-spouse-income-legend" class="required"><span class="field-name">What was your <span id="this-year-and-spouse2"></span>'s working income in <span id="this-year-tax-year2"></span>?</span> <strong class="required">(required)</strong></label>
 				<!-- <input type="text" size="10" id="income" name="income" class="form-control" style="min-height:10px;"> -->
 
 				<div class="input-group col-sm-3"> <span class="input-group-addon"> $ </span>
@@ -431,7 +431,7 @@
 		if (sSpouseTerm != null) {
 			$("#spouse-income-div").removeClass("hidden");
 			$("#this-year-spouse-income-div").removeClass("hidden");
-			$("#alberta-working-income-spouse-div").removeClass("hidden");
+			$("#alberta-working-spouse-income-div").removeClass("hidden");
 			$("#and-spouse").html('you and your '+sSpouseTerm+' ');
 			$("#and-spouse2").html(sSpouseTerm);
 			$("#and-spouse4").html(sSpouseTerm);
@@ -462,7 +462,9 @@
 
 
 		//PREPOPULATE PREVIOUSLY SELECTED VALUES
-		var arrIncomeInputs = ["income","spouse-income","alberta-working-income","alberta-working-income-spouse","this-year-income","this-year-spouse-income"];
+		console.log(localStorage.getItem("this-year-income"));
+
+		var arrIncomeInputs = ["income","spouse-income","alberta-working-income","alberta-working-spouse-income","this-year-income","this-year-spouse-income"];
 		for (z=0; z<arrIncomeInputs.length; z++) {
 			if (localStorage.getItem(arrIncomeInputs[z]) != null) {
 				$("#"+arrIncomeInputs[z]).val(localStorage.getItem(arrIncomeInputs[z]));
@@ -481,7 +483,18 @@
 			} else if (incomeField == "more-than-36") {
 				$("#this-year-income-div").addClass("hidden");
 			} else {
-				localStorage.setItem(incomeField, document.getElementById(incomeField).value.replace(/,/g, ""));
+				var inputAmount = document.getElementById(incomeField).value.replace(/,/g, "");
+				if (inputAmount == "") {
+					$("#error-numeric-"+incomeField).addClass("hidden");
+				 	localStorage.removeItem(incomeField);
+				} else if (/^\d+$/.test(inputAmount)) {
+					$("#error-"+incomeField).addClass("hidden");
+					$("#error-numeric-"+incomeField).addClass("hidden");
+					localStorage.setItem(incomeField, document.getElementById(incomeField).value.replace(/,/g, ""));
+				} else {
+					validateElement(incomeField+"-legend", "error-numeric-"+incomeField, "Please use numbers and commas only, rounded to the nearest dollar", top);
+					localStorage.removeItem(incomeField);
+				}
 			}
 		});
 	});
@@ -492,48 +505,56 @@
 
 			//VALIDATE
 			var top = 50000;
-			var bError = 0;
+			var bError = false;
+			var arrIncomeInputs = ["income"];
+			switch (localStorage.getItem("marital")) {
+				case "married":
+					var sSpouseTerm = "married";
+					break;
+				case "common":
+					var sSpouseTerm = "common law partner";
+			}
+			var iPrevYear = localStorage.getItem("tax-year");
+			var iThisYear = parseInt(iPrevYear, 10) + 1;
 			if (localStorage.getItem("income") == null) {
-				bError = 1;
-				//top = validateElement("select-children-age-legend"+iTag, "age-error"+iTag, "Please pick their age", top);
-      }
-
-
-
-				// $("#spouse-income").change(function(){
-				// 	localStorage.setItem("spouse-income", document.getElementById("spouse-income").value.replace(/,/g, ""));
-				// });
-				// $("#less-than-36").change(function(){
-				// 	$("#this-year-income-div").removeClass("hidden");
-				// });
-				// $("#more-than-36").change(function(){
-				// 	$("#this-year-income-div").addClass("hidden");
-				// });
-				// $("#alberta-working-income").change(function(){
-				// 	localStorage.setItem("alberta-working-income", document.getElementById("alberta-working-income").value.replace(/,/g, ""));
-				// });
-				// $("#alberta-working-income-spouse").change(function(){
-				// 	localStorage.setItem("alberta-working-income-spouse", document.getElementById("alberta-working-income-spouse").value.replace(/,/g, ""));
-				// });
-				// $("#this-year-income").change(function(){
-				// 	localStorage.setItem("this-year-income", document.getElementById("this-year-income").value.replace(/,/g, ""));
-				// });
-				// $("#this-year-spouse-income").change(function(){
-				// 	localStorage.setItem("this-year-spouse-income", document.getElementById("this-year-spouse-income").value.replace(/,/g, ""));
-				// });
-
-
-
-  			window.location.href = "./benefit-estimate.html"
-
-
-
-	    // } else {
-			// 	top = validateElement("select-children-legend", "error1", "Please indicate how many children you have", top);
-	    //   window.scrollTo(0, top);
-	    // }
-
-
+				bError = true;
+				top = validateElement("income-legend", "error-income", "Please indicate your income in " +iPrevYear, top);
+			}
+			if (sSpouseTerm != null) {
+				if (localStorage.getItem("spouse-income") == null) {
+					bError = true;
+					top = validateElement("spouse-income-legend", "error-spouse-income", "Please indicate your "+sSpouseTerm+"'s income in "+iPrevYear, top);
+				}
+			}
+			if (localStorage.getItem("province") == "Alberta") {
+				if (localStorage.getItem("alberta-working-income") == null) {
+					bError = true;
+					top = validateElement("alberta-working-income-legend", "error-alberta-working-income", "Please indicate your working income "+iPrevYear, top);
+				}
+				if (sSpouseTerm != null) {
+					if (localStorage.getItem("alberta-working-spouse-income") == null) {
+						bError = true;
+						top = validateElement("spouse-income-legend", "error-alberta-working-spouse-income", "Please indicate your "+sSpouseTerm+"'s working income in "+iPrevYear, top);
+					}
+				}
+			}
+			if ($("#less-than-36").is(':checked')) {
+				if (localStorage.getItem("this-year-income") == null) {
+					bError = true;
+					top = validateElement("this-year-income-legend", "error-this-year-income", "Please indicate your expected working income "+iThisYear, top);
+				}
+				if (sSpouseTerm != null) {
+					if (localStorage.getItem("this-year-spouse-income") == null) {
+						bError = true;
+						top = validateElement("this-year-spouse-income-legend", "error-this-year-spouse-income", "Please indicate your "+sSpouseTerm+"'s expected working income in "+iThisYear, top);
+					}
+				}
+				window.scrollTo(0, top);
+			}
+			if (bError == false) {
+				//Go to next step
+				window.location.href = "./benefit-estimate.html"
+			}
 	});
 </script>
 
