@@ -158,7 +158,7 @@
 
   <h1 property="name" id="wb-cont" dir="ltr">
     <span class="stacked" role="text">
-      <span>Step 8: Indicate your income</span>: <span>Child and family benefits estimator</span>
+      <span>Indicate your income</span>: <span>Child and family benefits estimator</span>
     </span>
   </h1>
 
@@ -275,7 +275,7 @@
 
 	<div style="margin-top:30px;">
 		<div class="col-xs-3 col-lg-1" style="height:28px; padding-top:10px;">
-			<a href="step7-children-details.html" class="">Previous</a> &nbsp;
+			<a href="children-details.html" class="">Previous</a> &nbsp;
 		</div>
 		<div class="col-xs-9 col-lg-11">
 			<button id="save-income" class="btn btn-call-to-action" style="margin-top:0px;">Next</button>
@@ -420,43 +420,33 @@
 
 <script>
 	$(document).ready(function(){
-		//if married, show spouse's income
-		if (localStorage.getItem("marital") == "married") {
-			$("#spouse-income-div").removeClass("hidden");
-			$("#this-year-spouse-income-div").removeClass("hidden");
-			$("#alberta-working-spouse-income-div").removeClass("hidden");
-			$("#and-spouse").html('you and your spouse ');
-			$("#and-spouse2").html('spouse');
-			$("#and-spouse4").html('spouse');
-			$("#this-year-and-spouse2").html('spouse');
-		} else if (localStorage.getItem("marital") == "living common law") {
-			$("#spouse-income-div").removeClass("hidden");
-			$("#this-year-spouse-income-div").removeClass("hidden");
-			$("#alberta-working-spouse-income-div").removeClass("hidden");
-			$("#and-spouse").html('you and your common law partner ');
-			$("#and-spouse2").html('common law partner');
-			$("#and-spouse4").html('common law partner');
-			$("#this-year-and-spouse2").html('common law partner');
+		//show spouse's income inputs
+		switch (localStorage.getItem("marital")) {
+			case "married":
+				var sSpouseTerm = "married";
+				break;
+			case "common":
+				var sSpouseTerm = "common law partner";
 		}
+		if (sSpouseTerm != null) {
+			$("#spouse-income-div").removeClass("hidden");
+			$("#this-year-spouse-income-div").removeClass("hidden");
+			$("#alberta-working-spouse-income-div").removeClass("hidden");
+			$("#and-spouse").html('you and your '+sSpouseTerm+' ');
+			$("#and-spouse2").html(sSpouseTerm);
+			$("#and-spouse4").html(sSpouseTerm);
+			$("#this-year-and-spouse2").html(sSpouseTerm);
+		}
+		//Show alberta inputs
 		if (localStorage.getItem("province") == "Alberta") {
 			$("#alberta-working-income-div").removeClass("hidden");
 		}
-
-
 
 		//CONSIDER USING COMMENTED OUT DRAFT IF trying to add specific text such as 'last year' to clarify when the income is for********
 		// var today = new Date();
 		// var iTaxYear = localStorage.getItem("tax-year");
 		// //How does today compare with tax year?
 		// if (today.getYear() == iTaxYear - 1900) {
-			var iPrevYear = localStorage.getItem("tax-year");
-			var iThisYear = parseInt(iPrevYear, 10) + 1;
-		// } else if () {
-		//
-		// } else {
-		//
-		// }
-
 		var iPrevYear = localStorage.getItem("tax-year");
 		var iThisYear = parseInt(iPrevYear, 10) + 1;
 		$('#tax-year').append(iPrevYear);
@@ -469,6 +459,11 @@
 		$('#tax-year7').append(iThisYear);
 		$('#this-year-tax-year1').append(iThisYear);
 		$('#this-year-tax-year2').append(iThisYear);
+
+
+		//PREPOPULATE
+
+
 
 		$("#income").change(function(){
 			localStorage.setItem("income", document.getElementById("income").value.replace(/,/g, ""));
@@ -497,33 +492,52 @@
 	});
 
 	$("#save-income").click(function(){
-		// console.log(localStorage.getItem("tax-year"));
-		// console.log(localStorage.getItem("tax-resident"));
-		// console.log(localStorage.getItem("province"));
-		// console.log(localStorage.getItem("marital"));
-		// console.log(localStorage.getItem("birth-day"));
-		// console.log(localStorage.getItem("birth-month"));
-		// console.log(localStorage.getItem("birth-year"));
-		// console.log(localStorage.getItem("birth-day-spouse"));
-		// console.log(localStorage.getItem("birth-month-spouse"));
-		// console.log(localStorage.getItem("birth-year-spouse"));
-		// console.log(localStorage.getItem("parent-disabled"));
-		// console.log(localStorage.getItem("parent-spouse-disabled"));
-		// console.log(localStorage.getItem("children"));
-		// console.log(localStorage.getItem("childage1"));
-		// console.log(localStorage.getItem("disability1"));
-		// console.log(localStorage.getItem("shared-custody1"));
-		// console.log(localStorage.getItem("childage2"));
-		// console.log(localStorage.getItem("disability2"));
-		// console.log(localStorage.getItem("shared-custody2"));
-		// console.log(localStorage.getItem("income"));
-		// console.log(localStorage.getItem("spouse-income"));
-
-
-
 		//Go to next step
 		//But if no children, skip next step
-			window.location.href = "./benefit-estimate.html"
+
+			//VALIDATE
+			var top = 50000;
+			var bError = 0;
+			if (localStorage.getItem("income") == null) {
+				bError = 1;
+				//top = validateElement("select-children-age-legend"+iTag, "age-error"+iTag, "Please pick their age", top);
+      }
+
+
+
+				// $("#spouse-income").change(function(){
+				// 	localStorage.setItem("spouse-income", document.getElementById("spouse-income").value.replace(/,/g, ""));
+				// });
+				// $("#less-than-36").change(function(){
+				// 	$("#this-year-income-div").removeClass("hidden");
+				// });
+				// $("#more-than-36").change(function(){
+				// 	$("#this-year-income-div").addClass("hidden");
+				// });
+				// $("#alberta-working-income").change(function(){
+				// 	localStorage.setItem("alberta-working-income", document.getElementById("alberta-working-income").value.replace(/,/g, ""));
+				// });
+				// $("#alberta-working-income-spouse").change(function(){
+				// 	localStorage.setItem("alberta-working-income-spouse", document.getElementById("alberta-working-income-spouse").value.replace(/,/g, ""));
+				// });
+				// $("#this-year-income").change(function(){
+				// 	localStorage.setItem("this-year-income", document.getElementById("this-year-income").value.replace(/,/g, ""));
+				// });
+				// $("#this-year-spouse-income").change(function(){
+				// 	localStorage.setItem("this-year-spouse-income", document.getElementById("this-year-spouse-income").value.replace(/,/g, ""));
+				// });
+
+
+
+  			window.location.href = "./benefit-estimate.html"
+
+
+
+	    // } else {
+			// 	top = validateElement("select-children-legend", "error1", "Please indicate how many children you have", top);
+	    //   window.scrollTo(0, top);
+	    // }
+
 
 	});
 </script>
