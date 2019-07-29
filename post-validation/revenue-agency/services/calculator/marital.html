@@ -359,7 +359,7 @@
 	});
 	$("#save-marital").click(function(){
 		//VALIDATION
-		var top = 50000;
+		var top = [50000,""];
 		var sCheckProv = localStorage.getItem("province");
 		if (localStorage.getItem("marital") != null){
 			if (sCheckProv == "Ontario" || sCheckProv == "Newfoundland and Labrador") {
@@ -369,7 +369,7 @@
 			}
 		} else {
 			top = validateElement("marital-legend", "error1", "Please indicate your marital status", top);
-			window.scrollTo(0, top);
+			document.getElementById(top[1]).scrollIntoView();
 		}
 	});
 </script>

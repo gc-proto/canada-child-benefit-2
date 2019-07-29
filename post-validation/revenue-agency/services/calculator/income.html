@@ -504,7 +504,7 @@
 		//But if no children, skip next step
 
 			//VALIDATE
-			var top = 50000;
+			var top = [50000,""];
 			var bError = false;
 			var arrIncomeInputs = ["income"];
 			switch (localStorage.getItem("marital")) {
@@ -549,11 +549,12 @@
 						top = validateElement("this-year-spouse-income-legend", "error-this-year-spouse-income", "Please indicate your "+sSpouseTerm+"'s expected working income in "+iThisYear, top);
 					}
 				}
-				window.scrollTo(0, top);
 			}
 			if (bError == false) {
 				//Go to next step
 				window.location.href = "./benefit-estimate.html"
+			} else {
+				document.getElementById(top[1]).scrollIntoView();
 			}
 	});
 </script>

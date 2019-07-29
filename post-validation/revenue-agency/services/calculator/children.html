@@ -358,7 +358,7 @@
 	});
 	$("#save-children").click(function(){
     //VALIDATION
-    var top = 50000;
+    var top = [50000,""];
 		var children = localStorage.getItem("children");
     if (localStorage.getItem("children") != null){
 			//If no children, skip next step
@@ -369,7 +369,7 @@
   		}
     } else {
 			top = validateElement("select-children-legend", "error1", "Please indicate how many children you have", top);
-      window.scrollTo(0, top);
+			document.getElementById(top[1]).scrollIntoView();
     }
 	});
 </script>

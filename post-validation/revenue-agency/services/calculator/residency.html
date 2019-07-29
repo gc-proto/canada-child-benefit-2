@@ -464,7 +464,7 @@
 	}
 	$("#save-residency").click(function(){
     //VALIDATION
-    var top = 50000;
+		var top = [50000,""];
     var taxResident = localStorage.getItem("tax-resident");
     var province = localStorage.getItem("province");
 		if (province != null && taxResident != null){
@@ -481,7 +481,7 @@
       if (province == null) {
 				top = validateElement("select-province-legend", "error3", "Please choose a province", top);
       }
-      window.scrollTo(0, top);
+			document.getElementById(top[1]).scrollIntoView();
     }
 	});
 </script>

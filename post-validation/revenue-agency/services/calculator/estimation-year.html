@@ -361,13 +361,13 @@
 
 	$("#save-estimation-period").click(function(){
 		//Form validation and next page
-		var top = 50000;
+		var top = [50000,""];
 		if (localStorage.getItem("tax-year") != null){
 			window.location.href = "./residency.html"
 		} else {
 			top = validateElement("tax-year-legend", "error1", "Please choose an estimation period", top);
 			//jump to highest validation error tag
-			window.scrollTo(0, top);
+			document.getElementById(top[1]).scrollIntoView();
 		}
 	});
 </script>

@@ -612,7 +612,7 @@
 		});
 
 	$("#save-children-details").click(function(){
-		var top = 50000;
+		var top = [50000,""];
 		var children = localStorage.getItem("children");
 		var bError = false;
 		for (var i = 0; i < children; i++) {
@@ -632,11 +632,12 @@
 				bError = true;
 				top = validateElement("select-children-year-legend"+iTag, "year-error"+iTag, "Please pick their year of birth", top);
 			}
-			window.scrollTo(0, top);
 		}
 		if (bError == false) {
 			//Go to next step
 			window.location.href = "./income.html"
+		} else {
+			document.getElementById(top[1]).scrollIntoView();
 		}
 
 	});
