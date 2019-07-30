@@ -547,10 +547,13 @@
 						localStorage.setItem("year-before"+iChild, yearBefore);
 					} else if (6 <= (iMonth-1) && (iMonth-1) < today.getMonth()) {
 						//lower age by 1
-						localStorage.setItem("childage"+iChild, (parseInt(iAge.value,10)-1));
+						localStorage.setItem("childage"+iChild, iAge.value);
+						//should prepopulate page with what they input, not the adjusted
+						localStorage.setItem("childageadjust"+iChild, (parseInt(iAge.value,10)-1));
 						localStorage.setItem("childmonth"+iChild, iMonth);
 					} else {
 						localStorage.setItem("childage"+iChild, iAge.value);
+						localStorage.setItem("childageadjust"+iChild, iAge.value);
 						localStorage.setItem("childmonth"+iChild, iMonth);
 					}
 				}
@@ -570,13 +573,15 @@
 							// console.log((parseInt(iAge.value,10)-1));
 							// console.log(iAge.value);
 							// console.log((parseInt(iAge.value,10)+1));
-							localStorage.setItem("childage"+iChild, (parseInt(iAge.value,10)-1));
+							localStorage.setItem("childage"+iChild, iAge.value);
+							localStorage.setItem("childageadjust"+iChild, (parseInt(iAge.value,10)-1));
 							localStorage.setItem("childmonth"+iChild, iMonth);
 							localStorage.setItem("childyear"+iChild, field.target.value);
 						} else { //year during
 							// console.log(iAge.value);
 							// console.log(iMonth);
 							localStorage.setItem("childage"+iChild, iAge.value);
+							localStorage.setItem("childageadjust"+iChild, iAge.value);
 							localStorage.setItem("childmonth"+iChild, iMonth);
 							localStorage.setItem("childyear"+iChild, field.target.value);
 						}
@@ -586,10 +591,12 @@
 							// console.log(iAge.value);
 							// console.log((parseInt(iAge.value,10)+1));
 							localStorage.setItem("childage"+iChild, iAge.value);
+							localStorage.setItem("childageadjust"+iChild, iAge.value);
 							localStorage.setItem("childmonth"+iChild, iMonth);
 							localStorage.setItem("childyear"+iChild, field.target.value);
 						} else { //year during
-							localStorage.setItem("childage"+iChild, (parseInt(iAge.value,10)+1));
+							localStorage.setItem("childage"+iChild, iAge.value);
+							localStorage.setItem("childageadjust"+iChild, (parseInt(iAge.value,10)+1));
 							localStorage.setItem("childmonth"+iChild, iMonth);
 							localStorage.setItem("childyear"+iChild, field.target.value);
 						}

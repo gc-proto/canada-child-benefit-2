@@ -939,7 +939,7 @@ January 3, 2020 -->
 		//month is offset by 1, 0 = January
 		let changeInReduc = [];
 		for (i=0; i<iChildren; i++) {
-			var age = localStorage.getItem("childage"+(i+1));
+			var age = localStorage.getItem("childageadjust"+(i+1));
 			var sharedCustody = localStorage.getItem("shared-custody"+(i+1));
 			var birthmonth = parseInt(localStorage.getItem("childmonth"+(i+1)),10);
 			if (birthmonth > 6) {
