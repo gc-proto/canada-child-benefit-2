@@ -1054,13 +1054,13 @@ January 3, 2020 -->
 					} else if (base == (q - 1)) {
 						sCCBPeriods = addPaymentPeriod(sCCBPeriods, arrMonths[q - 1], '$' + ccbPayments[q-1].toFixed(2).toLocaleString());
 					} else {
-						sCCBPeriods = addPaymentPeriod(sCCBPeriods, arrMonths[base] + ' to ' + arrMonths[q - 1], ccbPayments[q-1].toFixed(2).toLocaleString());
+						sCCBPeriods = addPaymentPeriod(sCCBPeriods, arrMonths[base] + ' to ' + arrMonths[q - 1], '$' + ccbPayments[q-1].toFixed(2).toLocaleString());
 					}
 				}
 				base = q;
 			} else if (q == 11 && bMultipleCCBPeriods == 1) {
 				//add base to 11
-				sCCBPeriods = addPaymentPeriod(sCCBPeriods, arrMonths[base] + ' to ' + arrMonths[11], ccbPayments[q-1].toFixed(2).toLocaleString());
+				sCCBPeriods = addPaymentPeriod(sCCBPeriods, arrMonths[base] + ' to ' + arrMonths[11], '$' +ccbPayments[q-1].toFixed(2).toLocaleString());
 			}
 		}
 
