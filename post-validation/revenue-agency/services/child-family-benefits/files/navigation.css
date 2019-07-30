@@ -289,7 +289,7 @@ ol.vertical-steps.lst-num>li>:first-child::before {
 }
 
 /* Top of page button */
-/* nav#tp-pg {
+nav#tp-pg {
 	position: fixed;
 	bottom: -110px;
 	left: 0px;
@@ -350,7 +350,7 @@ nav#tp-pg >a::before {
 nav#tp-pg.stuck, .wb-disable nav#tp-pg {
 	bottom: 5px;
 }
-} */
+}
 
 
 
