@@ -28,7 +28,7 @@ h2, .h2 {font-size:1.7em}
 /*.section-menu.mobile .menu-title {
 	margin-bottom: 0px;
 	margin-left: 0px;
- margin-left: 50px; 
+ margin-left: 50px;
 	text-indent: 3px
 }
 .section-menu.mobile.open .menu-header {
@@ -38,7 +38,7 @@ h2, .h2 {font-size:1.7em}
 	background-color: #26374a;
 	color: #fff;
 	cursor: pointer;
-} 
+}
 /* .section-menu.mobile .menu-header .menu-title:before {
 	display: inline-block;
 	vertical-align: -15%;
@@ -289,7 +289,7 @@ ol.vertical-steps.lst-num>li>:first-child::before {
 }
 
 /* Top of page button */
-nav#tp-pg {
+/* nav#tp-pg {
 	position: fixed;
 	bottom: -110px;
 	left: 0px;
@@ -350,7 +350,7 @@ nav#tp-pg >a::before {
 nav#tp-pg.stuck, .wb-disable nav#tp-pg {
 	bottom: 5px;
 }
-}
+} */
 
 
 
