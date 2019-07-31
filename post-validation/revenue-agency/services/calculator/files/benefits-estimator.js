@@ -1,6 +1,5 @@
 function validateElement(idLegend, idError, strErrorMsg, top) {
   elementTop = getOffsetTop(document.getElementById(idLegend))
-  console.log(elementTop);
   if (document.getElementById(idError) !=null) {
     $("#"+idError).removeClass('hidden');
   } else {

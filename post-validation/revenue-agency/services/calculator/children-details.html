@@ -492,6 +492,12 @@
 			}
 			var sElement = sId.substring(0,sId.length - iChild.length)
 			if (sElement == "childage") {
+
+
+				//cancel month/year when you change age?
+				//make sure year/previous year are correct (before/after birthday)
+
+
 				var iAge = field.target.value;
 				if (iAge == "None") {
 					localStorage.removeItem("childage"+iChild);
@@ -570,18 +576,15 @@
 					//check if today is greater or larger than July 1 of the estimation period
 					if (today > julyFirst) {
 						if (field.target.value == "year-before") {
-							// console.log((parseInt(iAge.value,10)-1));
-							// console.log(iAge.value);
-							// console.log((parseInt(iAge.value,10)+1));
 							localStorage.setItem("childage"+iChild, iAge.value);
-							localStorage.setItem("childageadjust"+iChild, (parseInt(iAge.value,10)-1));
+							localStorage.setItem("childageadjust"+iChild, iAge.value);
 							localStorage.setItem("childmonth"+iChild, iMonth);
 							localStorage.setItem("childyear"+iChild, field.target.value);
 						} else { //year during
 							// console.log(iAge.value);
 							// console.log(iMonth);
 							localStorage.setItem("childage"+iChild, iAge.value);
-							localStorage.setItem("childageadjust"+iChild, iAge.value);
+							localStorage.setItem("childageadjust"+iChild, (parseInt(iAge.value,10)-1));
 							localStorage.setItem("childmonth"+iChild, iMonth);
 							localStorage.setItem("childyear"+iChild, field.target.value);
 						}
@@ -642,6 +645,11 @@
 		}
 		if (bError == false) {
 			//Go to next step
+			// console.log("Childage: "+localStorage.getItem("childage1"));
+			// console.log("Childageadjust: "+localStorage.getItem("childageadjust1"));
+			// console.log("Childmonth: "+localStorage.getItem("childmonth1"));
+			// console.log("Childyear: "+localStorage.getItem("childyear1"));
+
 			window.location.href = "./income.html"
 		} else {
 			document.getElementById(top[1]).scrollIntoView();
