@@ -430,7 +430,7 @@ January 3, 2020 -->
 	<details>
 		<summary>Review your entries</summary>
 		<dl class="dl-horizontal" id="estimate-details">
-			<dt>Estimation period:</dt>
+			<!-- <dt>Estimation period:</dt>
 			<dd>
 				<div class="col-md-7 col-xs-9">
 					<p id="estimation-period-detail">June 2018 to July 2019</p>
@@ -724,9 +724,9 @@ January 3, 2020 -->
 						<a href="./income.html">Change</a>
 					</div>
 				</dd>
-			</div>
-
-		</details>
+			</div> -->
+		</dl>
+	</details>
 
 
 	<div style="margin-top:30px;">
@@ -877,48 +877,8 @@ January 3, 2020 -->
 	$(document).ready(function(){
 		$('#estimation-period').html(localStorage.getItem("estimation-period"));
 
-
 		//set up estimation details with all values for changes
-		// var sEstimationDetails = "";
-		// if () {
-		//
-		// }
-
-		// $('#estimate-details').html(sEstimationDetails);
-
-		// <dt>Estimation period:</dt>
-		// <dd>
-		// 	<div class="col-md-7 col-xs-9">
-		// 		<p id="estimation-period-detail">June 2018 to July 2019</p>
-		// 	</div>
-		// 	<div class="col-md-5 col-xs-3">
-		// 		<a href="./estimation-year.html">Change</a>
-		// 	</div>
-		// </dd>
-		// <dt>Residency:</dt>
-		// <dd>
-		// 	<div class="col-md-7 col-xs-9">
-		// 		<p id="residency-detail">Lives in Canada</p>
-		// 	</div>
-		// 	<div class="col-md-5 col-xs-3">
-		// 		<a href="./residency.html">Change</a>
-		// 	</div>
-		// </dd>
-		// <div class="hidden">
-		// 	<dt>Residency for tax purposes:</dt>
-		// 	<dd>
-		// 		<div class="col-md-7 col-xs-9">
-		// 			<p id="residency-detail">Yes</p>
-		// 		</div>
-		// 		<div class="col-md-5 col-xs-3">
-		// 			<a href="./residency.html">Change</a>
-		// 		</div>
-		// 	</dd>
-		// </div>
-
-
-
-
+		var arrMonths = ["July","August","September","October","November","December","January","February","March","April","May","June"];
 		var ccbPayments = [0,0,0,0,0,0,0,0,0,0,0,0];
 		var sProvince = localStorage.getItem("province");
 		if (localStorage.getItem("marital") == "married" || localStorage.getItem("marital") == "common") {
@@ -1032,7 +992,6 @@ January 3, 2020 -->
 
 		var bMultipleCCBPeriods = 0;
 		var base = 0;
-		var arrMonths = ["July","August","September","October","November","December","January","February","March","April","May","June"];
 		var sCCBPeriods = "";
 
 		for (q=1;q<12;q++){
@@ -1079,6 +1038,78 @@ January 3, 2020 -->
 		iAnnual += 0;
 
 		$('#annual-payment').html('$'+iAnnual.toFixed(2).toLocaleString());
+
+		var sEstimationDetails = "";
+		var sOrdinal = ["First","Second","Third","Fourth","Fifth","Sixth","Seventh","Eigth","Ninth","Tenth"];
+		// for (i=0; i<allDetails.length; i++) { //Use an array to make this more efficient, but have to go back and change how we store each question...
+		sEstimationDetails += addChangeDetails("Estimation year", localStorage.getItem("estimation-period"), "./estimation-year.html");
+		sEstimationDetails += addChangeDetails("Tax resident", localStorage.getItem("tax-resident"), "./residency.html");
+		sEstimationDetails += addChangeDetails("Province", localStorage.getItem("province"), "./residency.html");
+		//Date of birth and Ontario stuff...
+		sEstimationDetails += addChangeDetails("Marital status", localStorage.getItem("marital"), "./marital.html");
+		sEstimationDetails += addChangeDetails("Number of children", localStorage.getItem("children"), "./children.html");
+		var iChildren = localStorage.getItem("children");
+		if (iChildren > 0) {
+			for (i=0; i<iChildren; i++) {
+				// if (detailName == "***age***") { //only if using the array version
+				sEstimationDetails += '<h3>'+sOrdinal[i]+' child</h3>';
+				// }
+				sEstimationDetails += addChangeDetails("Age", localStorage.getItem("childage"+(i+1)), "./children-details.html");
+				if (localStorage.getItem("childmonth"+(i+1)) !=null) {
+					var birthmonth = parseInt(localStorage.getItem("childmonth"+(i+1)),10);
+					if (birthmonth > 6) {
+						birthmonth -= 6;
+					} else {
+						birthmonth += 6;
+					}
+					sEstimationDetails += addChangeDetails("Month of birth", arrMonths[birthmonth-1], "./children-details.html");
+				}
+				if (localStorage.getItem("childyear"+(i+1)) !=null) {
+					var today = new Date();
+					if (localStorage.getItem("childyear"+(i+1)) == "year-during") {
+						var strYear = today.getYear() - localStorage.getItem("childage"+(i+1)) + 1900;
+					} else if (localStorage.getItem("childyear"+(i+1)) == "year-before") {
+						var strYear = today.getYear() - localStorage.getItem("childage"+(i+1)) + 1899;
+					}
+					sEstimationDetails += addChangeDetails("Year of birth", strYear, "./children-details.html");
+				}
+				if (localStorage.getItem("shared-custody"+(i+1)) ==1) {
+					sEstimationDetails += addChangeDetails("Shared custody", "Yes", "./children-details.html");
+				} else {
+					sEstimationDetails += addChangeDetails("Shared custody", "No", "./children-details.html");
+				}
+				if (localStorage.getItem("disability"+(i+1)) ==1) {
+					sEstimationDetails += addChangeDetails("Disability", "Yes", "./children-details.html");
+				} else {
+					sEstimationDetails += addChangeDetails("Disability", "No", "./children-details.html");
+				}
+				sEstimationDetails += "<br>";
+			}
+		}
+		sEstimationDetails += addChangeDetails("Income", localStorage.getItem("income"), "./income.html");
+		if (localStorage.getItem("spouse-income") !=null) {
+			sEstimationDetails += addChangeDetails("Spouse's income", localStorage.getItem("spouse-income"), "./income.html");
+		}
+		if (localStorage.getItem("alberta-working-income") !=null) {
+			sEstimationDetails += addChangeDetails("Working income", localStorage.getItem("alberta-working-income"), "./income.html");
+		}
+		if (localStorage.getItem("alberta-working-spouse-income") !=null) {
+			sEstimationDetails += addChangeDetails("Spouse's working income", localStorage.getItem("alberta-working-spouse-income"), "./income.html");
+		}
+		if (localStorage.getItem("this-year-income") !=null) {
+			sEstimationDetails += addChangeDetails("This year's expected working income", localStorage.getItem("this-year-income"), "./income.html");
+		}
+		if (localStorage.getItem("this-year-spouse-income") !=null) {
+			sEstimationDetails += addChangeDetails("Spouse's expected working income this year", localStorage.getItem("this-year-spouse-income"), "./income.html");
+		}
+
+
+		//example: addChangeDetails("Estimation period", "June 2018 to July 2019","./estimation-year.html")
+
+		// }
+		$('#estimate-details').html(sEstimationDetails);
+
+
 	});
 
 	function calcReduc(iIncome, iMonthlyChildren) {
@@ -1123,6 +1154,11 @@ January 3, 2020 -->
 
 	function addPaymentPeriod(sCCBPeriods, strMonths, strAmount) {
 		return sCCBPeriods + '<div class="row"><div class="col-xs-7 col-sm-9 small" style="padding-left:30px;" >' + strMonths + '</div><div class="col-xs-5 col-sm-3 text-right small">' + strAmount + '</div></div>';
+	}
+
+	function addChangeDetails(detailName,detailVariable,detailURL) {
+		var sEstimationDetail = '<dt>'+detailName+': </dt><dd><div class="col-md-7 col-xs-9"><p>'+detailVariable+'</p></div><div class="col-md-5 col-xs-3"><a href="'+detailURL+'">Change</a></div></dd>';
+		return sEstimationDetail;
 	}
 
 	$("#restart-estimator").click(function(){
