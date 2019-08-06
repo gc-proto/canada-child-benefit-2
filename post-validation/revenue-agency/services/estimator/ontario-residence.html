@@ -394,38 +394,38 @@
 			$("#newfoundland-disability2").removeClass("hidden");
 		}
 
-		$("#birth-day").change(function(){
-			localStorage.setItem("birth-day", document.getElementById("birth-day").value);
-		});
-		$("#birth-month").change(function(){
-			localStorage.setItem("birth-month", document.getElementById("birth-month").value);
-		});
-		$("#birth-year").change(function(){
-			localStorage.setItem("birth-year", document.getElementById("birth-year").value);
-		});
-		$("#birth-day-spouse").change(function(){
-			localStorage.setItem("birth-day-spouse", document.getElementById("birth-day-spouse").value);
-		});
-		$("#birth-month-spouse").change(function(){
-			localStorage.setItem("birth-month-spouse", document.getElementById("birth-month-spouse").value);
-		});
-		$("#birth-year-spouse").change(function(){
-			localStorage.setItem("birth-year-spouse", document.getElementById("birth-year-spouse").value);
-		});
-		$("#disability1").change(function(){
-			if ($("#disability1").is(':checked')) {
-				localStorage.setItem("parent-disabled", "true");
-			} else {
-				localStorage.setItem("parent-disabled", "false");
-			}
-		});
-		$("#disability2").change(function(){
-			if ($("#disability1").is(':checked')) {
-				localStorage.setItem("parent-spouse-disabled", "true");
-			} else {
-				localStorage.setItem("parent-spouse-disabled", "false");
-			}
-		});
+		// $("#birth-day").change(function(){
+		// 	localStorage.setItem("birth-day", document.getElementById("birth-day").value);
+		// });
+		// $("#birth-month").change(function(){
+		// 	localStorage.setItem("birth-month", document.getElementById("birth-month").value);
+		// });
+		// $("#birth-year").change(function(){
+		// 	localStorage.setItem("birth-year", document.getElementById("birth-year").value);
+		// });
+		// $("#birth-day-spouse").change(function(){
+		// 	localStorage.setItem("birth-day-spouse", document.getElementById("birth-day-spouse").value);
+		// });
+		// $("#birth-month-spouse").change(function(){
+		// 	localStorage.setItem("birth-month-spouse", document.getElementById("birth-month-spouse").value);
+		// });
+		// $("#birth-year-spouse").change(function(){
+		// 	localStorage.setItem("birth-year-spouse", document.getElementById("birth-year-spouse").value);
+		// });
+		// $("#disability1").change(function(){
+		// 	if ($("#disability1").is(':checked')) {
+		// 		localStorage.setItem("parent-disabled", "true");
+		// 	} else {
+		// 		localStorage.setItem("parent-disabled", "false");
+		// 	}
+		// });
+		// $("#disability2").change(function(){
+		// 	if ($("#disability1").is(':checked')) {
+		// 		localStorage.setItem("parent-spouse-disabled", "true");
+		// 	} else {
+		// 		localStorage.setItem("parent-spouse-disabled", "false");
+		// 	}
+		// });
 
 
 		$("#save-ontario-residence").click(function(){

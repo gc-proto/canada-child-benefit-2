@@ -734,7 +734,7 @@ January 3, 2020 -->
 			<a href="income.html" class="">Previous</a> &nbsp;
 		</div>
 		<div class="col-xs-9 col-lg-11">
-			<a href="./estimation-year.html" class="btn btn-call-to-action" style="margin-top:0px;">Restart</a>
+			<button id="restart-estimator" class="btn btn-call-to-action" style="margin-top:0px;">Start again</button>
 		</div>
 	</div>
 
@@ -1042,7 +1042,7 @@ January 3, 2020 -->
 		var sEstimationDetails = "";
 		var sOrdinal = ["First","Second","Third","Fourth","Fifth","Sixth","Seventh","Eigth","Ninth","Tenth"];
 		// for (i=0; i<allDetails.length; i++) { //Use an array to make this more efficient, but have to go back and change how we store each question...
-		sEstimationDetails += addChangeDetails("Estimation year", localStorage.getItem("estimation-period"), "./estimation-year.html");
+		// sEstimationDetails += addChangeDetails("Estimation year", localStorage.getItem("estimation-period"), "./estimation-year.html");
 		sEstimationDetails += addChangeDetails("Tax resident", localStorage.getItem("tax-resident"), "./residency.html");
 		sEstimationDetails += addChangeDetails("Province", localStorage.getItem("province"), "./residency.html");
 		//Date of birth and Ontario stuff...
@@ -1157,34 +1157,47 @@ January 3, 2020 -->
 	}
 
 	function addChangeDetails(detailName,detailVariable,detailURL) {
-		var sEstimationDetail = '<dt>'+detailName+': </dt><dd><div class="col-md-7 col-xs-9"><p>'+detailVariable+'</p></div><div class="col-md-5 col-xs-3"><a href="'+detailURL+'">Change</a></div></dd>';
-		return sEstimationDetail;
+		if (detailVariable != null) {
+			var sEstimationDetail = '<dt>'+detailName+': </dt><dd><div class="col-md-7 col-xs-9"><p>'+detailVariable+'</p></div><div class="col-md-5 col-xs-3"><a href="'+detailURL+'">Change</a></div></dd>';
+			return sEstimationDetail;
+		} else {
+			return "";
+		}
 	}
 
 	$("#restart-estimator").click(function(){
-		// console.log(localStorage.getItem("tax-year"));
-		// console.log(localStorage.getItem("tax-resident"));
-		// console.log(localStorage.getItem("province"));
-		// console.log(localStorage.getItem("marital"));
-		// console.log(localStorage.getItem("birth-day"));
-		// console.log(localStorage.getItem("birth-month"));
-		// console.log(localStorage.getItem("birth-year"));
-		// console.log(localStorage.getItem("birth-day-spouse"));
-		// console.log(localStorage.getItem("birth-month-spouse"));
-		// console.log(localStorage.getItem("birth-year-spouse"));
-		// console.log(localStorage.getItem("parent-disabled"));
-		// console.log(localStorage.getItem("parent-spouse-disabled"));
-		// console.log(localStorage.getItem("children"));
-		// console.log(localStorage.getItem("childage1"));
-		// console.log(localStorage.getItem("disability1"));
-		// console.log(localStorage.getItem("shared-custody1"));
-		// console.log(localStorage.getItem("childage2"));
-		// console.log(localStorage.getItem("disability2"));
-		// console.log(localStorage.getItem("shared-custody2"));
-		// console.log(localStorage.getItem("income"));
-		// console.log(localStorage.getItem("spouse-income"));
+		// localStorage.removeItem("tax-year");
+		// localStorage.removeItem("estimation-period");
+		localStorage.removeItem("tax-resident");
+		localStorage.removeItem("tax-resident-option");
+		localStorage.removeItem("province");
+		localStorage.removeItem("marital");
+		localStorage.removeItem("birth-day");
+		localStorage.removeItem("birth-month");
+		localStorage.removeItem("birth-year");
+		localStorage.removeItem("birth-day-spouse");
+		localStorage.removeItem("birth-month-spouse");
+		localStorage.removeItem("birth-year-spouse");
+		localStorage.removeItem("parent-disabled");
+		localStorage.removeItem("parent-spouse-disabled");
+		var iChildren = localStorage.getItem("children");
+		for (i=0; i<iChildren; i++) {
+			localStorage.removeItem("childage"+(i+1));
+			localStorage.removeItem("childageadjust"+(i+1));
+			localStorage.removeItem("childmonth"+(i+1));
+			localStorage.removeItem("childyear"+(i+1));
+			localStorage.removeItem("disability"+(i+1));
+			localStorage.removeItem("shared-custody"+(i+1));
+		}
+		localStorage.removeItem("children");
+		localStorage.removeItem("income");
+		localStorage.removeItem("spouse-income");
+		localStorage.removeItem("alberta-working-income");
+		localStorage.removeItem("alberta-working-spouse-income");
+		localStorage.removeItem("this-year-income");
+		localStorage.removeItem("this-year-spouse-income");
 
-		window.location.href = "./estimation-year.html"
+		window.location.href = "./residency.html"
 
 	});
 </script>
