@@ -171,7 +171,7 @@
 
 	<div class="row">
 		<div class="col-md-7">
-			<h2>Your estimated benefit amount for July 2019 to June 2020</h2>
+			<h2>July 2019 to June 2020: estimated total payments</h2>
 			<p class="well" id="annual-payment" style="font-size:28px!important; text-align:center;"></p>
 
 			<!-- <h3>Quarterly payments</h3> -->
@@ -1024,11 +1024,10 @@ January 3, 2020 -->
 		}
 
 		// console.log(bMultipleCCBPeriods);
-		var iSingleCCBAmount = "";
 		if (bMultipleCCBPeriods == 0) {
-			iSingleCCBAmount = '$' + ccbPayments[1].toFixed(2).toLocaleString();
+			var sCCBPeriods = addPaymentPeriod(sCCBPeriods, "July to June", '$' +ccbPayments[q-1].toFixed(2).toLocaleString())
 		}
-		$('#monthly-ccb-payment').append('<div class="row"><div class="col-xs-7 col-sm-9">Canada Child Benefit</div><div class="col-xs-5 col-sm-3 text-right">'+iSingleCCBAmount+'</div></div>' + sCCBPeriods);
+		$('#monthly-ccb-payment').append('<div class="row"><div class="col-xs-7 col-sm-9">Canada Child Benefit</div><div class="col-xs-5 col-sm-3 text-right"></div></div>' + '<div class="row"><div class="col-xs-7 col-sm-9 small" style="padding-left:30px;" >' + 'July 2018 to June 2019' + '</div><div class="col-xs-5 col-sm-3 text-right small">' + '<a href="./residency.html">Estimate this year instead</a>' + '</div></div>' + sCCBPeriods);
 
 		//add up all payments
 		var iAnnual = 0;
