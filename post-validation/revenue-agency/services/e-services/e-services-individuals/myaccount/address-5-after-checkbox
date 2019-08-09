@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="../../../../../GCWeb/css/custom.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/post-validation/revenue-agency/services/child-family-benefits/files/navigation.css">
 <link rel="stylesheet" href="https://gc-proto.github.io/canada-child-benefit-2/post-validation/GCWeb/css/breadcrumb.css">
- 
+
 <!--<![endif]-->
 <!--[if lt IE 9]>
 <link href="./GCWeb/assets/favicon.ico" rel="shortcut icon" />
@@ -72,6 +72,10 @@
   body.transactional nav.gcweb-v2 {
     border-top: none;
   }
+  .breadcrumb {
+    padding-bottom: 0px!important;
+    margin-bottom: 0px!important;
+  }
 </style>
 
 <nav class="gcweb-v2" typeof="SiteNavigationElement" id="brand-container-cra">
@@ -100,7 +104,7 @@
           <div class="maHelpLink hidden-print text-right"> <a href="https://www.canada.ca/en/revenue-agency/services/e-services/e-services-individuals/account-individuals/contact-us.html" target="_blank">Help with this page</a> </div>
         </div>
         <p> Thank you. Your address will be shared with your selections. </p>
-	 
+
         </div>
         <a href="./main-screen-after-update.html" class="btn btn-primary">Return to Overview</a>
         <div>&nbsp;</div>
