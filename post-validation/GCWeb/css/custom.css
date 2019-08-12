@@ -1093,3 +1093,7 @@ body.transactional div#wb-bnr div.brand {
 		font-size: 16px !important;
 
 	}
+
+.contact-dl dd, .contact-dl dt {
+  border-top: 0px solid #ccc !important;
+}
