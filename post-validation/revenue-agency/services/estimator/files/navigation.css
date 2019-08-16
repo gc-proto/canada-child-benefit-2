@@ -431,10 +431,10 @@ body .alert .text-default {
 
 /* Callout */
 .callout {
-	padding: 19px;
+	padding: 35px;
 	margin-bottom: 20px;
 	border: 1px solid #e3e3e3;
-	box-shadow: 0px 0px 10px #ddd;
+	box-shadow: inset 0px 0px 5px 2px #ccc;
 }
 .callout h2, .callout h3, .callout h3, .callout h4, .callout h5, .callout h6 {
 	margin-top: 0;
