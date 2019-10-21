@@ -15,6 +15,8 @@ Baseline testing: http://test.canada.ca/canada-child-benefit-2/ut-en-baseline.ht
 
 Optimization prototyping and testing links: http://test.canada.ca/canada-child-benefit-2/ut-en-validation.html
 
+Optimized estimator: https://test.canada.ca/canada-child-benefit-2/validation/revenue-agency/services/calculator/estimation-year.html
+
 Implementation readiness prototype (with learning from testing) http://test.canada.ca/canada-child-benefit-2/ut-en-postvalidation.html
 
 Contact @lisafast to join us or post an issue with a question
